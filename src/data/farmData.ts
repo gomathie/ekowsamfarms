@@ -89,7 +89,7 @@ export const WORKSHOPS: Workshop[] = [
   {
     id: "ws-1",
     title: "Modern Poultry & Broiler Management Masterclass",
-    category: "Poultry & Livestock",
+    category: "Poultry Management",
     duration: "2 Days",
     date: "September 12 - 13, 2026",
     location: "Ekow Sam Farms Poultry Complex & Online",
@@ -269,7 +269,7 @@ export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-1",
     title: "Modern Biosecure Poultry Layers Unit",
-    category: "livestock",
+    category: "poultry",
     imageUrl: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&q=80&w=800",
     description: "Our layer facility producing thousands of crate eggs daily under clean hygienic standards."
   },

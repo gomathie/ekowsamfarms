@@ -56,7 +56,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
           {/* Details */}
           <div className="p-6 flex flex-col justify-between space-y-4">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-md border border-emerald-100">
+              <span className="text-xs font-bold uppercase tracking-wider text-blue-700 bg-blue-50 px-2.5 py-1 rounded-md border border-blue-100">
                 {product.category}
               </span>
 
@@ -74,7 +74,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
               </div>
 
               <div className="mt-4 flex items-baseline gap-2">
-                <span className="text-2xl font-black text-emerald-800">
+                <span className="text-2xl font-black text-blue-800">
                   GH¢ {product.priceGHS.toFixed(2)}
                 </span>
                 <span className="text-xs text-slate-500">/ {product.unit}</span>
@@ -133,13 +133,13 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
                 disabled={added}
                 className={`w-full font-bold py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 text-sm ${
                   added 
-                    ? 'bg-emerald-800 text-white' 
-                    : 'bg-emerald-600 hover:bg-emerald-700 text-white active:scale-98'
+                    ? 'bg-blue-800 text-white' 
+                    : 'bg-blue-600 hover:bg-blue-700 text-white active:scale-98'
                 }`}
               >
                 {added ? (
                   <>
-                    <Check className="w-5 h-5 text-emerald-300" />
+                    <Check className="w-5 h-5 text-blue-300" />
                     <span>Added to Basket!</span>
                   </>
                 ) : (

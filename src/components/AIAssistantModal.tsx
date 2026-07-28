@@ -92,32 +92,32 @@ export const AIAssistantModal: React.FC<AIAssistantModalProps> = ({ isOpen, onCl
     <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/70 backdrop-blur-xs flex items-center justify-center p-4 font-sans">
       <div className="bg-white rounded-2xl shadow-2xl max-w-lg w-full h-[600px] flex flex-col overflow-hidden border border-slate-100 relative">
         {/* Header */}
-        <div className="p-4 bg-emerald-900 text-white flex items-center justify-between">
+        <div className="p-4 bg-blue-900 text-white flex items-center justify-between">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-emerald-700 flex items-center justify-center text-amber-300">
+            <div className="w-10 h-10 rounded-xl bg-blue-700 flex items-center justify-center text-amber-300">
               <Sparkles className="w-5 h-5" />
             </div>
             <div>
               <h3 className="font-bold text-base leading-tight">Ekow Sam AI Farm Advisor</h3>
-              <p className="text-xs text-emerald-200">24/7 Agribusiness & Produce Assistant</p>
+              <p className="text-xs text-blue-200">24/7 Agribusiness & Produce Assistant</p>
             </div>
           </div>
           <button
             onClick={onClose}
-            className="p-1.5 rounded-lg hover:bg-emerald-800 text-emerald-200 hover:text-white transition-colors"
+            className="p-1.5 rounded-lg hover:bg-blue-800 text-blue-200 hover:text-white transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Quick Suggestions */}
-        <div className="bg-emerald-50 px-4 py-2 border-b border-emerald-100 flex items-center gap-1.5 overflow-x-auto text-xs no-scrollbar">
-          <HelpCircle className="w-3.5 h-3.5 text-emerald-700 shrink-0" />
+        <div className="bg-blue-50 px-4 py-2 border-b border-blue-100 flex items-center gap-1.5 overflow-x-auto text-xs no-scrollbar">
+          <HelpCircle className="w-3.5 h-3.5 text-blue-700 shrink-0" />
           {quickPrompts.map((prompt, idx) => (
             <button
               key={idx}
               onClick={() => handleSend(prompt)}
-              className="whitespace-nowrap bg-white hover:bg-emerald-100 text-emerald-800 border border-emerald-200 px-2.5 py-1 rounded-full text-[11px] font-medium transition-colors"
+              className="whitespace-nowrap bg-white hover:bg-blue-100 text-blue-800 border border-blue-200 px-2.5 py-1 rounded-full text-[11px] font-medium transition-colors"
             >
               {prompt}
             </button>
@@ -137,7 +137,7 @@ export const AIAssistantModal: React.FC<AIAssistantModalProps> = ({ isOpen, onCl
                 className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${
                   msg.sender === 'user'
                     ? 'bg-slate-800 text-white'
-                    : 'bg-emerald-700 text-white'
+                    : 'bg-blue-700 text-white'
                 }`}
               >
                 {msg.sender === 'user' ? <User className="w-4 h-4" /> : <Bot className="w-4 h-4 text-amber-300" />}
@@ -162,7 +162,7 @@ export const AIAssistantModal: React.FC<AIAssistantModalProps> = ({ isOpen, onCl
 
           {loading && (
             <div className="flex items-center gap-2 text-xs text-slate-500 bg-white p-3 rounded-xl border border-slate-200 w-fit">
-              <RefreshCw className="w-3.5 h-3.5 animate-spin text-emerald-600" />
+              <RefreshCw className="w-3.5 h-3.5 animate-spin text-blue-600" />
               <span>Analyzing farm knowledgebase...</span>
             </div>
           )}
@@ -183,12 +183,12 @@ export const AIAssistantModal: React.FC<AIAssistantModalProps> = ({ isOpen, onCl
             placeholder="Ask about snail farming, eggs, catfish, training..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
-            className="flex-1 text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-emerald-600 bg-slate-50"
+            className="flex-1 text-xs px-3.5 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-blue-600 bg-slate-50"
           />
           <button
             type="submit"
             disabled={!input.trim() || loading}
-            className="bg-emerald-600 hover:bg-emerald-700 disabled:opacity-50 text-white p-2.5 rounded-xl transition-colors shadow-xs"
+            className="bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white p-2.5 rounded-xl transition-colors shadow-xs"
           >
             <Send className="w-4 h-4" />
           </button>

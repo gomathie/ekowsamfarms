@@ -25,10 +25,8 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
 
   const categories = [
     { id: 'all', label: 'All Photos' },
-    { id: 'livestock', label: 'Poultry & Snails' },
-    { id: 'aquaculture', label: 'Fish Ponds & Hatchery' },
-    { id: 'crops', label: 'Crops & Greenhouse' },
-    { id: 'processing', label: 'FDA Processing Factory' },
+    { id: 'poultry', label: 'Poultry Farm' },
+    { id: 'processing', label: 'Processing Factory' },
     { id: 'training', label: 'Farmers Workshops' },
   ];
 
@@ -44,16 +42,16 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
   return (
     <div className="space-y-12 pb-16 font-sans">
       {/* Page Header */}
-      <section className="bg-emerald-950 text-white py-14 px-4">
+      <section className="bg-blue-950 text-white py-14 px-4">
         <div className="max-w-7xl mx-auto text-center space-y-3">
-          <span className="text-xs font-bold text-amber-300 uppercase tracking-widest bg-emerald-900 px-3 py-1 rounded-full border border-emerald-800">
+          <span className="text-xs font-bold text-amber-300 uppercase tracking-widest bg-blue-900 px-3 py-1 rounded-full border border-blue-800">
             VISUAL FARM TOUR
           </span>
           <h1 className="text-3xl sm:text-5xl font-black font-serif">
             Ekow Sam Farm Gallery & Tours
           </h1>
-          <p className="text-emerald-200 text-xs sm:text-sm max-w-2xl mx-auto">
-            Take a visual tour through our 500-acre commercial farming facilities, biosecure poultry units, catfish ponds, snail pens, and greenhouse operations in Ghana.
+          <p className="text-blue-200 text-xs sm:text-sm max-w-2xl mx-auto">
+            Take a visual tour through our 500-acre commercial farming facilities, biosecure poultry units, and FDA-standard processing operations in Ghana.
           </p>
 
           <div className="pt-2">
@@ -78,7 +76,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
               onClick={() => setActiveCategory(cat.id)}
               className={`px-4 py-2.5 rounded-xl text-xs font-bold whitespace-nowrap transition-all shrink-0 ${
                 activeCategory === cat.id
-                  ? 'bg-emerald-700 text-white shadow-xs'
+                  ? 'bg-blue-700 text-white shadow-xs'
                   : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
               }`}
             >
@@ -104,7 +102,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
-                <span className="bg-emerald-600 text-white text-[10px] font-extrabold px-2 py-0.5 rounded w-fit uppercase tracking-wider mb-2">
+                <span className="bg-blue-600 text-white text-[10px] font-extrabold px-2 py-0.5 rounded w-fit uppercase tracking-wider mb-2">
                   {item.category}
                 </span>
                 <h3 className="font-bold text-base font-serif">{item.title}</h3>
@@ -153,9 +151,9 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
 
             {!tourSuccess ? (
               <div>
-                <div className="p-5 bg-emerald-900 text-white">
+                <div className="p-5 bg-blue-900 text-white">
                   <h3 className="font-bold text-lg leading-snug">Book a Guided Farm Visit</h3>
-                  <p className="text-xs text-emerald-200 mt-1">Ekow Sam Farm Estate • Gomoa Potsin Junction, Central Region</p>
+                  <p className="text-xs text-blue-200 mt-1">Ekow Sam Farm Estate • Gomoa Potsin Junction, Central Region</p>
                 </div>
 
                 <form onSubmit={handleTourSubmit} className="p-6 space-y-4 text-xs">
@@ -167,7 +165,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
                       placeholder="e.g. Michael Mensah"
                       value={tourForm.name}
                       onChange={(e) => setTourForm({ ...tourForm, name: e.target.value })}
-                      className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-emerald-600 text-xs"
+                      className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-blue-600 text-xs"
                     />
                   </div>
 
@@ -180,7 +178,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
                         placeholder="024 XXX XXXX"
                         value={tourForm.phone}
                         onChange={(e) => setTourForm({ ...tourForm, phone: e.target.value })}
-                        className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-emerald-600 text-xs"
+                        className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-blue-600 text-xs"
                       />
                     </div>
                     <div>
@@ -190,7 +188,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
                         required
                         value={tourForm.date}
                         onChange={(e) => setTourForm({ ...tourForm, date: e.target.value })}
-                        className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-emerald-600 text-xs"
+                        className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-blue-600 text-xs"
                       />
                     </div>
                   </div>
@@ -203,7 +201,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
                       placeholder="michael@gmail.com"
                       value={tourForm.email}
                       onChange={(e) => setTourForm({ ...tourForm, email: e.target.value })}
-                      className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-emerald-600 text-xs"
+                      className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-blue-600 text-xs"
                     />
                   </div>
 
@@ -213,7 +211,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
                       <select
                         value={tourForm.groupSize}
                         onChange={(e) => setTourForm({ ...tourForm, groupSize: e.target.value })}
-                        className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-emerald-600 text-xs"
+                        className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-blue-600 text-xs"
                       >
                         <option value="1 - 5 People">1 - 5 People</option>
                         <option value="6 - 15 People">6 - 15 People</option>
@@ -226,7 +224,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
                       <select
                         value={tourForm.groupType}
                         onChange={(e) => setTourForm({ ...tourForm, groupType: e.target.value })}
-                        className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-emerald-600 text-xs"
+                        className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-blue-600 text-xs"
                       >
                         <option value="Family / Private Visit">Family / Private Visit</option>
                         <option value="School / Student Excursion">School / Student Excursion</option>
@@ -238,7 +236,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
 
                   <button
                     type="submit"
-                    className="w-full bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl text-xs transition-colors shadow-sm"
+                    className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl text-xs transition-colors shadow-sm"
                   >
                     Confirm Farm Tour Request
                   </button>
@@ -246,7 +244,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
               </div>
             ) : (
               <div className="p-8 text-center space-y-4">
-                <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 mx-auto flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-blue-100 text-blue-700 mx-auto flex items-center justify-center">
                   <Check className="w-10 h-10" />
                 </div>
                 <h3 className="text-2xl font-black text-slate-900 font-serif">Farm Visit Requested!</h3>
@@ -255,7 +253,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
                 </p>
                 <button
                   onClick={() => setTourModalOpen(false)}
-                  className="bg-emerald-600 text-white font-bold px-6 py-2.5 rounded-xl text-xs"
+                  className="bg-blue-600 text-white font-bold px-6 py-2.5 rounded-xl text-xs"
                 >
                   Close & Done
                 </button>

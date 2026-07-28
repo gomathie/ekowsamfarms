@@ -77,7 +77,7 @@ export interface BlogPost {
 export interface GalleryItem {
   id: string;
   title: string;
-  category: 'all' | 'livestock' | 'aquaculture' | 'crops' | 'processing' | 'training';
+  category: 'all' | 'poultry' | 'processing' | 'training';
   imageUrl: string;
   description: string;
 }

@@ -83,14 +83,14 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
         {step === 'details' ? (
           <div>
             {/* Header */}
-            <div className="p-5 bg-emerald-900 text-white flex items-center justify-between">
+            <div className="p-5 bg-blue-900 text-white flex items-center justify-between">
               <div>
                 <h3 className="font-bold text-xl">Complete Your Farm Order</h3>
-                <p className="text-xs text-emerald-200">Fresh produce dispatched directly from Ekow Sam Farms</p>
+                <p className="text-xs text-blue-200">Fresh produce dispatched directly from Ekow Sam Farms</p>
               </div>
               <button 
                 onClick={onClose}
-                className="p-1.5 rounded-lg hover:bg-emerald-800 text-emerald-200 hover:text-white transition-colors"
+                className="p-1.5 rounded-lg hover:bg-blue-800 text-blue-200 hover:text-white transition-colors"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -99,8 +99,8 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
             <form onSubmit={handleSubmit} className="p-6 space-y-6">
               {/* Customer Contact */}
               <div className="space-y-4">
-                <h4 className="font-bold text-sm text-emerald-950 uppercase tracking-wider flex items-center gap-2 border-b pb-2 border-slate-100">
-                  <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 text-xs flex items-center justify-center font-bold">1</span>
+                <h4 className="font-bold text-sm text-blue-950 uppercase tracking-wider flex items-center gap-2 border-b pb-2 border-slate-100">
+                  <span className="w-6 h-6 rounded-full bg-blue-100 text-blue-800 text-xs flex items-center justify-center font-bold">1</span>
                   Customer Information
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -112,7 +112,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       placeholder="e.g. Kwame Mensah"
                       value={formData.name}
                       onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                      className="w-full text-sm px-3.5 py-2 rounded-lg border border-slate-300 focus:outline-none focus:border-emerald-600"
+                      className="w-full text-sm px-3.5 py-2 rounded-lg border border-slate-300 focus:outline-none focus:border-blue-600"
                     />
                   </div>
 
@@ -124,7 +124,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       placeholder="e.g. 024 123 4567"
                       value={formData.phone}
                       onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                      className="w-full text-sm px-3.5 py-2 rounded-lg border border-slate-300 focus:outline-none focus:border-emerald-600"
+                      className="w-full text-sm px-3.5 py-2 rounded-lg border border-slate-300 focus:outline-none focus:border-blue-600"
                     />
                   </div>
 
@@ -136,7 +136,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       placeholder="e.g. kwame@gmail.com"
                       value={formData.email}
                       onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full text-sm px-3.5 py-2 rounded-lg border border-slate-300 focus:outline-none focus:border-emerald-600"
+                      className="w-full text-sm px-3.5 py-2 rounded-lg border border-slate-300 focus:outline-none focus:border-blue-600"
                     />
                   </div>
                 </div>
@@ -144,8 +144,8 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
               {/* Delivery Address & Method */}
               <div className="space-y-4">
-                <h4 className="font-bold text-sm text-emerald-950 uppercase tracking-wider flex items-center gap-2 border-b pb-2 border-slate-100">
-                  <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 text-xs flex items-center justify-center font-bold">2</span>
+                <h4 className="font-bold text-sm text-blue-950 uppercase tracking-wider flex items-center gap-2 border-b pb-2 border-slate-100">
+                  <span className="w-6 h-6 rounded-full bg-blue-100 text-blue-800 text-xs flex items-center justify-center font-bold">2</span>
                   Delivery & Location in Ghana
                 </h4>
 
@@ -155,11 +155,11 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     onClick={() => setFormData({ ...formData, deliveryMethod: 'delivery' })}
                     className={`p-3 rounded-xl border text-left flex items-center gap-3 transition-colors ${
                       formData.deliveryMethod === 'delivery'
-                        ? 'border-emerald-600 bg-emerald-50 text-emerald-900 font-bold'
+                        ? 'border-blue-600 bg-blue-50 text-blue-900 font-bold'
                         : 'border-slate-200 text-slate-600 hover:bg-slate-50'
                     }`}
                   >
-                    <Truck className="w-5 h-5 text-emerald-600 shrink-0" />
+                    <Truck className="w-5 h-5 text-blue-600 shrink-0" />
                     <div>
                       <p className="text-xs font-bold">Home/Office Delivery</p>
                       <p className="text-[10px] text-slate-500">Accra, Cape Coast, Kumasi, Tema</p>
@@ -171,11 +171,11 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     onClick={() => setFormData({ ...formData, deliveryMethod: 'pickup' })}
                     className={`p-3 rounded-xl border text-left flex items-center gap-3 transition-colors ${
                       formData.deliveryMethod === 'pickup'
-                        ? 'border-emerald-600 bg-emerald-50 text-emerald-900 font-bold'
+                        ? 'border-blue-600 bg-blue-50 text-blue-900 font-bold'
                         : 'border-slate-200 text-slate-600 hover:bg-slate-50'
                     }`}
                   >
-                    <MapPin className="w-5 h-5 text-emerald-600 shrink-0" />
+                    <MapPin className="w-5 h-5 text-blue-600 shrink-0" />
                     <div>
                       <p className="text-xs font-bold">Direct Farm Pickup</p>
                       <p className="text-[10px] text-slate-500">Free @ Gomoa Potsin Farm</p>
@@ -190,7 +190,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       <select
                         value={formData.region}
                         onChange={(e) => setFormData({ ...formData, region: e.target.value })}
-                        className="w-full text-sm px-3.5 py-2 rounded-lg border border-slate-300 focus:outline-none focus:border-emerald-600"
+                        className="w-full text-sm px-3.5 py-2 rounded-lg border border-slate-300 focus:outline-none focus:border-blue-600"
                       >
                         <option value="Greater Accra">Greater Accra Region</option>
                         <option value="Central Region">Central Region</option>
@@ -208,7 +208,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                         placeholder="e.g. East Legon, Tema, Cape Coast"
                         value={formData.city}
                         onChange={(e) => setFormData({ ...formData, city: e.target.value })}
-                        className="w-full text-sm px-3.5 py-2 rounded-lg border border-slate-300 focus:outline-none focus:border-emerald-600"
+                        className="w-full text-sm px-3.5 py-2 rounded-lg border border-slate-300 focus:outline-none focus:border-blue-600"
                       />
                     </div>
 
@@ -220,7 +220,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                         placeholder="e.g. House No. 24, Near Shell Filling Station"
                         value={formData.address}
                         onChange={(e) => setFormData({ ...formData, address: e.target.value })}
-                        className="w-full text-sm px-3.5 py-2 rounded-lg border border-slate-300 focus:outline-none focus:border-emerald-600"
+                        className="w-full text-sm px-3.5 py-2 rounded-lg border border-slate-300 focus:outline-none focus:border-blue-600"
                       />
                     </div>
                   </div>
@@ -229,8 +229,8 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
               {/* Payment Method */}
               <div className="space-y-4">
-                <h4 className="font-bold text-sm text-emerald-950 uppercase tracking-wider flex items-center gap-2 border-b pb-2 border-slate-100">
-                  <span className="w-6 h-6 rounded-full bg-emerald-100 text-emerald-800 text-xs flex items-center justify-center font-bold">3</span>
+                <h4 className="font-bold text-sm text-blue-950 uppercase tracking-wider flex items-center gap-2 border-b pb-2 border-slate-100">
+                  <span className="w-6 h-6 rounded-full bg-blue-100 text-blue-800 text-xs flex items-center justify-center font-bold">3</span>
                   Payment Options
                 </h4>
 
@@ -240,7 +240,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     onClick={() => setFormData({ ...formData, paymentMethod: 'momo' })}
                     className={`p-3 rounded-xl border text-center transition-colors ${
                       formData.paymentMethod === 'momo'
-                        ? 'border-emerald-600 bg-emerald-50 text-emerald-900 font-bold'
+                        ? 'border-blue-600 bg-blue-50 text-blue-900 font-bold'
                         : 'border-slate-200 text-slate-600 hover:bg-slate-50'
                     }`}
                   >
@@ -253,7 +253,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     onClick={() => setFormData({ ...formData, paymentMethod: 'card' })}
                     className={`p-3 rounded-xl border text-center transition-colors ${
                       formData.paymentMethod === 'card'
-                        ? 'border-emerald-600 bg-emerald-50 text-emerald-900 font-bold'
+                        ? 'border-blue-600 bg-blue-50 text-blue-900 font-bold'
                         : 'border-slate-200 text-slate-600 hover:bg-slate-50'
                     }`}
                   >
@@ -266,11 +266,11 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     onClick={() => setFormData({ ...formData, paymentMethod: 'cod' })}
                     className={`p-3 rounded-xl border text-center transition-colors ${
                       formData.paymentMethod === 'cod'
-                        ? 'border-emerald-600 bg-emerald-50 text-emerald-900 font-bold'
+                        ? 'border-blue-600 bg-blue-50 text-blue-900 font-bold'
                         : 'border-slate-200 text-slate-600 hover:bg-slate-50'
                     }`}
                   >
-                    <CheckCircle2 className="w-5 h-5 mx-auto mb-1 text-emerald-600" />
+                    <CheckCircle2 className="w-5 h-5 mx-auto mb-1 text-blue-600" />
                     <p className="text-xs font-bold">Pay on Delivery</p>
                   </button>
                 </div>
@@ -312,7 +312,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     {deliveryFee === 0 ? 'FREE (Farm Pickup)' : `GH¢ ${deliveryFee.toFixed(2)}`}
                   </span>
                 </div>
-                <div className="pt-2 border-t border-slate-200 flex justify-between items-baseline font-black text-lg text-emerald-900">
+                <div className="pt-2 border-t border-slate-200 flex justify-between items-baseline font-black text-lg text-blue-900">
                   <span>Total Amount Payable</span>
                   <span>GH¢ {totalGHS.toFixed(2)}</span>
                 </div>
@@ -328,7 +328,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3.5 rounded-xl shadow-md transition-all text-base text-center"
+                  className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl shadow-md transition-all text-base text-center"
                 >
                   Confirm & Place Farm Order
                 </button>
@@ -339,13 +339,13 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
           /* Confirmation Receipt Invoice */
           <div className="p-8 space-y-6">
             <div className="text-center space-y-2">
-              <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-700 mx-auto flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full bg-blue-100 text-blue-700 mx-auto flex items-center justify-center">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
-              <h3 className="text-2xl font-black text-emerald-950 font-serif">Order Confirmed!</h3>
+              <h3 className="text-2xl font-black text-blue-950 font-serif">Order Confirmed!</h3>
               <p className="text-sm text-slate-600">
                 Thank you <strong className="text-slate-900">{placedOrder?.customerName}</strong>! Your order reference is{' '}
-                <span className="font-mono bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded font-bold">
+                <span className="font-mono bg-blue-100 text-blue-800 px-2 py-0.5 rounded font-bold">
                   {placedOrder?.orderId}
                 </span>
               </p>
@@ -355,13 +355,13 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-4 text-xs font-sans">
               <div className="flex justify-between border-b pb-3 border-slate-200">
                 <div>
-                  <h4 className="font-black text-sm text-emerald-950">EKOW SAM FARMS GHANA</h4>
+                  <h4 className="font-black text-sm text-blue-950">EKOW SAM FARMS GHANA</h4>
                   <p className="text-slate-500">Gomoa Potsin, Central Region</p>
                   <p className="text-slate-500">Tel: +233 24 123 4567</p>
                 </div>
                 <div className="text-right">
                   <p className="font-bold text-slate-800">Date: {placedOrder?.createdAt}</p>
-                  <p className="text-emerald-700 font-bold uppercase">Status: Confirmed / Dispatched</p>
+                  <p className="text-blue-700 font-bold uppercase">Status: Confirmed / Dispatched</p>
                 </div>
               </div>
 
@@ -377,7 +377,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-slate-200 flex justify-between font-black text-sm text-emerald-950">
+              <div className="pt-3 border-t border-slate-200 flex justify-between font-black text-sm text-blue-950">
                 <span>Total Paid:</span>
                 <span>GH¢ {placedOrder?.totalGHS.toFixed(2)}</span>
               </div>
@@ -398,7 +398,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               </button>
               <button
                 onClick={onClose}
-                className="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white font-bold py-3 rounded-xl transition-colors text-sm"
+                className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-colors text-sm"
               >
                 Done
               </button>

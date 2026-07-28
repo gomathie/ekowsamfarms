@@ -70,7 +70,7 @@ export default function App() {
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 font-sans text-slate-800 antialiased selection:bg-emerald-500 selection:text-white">
+    <div className="min-h-screen flex flex-col bg-slate-50 font-sans text-slate-800 antialiased selection:bg-blue-500 selection:text-white">
       {/* Navigation Header */}
       <Header
         currentPage={currentPage}
