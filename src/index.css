@@ -1,7 +1,29 @@
 @import "tailwindcss";
 
 @theme {
-  --color-blue-600: #046bd2;
-  --color-blue-700: #045cb4;
-  --color-blue-800: #003388;
+  /* Brand colors from ekowsamfarms.com */
+  /* Primary: Dark chocolate brown */
+  --color-brand-950: #1a0e08;
+  --color-brand-900: #2d1810;
+  --color-brand-800: #3b2314;
+  --color-brand-700: #4a2e1a;
+  --color-brand-600: #5c3a22;
+  --color-brand-500: #6e462a;
+  --color-brand-400: #8b6240;
+  --color-brand-300: #a88060;
+  --color-brand-200: #c4a080;
+  --color-brand-100: #e0c0a0;
+  --color-brand-50: #f5e8d8;
+
+  /* Accent: Golden yellow */
+  --color-accent-500: #f5d100;
+  --color-accent-400: #f7da33;
+  --color-accent-300: #f9e366;
+  --color-accent-200: #fbec99;
+  --color-accent-100: #fdf5cc;
+  --color-accent-50: #fefae6;
+
+  /* Font families */
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
+  --font-serif: 'Playfair Display', ui-serif, Georgia, serif;
 }

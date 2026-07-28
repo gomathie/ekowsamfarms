@@ -13,15 +13,15 @@ export const BlogPage: React.FC<BlogPageProps> = ({ setCurrentPage }) => {
   return (
     <div className="space-y-12 pb-16 font-sans">
       {/* Page Header */}
-      <section className="bg-blue-950 text-white py-14 px-4">
+      <section className="bg-brand-950 text-white py-14 px-4">
         <div className="max-w-7xl mx-auto text-center space-y-3">
-          <span className="text-xs font-bold text-amber-300 uppercase tracking-widest bg-blue-900 px-3 py-1 rounded-full border border-blue-800">
+          <span className="text-xs font-bold text-accent-300 uppercase tracking-widest bg-brand-900 px-3 py-1 rounded-full border border-brand-800">
             KNOWLEDGE BASE & GUIDES
           </span>
           <h1 className="text-3xl sm:text-5xl font-black font-serif">
             Ekow Sam Farming Insights
           </h1>
-          <p className="text-blue-200 text-xs sm:text-sm max-w-2xl mx-auto">
+          <p className="text-brand-200 text-xs sm:text-sm max-w-2xl mx-auto">
             Practical agricultural guides, heliculture profitability breakdowns, catfish water quality tips, and zero-waste farming innovations in West Africa.
           </p>
         </div>
@@ -43,7 +43,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({ setCurrentPage }) => {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     referrerPolicy="no-referrer"
                   />
-                  <span className="absolute top-3 left-3 bg-blue-900 text-blue-100 text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">
+                  <span className="absolute top-3 left-3 bg-brand-900 text-brand-100 text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">
                     {post.category}
                   </span>
                 </div>
@@ -51,17 +51,17 @@ export const BlogPage: React.FC<BlogPageProps> = ({ setCurrentPage }) => {
                 <div className="p-6 space-y-3">
                   <div className="flex items-center gap-3 text-xs text-slate-500">
                     <span className="flex items-center gap-1">
-                      <User className="w-3.5 h-3.5 text-blue-600" />
+                      <User className="w-3.5 h-3.5 text-brand-600" />
                       {post.author}
                     </span>
                     <span>•</span>
                     <span className="flex items-center gap-1">
-                      <Calendar className="w-3.5 h-3.5 text-blue-600" />
+                      <Calendar className="w-3.5 h-3.5 text-brand-600" />
                       {post.date}
                     </span>
                   </div>
 
-                  <h3 className="font-bold text-slate-900 text-lg group-hover:text-blue-700 transition-colors font-serif leading-snug">
+                  <h3 className="font-bold text-slate-900 text-lg group-hover:text-brand-700 transition-colors font-serif leading-snug">
                     {post.title}
                   </h3>
 
@@ -74,7 +74,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({ setCurrentPage }) => {
               <div className="p-6 pt-0 border-t border-slate-100 mt-4">
                 <button
                   onClick={() => setSelectedPost(post)}
-                  className="w-full bg-slate-100 hover:bg-blue-600 text-slate-800 hover:text-white font-bold py-2.5 rounded-xl transition-colors text-xs flex items-center justify-center gap-1.5"
+                  className="w-full bg-slate-100 hover:bg-brand-600 text-slate-800 hover:text-white font-bold py-2.5 rounded-xl transition-colors text-xs flex items-center justify-center gap-1.5"
                 >
                   <span>Read Full Article</span>
                   <ArrowRight className="w-4 h-4" />
@@ -105,11 +105,11 @@ export const BlogPage: React.FC<BlogPageProps> = ({ setCurrentPage }) => {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
               <div className="absolute bottom-4 left-6 right-6 text-white space-y-1">
-                <span className="bg-blue-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">
+                <span className="bg-brand-600 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase">
                   {selectedPost.category}
                 </span>
                 <h3 className="text-xl font-bold font-serif leading-tight">{selectedPost.title}</h3>
-                <div className="flex items-center gap-3 text-xs text-blue-200">
+                <div className="flex items-center gap-3 text-xs text-brand-200">
                   <span>By {selectedPost.author}</span>
                   <span>•</span>
                   <span>{selectedPost.date}</span>
@@ -124,7 +124,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({ setCurrentPage }) => {
 
               <div className="pt-4 border-t border-slate-100 flex flex-wrap gap-1.5">
                 {selectedPost.tags.map((tag, idx) => (
-                  <span key={idx} className="bg-blue-50 text-blue-900 text-[10px] font-bold px-2.5 py-1 rounded border border-blue-200">
+                  <span key={idx} className="bg-brand-50 text-brand-900 text-[10px] font-bold px-2.5 py-1 rounded border border-brand-200">
                     #{tag}
                   </span>
                 ))}

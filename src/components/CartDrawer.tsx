@@ -37,19 +37,19 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
       <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
         <div className="w-screen max-w-md bg-white shadow-2xl flex flex-col">
           {/* Header */}
-          <div className="p-5 bg-blue-900 text-white flex items-center justify-between">
+          <div className="p-5 bg-brand-900 text-white flex items-center justify-between">
             <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-lg bg-blue-800 flex items-center justify-center text-blue-200">
+              <div className="w-9 h-9 rounded-lg bg-brand-800 flex items-center justify-center text-brand-200">
                 <ShoppingBag className="w-5 h-5" />
               </div>
               <div>
                 <h3 className="font-bold text-lg leading-tight">Your Farm Basket</h3>
-                <p className="text-xs text-blue-200">{cartItems.length} items selected</p>
+                <p className="text-xs text-brand-200">{cartItems.length} items selected</p>
               </div>
             </div>
             <button 
               onClick={onClose}
-              className="p-2 rounded-lg hover:bg-blue-800 text-blue-200 hover:text-white transition-colors"
+              className="p-2 rounded-lg hover:bg-brand-800 text-brand-200 hover:text-white transition-colors"
             >
               <X className="w-5 h-5" />
             </button>
@@ -59,7 +59,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
           <div className="flex-1 overflow-y-auto p-5 space-y-4 divide-y divide-slate-100">
             {cartItems.length === 0 ? (
               <div className="h-full flex flex-col items-center justify-center text-center p-6 text-slate-400">
-                <div className="w-16 h-16 rounded-full bg-blue-50 flex items-center justify-center text-blue-600 mb-4">
+                <div className="w-16 h-16 rounded-full bg-brand-50 flex items-center justify-center text-brand-600 mb-4">
                   <ShoppingBag className="w-8 h-8" />
                 </div>
                 <h4 className="text-base font-bold text-slate-700 mb-1">Your Basket is Empty</h4>
@@ -68,7 +68,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 </p>
                 <button
                   onClick={onClose}
-                  className="bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm px-5 py-2.5 rounded-lg shadow-sm"
+                  className="bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm px-5 py-2.5 rounded-lg shadow-sm"
                 >
                   Start Shopping
                 </button>
@@ -118,7 +118,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                       </div>
 
                       <div className="text-right">
-                        <p className="font-extrabold text-sm text-blue-800">
+                        <p className="font-extrabold text-sm text-brand-800">
                           GH¢ {(item.product.priceGHS * item.quantity).toFixed(2)}
                         </p>
                         <p className="text-[10px] text-slate-400">
@@ -140,7 +140,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                   <span>Subtotal</span>
                   <span className="font-bold text-slate-900">GH¢ {subtotalGHS.toFixed(2)}</span>
                 </div>
-                <div className="flex justify-between text-xs text-blue-700">
+                <div className="flex justify-between text-xs text-brand-700">
                   <span className="flex items-center gap-1">
                     <Truck className="w-3.5 h-3.5" /> Direct Delivery
                   </span>
@@ -148,18 +148,18 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 </div>
                 <div className="pt-2 border-t border-slate-200 flex justify-between items-baseline">
                   <span className="font-bold text-slate-900 text-base">Estimated Total</span>
-                  <span className="font-black text-xl text-blue-800">GH¢ {subtotalGHS.toFixed(2)}</span>
+                  <span className="font-black text-xl text-brand-800">GH¢ {subtotalGHS.toFixed(2)}</span>
                 </div>
               </div>
 
-              <div className="p-2.5 bg-blue-100/70 border border-blue-200 rounded-lg flex items-center gap-2 text-xs text-blue-900">
-                <ShieldCheck className="w-4 h-4 text-blue-700 shrink-0" />
+              <div className="p-2.5 bg-brand-100/70 border border-brand-200 rounded-lg flex items-center gap-2 text-xs text-brand-900">
+                <ShieldCheck className="w-4 h-4 text-brand-700 shrink-0" />
                 <span>Harvested fresh & processed under FDA standards.</span>
               </div>
 
               <button
                 onClick={onCheckout}
-                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 text-base active:scale-98"
+                className="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 text-base active:scale-98"
               >
                 <span>Proceed to Order Checkout</span>
                 <ArrowRight className="w-5 h-5" />

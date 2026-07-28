@@ -29,15 +29,15 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
   return (
     <div className="space-y-12 pb-16 font-sans">
       {/* Page Header */}
-      <section className="bg-blue-950 text-white py-14 px-4">
+      <section className="bg-brand-950 text-white py-14 px-4">
         <div className="max-w-7xl mx-auto text-center space-y-3">
-          <span className="text-xs font-bold text-amber-300 uppercase tracking-widest bg-blue-900 px-3 py-1 rounded-full border border-blue-800">
+          <span className="text-xs font-bold text-accent-300 uppercase tracking-widest bg-brand-900 px-3 py-1 rounded-full border border-brand-800">
             GET IN TOUCH
           </span>
           <h1 className="text-3xl sm:text-5xl font-black font-serif">
             Contact Ekow Sam Farms
           </h1>
-          <p className="text-blue-200 text-xs sm:text-sm max-w-2xl mx-auto">
+          <p className="text-brand-200 text-xs sm:text-sm max-w-2xl mx-auto">
             Reach out to our farm office for bulk poultry orders, training registration, farm tours, or agribusiness consultations.
           </p>
         </div>
@@ -55,18 +55,18 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
 
               <div className="space-y-4 text-xs">
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-brand-100 text-brand-800 flex items-center justify-center shrink-0">
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-900 text-sm">Farm Locations</h4>
                     <p className="text-slate-600 mt-0.5">{FARM_INFO.location}</p>
-                    <p className="text-blue-700 font-mono font-bold text-[11px] mt-1">{FARM_INFO.gpsLocation}</p>
+                    <p className="text-brand-700 font-mono font-bold text-[11px] mt-1">{FARM_INFO.gpsLocation}</p>
                   </div>
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-brand-100 text-brand-800 flex items-center justify-center shrink-0">
                     <Phone className="w-5 h-5" />
                   </div>
                   <div>
@@ -77,7 +77,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-brand-100 text-brand-800 flex items-center justify-center shrink-0">
                     <Mail className="w-5 h-5" />
                   </div>
                   <div>
@@ -87,7 +87,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-blue-100 text-blue-800 flex items-center justify-center shrink-0">
+                  <div className="w-10 h-10 rounded-xl bg-brand-100 text-brand-800 flex items-center justify-center shrink-0">
                     <Clock className="w-5 h-5" />
                   </div>
                   <div>
@@ -99,13 +99,13 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
             </div>
 
             {/* Simulated Interactive Map */}
-            <div className="bg-blue-900 text-white rounded-2xl p-6 border border-blue-800 space-y-3 relative overflow-hidden">
+            <div className="bg-brand-900 text-white rounded-2xl p-6 border border-brand-800 space-y-3 relative overflow-hidden">
               <div className="flex items-center justify-between">
-                <span className="text-xs font-bold text-amber-300 uppercase">GHANA MAP LOCATION</span>
-                <Navigation className="w-5 h-5 text-amber-300" />
+                <span className="text-xs font-bold text-accent-300 uppercase">GHANA MAP LOCATION</span>
+                <Navigation className="w-5 h-5 text-accent-300" />
               </div>
               <h4 className="text-lg font-bold font-serif">Millenium City, Kasoa</h4>
-              <p className="text-xs text-blue-200">
+              <p className="text-xs text-brand-200">
                 Our main farm facilities are located in the heart of Millenium City, ensuring fresh dispatch across Accra and surrounding areas.
               </p>
 
@@ -114,7 +114,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
                   href={`https://maps.google.com/?q=5.5539,-0.4496`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 bg-blue-700 hover:bg-blue-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors border border-blue-600"
+                  className="inline-flex items-center gap-2 bg-brand-700 hover:bg-brand-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors border border-brand-600"
                 >
                   <Globe className="w-4 h-4" />
                   <span>Open Directions in Google Maps</span>
@@ -140,7 +140,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
                       placeholder="e.g. Kwame Ofori"
                       value={contactForm.name}
                       onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
-                      className="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-blue-600 text-xs"
+                      className="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-600 text-xs"
                     />
                   </div>
 
@@ -152,7 +152,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
                       placeholder="024 XXX XXXX"
                       value={contactForm.phone}
                       onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })}
-                      className="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-blue-600 text-xs"
+                      className="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-600 text-xs"
                     />
                   </div>
                 </div>
@@ -166,7 +166,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
                       placeholder="kwame@gmail.com"
                       value={contactForm.email}
                       onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
-                      className="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-blue-600 text-xs"
+                      className="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-600 text-xs"
                     />
                   </div>
 
@@ -175,7 +175,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
                     <select
                       value={contactForm.topic}
                       onChange={(e) => setContactForm({ ...contactForm, topic: e.target.value })}
-                      className="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-blue-600 text-xs"
+                      className="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-600 text-xs"
                     >
                       <option value="Wholesale Produce Order">Wholesale Produce Order (Eggs, Chicken)</option>
                       <option value="Farmers Training Workshop">Farmers Training Workshop Inquiry</option>
@@ -193,21 +193,21 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
                     placeholder="Describe your inquiry, order quantities, preferred delivery location or farm visit date..."
                     value={contactForm.message}
                     onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
-                    className="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-blue-600 text-xs"
+                    className="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-600 text-xs"
                   />
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3.5 rounded-xl text-sm transition-colors shadow-sm flex items-center justify-center gap-2"
+                  className="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl text-sm transition-colors shadow-sm flex items-center justify-center gap-2"
                 >
                   <Send className="w-4 h-4" />
                   <span>Send Message to Farm Office</span>
                 </button>
               </form>
             ) : (
-              <div className="p-8 text-center space-y-4 bg-blue-50 rounded-2xl border border-blue-200">
-                <div className="w-16 h-16 rounded-full bg-blue-100 text-blue-700 mx-auto flex items-center justify-center">
+              <div className="p-8 text-center space-y-4 bg-brand-50 rounded-2xl border border-brand-200">
+                <div className="w-16 h-16 rounded-full bg-brand-100 text-brand-700 mx-auto flex items-center justify-center">
                   <CheckCircle className="w-10 h-10" />
                 </div>
                 <h3 className="text-2xl font-black text-slate-900 font-serif">Message Sent Successfully!</h3>
@@ -216,7 +216,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
                 </p>
                 <button
                   onClick={() => setFormSent(false)}
-                  className="bg-blue-600 text-white font-bold px-6 py-2.5 rounded-xl text-xs"
+                  className="bg-brand-600 text-white font-bold px-6 py-2.5 rounded-xl text-xs"
                 >
                   Send Another Message
                 </button>
@@ -228,7 +228,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
         {/* FREQUENTLY ASKED QUESTIONS (FAQ) */}
         <div className="space-y-6 pt-6">
           <div className="text-center max-w-2xl mx-auto space-y-2">
-            <span className="text-xs font-bold text-blue-700 uppercase tracking-widest bg-blue-100 px-3 py-1 rounded-full border border-blue-200">
+            <span className="text-xs font-bold text-brand-700 uppercase tracking-widest bg-brand-100 px-3 py-1 rounded-full border border-brand-200">
               FREQUENTLY ASKED QUESTIONS
             </span>
             <h2 className="text-3xl font-black text-slate-900 font-serif">
@@ -249,7 +249,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
                     className="w-full text-left p-4 sm:p-5 font-bold text-slate-900 text-sm flex items-center justify-between gap-4 hover:bg-slate-50 transition-colors"
                   >
                     <span>{faq.question}</span>
-                    <ChevronDown className={`w-5 h-5 text-blue-600 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
+                    <ChevronDown className={`w-5 h-5 text-brand-600 transition-transform ${isOpen ? 'rotate-180' : ''}`} />
                   </button>
                   {isOpen && (
                     <div className="px-5 pb-5 pt-1 text-xs text-slate-600 border-t border-slate-100 leading-relaxed bg-slate-50/50">

@@ -46,23 +46,23 @@ export const PoultryCalculatorModal: React.FC<PoultryCalculatorModalProps> = ({
     <div className="fixed inset-0 z-50 overflow-y-auto bg-slate-900/80 backdrop-blur-xs flex items-center justify-center p-4 font-sans">
       <div className="bg-white rounded-3xl shadow-2xl max-w-2xl w-full overflow-hidden border border-slate-100 relative my-8 animate-in fade-in zoom-in-95 duration-200">
         {/* Header */}
-        <div className="bg-blue-950 text-white p-6 relative">
+        <div className="bg-brand-950 text-white p-6 relative">
           <button
             onClick={onClose}
-            className="absolute right-5 top-5 p-2 rounded-full bg-blue-900 hover:bg-blue-800 text-blue-200 transition-colors"
+            className="absolute right-5 top-5 p-2 rounded-full bg-brand-900 hover:bg-brand-800 text-brand-200 transition-colors"
             aria-label="Close Modal"
           >
             <X className="w-5 h-5" />
           </button>
 
-          <div className="flex items-center gap-2 text-amber-300 font-bold text-xs uppercase tracking-wider mb-1">
-            <Calculator className="w-4 h-4 text-amber-300" />
+          <div className="flex items-center gap-2 text-accent-300 font-bold text-xs uppercase tracking-wider mb-1">
+            <Calculator className="w-4 h-4 text-accent-300" />
             <span>EKOW SAM FARMS AGRO-TOOL</span>
           </div>
           <h2 className="text-2xl font-black font-serif text-white">
             Poultry Batch & Yield Profit Estimator
           </h2>
-          <p className="text-xs text-blue-200 mt-1">
+          <p className="text-xs text-brand-200 mt-1">
             Calculate expected egg crates, broiler meat harvest, feed requirements, and income for commercial poultry farming in Ghana.
           </p>
         </div>
@@ -74,8 +74,8 @@ export const PoultryCalculatorModal: React.FC<PoultryCalculatorModalProps> = ({
               onClick={() => setPoultryType('layer')}
               className={`py-3 px-4 rounded-xl font-bold text-xs transition-all flex items-center justify-center gap-2 ${
                 poultryType === 'layer'
-                  ? 'bg-blue-700 text-white shadow-sm'
-                  : 'text-slate-700 hover:text-blue-800'
+                  ? 'bg-brand-700 text-white shadow-sm'
+                  : 'text-slate-700 hover:text-brand-800'
               }`}
             >
               <Egg className="w-4 h-4" />
@@ -86,8 +86,8 @@ export const PoultryCalculatorModal: React.FC<PoultryCalculatorModalProps> = ({
               onClick={() => setPoultryType('broiler')}
               className={`py-3 px-4 rounded-xl font-bold text-xs transition-all flex items-center justify-center gap-2 ${
                 poultryType === 'broiler'
-                  ? 'bg-blue-700 text-white shadow-sm'
-                  : 'text-slate-700 hover:text-blue-800'
+                  ? 'bg-brand-700 text-white shadow-sm'
+                  : 'text-slate-700 hover:text-brand-800'
               }`}
             >
               <Flame className="w-4 h-4" />
@@ -102,7 +102,7 @@ export const PoultryCalculatorModal: React.FC<PoultryCalculatorModalProps> = ({
                 <label className="font-bold text-slate-800">
                   Total Flock Size (Number of Birds):
                 </label>
-                <span className="font-extrabold text-blue-800 text-sm bg-blue-100 px-3 py-0.5 rounded-full border border-blue-200">
+                <span className="font-extrabold text-brand-800 text-sm bg-brand-100 px-3 py-0.5 rounded-full border border-brand-200">
                   {flockSize.toLocaleString()} Birds
                 </span>
               </div>
@@ -113,7 +113,7 @@ export const PoultryCalculatorModal: React.FC<PoultryCalculatorModalProps> = ({
                 step={100}
                 value={flockSize}
                 onChange={(e) => setFlockSize(Number(e.target.value))}
-                className="w-full accent-blue-600 cursor-pointer"
+                className="w-full accent-brand-600 cursor-pointer"
               />
               <div className="flex justify-between text-[10px] text-slate-400 mt-1">
                 <span>100 Birds (Small Unit)</span>
@@ -131,7 +131,7 @@ export const PoultryCalculatorModal: React.FC<PoultryCalculatorModalProps> = ({
                   type="number"
                   value={eggPricePerCrateGHS}
                   onChange={(e) => setEggPricePerCrateGHS(Number(e.target.value))}
-                  className="w-full p-2.5 rounded-xl border border-slate-300 bg-white font-bold text-blue-900"
+                  className="w-full p-2.5 rounded-xl border border-slate-300 bg-white font-bold text-brand-900"
                 />
               </div>
             ) : (
@@ -143,7 +143,7 @@ export const PoultryCalculatorModal: React.FC<PoultryCalculatorModalProps> = ({
                   type="number"
                   value={broilerPriceGHS}
                   onChange={(e) => setBroilerPriceGHS(Number(e.target.value))}
-                  className="w-full p-2.5 rounded-xl border border-slate-300 bg-white font-bold text-blue-900"
+                  className="w-full p-2.5 rounded-xl border border-slate-300 bg-white font-bold text-brand-900"
                 />
               </div>
             )}
@@ -153,46 +153,46 @@ export const PoultryCalculatorModal: React.FC<PoultryCalculatorModalProps> = ({
           {poultryType === 'layer' ? (
             <div className="space-y-3">
               <h4 className="font-bold text-xs uppercase text-slate-700 tracking-wider flex items-center gap-1.5">
-                <TrendingUp className="w-4 h-4 text-blue-600" />
+                <TrendingUp className="w-4 h-4 text-brand-600" />
                 <span>Projected Monthly Egg Layer Yield & Financials</span>
               </h4>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-                <div className="p-3 bg-blue-50 rounded-xl border border-blue-200">
+                <div className="p-3 bg-brand-50 rounded-xl border border-brand-200">
                   <span className="text-xs text-slate-500 font-medium block">Daily Eggs</span>
-                  <span className="text-lg font-black text-blue-950">{dailyEggCount.toLocaleString()}</span>
-                  <span className="text-[10px] text-blue-700 block">~88% lay rate</span>
+                  <span className="text-lg font-black text-brand-950">{dailyEggCount.toLocaleString()}</span>
+                  <span className="text-[10px] text-brand-700 block">~88% lay rate</span>
                 </div>
 
-                <div className="p-3 bg-blue-50 rounded-xl border border-blue-200">
+                <div className="p-3 bg-brand-50 rounded-xl border border-brand-200">
                   <span className="text-xs text-slate-500 font-medium block">Daily Crates</span>
-                  <span className="text-lg font-black text-blue-950">{dailyCrates}</span>
-                  <span className="text-[10px] text-blue-700 block">(30 eggs/crate)</span>
+                  <span className="text-lg font-black text-brand-950">{dailyCrates}</span>
+                  <span className="text-[10px] text-brand-700 block">(30 eggs/crate)</span>
                 </div>
 
-                <div className="p-3 bg-blue-50 rounded-xl border border-blue-200">
+                <div className="p-3 bg-brand-50 rounded-xl border border-brand-200">
                   <span className="text-xs text-slate-500 font-medium block">Monthly Feed</span>
-                  <span className="text-lg font-black text-blue-950">{layerFeedBagsPerMonth}</span>
-                  <span className="text-[10px] text-blue-700 block">50kg Mash Bags</span>
+                  <span className="text-lg font-black text-brand-950">{layerFeedBagsPerMonth}</span>
+                  <span className="text-[10px] text-brand-700 block">50kg Mash Bags</span>
                 </div>
 
-                <div className="p-3 bg-amber-50 rounded-xl border border-amber-200">
-                  <span className="text-xs text-amber-800 font-medium block">Gross Revenue</span>
+                <div className="p-3 bg-accent-50 rounded-xl border border-accent-200">
+                  <span className="text-xs text-brand-800 font-medium block">Gross Revenue</span>
                   <span className="text-lg font-black text-amber-950">GH¢ {monthlyRevenueGHS.toLocaleString()}</span>
-                  <span className="text-[10px] text-amber-800 block">~${monthlyRevenueUSD} USD</span>
+                  <span className="text-[10px] text-brand-800 block">~${monthlyRevenueUSD} USD</span>
                 </div>
               </div>
 
-              <div className="p-4 bg-blue-900 text-white rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm">
+              <div className="p-4 bg-brand-900 text-white rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm">
                 <div>
-                  <span className="text-[11px] text-blue-300 uppercase tracking-wider font-bold block">
+                  <span className="text-[11px] text-brand-300 uppercase tracking-wider font-bold block">
                     Estimated Net Monthly Profit (After Feed)
                   </span>
-                  <span className="text-2xl font-black text-amber-300 font-serif">
+                  <span className="text-2xl font-black text-accent-300 font-serif">
                     GH¢ {layerNetProfitGHS > 0 ? layerNetProfitGHS.toLocaleString() : 0}
                   </span>
                 </div>
-                <span className="text-xs bg-blue-800 px-3 py-1.5 rounded-lg border border-blue-700 text-blue-100">
+                <span className="text-xs bg-brand-800 px-3 py-1.5 rounded-lg border border-brand-700 text-brand-100">
                   High Demand Market in Ghana
                 </span>
               </div>
@@ -200,46 +200,46 @@ export const PoultryCalculatorModal: React.FC<PoultryCalculatorModalProps> = ({
           ) : (
             <div className="space-y-3">
               <h4 className="font-bold text-xs uppercase text-slate-700 tracking-wider flex items-center gap-1.5">
-                <TrendingUp className="w-4 h-4 text-blue-600" />
+                <TrendingUp className="w-4 h-4 text-brand-600" />
                 <span>Projected 35-Day Broiler Batch Harvest & Financials</span>
               </h4>
 
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
-                <div className="p-3 bg-blue-50 rounded-xl border border-blue-200">
+                <div className="p-3 bg-brand-50 rounded-xl border border-brand-200">
                   <span className="text-xs text-slate-500 font-medium block">Harvest Birds</span>
-                  <span className="text-lg font-black text-blue-950">{totalLiveBirdsHarvest.toLocaleString()}</span>
-                  <span className="text-[10px] text-blue-700 block">~96% survival rate</span>
+                  <span className="text-lg font-black text-brand-950">{totalLiveBirdsHarvest.toLocaleString()}</span>
+                  <span className="text-[10px] text-brand-700 block">~96% survival rate</span>
                 </div>
 
-                <div className="p-3 bg-blue-50 rounded-xl border border-blue-200">
+                <div className="p-3 bg-brand-50 rounded-xl border border-brand-200">
                   <span className="text-xs text-slate-500 font-medium block">Total Meat</span>
-                  <span className="text-lg font-black text-blue-950">{(totalLiveBirdsHarvest * 2.7).toLocaleString()} kg</span>
-                  <span className="text-[10px] text-blue-700 block">2.7kg avg dressed</span>
+                  <span className="text-lg font-black text-brand-950">{(totalLiveBirdsHarvest * 2.7).toLocaleString()} kg</span>
+                  <span className="text-[10px] text-brand-700 block">2.7kg avg dressed</span>
                 </div>
 
-                <div className="p-3 bg-blue-50 rounded-xl border border-blue-200">
+                <div className="p-3 bg-brand-50 rounded-xl border border-brand-200">
                   <span className="text-xs text-slate-500 font-medium block">Total Feed</span>
-                  <span className="text-lg font-black text-blue-950">{broilerFeedBagsTotal}</span>
-                  <span className="text-[10px] text-blue-700 block">50kg Finisher Bags</span>
+                  <span className="text-lg font-black text-brand-950">{broilerFeedBagsTotal}</span>
+                  <span className="text-[10px] text-brand-700 block">50kg Finisher Bags</span>
                 </div>
 
-                <div className="p-3 bg-amber-50 rounded-xl border border-amber-200">
-                  <span className="text-xs text-amber-800 font-medium block">Gross Revenue</span>
+                <div className="p-3 bg-accent-50 rounded-xl border border-accent-200">
+                  <span className="text-xs text-brand-800 font-medium block">Gross Revenue</span>
                   <span className="text-lg font-black text-amber-950">GH¢ {totalBroilerRevenueGHS.toLocaleString()}</span>
-                  <span className="text-[10px] text-amber-800 block">~${totalBroilerRevenueUSD} USD</span>
+                  <span className="text-[10px] text-brand-800 block">~${totalBroilerRevenueUSD} USD</span>
                 </div>
               </div>
 
-              <div className="p-4 bg-blue-900 text-white rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm">
+              <div className="p-4 bg-brand-900 text-white rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-3 shadow-sm">
                 <div>
-                  <span className="text-[11px] text-blue-300 uppercase tracking-wider font-bold block">
+                  <span className="text-[11px] text-brand-300 uppercase tracking-wider font-bold block">
                     Estimated Net Batch Profit (After Feed & Chicks)
                   </span>
-                  <span className="text-2xl font-black text-amber-300 font-serif">
+                  <span className="text-2xl font-black text-accent-300 font-serif">
                     GH¢ {broilerNetProfitGHS > 0 ? broilerNetProfitGHS.toLocaleString() : 0}
                   </span>
                 </div>
-                <span className="text-xs bg-blue-800 px-3 py-1.5 rounded-lg border border-blue-700 text-blue-100">
+                <span className="text-xs bg-brand-800 px-3 py-1.5 rounded-lg border border-brand-700 text-brand-100">
                   35-40 Day Quick Turnover
                 </span>
               </div>
@@ -252,7 +252,7 @@ export const PoultryCalculatorModal: React.FC<PoultryCalculatorModalProps> = ({
                 onClose();
                 if (setCurrentPage) setCurrentPage('store');
               }}
-              className="flex-1 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl text-xs transition-colors shadow-sm flex items-center justify-center gap-2"
+              className="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl text-xs transition-colors shadow-sm flex items-center justify-center gap-2"
             >
               <Package className="w-4 h-4" />
               <span>Order Poultry Products / Feed in Farm Store</span>
@@ -262,7 +262,7 @@ export const PoultryCalculatorModal: React.FC<PoultryCalculatorModalProps> = ({
                 onClose();
                 if (setCurrentPage) setCurrentPage('training');
               }}
-              className="flex-1 bg-amber-500 hover:bg-amber-400 text-slate-950 font-bold py-3 rounded-xl text-xs transition-colors flex items-center justify-center gap-2"
+              className="flex-1 bg-accent-500 hover:bg-accent-400 text-slate-950 font-bold py-3 rounded-xl text-xs transition-colors flex items-center justify-center gap-2"
             >
               <Sparkles className="w-4 h-4" />
               <span>Book Poultry Masterclass</span>
