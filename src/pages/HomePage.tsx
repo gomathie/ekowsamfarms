@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { PageId, Product } from '../types';
 import { FARM_INFO, DIVISIONS, PRODUCTS, TESTIMONIALS, BLOG_POSTS } from '../data/farmData';
 import { 
   ShoppingBag, Calendar, Award, ArrowRight, Star, 
-  CheckCircle, ChevronRight, MapPin, Phone,
+  CheckCircle, ChevronRight, ChevronLeft, MapPin, Phone,
   Egg, Factory, Eye, Calculator,
   Sun, Leaf, Heart, ThumbsUp
 } from 'lucide-react';
@@ -16,6 +16,37 @@ interface HomePageProps {
   openPoultryCalculator?: () => void;
 }
 
+const heroSlides = [
+  {
+    image: '/images/hero-bg.webp',
+    tagline: 'Freshness You Can Trust, From Our Farm to Your Table.',
+    title: 'Freshness You Can Trust,',
+    titleAccent: 'From Our Farm to Your Table.',
+    description: 'Providing premium poultry products and organic eggs to the community for over 4 years.'
+  },
+  {
+    image: '/images/scraped_4.webp',
+    tagline: '100% Farm-Fresh Yellow Yolked Eggs',
+    title: 'Rich Golden Yolks,',
+    titleAccent: 'Nutrient-Dense Egg Crates.',
+    description: 'Collected daily from free-flowing, nutrient-fed layers. Delivered fresh within 24 hours.'
+  },
+  {
+    image: '/images/scraped_7.webp',
+    tagline: 'Hygienically Slaughtered & Dressed Chicken',
+    title: 'Hormone-Free Broilers,',
+    titleAccent: 'Vacuum-Packed Freshness.',
+    description: 'Raised on 79% organic feed with zero artificial growth hormones or additives.'
+  },
+  {
+    image: '/images/gallery-farm.webp',
+    tagline: 'Biosecure Commercial Poultry Infrastructure',
+    title: 'Modern Poultry Farming,',
+    titleAccent: 'Empowering Ghana\'s Agribusiness.',
+    description: 'State-of-the-art biosecure layer pens and eco-friendly agricultural operations in Kasoa.'
+  }
+];
+
 export const HomePage: React.FC<HomePageProps> = ({
   setCurrentPage,
   onAddToCart,
@@ -23,6 +54,23 @@ export const HomePage: React.FC<HomePageProps> = ({
   openAIAssistant,
   openPoultryCalculator
 }) => {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, []);
+
+  const nextSlide = () => {
+    setCurrentSlide((prev) => (prev + 1) % heroSlides.length);
+  };
+
+  const prevSlide = () => {
+    setCurrentSlide((prev) => (prev - 1 + heroSlides.length) % heroSlides.length);
+  };
+
   const getDivisionIcon = (iconName: string) => {
     switch (iconName) {
       case 'Egg': return <Egg className="w-6 h-6" />;
@@ -34,38 +82,46 @@ export const HomePage: React.FC<HomePageProps> = ({
 
   return (
     <div className="font-sans space-y-0 pb-16">
-      {/* HERO SECTION (Dark Brown #3B2314 background) */}
-      <section className="relative bg-brand-800 text-white min-h-[520px] flex items-center justify-center overflow-hidden py-20 px-4">
-        {/* Background Image & Dark Overlay */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="/images/hero-bg.webp"
-            alt="Ekow Sam Farms Poultry"
-            className="w-full h-full object-cover opacity-35 scale-105"
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-brand-950/80 via-brand-900/70 to-brand-950/90" />
-        </div>
+      {/* HERO SLIDER SECTION */}
+      <section className="relative bg-brand-950 text-white min-h-[560px] flex items-center justify-center overflow-hidden py-20 px-4 group">
+        {/* Background Images with Fade Transition */}
+        {heroSlides.map((slide, idx) => (
+          <div
+            key={idx}
+            className={`absolute inset-0 z-0 transition-opacity duration-1000 ease-in-out ${
+              idx === currentSlide ? 'opacity-100 scale-100' : 'opacity-0 scale-105 pointer-events-none'
+            }`}
+          >
+            <img
+              src={slide.image}
+              alt={slide.title}
+              className="w-full h-full object-cover opacity-90 transition-transform duration-7000 ease-linear scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/75" />
+          </div>
+        ))}
 
-        <div className="relative z-10 max-w-4xl mx-auto text-center space-y-6">
-          <div className="inline-flex items-center gap-2 bg-brand-900/90 text-accent-500 border border-accent-500/30 px-4 py-1.5 rounded-full text-xs font-black tracking-widest uppercase">
-            <span>Freshness You Can Trust, From Our Farm to Your Table.</span>
+        {/* Hero Slide Content */}
+        <div className="relative z-10 max-w-4xl mx-auto text-center space-y-6 bg-brand-950/30 backdrop-blur-xs p-6 sm:p-10 rounded-3xl border border-white/10 shadow-2xl">
+          <div className="inline-flex items-center gap-2 bg-brand-900/90 text-accent-400 border border-accent-500/40 px-4 py-1.5 rounded-full text-xs font-black tracking-widest uppercase shadow-md transition-all">
+            <span>{heroSlides[currentSlide].tagline}</span>
           </div>
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight font-serif tracking-tight">
-            Freshness You Can Trust, <br />
-            <span className="text-accent-500">From Our Farm to Your Table.</span>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight font-serif tracking-tight transition-all drop-shadow-md">
+            {heroSlides[currentSlide].title} <br />
+            <span className="text-accent-400">{heroSlides[currentSlide].titleAccent}</span>
           </h1>
 
-          <p className="text-brand-100 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto font-light">
-            Providing premium poultry products and organic eggs to the community for over 4 years.
+          <p className="text-white text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto font-medium transition-all drop-shadow-sm">
+            {heroSlides[currentSlide].description}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <button
               onClick={() => setCurrentPage('store')}
-              className="bg-accent-500 hover:bg-accent-400 text-brand-950 font-black px-8 py-3.5 rounded-full text-base shadow-xl transition-transform hover:scale-105 flex items-center gap-2"
+              className="bg-accent-500 hover:bg-accent-400 text-white font-black px-8 py-3.5 rounded-full text-base shadow-xl transition-transform hover:scale-105 flex items-center gap-2"
             >
-              <ShoppingBag className="w-5 h-5 text-brand-950" />
+              <ShoppingBag className="w-5 h-5 text-white" />
               <span>Our Products</span>
             </button>
 
@@ -76,6 +132,38 @@ export const HomePage: React.FC<HomePageProps> = ({
               Our Services
             </button>
           </div>
+        </div>
+
+        {/* Previous Button */}
+        <button
+          onClick={prevSlide}
+          aria-label="Previous Slide"
+          className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-brand-950/60 hover:bg-brand-900 text-white border border-brand-800 flex items-center justify-center transition-all opacity-80 hover:opacity-100 hover:scale-110"
+        >
+          <ChevronLeft className="w-6 h-6" />
+        </button>
+
+        {/* Next Button */}
+        <button
+          onClick={nextSlide}
+          aria-label="Next Slide"
+          className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-brand-950/60 hover:bg-brand-900 text-white border border-brand-800 flex items-center justify-center transition-all opacity-80 hover:opacity-100 hover:scale-110"
+        >
+          <ChevronRight className="w-6 h-6" />
+        </button>
+
+        {/* Slide Indicator Dots */}
+        <div className="absolute bottom-6 left-0 right-0 z-20 flex justify-center items-center gap-2">
+          {heroSlides.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentSlide(idx)}
+              aria-label={`Go to slide ${idx + 1}`}
+              className={`h-2.5 rounded-full transition-all duration-300 ${
+                idx === currentSlide ? 'w-8 bg-accent-400' : 'w-2.5 bg-white/50 hover:bg-white/80'
+              }`}
+            />
+          ))}
         </div>
       </section>
 
@@ -160,23 +248,23 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* STATS BAND (Dark Brown #3B2314) */}
+      {/* STATS BAND (Deep Red #450A0A) */}
       <section className="bg-brand-950 text-white py-12 px-4 border-y border-brand-900">
         <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <div className="space-y-2">
-            <span className="text-4xl sm:text-5xl font-black text-accent-500 font-serif">4,768+</span>
+            <span className="text-4xl sm:text-5xl font-black text-accent-400 font-serif">4,768+</span>
             <p className="text-xs sm:text-sm font-medium text-brand-200">Birds Raised Annually</p>
           </div>
           <div className="space-y-2">
-            <span className="text-4xl sm:text-5xl font-black text-accent-500 font-serif">79%</span>
+            <span className="text-4xl sm:text-5xl font-black text-accent-400 font-serif">79%</span>
             <p className="text-xs sm:text-sm font-medium text-brand-200">Organic Feed Policy</p>
           </div>
           <div className="space-y-2">
-            <span className="text-4xl sm:text-5xl font-black text-accent-500 font-serif">157+</span>
+            <span className="text-4xl sm:text-5xl font-black text-accent-400 font-serif">157+</span>
             <p className="text-xs sm:text-sm font-medium text-brand-200">People & Restaurants Supplied</p>
           </div>
           <div className="space-y-2">
-            <span className="text-4xl sm:text-5xl font-black text-accent-500 font-serif">0</span>
+            <span className="text-4xl sm:text-5xl font-black text-accent-400 font-serif">0</span>
             <p className="text-xs sm:text-sm font-medium text-brand-200">Added Hormones or Chemicals</p>
           </div>
         </div>
@@ -253,7 +341,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* TESTIMONIALS SECTION (Dark Brown #3B2314 Background) */}
+      {/* TESTIMONIALS SECTION (Deep Red #450A0A Background) */}
       <section className="bg-brand-950 text-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
