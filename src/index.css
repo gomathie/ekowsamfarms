@@ -1,27 +1,26 @@
 @import "tailwindcss";
 
 @theme {
-  /* Brand colors from ekowsamfarms.com */
-  /* Primary: Dark chocolate brown */
-  --color-brand-950: #1a0e08;
-  --color-brand-900: #2d1810;
-  --color-brand-800: #3b2314;
-  --color-brand-700: #4a2e1a;
-  --color-brand-600: #5c3a22;
-  --color-brand-500: #6e462a;
-  --color-brand-400: #8b6240;
-  --color-brand-300: #a88060;
-  --color-brand-200: #c4a080;
-  --color-brand-100: #e0c0a0;
-  --color-brand-50: #f5e8d8;
+  /* Primary: Pure & Rich Red */
+  --color-brand-950: #450a0a;
+  --color-brand-900: #7f1d1d;
+  --color-brand-800: #991b1b;
+  --color-brand-700: #b91c1c;
+  --color-brand-600: #dc2626;
+  --color-brand-500: #ef4444;
+  --color-brand-400: #f87171;
+  --color-brand-300: #fca5a5;
+  --color-brand-200: #fecaca;
+  --color-brand-100: #fee2e2;
+  --color-brand-50: #fef2f2;
 
-  /* Accent: Golden yellow */
-  --color-accent-500: #f5d100;
-  --color-accent-400: #f7da33;
-  --color-accent-300: #f9e366;
-  --color-accent-200: #fbec99;
-  --color-accent-100: #fdf5cc;
-  --color-accent-50: #fefae6;
+  /* Accent: Fresh Vibrant Green */
+  --color-accent-500: #16a34a;
+  --color-accent-400: #22c55e;
+  --color-accent-300: #4ade80;
+  --color-accent-200: #86efac;
+  --color-accent-100: #dcfce7;
+  --color-accent-50: #f0fdf4;
 
   /* Font families */
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;

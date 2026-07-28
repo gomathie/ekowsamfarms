@@ -114,14 +114,14 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* WHY CHOOSE US SECTION (Golden Yellow #F5D100 Background) */}
-      <section className="bg-accent-500 text-brand-950 py-16 px-4 sm:px-6 lg:px-8">
+      {/* WHY CHOOSE US SECTION (Vibrant Green Background) */}
+      <section className="bg-accent-500 text-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="text-center space-y-3">
-            <h2 className="text-3xl sm:text-4xl font-black font-serif">
+            <h2 className="text-3xl sm:text-4xl font-black font-serif text-white">
               Why Choose Us
             </h2>
-            <p className="text-brand-900 font-semibold text-sm">
+            <p className="text-accent-100 font-semibold text-sm">
               Why Ekow Sams and not the grocery store?
             </p>
           </div>

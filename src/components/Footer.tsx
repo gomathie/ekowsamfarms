@@ -31,14 +31,14 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
 
   return (
     <footer className="font-sans text-brand-100">
-      {/* Ready to taste the difference CTA Banner (Golden Yellow #F5D100) */}
-      <div className="bg-accent-500 text-brand-950 py-10 px-4 sm:px-8">
+      {/* Ready to taste the difference CTA Banner (Vibrant Green) */}
+      <div className="bg-accent-500 text-white py-10 px-4 sm:px-8">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
           <div>
-            <h2 className="text-2xl sm:text-3xl font-black font-serif tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-black font-serif tracking-tight text-white">
               Ready to taste the difference?
             </h2>
-            <p className="text-brand-900 font-medium text-sm mt-1">
+            <p className="text-accent-100 font-medium text-sm mt-1">
               Place Your Order Today! Fresh farm yellow-yolked eggs & dressed poultry delivered to you.
             </p>
           </div>
@@ -46,7 +46,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
             onClick={() => navigateTo('store')}
             className="bg-brand-900 hover:bg-brand-950 text-white font-black px-6 py-3 rounded-full text-sm transition-transform hover:scale-105 shadow-lg flex items-center gap-2 shrink-0"
           >
-            <ThumbsUp className="w-4 h-4 text-accent-500 fill-current" />
+            <ThumbsUp className="w-4 h-4 text-accent-400 fill-current" />
             <span>Order Now</span>
           </button>
         </div>
