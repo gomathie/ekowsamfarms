@@ -3,7 +3,7 @@ import { Product, Workshop, Division, BlogPost, GalleryItem, Testimonial } from 
 export const FARM_INFO = {
   name: "Ekow Sam Farms",
   tagline: "Freshness You Can Trust, From Our Farm to Your Table.",
-  foundedYear: 2018,
+  foundedYear: 2020,
   founder: "Ekow Sam",
   location: "DL hospital street, Accra, Ghana / Millenium City, Kasoa",
   address: "Millenium City, Kasoa",
@@ -12,33 +12,40 @@ export const FARM_INFO = {
   emails: ["samderreck@gmail.com", "hello@ekowsamfarms.com"],
   openingHours: "Mon - Sat: 7:30 AM - 5:30 PM | Sun: Closed",
   farmSizeAcres: 500,
-  livestockCapacity: "15,000+ Birds",
+  livestockCapacity: "4,768+ Birds",
+  stats: {
+    birdsRaised: "4,768+",
+    organicFeedPolicy: "79%",
+    peopleSupplied: "157+",
+    addedHormones: "0"
+  },
   socials: {
     facebook: "https://facebook.com/ekowsamfarms",
     instagram: "https://instagram.com/ekowsamfarms",
     twitter: "https://twitter.com/ekowsamfarms",
     youtube: "https://youtube.com/@ekowsamfarms",
-    whatsapp: "0555198194"
+    whatsapp: "0555198194",
+    linkedin: "https://linkedin.com/company/ekowsamfarms"
   }
 };
 
 export const PRODUCTS: Product[] = [
   {
     id: "prod-1",
-    name: "Fresh Commercial Table Eggs (Crate of 30)",
+    name: "Farm-Fresh Eggs",
     category: "poultry",
     priceGHS: 65,
     priceUSD: 4.80,
     unit: "Crate (30 large brown eggs)",
-    image: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&q=80&w=800",
+    image: "/images/scraped_4.webp",
     inStock: true,
     featured: true,
     rating: 5.0,
     reviewsCount: 342,
-    description: "Farm-fresh large brown eggs collected daily from our free-flowing, nutrient-fed layer chickens. High in omega-3 and protein, with a rich golden yolk.",
+    description: "High quality farm fresh yellow yoked eggs collected daily from our free-flowing, nutrient-fed layer chickens. Rich in flavor and nutrition.",
     specifications: {
       "Grade": "Grade A Large",
-      "Yolk Color": "Rich Golden Orange",
+      "Yolk Color": "Rich Golden Yellow",
       "Packaging": "Eco-friendly molded pulp crate (30 eggs)",
       "Shelf Life": "30 days stored in cool dry place"
     },
@@ -46,39 +53,39 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "prod-2",
-    name: "Live Dressed Broiler Chicken (2.5kg - 3.0kg)",
+    name: "Dressed Chicken",
     category: "poultry",
     priceGHS: 120,
     priceUSD: 8.90,
     unit: "Per Whole Bird",
-    image: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80&w=800",
+    image: "/images/scraped_7.webp",
     inStock: true,
     featured: true,
     rating: 4.9,
     reviewsCount: 284,
-    description: "Hygienically slaughtered, plucked, and dressed broiler chicken raised on organic feed without artificial growth hormones. Vacuum-packed for freshness.",
+    description: "Hygienically slaughtered, plucked, and dressed broiler chicken raised on organic feed without artificial growth hormones or additives. Vacuum-packed for ultimate freshness.",
     specifications: {
       "Average Weight": "2.5kg - 3.0kg dressed",
-      "Feed Standard": "Organic / Hormone-Free",
+      "Feed Standard": "79% Organic / Hormone-Free",
       "Processing": "FDA-standard clean cold-chilled slaughtering",
       "Packaging": "Vacuum sealed food-grade pouch"
     }
   },
   {
     id: "prod-3",
-    name: "Kosua ne Meko (Fresh Eggs with Pepper)",
+    name: "Kosua ne Meko",
     category: "ready-to-eat",
     priceGHS: 25,
     priceUSD: 1.85,
     unit: "Pack",
-    image: "https://images.unsplash.com/photo-1628268909376-e8c459632eb3?auto=format&fit=crop&q=80&w=800",
+    image: "/images/scraped_6.webp",
     inStock: true,
     featured: true,
     rating: 4.9,
     reviewsCount: 156,
-    description: "Our signature Kosua ne Meko! Boiled farm-fresh eggs paired with our special spicy, aromatic pepper sauce. Check out our brand at kosuanemeko.com.",
+    description: "Our signature Kosua ne Meko! Boiled farm-fresh yellow-yolked eggs paired with our special spicy, aromatic pepper sauce. Check out our brand at kosuanemeko.com.",
     specifications: {
-      "Ingredients": "Farm fresh eggs, local spices, fresh pepper",
+      "Ingredients": "Farm fresh eggs, local spices, fresh pepper, onions",
       "Spiciness": "Medium to Hot",
       "Brand": "Kosuanemeko (kosuanemeko.com)"
     }
@@ -97,13 +104,13 @@ export const WORKSHOPS: Workshop[] = [
     feeUSD: 44,
     instructor: "Dr. Abena Osei (Veterinary Specialist)",
     seatsRemaining: 18,
-    image: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80&w=800",
+    image: "/images/hero-chicken.webp",
     description: "Master brooding management, bio-security, vaccination schedules, litter care, feed conversion ratios (FCR), and automated processing for maximum poultry profitability.",
     modules: [
       "Brooding room climate setup and chick arrival procedures",
       "Vaccination schedule and disease diagnostic keys",
       "Feed management for 35-day broiler harvest cycle",
-      "Biosecurity protocols and fly/rodent control",
+      "Biosecurity protocols and pest control",
       "Dressed poultry processing hygiene and cold chain logistics"
     ],
     includes: [
@@ -123,18 +130,18 @@ export const WORKSHOPS: Workshop[] = [
     feeUSD: 89,
     instructor: "Ekow Sam (CEO & Founder)",
     seatsRemaining: 10,
-    image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=800",
+    image: "/images/about-farm.webp",
     description: "Designed for investors, land owners, diaspora Ghanaians, and agricultural entrepreneurs seeking to build scalable commercial poultry farms with high ROI.",
     modules: [
-      "Land acquisition, soil testing & farm master planning in Ghana",
+      "Land acquisition & farm master planning in Ghana",
       "CapEx and OpEx financial modeling for 5-year farm viability",
       "Poultry housing engineering & biosecurity integration",
-      "Managing farm labor, security, and digital inventory tracking",
+      "Managing farm labor, security, and inventory tracking",
       "FDA, MoFA, and EPA regulatory compliance and permits"
     ],
     includes: [
       "Private 1-on-1 Farm Feasibility Consultation with Ekow Sam",
-      "Sample Agribusiness Business Plan Template (.docx/.xlsx)",
+      "Sample Agribusiness Business Plan Template",
       "VIP Farm Tour with Executive Transport from Accra"
     ]
   }
@@ -143,26 +150,26 @@ export const WORKSHOPS: Workshop[] = [
 export const DIVISIONS: Division[] = [
   {
     id: "wholesale",
-    title: "Wholesale & B2B Supply",
+    title: "Wholesale Supply",
     subtitle: "High-Volume Poultry for Businesses",
     iconName: "Factory",
-    image: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&q=80&w=800",
+    image: "/images/blog-supply.webp",
     summary: "Consistent, high-volume poultry supply for hotels, restaurants, and catering services.",
-    fullDetails: "We offer reliable, high-volume supply of premium dressed chicken and farm-fresh eggs to B2B clients, ensuring your kitchen never runs out of quality ingredients.",
+    fullDetails: "We offer reliable, high-volume supply of premium dressed chicken and farm-fresh yellow-yolked eggs to B2B clients, ensuring your kitchen never runs out of quality ingredients.",
     highlights: [
       "Consistent daily supply",
       "Volume discounts for B2B partners",
       "Strict hygiene and cold-chain maintenance"
     ],
     keyProducts: ["Crate Eggs Wholesale", "Dressed Broiler Bulk Supply"],
-    capacity: "Serving 100+ Businesses"
+    capacity: "Serving 157+ Businesses & Restaurants"
   },
   {
     id: "home-delivery",
-    title: "Doorstep Home Delivery",
+    title: "Home Delivery",
     subtitle: "Farm-to-Fork Convenience",
     iconName: "ShoppingBag",
-    image: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80&w=800",
+    image: "/images/scraped_4.webp",
     summary: "Farm-fresh crates of eggs and dressed birds delivered straight to your doorstep.",
     fullDetails: "Don't have time for the market? Our dedicated delivery team brings vacuum-sealed dressed chicken and fresh eggs directly to your home, ensuring convenience without compromising quality.",
     highlights: [
@@ -178,7 +185,7 @@ export const DIVISIONS: Division[] = [
     title: "Live Stock Sales",
     subtitle: "Healthy Birds for Your Needs",
     iconName: "Egg",
-    image: "https://images.unsplash.com/photo-1518552718167-93cf637ebba3?auto=format&fit=crop&q=80&w=800",
+    image: "/images/hero-chicken.webp",
     summary: "Healthy, well-vaccinated birds for those looking to start their own poultry journey or for festive seasons.",
     fullDetails: "Whether you're celebrating a festival or looking to raise your own birds, we provide healthy, well-vaccinated live birds that guarantee quality and size.",
     highlights: [
@@ -191,10 +198,10 @@ export const DIVISIONS: Division[] = [
   },
   {
     id: "consulting",
-    title: "Agricultural Consulting",
+    title: "Agricultural Consulting & Input",
     subtitle: "Expert Guidance for Farm Setup",
     iconName: "GraduationCap",
-    image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800",
+    image: "/images/about-farm.webp",
     summary: "Expert advice and practical training for aspiring farmers and agribusiness investors.",
     fullDetails: "Leverage our years of commercial farming experience. We provide consultancy on farm design, biosecurity, feed formulation, and business management.",
     highlights: [
@@ -215,11 +222,11 @@ export const BLOG_POSTS: BlogPost[] = [
     author: "Ekow Sam",
     date: "July 12, 2026",
     readTime: "4 min read",
-    image: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80&w=800",
+    image: "/images/blog-chicken.webp",
     snippet: "Discover why choosing hormone-free, organic poultry is crucial for your family's health and how Ekow Sam Farms guarantees freshness.",
     content: [
       "In today's fast-paced world, the food we put on our tables matters more than ever. Commercial poultry often relies on growth hormones to accelerate production, but at what cost to our health?",
-      "At Ekow Sam Farms, we believe that nature knows best. Our birds are raised on a strict organic feed diet, completely free from artificial growth hormones or harmful additives.",
+      "At Ekow Sam Farms, we believe that nature knows best. Our birds are raised on a strict 79% organic feed diet, completely free from artificial growth hormones or harmful additives.",
       "Hormone-free poultry not only tastes better—retaining that authentic, natural flavor—but it also provides peace of mind. You know exactly what you're feeding your family: clean, protein-rich meat that supports healthy development without the risk of unwanted chemical exposure.",
       "When you choose Ekow Sams, you're choosing freshness you can trust, straight from our farm to your fork."
     ],
@@ -232,7 +239,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: "Dr. Abena Osei",
     date: "June 28, 2026",
     readTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&q=80&w=800",
+    image: "/images/blog-eggs.webp",
     snippet: "Not all eggs are created equal. Learn the five tell-tale signs of a fresh egg and a simple water test you can do at home.",
     content: [
       "Eggs are a staple in almost every Ghanaian household, but finding truly fresh ones can sometimes be a challenge when shopping at generic grocery stores.",
@@ -241,7 +248,7 @@ export const BLOG_POSTS: BlogPost[] = [
       "2. The yolk should sit high and firm. If it flattens out immediately when cracked, the egg is older.",
       "3. The shell should have a slightly chalky, rough texture rather than a smooth, shiny one.",
       "4. The float test: Place the egg in a bowl of water. A fresh egg will lay flat on the bottom. An older egg will stand on end, and a bad egg will float.",
-      "5. A strong, vibrant golden-orange yolk color, like the ones from our farm, indicates a healthy, nutrient-rich diet.",
+      "5. A strong, vibrant golden-yellow yolk color, like the ones from our farm, indicates a healthy, nutrient-rich diet.",
       "Our crates are delivered within 24 hours of laying, ensuring you get the freshest eggs possible."
     ],
     tags: ["Eggs", "Freshness", "Cooking Tips", "Quality Control"]
@@ -253,7 +260,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: "Ekow Sam",
     date: "June 10, 2026",
     readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&q=80&w=800",
+    image: "/images/blog-supply.webp",
     snippet: "Consistency, hygiene, and timely delivery. Find out why top restaurants partner with Ekow Sam Farms for their poultry needs.",
     content: [
       "For any restaurant or catering business, the quality of your ingredients is the foundation of your reputation. When it comes to poultry, consistency is key.",
@@ -268,24 +275,31 @@ export const BLOG_POSTS: BlogPost[] = [
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-1",
-    title: "Modern Biosecure Poultry Layers Unit",
+    title: "Modern Biosecure Layer Pens",
     category: "poultry",
-    imageUrl: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&q=80&w=800",
+    imageUrl: "/images/scraped_4.webp",
     description: "Our layer facility producing thousands of crate eggs daily under clean hygienic standards."
   },
   {
     id: "gal-2",
     title: "Hygienic Poultry Processing",
     category: "processing",
-    imageUrl: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80&w=800",
+    imageUrl: "/images/scraped_7.webp",
     description: "Cold-chain processing to ensure the highest safety and freshness for our dressed broilers."
   },
   {
     id: "gal-3",
     title: "Kosua ne Meko Preparation",
     category: "processing",
-    imageUrl: "https://images.unsplash.com/photo-1628268909376-e8c459632eb3?auto=format&fit=crop&q=80&w=800",
+    imageUrl: "/images/scraped_6.webp",
     description: "Our signature Kosua ne Meko, ready to eat and packed with flavor."
+  },
+  {
+    id: "gal-4",
+    title: "Ekow Sam Farm Estate Infrastructure",
+    category: "poultry",
+    imageUrl: "/images/gallery-farm.webp",
+    description: "Spacious, well-ventilated poultry housing in Millenium City, Kasoa."
   }
 ];
 
@@ -330,7 +344,7 @@ export const FAQS = [
   },
   {
     question: "Are your poultry products organic and hormone-free?",
-    answer: "Absolutely. We pride ourselves on our Organic Feed Policy. Our birds receive no growth hormones or harmful additives, ensuring safe, healthy, and great-tasting poultry for your family."
+    answer: "Absolutely. We pride ourselves on our 79% Organic Feed Policy. Our birds receive no growth hormones or harmful additives, ensuring safe, healthy, and great-tasting poultry for your family."
   },
   {
     question: "What makes your Kosua ne Meko special?",
@@ -338,6 +352,6 @@ export const FAQS = [
   },
   {
     question: "How do I register for your Farmers Training Workshops?",
-    answer: "You can view upcoming workshop schedules on our Training & Consultancy page and register directly for topics like Poultry Management and Turnkey Farm Setup."
+    answer: "You can view upcoming workshop schedules on our Training page and register directly for topics like Poultry Management and Turnkey Farm Setup."
   }
 ];
