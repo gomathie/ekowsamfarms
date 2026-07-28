@@ -29,7 +29,7 @@ export const Header: React.FC<HeaderProps> = ({
   const navItems: { id: PageId; label: string; badge?: string }[] = [
     { id: 'home', label: 'Home' },
     { id: 'about', label: 'About Us' },
-    { id: 'divisions', label: 'Divisions' },
+    { id: 'divisions', label: 'Services' },
     { id: 'store', label: 'Farm Store', badge: 'Fresh Produce' },
     { id: 'training', label: 'Training', badge: 'Workshops' },
     { id: 'gallery', label: 'Gallery & Tours' },
@@ -62,7 +62,7 @@ export const Header: React.FC<HeaderProps> = ({
             <span className="hidden md:inline text-emerald-700">|</span>
             <div className="hidden md:flex items-center gap-1.5 text-emerald-200">
               <MapPin className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Gomoa East, Central Region, Ghana</span>
+              <span>{FARM_INFO.address}</span>
             </div>
           </div>
 

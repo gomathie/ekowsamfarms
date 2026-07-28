@@ -20,7 +20,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setCurrentPage }) => {
             About Ekow Sam Farms
           </h1>
           <p className="text-emerald-200 text-sm sm:text-base max-w-2xl mx-auto font-light">
-            Building West Africa's most resilient, sustainable, and technology-driven commercial agricultural ecosystem in Ghana.
+            Providing premium poultry products and organic eggs to the community for over 4 years.
           </p>
         </div>
       </section>
@@ -33,13 +33,13 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setCurrentPage }) => {
               COMPANY HISTORY
             </span>
             <h2 className="text-3xl font-black text-slate-900 font-serif leading-tight">
-              Driven by Passion for Food Security in Ghana
+              Raising Healthy, Happy Birds
             </h2>
             <p className="text-slate-600 text-sm leading-relaxed">
-              Founded in 2018 by visionary Ghanaian agricultural entrepreneur <strong>Ekow Sam</strong>, Ekow Sam Farms began as a modest 10-acre poultry and crop trial in the Central Region of Ghana.
+              At Ekow Farms, we believe in raising healthy, happy birds that contribute to a sustainable future. Our commitment to eco-friendly practices ensures that every chicken and egg we produce is not only delicious but also responsibly sourced.
             </p>
             <p className="text-slate-600 text-sm leading-relaxed">
-              Recognizing the immense gap in local food processing and the heavy dependency on imported frozen meats and produce, Ekow Sam expanded the venture into an integrated 500-acre commercial farm estate. Today, Ekow Sam Farms encompasses biosecure poultry layer pens, intensive catfish & tilapia hatcheries, Ghana's largest heliculture (snail breeding) facility, greenhouse tomato units, and an FDA-standard agro-processing plant.
+              Founded by <strong>Ekow Sam</strong>, the farm focuses on providing families and businesses with high-quality, hormone-free meat and rich, golden-yolked eggs. By adopting an organic feed policy and prioritizing community well-being, we guarantee freshness you can trust, directly from our farm to your table.
             </p>
 
             <div className="p-4 bg-emerald-50 border-l-4 border-emerald-600 rounded-r-xl space-y-1 text-xs">
@@ -54,7 +54,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setCurrentPage }) => {
           <div className="lg:col-span-6">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100">
               <img
-                src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=800"
+                src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80&w=800"
                 alt="Ekow Sam Farm Estate"
                 className="w-full h-[450px] object-cover"
                 referrerPolicy="no-referrer"
@@ -62,10 +62,10 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setCurrentPage }) => {
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
               <div className="absolute bottom-6 left-6 right-6 text-white">
                 <span className="bg-emerald-600 text-white font-bold text-xs px-2.5 py-1 rounded">
-                  GOMOA EAST, CENTRAL REGION
+                  MILLENIUM CITY, KASOA
                 </span>
-                <h4 className="text-lg font-bold font-serif mt-2">Ekow Sam Farm Estate Infrastructure</h4>
-                <p className="text-xs text-slate-300">500 Acres • Solar Boreholes • FDA Processing Factory</p>
+                <h4 className="text-lg font-bold font-serif mt-2">Ekow Sam Farm Infrastructure</h4>
+                <p className="text-xs text-slate-300">Biosecure Layers • FDA Processing • Organic Feed Mill</p>
               </div>
             </div>
           </div>
@@ -79,7 +79,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setCurrentPage }) => {
             </div>
             <h3 className="text-xl font-bold text-slate-900 font-serif">Our Mission</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
-              To produce fresh, high-quality, organic farm produce and processed foods using sustainable zero-waste circular agricultural practices in West Africa.
+              To produce fresh, high-quality, organic poultry and eggs using sustainable and biosecure agricultural practices in Ghana.
             </p>
           </div>
 
@@ -89,7 +89,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setCurrentPage }) => {
             </div>
             <h3 className="text-xl font-bold text-slate-900 font-serif">Our Vision</h3>
             <p className="text-xs text-slate-600 leading-relaxed">
-              To become Africa's premier benchmark for commercial farm innovation, value addition, food safety, and youth agricultural entrepreneurship.
+              To become the most trusted and sought-after supplier of premium hormone-free poultry products for households and restaurants in West Africa.
             </p>
           </div>
 
@@ -100,8 +100,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setCurrentPage }) => {
             <h3 className="text-xl font-bold text-slate-900 font-serif">Core Values</h3>
             <ul className="text-xs text-slate-600 space-y-1">
               <li>• <strong>Integrity & Hygiene:</strong> FDA Ghana compliant.</li>
-              <li>• <strong>Eco-Stewardship:</strong> Zero chemical pesticides.</li>
-              <li>• <strong>Community Empowerment:</strong> Training youth.</li>
+              <li>• <strong>Organic Promise:</strong> Zero growth hormones.</li>
+              <li>• <strong>Community Focus:</strong> Supporting local agriculture.</li>
             </ul>
           </div>
         </div>
@@ -110,14 +110,14 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setCurrentPage }) => {
         <div className="space-y-8 pt-8">
           <div className="text-center max-w-2xl mx-auto space-y-2">
             <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest bg-emerald-100 px-3 py-1 rounded-full border border-emerald-200">
-              AGRONOMY LEADERSHIP
+              LEADERSHIP
             </span>
             <h2 className="text-3xl font-black text-slate-900 font-serif">
-              Meet Our Leadership & Agronomists
+              Meet Our Leadership
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             <div className="bg-white rounded-2xl p-5 border border-slate-200 text-center space-y-3 shadow-xs">
               <img
                 src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300"
@@ -128,21 +128,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setCurrentPage }) => {
               <div>
                 <h4 className="font-bold text-slate-900 text-sm">Ekow Sam</h4>
                 <p className="text-xs text-emerald-700 font-semibold">Chief Executive Officer & Founder</p>
-                <p className="text-[11px] text-slate-500 mt-2">15+ years agribusiness experience across West Africa</p>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-2xl p-5 border border-slate-200 text-center space-y-3 shadow-xs">
-              <img
-                src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&q=80&w=300"
-                alt="Dr. K. Mensah"
-                className="w-24 h-24 rounded-full object-cover mx-auto border-2 border-emerald-600"
-                referrerPolicy="no-referrer"
-              />
-              <div>
-                <h4 className="font-bold text-slate-900 text-sm">Dr. K. Mensah</h4>
-                <p className="text-xs text-emerald-700 font-semibold">Lead Heliculturist (Snail Specialist)</p>
-                <p className="text-[11px] text-slate-500 mt-2">PhD in Heliculture & Tropical Animal Science</p>
+                <p className="text-[11px] text-slate-500 mt-2">Over 4 years of providing premium poultry products to the community.</p>
               </div>
             </div>
 
@@ -156,21 +142,7 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setCurrentPage }) => {
               <div>
                 <h4 className="font-bold text-slate-900 text-sm">Dr. Abena Osei</h4>
                 <p className="text-xs text-emerald-700 font-semibold">Chief Veterinary Officer</p>
-                <p className="text-[11px] text-slate-500 mt-2">Specializing in biosecure poultry health & vaccination</p>
-              </div>
-            </div>
-
-            <div className="bg-white rounded-2xl p-5 border border-slate-200 text-center space-y-3 shadow-xs">
-              <img
-                src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&q=80&w=300"
-                alt="Ing. Kwame Asante"
-                className="w-24 h-24 rounded-full object-cover mx-auto border-2 border-emerald-600"
-                referrerPolicy="no-referrer"
-              />
-              <div>
-                <h4 className="font-bold text-slate-900 text-sm">Ing. Kwame Asante</h4>
-                <p className="text-xs text-emerald-700 font-semibold">Lead Aquaculture Engineer</p>
-                <p className="text-[11px] text-slate-500 mt-2">Hatchery design & recirculating system specialist</p>
+                <p className="text-[11px] text-slate-500 mt-2">Specializing in biosecure poultry health & organic feed management.</p>
               </div>
             </div>
           </div>

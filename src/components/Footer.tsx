@@ -80,7 +80,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage, openAIAssistant 
             </div>
           </div>
           <p className="text-slate-400 text-sm leading-relaxed pr-4">
-            Ghana's premier commercial agribusiness producing high-yield poultry eggs, dressed chicken, Giant African Snails, catfish aquaculture, greenhouse produce, and practical farmer training.
+            Ghana's premier commercial agribusiness providing premium poultry products and organic eggs to the community.
           </p>
 
           <div className="pt-2">
@@ -119,14 +119,12 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage, openAIAssistant 
 
         {/* Col 3: Farm Divisions */}
         <div className="space-y-3">
-          <h4 className="text-white font-bold text-base border-b border-slate-800 pb-2">Our Divisions</h4>
+          <h4 className="text-white font-bold text-base border-b border-slate-800 pb-2">Our Services</h4>
           <ul className="space-y-2 text-sm text-slate-400">
-            <li>Poultry & Layers Unit</li>
-            <li>Aquaculture & Fish Hatchery</li>
-            <li>Heliculture (Snail Farming)</li>
-            <li>Greenhouse Vegetables</li>
-            <li>Agro-Processing Unit</li>
-            <li>Turnkey Farm Consultancy</li>
+            <li>Wholesale & B2B Supply</li>
+            <li>Doorstep Home Delivery</li>
+            <li>Live Stock Sales</li>
+            <li>Agricultural Consulting</li>
           </ul>
         </div>
 
@@ -162,7 +160,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage, openAIAssistant 
           <div className="pt-2 text-xs text-slate-400 space-y-1.5">
             <div className="flex items-start gap-2">
               <MapPin className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
-              <span>Gomoa Potsin Junction, Off Accra-Cape Coast Highway, Central Region, Ghana</span>
+              <span>{FARM_INFO.location}</span>
             </div>
             <div className="flex items-center gap-2">
               <Phone className="w-4 h-4 text-emerald-400 shrink-0" />

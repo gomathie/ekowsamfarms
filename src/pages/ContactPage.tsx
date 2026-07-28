@@ -38,7 +38,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
             Contact Ekow Sam Farms
           </h1>
           <p className="text-emerald-200 text-xs sm:text-sm max-w-2xl mx-auto">
-            Reach out to our farm estate office in Gomoa East for bulk produce orders, training registration, farm tours, or agribusiness consultations.
+            Reach out to our farm office for bulk poultry orders, training registration, farm tours, or agribusiness consultations.
           </p>
         </div>
       </section>
@@ -50,7 +50,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
           <div className="lg:col-span-5 space-y-6">
             <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm space-y-6">
               <h3 className="text-xl font-bold text-slate-900 font-serif border-b pb-3 border-slate-100">
-                Farm Office Information
+                Contact Information
               </h3>
 
               <div className="space-y-4 text-xs">
@@ -59,8 +59,8 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
                     <MapPin className="w-5 h-5" />
                   </div>
                   <div>
-                    <h4 className="font-bold text-slate-900 text-sm">Farm Estate Location</h4>
-                    <p className="text-slate-600 mt-0.5">{FARM_INFO.address}</p>
+                    <h4 className="font-bold text-slate-900 text-sm">Farm Locations</h4>
+                    <p className="text-slate-600 mt-0.5">{FARM_INFO.location}</p>
                     <p className="text-emerald-700 font-mono font-bold text-[11px] mt-1">{FARM_INFO.gpsLocation}</p>
                   </div>
                 </div>
@@ -104,14 +104,14 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
                 <span className="text-xs font-bold text-amber-300 uppercase">GHANA MAP LOCATION</span>
                 <Navigation className="w-5 h-5 text-amber-300" />
               </div>
-              <h4 className="text-lg font-bold font-serif">Gomoa Potsin Junction, Central Region</h4>
+              <h4 className="text-lg font-bold font-serif">Millenium City, Kasoa</h4>
               <p className="text-xs text-emerald-200">
-                Located right off the Accra - Cape Coast Highway (approx 45 minutes drive from Mallam Junction, Accra).
+                Our main farm facilities are located in the heart of Millenium City, ensuring fresh dispatch across Accra and surrounding areas.
               </p>
 
               <div className="pt-2">
                 <a
-                  href={`https://maps.google.com/?q=5.3852,-0.6125`}
+                  href={`https://maps.google.com/?q=5.5539,-0.4496`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-emerald-700 hover:bg-emerald-600 text-white text-xs font-bold px-4 py-2 rounded-lg transition-colors border border-emerald-600"
@@ -177,10 +177,10 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
                       onChange={(e) => setContactForm({ ...contactForm, topic: e.target.value })}
                       className="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-emerald-600 text-xs"
                     >
-                      <option value="Wholesale Produce Order">Wholesale Produce Order (Eggs, Broilers, Snails, Fish)</option>
+                      <option value="Wholesale Produce Order">Wholesale Produce Order (Eggs, Chicken)</option>
                       <option value="Farmers Training Workshop">Farmers Training Workshop Inquiry</option>
                       <option value="Farm Tour / Educational Visit">Farm Tour / Educational Visit</option>
-                      <option value="Turnkey Agribusiness Setup">Turnkey Agribusiness Setup (Diaspora / Investor)</option>
+                      <option value="Turnkey Agribusiness Setup">Turnkey Agribusiness Setup</option>
                     </select>
                   </div>
                 </div>

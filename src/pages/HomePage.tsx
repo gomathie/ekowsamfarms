@@ -4,7 +4,8 @@ import { FARM_INFO, DIVISIONS, PRODUCTS, TESTIMONIALS, BLOG_POSTS } from '../dat
 import { 
   Leaf, ShoppingBag, Calendar, Award, ShieldCheck, ArrowRight, Star, 
   Play, Users, CheckCircle, ChevronRight, Sparkles, MapPin, Phone,
-  Egg, Fish, Bug, Sprout, Factory, GraduationCap, Flame, Eye, Calculator
+  Egg, Fish, Bug, Sprout, Factory, GraduationCap, Flame, Eye, Calculator,
+  Heart, Sun
 } from 'lucide-react';
 
 interface HomePageProps {
@@ -22,14 +23,10 @@ export const HomePage: React.FC<HomePageProps> = ({
   openAIAssistant,
   openPoultryCalculator
 }) => {
-  const [videoModalOpen, setVideoModalOpen] = useState(false);
-
   const getDivisionIcon = (iconName: string) => {
     switch (iconName) {
       case 'Egg': return <Egg className="w-6 h-6" />;
-      case 'Fish': return <Fish className="w-6 h-6" />;
-      case 'Bug': return <Bug className="w-6 h-6" />;
-      case 'Sprout': return <Sprout className="w-6 h-6" />;
+      case 'ShoppingBag': return <ShoppingBag className="w-6 h-6" />;
       case 'Factory': return <Factory className="w-6 h-6" />;
       case 'GraduationCap': return <GraduationCap className="w-6 h-6" />;
       default: return <Leaf className="w-6 h-6" />;
@@ -45,7 +42,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         {/* Background Overlay */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=1920"
+            src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80&w=1920"
             alt="Ekow Sam Farms Ghana"
             className="w-full h-full object-cover opacity-25 scale-105"
             referrerPolicy="no-referrer"
@@ -57,18 +54,18 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="lg:col-span-7 space-y-6">
             <div className="inline-flex items-center gap-2 bg-emerald-800/80 text-amber-300 border border-emerald-700/80 px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wide backdrop-blur-xs">
               <Sparkles className="w-4 h-4 text-amber-300" />
-              <span>GHANA'S PREMIER SUSTAINABLE AGRIBUSINESS</span>
+              <span>FRESHNESS YOU CAN TRUST</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight font-serif">
-              Nurturing Nature, <br />
+              From Our Farm, <br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 via-green-300 to-amber-300">
-                Feeding Communities
+                To Your Table.
               </span>
             </h1>
 
             <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl font-light">
-              Ekow Sam Farms leads commercial agriculture in West Africa — producing high-yield layer eggs, dressed broilers, Giant African Snails, catfish aquaculture, greenhouse produce, and practical farmer training.
+              Providing premium poultry products and organic eggs to the community for over 4 years.
             </p>
 
             <div className="flex flex-wrap items-center gap-3 pt-2">
@@ -103,7 +100,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="pt-6 border-t border-emerald-800/80 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
               <div className="flex items-center gap-2 text-emerald-200">
                 <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>500+ Acres Farmed</span>
+                <span>Zero Added Hormones</span>
               </div>
               <div className="flex items-center gap-2 text-emerald-200">
                 <CheckCircle className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -155,15 +152,15 @@ export const HomePage: React.FC<HomePageProps> = ({
                 className="p-3 bg-emerald-950/80 hover:bg-emerald-800/80 rounded-xl border border-emerald-800 transition-colors cursor-pointer flex items-center gap-3"
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=200"
-                  alt="Giant Snails"
+                  src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80&w=200"
+                  alt="Dressed Chicken"
                   className="w-14 h-14 rounded-lg object-cover"
                   referrerPolicy="no-referrer"
                 />
                 <div>
-                  <h4 className="font-bold text-sm text-white">Giant African Land Snails</h4>
-                  <p className="text-xs text-emerald-300">GH¢ 180.00 / Pack of 10 Jumbo</p>
-                  <p className="text-[10px] text-slate-400">Organically bred Archachatina marginata</p>
+                  <h4 className="font-bold text-sm text-white">Live Dressed Broiler</h4>
+                  <p className="text-xs text-emerald-300">GH¢ 120.00 / Per Bird</p>
+                  <p className="text-[10px] text-slate-400">Hormone-free and vacuum packed</p>
                 </div>
               </div>
 
@@ -172,15 +169,15 @@ export const HomePage: React.FC<HomePageProps> = ({
                 className="p-3 bg-emerald-950/80 hover:bg-emerald-800/80 rounded-xl border border-emerald-800 transition-colors cursor-pointer flex items-center gap-3"
               >
                 <img 
-                  src="https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80&w=200"
-                  alt="Smoked Catfish"
+                  src="https://images.unsplash.com/photo-1628268909376-e8c459632eb3?auto=format&fit=crop&q=80&w=200"
+                  alt="Kosua ne Meko"
                   className="w-14 h-14 rounded-lg object-cover"
                   referrerPolicy="no-referrer"
                 />
                 <div>
-                  <h4 className="font-bold text-sm text-white">Oven-Smoked Catfish</h4>
-                  <p className="text-xs text-emerald-300">GH¢ 160.00 / Pack of 5 Large</p>
-                  <p className="text-[10px] text-slate-400">Vacuum packed • FDA Ghana approved</p>
+                  <h4 className="font-bold text-sm text-white">Kosua ne Meko</h4>
+                  <p className="text-xs text-emerald-300">GH¢ 25.00 / Pack</p>
+                  <p className="text-[10px] text-slate-400">Farm fresh eggs with special pepper</p>
                 </div>
               </div>
             </div>
@@ -200,20 +197,20 @@ export const HomePage: React.FC<HomePageProps> = ({
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-white rounded-2xl shadow-xl border border-emerald-100 p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           <div className="space-y-1">
-            <span className="text-3xl sm:text-4xl font-black text-emerald-800 font-serif">500+</span>
-            <p className="text-xs font-bold text-slate-600 uppercase tracking-wider">Acres Cultivated</p>
-          </div>
-          <div className="space-y-1">
             <span className="text-3xl sm:text-4xl font-black text-emerald-800 font-serif">15,000+</span>
-            <p className="text-xs font-bold text-slate-600 uppercase tracking-wider">Birds & Livestock</p>
+            <p className="text-xs font-bold text-slate-600 uppercase tracking-wider">Birds Raised Annually</p>
           </div>
           <div className="space-y-1">
-            <span className="text-3xl sm:text-4xl font-black text-emerald-800 font-serif">100,000+</span>
-            <p className="text-xs font-bold text-slate-600 uppercase tracking-wider">Catfish & Tilapia</p>
+            <span className="text-3xl sm:text-4xl font-black text-emerald-800 font-serif">100%</span>
+            <p className="text-xs font-bold text-slate-600 uppercase tracking-wider">Organic Feed Policy</p>
           </div>
           <div className="space-y-1">
-            <span className="text-3xl sm:text-4xl font-black text-emerald-800 font-serif">2,500+</span>
-            <p className="text-xs font-bold text-slate-600 uppercase tracking-wider">Trainees Certified</p>
+            <span className="text-3xl sm:text-4xl font-black text-emerald-800 font-serif">100+</span>
+            <p className="text-xs font-bold text-slate-600 uppercase tracking-wider">Restaurants Supplied</p>
+          </div>
+          <div className="space-y-1">
+            <span className="text-3xl sm:text-4xl font-black text-emerald-800 font-serif">0</span>
+            <p className="text-xs font-bold text-slate-600 uppercase tracking-wider">Added Hormones</p>
           </div>
         </div>
       </section>
@@ -224,7 +221,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="lg:col-span-6 relative">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
               <img
-                src="https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800"
+                src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80&w=800"
                 alt="Ekow Sam Farms Agriculture"
                 className="w-full h-[420px] object-cover"
                 referrerPolicy="no-referrer"
@@ -235,7 +232,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   FOUNDER'S VISION
                 </span>
                 <p className="text-sm font-semibold mt-2 text-slate-100">
-                  "Our goal is to build sustainable food sovereignty in Ghana through modern commercial agriculture, value addition, and youth training."
+                  "At Ekow Farms, we believe in raising healthy, happy birds that contribute to a sustainable future."
                 </p>
                 <p className="text-xs text-amber-300 font-bold mt-1">— Ekow Sam, CEO & Founder</p>
               </div>
@@ -257,12 +254,12 @@ export const HomePage: React.FC<HomePageProps> = ({
                 Welcome to Ekow Sam Farms
               </span>
               <h2 className="text-3xl sm:text-4xl font-black text-slate-900 font-serif leading-tight">
-                Pioneering Commercial Agribusiness Across West Africa
+                Freshness You Can Trust, From Our Farm to Your Table.
               </h2>
             </div>
 
             <p className="text-slate-600 text-sm leading-relaxed">
-              Established with a commitment to sustainable commercial agriculture, Ekow Sam Farms operates an integrated 500-acre estate in the Central Region of Ghana. We seamlessly combine livestock husbandry, aquaculture, heliculture (snail farming), greenhouse horticulture, and agro-processing into a circular zero-waste ecosystem.
+              At Ekow Farms, we believe in raising healthy, happy birds that contribute to a sustainable future. Our commitment to eco-friendly practices ensures that every chicken and egg we produce is not only delicious but also responsibly sourced.
             </p>
 
             <div className="space-y-3 pt-2">
@@ -271,8 +268,8 @@ export const HomePage: React.FC<HomePageProps> = ({
                   ✓
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-slate-900">Integrated Circular Agriculture</h4>
-                  <p className="text-xs text-slate-500">Poultry manure enriches crop soil, while fish pond effluent irrigates greenhouse tomatoes.</p>
+                  <h4 className="font-bold text-sm text-slate-900">Farm Freshness</h4>
+                  <p className="text-xs text-slate-500">Processed and delivered within 24 hours.</p>
                 </div>
               </div>
 
@@ -281,8 +278,8 @@ export const HomePage: React.FC<HomePageProps> = ({
                   ✓
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-slate-900">Direct-to-Consumer Freshness</h4>
-                  <p className="text-xs text-slate-500">Daily harvest dispatches serving supermarkets, hotels, restaurants, and homes in Accra, Kumasi & Cape Coast.</p>
+                  <h4 className="font-bold text-sm text-slate-900">Organic Feed</h4>
+                  <p className="text-xs text-slate-500">No growth hormones or harmful additives.</p>
                 </div>
               </div>
 
@@ -291,8 +288,8 @@ export const HomePage: React.FC<HomePageProps> = ({
                   ✓
                 </div>
                 <div>
-                  <h4 className="font-bold text-sm text-slate-900">Youth & Diaspora Agribusiness Training</h4>
-                  <p className="text-xs text-slate-500">Empowering aspiring farmers with practical masterclasses and turnkey farm installation blueprints.</p>
+                  <h4 className="font-bold text-sm text-slate-900">Community Focused</h4>
+                  <p className="text-xs text-slate-500">Supporting local agriculture and sustainable practices.</p>
                 </div>
               </div>
             </div>
@@ -315,17 +312,17 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
           <div className="text-center max-w-2xl mx-auto space-y-3">
             <span className="text-xs font-bold text-emerald-700 uppercase tracking-widest bg-emerald-100 px-3 py-1 rounded-full border border-emerald-200">
-              OUR OPERATIONS
+              OUR SERVICES
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-slate-900 font-serif">
-              Explore Our Core Farm Divisions
+              What We Offer
             </h2>
             <p className="text-slate-600 text-sm">
-              Discover the six specialized arms powering Ekow Sam Farms' agricultural production and value addition in Ghana.
+              Discover the specialized services powering Ekow Sam Farms' agricultural production and value addition in Ghana.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {DIVISIONS.map((div) => (
               <div
                 key={div.id}
@@ -349,24 +346,13 @@ export const HomePage: React.FC<HomePageProps> = ({
                   </div>
 
                   <div className="p-6 space-y-3">
-                    <h3 className="text-xl font-extrabold text-slate-900 group-hover:text-emerald-700 transition-colors font-serif">
+                    <h3 className="text-lg font-extrabold text-slate-900 group-hover:text-emerald-700 transition-colors font-serif">
                       {div.title}
                     </h3>
                     <p className="text-xs text-emerald-800 font-semibold">{div.subtitle}</p>
                     <p className="text-xs text-slate-600 leading-relaxed line-clamp-3">
                       {div.summary}
                     </p>
-
-                    <div className="pt-2 space-y-1">
-                      <p className="text-[11px] font-bold text-slate-700 uppercase tracking-wider">Key Outputs:</p>
-                      <div className="flex flex-wrap gap-1.5">
-                        {div.keyProducts.slice(0, 3).map((prod, i) => (
-                          <span key={i} className="bg-slate-100 text-slate-700 text-[10px] font-medium px-2 py-0.5 rounded border border-slate-200">
-                            {prod}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
                   </div>
                 </div>
 
@@ -375,7 +361,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     onClick={() => setCurrentPage('divisions')}
                     className="w-full bg-slate-100 hover:bg-emerald-600 text-slate-800 hover:text-white font-bold py-2.5 rounded-xl transition-all text-xs flex items-center justify-center gap-1.5"
                   >
-                    <span>View Division Details</span>
+                    <span>View Service Details</span>
                     <ChevronRight className="w-4 h-4" />
                   </button>
                 </div>
@@ -409,7 +395,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           </button>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {featuredProducts.map((product) => (
             <div
               key={product.id}
@@ -475,49 +461,49 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* ZERO-WASTE SUSTAINABILITY SHOWCASE */}
+      {/* WHY CHOOSE US */}
       <section className="bg-emerald-900 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
           <div className="text-center max-w-2xl mx-auto space-y-3">
             <span className="text-xs font-bold text-amber-300 uppercase tracking-widest bg-emerald-800 px-3 py-1 rounded-full border border-emerald-700">
-              CIRCULAR ECOSYSTEM
+              WHY CHOOSE US
             </span>
             <h2 className="text-3xl sm:text-4xl font-black font-serif text-white">
-              Zero-Waste Sustainable Farming Method
+              Why Ekow Sams and not the grocery store?
             </h2>
             <p className="text-emerald-200 text-xs sm:text-sm">
-              How Ekow Sam Farms closes the loop by turning farm byproducts into vital inputs across divisions.
+              We stand by our commitment to delivering the freshest and healthiest poultry products.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-emerald-950/80 p-6 rounded-2xl border border-emerald-800 space-y-3">
               <div className="w-12 h-12 rounded-xl bg-emerald-800 flex items-center justify-center text-amber-300 font-bold text-lg">
-                1
+                <Sun className="w-6 h-6" />
               </div>
-              <h3 className="font-bold text-lg text-white font-serif">Poultry Manure to Bio-Fertilizer</h3>
+              <h3 className="font-bold text-lg text-white font-serif">Farm Freshness</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Manure from our 15,000 layers is composted with biochar and neem cake to produce nutrient-rich bio-fertilizer for our 350+ acre crop fields.
+                Processed and delivered within 24 hours to ensure you get the absolute best quality directly from our farm.
               </p>
             </div>
 
             <div className="bg-emerald-950/80 p-6 rounded-2xl border border-emerald-800 space-y-3">
               <div className="w-12 h-12 rounded-xl bg-emerald-800 flex items-center justify-center text-amber-300 font-bold text-lg">
-                2
+                <Leaf className="w-6 h-6" />
               </div>
-              <h3 className="font-bold text-lg text-white font-serif">Fish Water Fertigation</h3>
+              <h3 className="font-bold text-lg text-white font-serif">Organic Feed</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Nitrate-rich wastewater flushed from our catfish tanks is piped into drip irrigation systems powering our greenhouse tomatoes and peppers.
+                We use 100% organic feed. There are absolutely no growth hormones or harmful additives in our birds.
               </p>
             </div>
 
             <div className="bg-emerald-950/80 p-6 rounded-2xl border border-emerald-800 space-y-3">
               <div className="w-12 h-12 rounded-xl bg-emerald-800 flex items-center justify-center text-amber-300 font-bold text-lg">
-                3
+                <Heart className="w-6 h-6" />
               </div>
-              <h3 className="font-bold text-lg text-white font-serif">Crop Byproducts for Snail Feed</h3>
+              <h3 className="font-bold text-lg text-white font-serif">Community Focused</h3>
               <p className="text-xs text-slate-300 leading-relaxed">
-                Cassava peelings, papaya leaves, and maize bran nourish our 35,000 Giant African Snails, eliminating waste disposal costs.
+                Supporting local agriculture, sustainable practices, and empowering farmers through our agribusiness masterclasses.
               </p>
             </div>
           </div>
@@ -531,7 +517,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             TESTIMONIALS & REVIEWS
           </span>
           <h2 className="text-3xl font-black text-slate-900 font-serif">
-            Trusted by Hotels, Supermarkets & Farmers
+            Trusted by Hotels, Supermarkets & Families
           </h2>
         </div>
 

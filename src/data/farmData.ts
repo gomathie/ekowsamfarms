@@ -2,25 +2,23 @@ import { Product, Workshop, Division, BlogPost, GalleryItem, Testimonial } from 
 
 export const FARM_INFO = {
   name: "Ekow Sam Farms",
-  tagline: "Pioneering Sustainable Commercial Agriculture & Agro-Processing in Ghana",
+  tagline: "Freshness You Can Trust, From Our Farm to Your Table.",
   foundedYear: 2018,
   founder: "Ekow Sam",
-  location: "Ekow Sam Farm Estate, Gomoa East District, Central Region, Ghana",
-  address: "Off Accra - Cape Coast Highway, Gomoa Potsin Junction, Central Region",
-  gpsLocation: "5°23'06.7\"N 0°36'45.0\"W (GPS: CG-1234-5678)",
-  phones: ["+233 (0) 24 123 4567", "+233 (0) 50 888 9900", "+233 (0) 30 299 1122"],
-  emails: ["info@ekowsamfarms.com", "sales@ekowsamfarms.com", "training@ekowsamfarms.com"],
-  openingHours: "Mon - Sat: 7:30 AM - 5:30 PM | Sun: Closed for Farm Rest & Sanitization",
+  location: "DL hospital street, Accra, Ghana / Millenium City, Kasoa",
+  address: "Millenium City, Kasoa",
+  gpsLocation: "5°33'26.7\"N 0°12'45.0\"W",
+  phones: ["055 519 8194", "+(233) 55 519 8194"],
+  emails: ["samderreck@gmail.com", "hello@ekowsamfarms.com"],
+  openingHours: "Mon - Sat: 7:30 AM - 5:30 PM | Sun: Closed",
   farmSizeAcres: 500,
-  livestockCapacity: "15,000+ Birds & Small Ruminants",
-  fishCapacity: "100,000+ Catfish & Tilapia",
-  snailCapacity: "35,000+ Giant African Land Snails",
+  livestockCapacity: "15,000+ Birds",
   socials: {
     facebook: "https://facebook.com/ekowsamfarms",
     instagram: "https://instagram.com/ekowsamfarms",
     twitter: "https://twitter.com/ekowsamfarms",
     youtube: "https://youtube.com/@ekowsamfarms",
-    whatsapp: "+233241234567"
+    whatsapp: "0555198194"
   }
 };
 
@@ -35,9 +33,9 @@ export const PRODUCTS: Product[] = [
     image: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&q=80&w=800",
     inStock: true,
     featured: true,
-    rating: 4.9,
-    reviewsCount: 128,
-    description: "Farm-fresh large brown eggs collected daily from our free-flowing, nutrient-fed layer chickens in biosecure poultry units. High in omega-3 and protein.",
+    rating: 5.0,
+    reviewsCount: 342,
+    description: "Farm-fresh large brown eggs collected daily from our free-flowing, nutrient-fed layer chickens. High in omega-3 and protein, with a rich golden yolk.",
     specifications: {
       "Grade": "Grade A Large",
       "Yolk Color": "Rich Golden Orange",
@@ -56,168 +54,33 @@ export const PRODUCTS: Product[] = [
     image: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80&w=800",
     inStock: true,
     featured: true,
-    rating: 4.8,
-    reviewsCount: 94,
-    description: "Hygienically slaughtered, plucked, and dressed broiler chicken raised on 100% natural grain feed without artificial growth hormones.",
+    rating: 4.9,
+    reviewsCount: 284,
+    description: "Hygienically slaughtered, plucked, and dressed broiler chicken raised on organic feed without artificial growth hormones. Vacuum-packed for freshness.",
     specifications: {
       "Average Weight": "2.5kg - 3.0kg dressed",
-      "Feed Standard": "100% Non-GMO Soy & Yellow Corn",
+      "Feed Standard": "Organic / Hormone-Free",
       "Processing": "FDA-standard clean cold-chilled slaughtering",
       "Packaging": "Vacuum sealed food-grade pouch"
     }
   },
   {
     id: "prod-3",
-    name: "Giant African Land Snails (Archachatina marginata - Pack of 10)",
-    category: "snails",
-    priceGHS: 180,
-    priceUSD: 13.30,
-    unit: "Pack of 10 Jumbo Snails",
-    image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    inStock: true,
-    featured: true,
-    rating: 5.0,
-    reviewsCount: 67,
-    description: "Large, healthy, organically bred Giant African Land Snails (A. marginata). Rich in iron, low in cholesterol, fed on calcium-rich papaya leaves and organic formulate.",
-    specifications: {
-      "Species": "Archachatina marginata (Glover variety)",
-      "Size": "12cm - 15cm shell length",
-      "Weight": "180g - 250g per live snail",
-      "Purged": "Purged for 48 hours prior to delivery"
-    },
-    bulkDiscount: "Free delivery on 5+ packs in Accra & Cape Coast"
-  },
-  {
-    id: "prod-4",
-    name: "Oven-Smoked Catfish (Pack of 5 Large)",
-    category: "processed",
-    priceGHS: 160,
-    priceUSD: 11.85,
-    unit: "Pack of 5 Fish",
-    image: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80&w=800",
+    name: "Kosua ne Meko (Fresh Eggs with Pepper)",
+    category: "ready-to-eat",
+    priceGHS: 25,
+    priceUSD: 1.85,
+    unit: "Pack",
+    image: "https://images.unsplash.com/photo-1628268909376-e8c459632eb3?auto=format&fit=crop&q=80&w=800",
     inStock: true,
     featured: true,
     rating: 4.9,
     reviewsCount: 156,
-    description: "Premium Clarias catfish grown in clean recirculating aquaculture systems, seasoned with organic natural spices and smoked over aromatic hardwood.",
+    description: "Our signature Kosua ne Meko! Boiled farm-fresh eggs paired with our special spicy, aromatic pepper sauce. Check out our brand at kosuanemeko.com.",
     specifications: {
-      "Net Weight": "1.2kg per pack",
-      "Smoked Method": "Clean Stainless Steel Oven-Smoking (Low Polycyclic Aromatic Hydrocarbons)",
-      "Shelf Life": "Up to 6 months un-refrigerated in dry pack",
-      "Usage": "Ready to cook into soups, stews, and gravies"
-    }
-  },
-  {
-    id: "prod-5",
-    name: "Fresh Live African Catfish (Per Kg)",
-    category: "aquaculture",
-    priceGHS: 45,
-    priceUSD: 3.33,
-    unit: "Per Kg (approx 1-2 live fish)",
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=800",
-    inStock: true,
-    featured: false,
-    rating: 4.7,
-    reviewsCount: 82,
-    description: "Lively, healthy table-size African Catfish harvested directly from our freshwater ponds upon order. Tender meat with zero muddy taste.",
-    specifications: {
-      "Average Size": "800g - 1.5kg per fish",
-      "Water Environment": "Aerated freshwater spring tanks",
-      "Options": "Live in oxygenated bag OR freshly gutted on demand"
-    }
-  },
-  {
-    id: "prod-6",
-    name: "High-Quality Cassava Flour (HQCF - 5kg Bag)",
-    category: "processed",
-    priceGHS: 75,
-    priceUSD: 5.55,
-    unit: "5kg Bag",
-    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=800",
-    inStock: true,
-    featured: false,
-    rating: 4.8,
-    reviewsCount: 45,
-    description: "Unfermented, clean, odor-free, 100% white High Quality Cassava Flour processed from our organic farm-grown cassava within 24 hours of harvest.",
-    specifications: {
-      "Gluten Free": "100% Gluten-Free",
-      "Moisture Content": "< 10%",
-      "Uses": "Baking, soup thickener, pastry making, composite flour blends"
-    }
-  },
-  {
-    id: "prod-7",
-    name: "Organic Greenhouse Tomatoes (5kg Crate)",
-    category: "crops",
-    priceGHS: 110,
-    priceUSD: 8.15,
-    unit: "5kg Box",
-    image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&q=80&w=800",
-    inStock: true,
-    featured: true,
-    rating: 4.9,
-    reviewsCount: 73,
-    description: "Plump, firm, pesticide-free greenhouse tomatoes grown under strict climate-controlled conditions with drip fertigation.",
-    specifications: {
-      "Variety": "Eva F1 Hybrid Greenhouse Tomato",
-      "Skin": "Thick firm skin, long shelf life (up to 21 days)",
-      "Brix (Sweetness)": "High natural sweetness"
-    }
-  },
-  {
-    id: "prod-8",
-    name: "Snail Breeding Starter Kit (10 Mature Breeders + Cage Blueprint + Guide)",
-    category: "snails",
-    priceGHS: 450,
-    priceUSD: 33.30,
-    unit: "Complete Kit",
-    image: "https://images.unsplash.com/photo-1582515073490-39981397c445?auto=format&fit=crop&q=80&w=800",
-    inStock: true,
-    featured: false,
-    rating: 5.0,
-    reviewsCount: 39,
-    description: "Ideal for aspiring snail farmers. Contains 10 point-of-lay Giant African Land Snails, calcium feed supplement, substrate guide, and 1-on-1 telephone advice.",
-    specifications: {
-      "Breeders": "10 sexually mature point-of-lay snails (15cm+)",
-      "Extras": "1kg Calcium Supplement + Snail Care Manual + Cage Specs"
-    }
-  },
-  {
-    id: "prod-9",
-    name: "High-Grade Organic Bio-Fertilizer (25kg Bag)",
-    category: "inputs",
-    priceGHS: 90,
-    priceUSD: 6.66,
-    unit: "25kg Woven Bag",
-    image: "https://images.unsplash.com/photo-1628352081506-83c43123ed6d?auto=format&fit=crop&q=80&w=800",
-    inStock: true,
-    featured: false,
-    rating: 4.9,
-    reviewsCount: 51,
-    description: "Composted poultry manure enriched with biochar and neem cake. Restores soil microbial life and boosts crop yield naturally without chemical leaching.",
-    specifications: {
-      "Composition": "Composted Poultry Manure + Biochar + Plant Ash",
-      "NPK Ratio": "Balanced Organic NPK 4-3-3",
-      "Moisture": "Curated dry powder / granular"
-    }
-  },
-  {
-    id: "prod-10",
-    name: "Catfish Fingerlings & Post-Fingerlings (Batch of 500)",
-    category: "aquaculture",
-    priceGHS: 600,
-    priceUSD: 44.40,
-    unit: "Batch of 500 Healthy Shooters",
-    image: "https://images.unsplash.com/photo-1522069169874-c58ec4b76be5?auto=format&fit=crop&q=80&w=800",
-    inStock: true,
-    featured: false,
-    rating: 4.8,
-    reviewsCount: 33,
-    description: "Dutch strain Clarias gariepinus fingerlings bred in our modern hatchery. Fast growth rates, disease resistant, high feed conversion ratio (FCR).",
-    specifications: {
-      "Size": "Post-fingerling (5cm - 7cm)",
-      "Survival Rate": "> 95% guaranteed with proper care",
-      "Strain": "Dutch Clarias Gariepinus Super Strain"
+      "Ingredients": "Farm fresh eggs, local spices, fresh pepper",
+      "Spiciness": "Medium to Hot",
+      "Brand": "Kosuanemeko (kosuanemeko.com)"
     }
   }
 ];
@@ -225,63 +88,6 @@ export const PRODUCTS: Product[] = [
 export const WORKSHOPS: Workshop[] = [
   {
     id: "ws-1",
-    title: "Commercial Snail Farming (Heliculture) Masterclass",
-    category: "Heliculture & Agro-Enterprise",
-    duration: "2 Days (Sat - Sun)",
-    date: "August 15 - 16, 2026",
-    location: "Ekow Sam Farm Estate, Gomoa East & Virtual Live Stream",
-    feeGHS: 500,
-    feeUSD: 37,
-    instructor: "Ekow Sam & Dr. K. Mensah (Lead Heliculturist)",
-    seatsRemaining: 14,
-    image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    description: "Learn step-by-step how to establish a low-cost, high-profit commercial snail farm in West Africa. Covers breeding, housing designs, feed formulation, slime extraction, and export logistics.",
-    modules: [
-      "Introduction to Archachatina marginata & Achatina achatina biology",
-      "Designing intensive, semi-intensive, and greenhouse snail pens",
-      "Soil treatment, pest control & humidity regulation",
-      "Feed formulation using local farm byproducts & calcium boosters",
-      "Egg harvesting, incubation & hatchling care",
-      "Market linkages: Restaurants, cosmetic slime buyers & export standards"
-    ],
-    includes: [
-      "Certiﬁcate of Completion certified by MoFA trainers",
-      "10 Point-of-lay Breeder Snails to start your farm",
-      "Comprehensive 60-page Heliculture Blueprint Handbook",
-      "Buffet Farm Lunch & Refreshments on both days",
-      "Access to Ekow Sam Farmers Alumni Support Group"
-    ]
-  },
-  {
-    id: "ws-2",
-    title: "Commercial Catfish Breeding & High-Density Aquaculture Course",
-    category: "Aquaculture & Fish Farming",
-    duration: "3 Days Intensive",
-    date: "August 28 - 30, 2026",
-    location: "Ekow Sam Hatchery & Demonstration Ponds, Gomoa East",
-    feeGHS: 850,
-    feeUSD: 63,
-    instructor: "Ing. Kwame Asante (Lead Aquaculture Engineer)",
-    seatsRemaining: 8,
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=800",
-    description: "Hands-on practical training on catfish hormone stripping, egg incubation, fingerling nursing, pond construction (Tarpaulin, RAS & Earthen), feed optimization, and smoked fish processing.",
-    modules: [
-      "Broodstock selection & hormonal induction (Hypophysation)",
-      "Hatchery management & Artemia feeding protocols",
-      "Designing Recirculating Aquaculture Systems (RAS) on a budget",
-      "Water quality parameters: pH, Dissolved Oxygen, Ammonia management",
-      "On-farm feed milling & floating pellet production",
-      "Value addition: Smoking, gutting, packaging, and marketing strategies"
-    ],
-    includes: [
-      "Practical stripping & hatching session with live fish",
-      "500 Post-Fingerlings starter stock voucher",
-      "Aquaculture Management Software template",
-      "Lunch & farm tour included"
-    ]
-  },
-  {
-    id: "ws-3",
     title: "Modern Poultry & Broiler Management Masterclass",
     category: "Poultry & Livestock",
     duration: "2 Days",
@@ -307,7 +113,7 @@ export const WORKSHOPS: Workshop[] = [
     ]
   },
   {
-    id: "ws-4",
+    id: "ws-2",
     title: "Turnkey Agribusiness Setup & Farm Management Consultancy",
     category: "Agribusiness Management",
     duration: "1 Day Executive Session",
@@ -318,13 +124,13 @@ export const WORKSHOPS: Workshop[] = [
     instructor: "Ekow Sam (CEO & Founder)",
     seatsRemaining: 10,
     image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=800",
-    description: "Designed for investors, land owners, diaspora Ghanaians, and agricultural entrepreneurs seeking to build scalable 10+ acre commercial farms with high ROI.",
+    description: "Designed for investors, land owners, diaspora Ghanaians, and agricultural entrepreneurs seeking to build scalable commercial poultry farms with high ROI.",
     modules: [
       "Land acquisition, soil testing & farm master planning in Ghana",
       "CapEx and OpEx financial modeling for 5-year farm viability",
-      "Irrigation engineering & solar power integration for agriculture",
+      "Poultry housing engineering & biosecurity integration",
       "Managing farm labor, security, and digital inventory tracking",
-      "FDA, MoFA, and EPA regulatory compliance and export permits"
+      "FDA, MoFA, and EPA regulatory compliance and permits"
     ],
     includes: [
       "Private 1-on-1 Farm Feasibility Consultation with Ekow Sam",
@@ -336,171 +142,126 @@ export const WORKSHOPS: Workshop[] = [
 
 export const DIVISIONS: Division[] = [
   {
-    id: "poultry-livestock",
-    title: "Poultry & Livestock Division",
-    subtitle: "High-Yield Egg Layers, Dressed Broilers, Grasscutters & Small Ruminants",
-    iconName: "Egg",
-    image: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&q=80&w=800",
-    summary: "Our flagship livestock unit housing over 15,000 birds under strict biosecure conditions. We produce thousands of egg crates daily, premium dressed chickens, and breed grasscutters & Boer goats.",
-    fullDetails: "Ekow Sam Farms operates modern battery cage and deep litter systems designed for optimal animal welfare, airflow, and biosecurity. All feed is formulated on-site using yellow corn, soy meal, and essential micronutrients. We supply major hotel chains, restaurants, supermarkets, and wholesale egg distributors across Accra, Central Region, and Western Region.",
-    highlights: [
-      "Daily egg production exceeding 1,200 crates",
-      "35-day automated broiler harvest cycle with 2.8kg average weight",
-      "Captive breeding of Grasscutters (Greater Cane Rat) for meat & breeding stock",
-      "Strict zero-antibiotic withdrawal periods ensuring safe meat for consumers"
-    ],
-    keyProducts: ["Fresh Crate Eggs", "Dressed Broilers", "Live Layers", "Breeding Grasscutters", "Boer Goats"],
-    capacity: "15,000+ Birds & Ruminants"
-  },
-  {
-    id: "aquaculture",
-    title: "Aquaculture & Fish Hatchery Division",
-    subtitle: "Pristine Freshwater Catfish, Tilapia & High-Density Recirculating Ponds",
-    iconName: "Fish",
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=800",
-    summary: "State-of-the-art fish hatchery producing over 100,000 fingerlings monthly and raising high-grade African Catfish and Tilapia in clean spring-fed earthen and tarpaulin ponds.",
-    fullDetails: "Water quality is the cornerstone of fish health at Ekow Sam Farms. Utilizing recirculating filtration and continuous aeration systems, our fish grow fast with firm, delicious meat free from muddy off-flavors. We process fresh fish daily into live supplies, gutted fresh packs, and stainless steel oven-smoked catfish.",
-    highlights: [
-      "Hatchery capacity of 100,000+ fingerlings per month",
-      "Earthen ponds spanning 15 acres + 30 high-density plastic tanks",
-      "Proprietary floating feed formulation ensuring 1.1 Feed Conversion Ratio",
-      "Hygienic oven-smoking unit with vacuum packaging technology"
-    ],
-    keyProducts: ["Table Catfish", "Fresh Tilapia", "Dutch Strain Fingerlings", "Oven-Smoked Catfish"],
-    capacity: "100,000+ Fish Annually"
-  },
-  {
-    id: "heliculture",
-    title: "Heliculture (Snail Farming) Division",
-    subtitle: "Organic Giant African Land Snails (A. marginata), Slime & Breeding Stock",
-    iconName: "Bug",
-    image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    summary: "Ghana's premier commercial snail breeding facility with over 35,000 Giant African Land Snails housed in bio-controlled greenhouse pens.",
-    fullDetails: "Heliculture at Ekow Sam Farms is conducted in eco-friendly greenhouse trench pens enriched with natural soil microbiota, calcium-rich diets, and banana shade canopies. We harvest snails for culinary consumption, supply point-of-lay breeders to new farmers, and extract pure cosmetic-grade snail slime filtrate for pharmaceutical and beauty products.",
-    highlights: [
-      "Selective breeding of Archachatina marginata for maximum size (up to 250g+)",
-      "Zero chemical pesticide environment with natural humidity misting",
-      "Cold-extracted snail slime for cosmetics export",
-      "Complete turnkey snail cage design and stocking services"
-    ],
-    keyProducts: ["Jumbo Live Snails", "Oven-Dried Snails", "Point-of-Lay Breeders", "Snail Slime Extract"],
-    capacity: "35,000+ Snails"
-  },
-  {
-    id: "crops-greenhouse",
-    title: "Crops & Greenhouse Horticulture",
-    subtitle: "Organic Vegetables, Tomatoes, Peppers, Maize, Cassava & Plantain",
-    iconName: "Sprout",
-    image: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&q=80&w=800",
-    summary: "Over 350 acres dedicated to open-field grain/tuber cultivation alongside 10 high-tech climate-controlled greenhouses producing premium vegetables year-round.",
-    fullDetails: "By integrating drip irrigation powered by solar boreholes, Ekow Sam Farms produces crops continuously throughout both dry and wet seasons in Ghana. Waste from our livestock units is composted into rich organic fertilizer that feeds our fields, closing the nutrient loop.",
-    highlights: [
-      "Year-round drip-irrigated greenhouse tomato & sweet pepper production",
-      "300+ acres of high-yield yellow maize for livestock feed & market sale",
-      "Disease-resistant cassava tubers processed into High Quality Cassava Flour (HQCF)",
-      "Organic compost utilization reducing reliance on chemical fertilizers"
-    ],
-    keyProducts: ["Greenhouse Tomatoes", "Habenero Peppers", "Yellow Maize", "Cassava Tubers", "Plantains"],
-    capacity: "350+ Acres Cultivated"
-  },
-  {
-    id: "agro-processing",
-    title: "Agro-Processing & Value Addition",
-    subtitle: "Hygienic Vacuum Sealing, Smoked Products, Cassava Flour & Solar Drying",
+    id: "wholesale",
+    title: "Wholesale & B2B Supply",
+    subtitle: "High-Volume Poultry for Businesses",
     iconName: "Factory",
-    image: "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&q=80&w=800",
-    summary: "Transforming raw farm outputs into packaged, shelf-stable, FDA-certified food products for local retail and international export.",
-    fullDetails: "Value addition ensures farm produce never goes to waste. Our processing factory features stainless steel processing tables, blast chillers, low-PAH smokeless kilns, and automatic vacuum sealers. We pack our products under strict hygienic guidelines adhering to Ghana Food and Drugs Authority (FDA) standards.",
+    image: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&q=80&w=800",
+    summary: "Consistent, high-volume poultry supply for hotels, restaurants, and catering services.",
+    fullDetails: "We offer reliable, high-volume supply of premium dressed chicken and farm-fresh eggs to B2B clients, ensuring your kitchen never runs out of quality ingredients.",
     highlights: [
-      "FDA Ghana approved processing unit",
-      "Nitrogen-flushed packaging for extended shelf life without artificial preservatives",
-      "Cold-chain transport vans for fresh produce delivery",
-      "Custom white-label packaging for corporate clients and supermarkets"
+      "Consistent daily supply",
+      "Volume discounts for B2B partners",
+      "Strict hygiene and cold-chain maintenance"
     ],
-    keyProducts: ["Vacuum Smoked Catfish", "Dry Snails", "HQCF Cassava Flour", "Poultry Feed Blends"],
-    capacity: "5 Tons Processed Daily"
+    keyProducts: ["Crate Eggs Wholesale", "Dressed Broiler Bulk Supply"],
+    capacity: "Serving 100+ Businesses"
   },
   {
-    id: "training-consultancy",
-    title: "Agribusiness Training & Farm Setup Consultancy",
-    subtitle: "Empowering Next-Generation Farmers, Investors & Diaspora Entrepreneurs",
+    id: "home-delivery",
+    title: "Doorstep Home Delivery",
+    subtitle: "Farm-to-Fork Convenience",
+    iconName: "ShoppingBag",
+    image: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80&w=800",
+    summary: "Farm-fresh crates of eggs and dressed birds delivered straight to your doorstep.",
+    fullDetails: "Don't have time for the market? Our dedicated delivery team brings vacuum-sealed dressed chicken and fresh eggs directly to your home, ensuring convenience without compromising quality.",
+    highlights: [
+      "Fast, cold-chain delivery",
+      "Professional invoicing",
+      "Flexible delivery scheduling"
+    ],
+    keyProducts: ["Home Egg Crates", "Family Pack Dressed Chicken"],
+    capacity: "Daily Dispatch Across Accra"
+  },
+  {
+    id: "livestock-sales",
+    title: "Live Stock Sales",
+    subtitle: "Healthy Birds for Your Needs",
+    iconName: "Egg",
+    image: "https://images.unsplash.com/photo-1518552718167-93cf637ebba3?auto=format&fit=crop&q=80&w=800",
+    summary: "Healthy, well-vaccinated birds for those looking to start their own poultry journey or for festive seasons.",
+    fullDetails: "Whether you're celebrating a festival or looking to raise your own birds, we provide healthy, well-vaccinated live birds that guarantee quality and size.",
+    highlights: [
+      "Well-vaccinated and healthy",
+      "Great for festive seasons",
+      "High quality breeds"
+    ],
+    keyProducts: ["Live Broilers", "Point-of-Lay Hens"],
+    capacity: "Available on Demand"
+  },
+  {
+    id: "consulting",
+    title: "Agricultural Consulting",
+    subtitle: "Expert Guidance for Farm Setup",
     iconName: "GraduationCap",
     image: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800",
-    summary: "Practical hands-on agricultural workshops, feasibility studies, soil analysis, and turnkey farm setup services across West Africa.",
-    fullDetails: "We believe in building food security through knowledge sharing. Over 2,500 individuals, youth groups, retiree investors, and diaspora Ghanaians have passed through Ekow Sam Farms training programs. We offer both on-farm physical bootcamps and virtual live interactive modules.",
+    summary: "Expert advice and practical training for aspiring farmers and agribusiness investors.",
+    fullDetails: "Leverage our years of commercial farming experience. We provide consultancy on farm design, biosecurity, feed formulation, and business management.",
     highlights: [
-      "2,500+ trained agribusiness entrepreneurs to date",
-      "Custom turnkey farm construction: Snail pens, fish ponds, poultry cages",
-      "MoFA-recognized certification",
-      "Post-training mentorship and guaranteed buy-back programs for select produce"
+      "Turnkey farm setups",
+      "Practical workshops",
+      "Ongoing mentorship"
     ],
-    keyProducts: ["Snail Masterclass", "Fish Hatchery Course", "Poultry BootCamp", "Turnkey Farm Setup"],
-    capacity: "500+ Trainees Per Year"
+    keyProducts: ["Poultry Bootcamps", "Farm Design Blueprints"],
+    capacity: "Monthly Cohorts"
   }
 ];
 
 export const BLOG_POSTS: BlogPost[] = [
   {
     id: "blog-1",
-    title: "Why Snail Farming (Heliculture) is Ghana's Most Lucrative Hidden Agribusiness",
-    category: "Heliculture",
+    title: "From Farm to Fork: Why Hormone-Free Poultry Matters for Your Family",
+    category: "Health & Nutrition",
     author: "Ekow Sam",
     date: "July 12, 2026",
-    readTime: "5 min read",
-    image: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    snippet: "Discover how low capital setup, minimal space requirements, and high export demand for giant African snails make heliculture a goldmine in West Africa.",
+    readTime: "4 min read",
+    image: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80&w=800",
+    snippet: "Discover why choosing hormone-free, organic poultry is crucial for your family's health and how Ekow Sam Farms guarantees freshness.",
     content: [
-      "Snail farming, scientifically known as heliculture, has emerged as one of the most profitable yet under-exploited agricultural ventures in Ghana and across West Africa.",
-      "Unlike conventional livestock like cattle or poultry that require expensive feeds, large expanses of land, and high daily operational costs, Giant African Land Snails (Archachatina marginata) thrive on organic leaves, fruits, and calcium supplements in compact, eco-friendly greenhouse pens.",
-      "Key Financial Advantages:",
-      "1. High ROI: A modest setup with 100 breeder snails can multiply into over 5,000 snails within 12-14 months, generating upwards of 300% returns.",
-      "2. Low Mortality & Odorless: Snails are quiet, non-disruptive, and produce zero offensive odor when kept in well-managed soil trenches.",
-      "3. Triple Revenue Stream: Sell live jumbo snails for culinary meat, supply point-of-lay breeders to new farmers, or harvest pure snail slime for cosmetics companies.",
-      "At Ekow Sam Farms, our monthly Snail Masterclass provides practical step-by-step guidance, starter breeder stocks, and ongoing technical mentorship to ensure your farm succeeds."
+      "In today's fast-paced world, the food we put on our tables matters more than ever. Commercial poultry often relies on growth hormones to accelerate production, but at what cost to our health?",
+      "At Ekow Sam Farms, we believe that nature knows best. Our birds are raised on a strict organic feed diet, completely free from artificial growth hormones or harmful additives.",
+      "Hormone-free poultry not only tastes better—retaining that authentic, natural flavor—but it also provides peace of mind. You know exactly what you're feeding your family: clean, protein-rich meat that supports healthy development without the risk of unwanted chemical exposure.",
+      "When you choose Ekow Sams, you're choosing freshness you can trust, straight from our farm to your fork."
     ],
-    tags: ["Snail Farming", "Ghana Agribusiness", "Heliculture", "High ROI", "Organic Farming"]
+    tags: ["Health", "Organic", "Poultry", "Family Wellness"]
   },
   {
     id: "blog-2",
-    title: "5 Critical Water Quality Parameters Every Catfish Farmer in Ghana Must Monitor",
-    category: "Aquaculture",
-    author: "Ing. Kwame Asante",
+    title: "5 Signs of Truly Fresh Eggs (And How to Test Them at Home)",
+    category: "Tips & Tricks",
+    author: "Dr. Abena Osei",
     date: "June 28, 2026",
-    readTime: "7 min read",
-    image: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=800",
-    snippet: "Poor water quality is responsible for over 80% of fish mortalities in catfish farming. Learn how to optimize pH, Dissolved Oxygen, and Ammonia levels.",
+    readTime: "5 min read",
+    image: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&q=80&w=800",
+    snippet: "Not all eggs are created equal. Learn the five tell-tale signs of a fresh egg and a simple water test you can do at home.",
     content: [
-      "Catfish farming in tarpaulin tanks, concrete vats, or earthen ponds can yield immense profits if water quality is prioritized.",
-      "Many beginner fish farmers make the mistake of focusing solely on expensive feed without understanding that dirty, de-oxygenated water stops fish from digesting feed properly, leading to slow growth and sudden die-offs.",
-      "The 5 Non-Negotiable Water Parameters:",
-      "1. Dissolved Oxygen (DO): Keep DO levels above 4.0 mg/L using aeration pumps or frequent freshwater exchanges.",
-      "2. pH Balance: Ideal pH for African Catfish ranges between 6.5 and 8.5. Acidic water (below 6.0) causes skin lesions and stress.",
-      "3. Unionized Ammonia (NH3): Ammonia build-up from fish waste and uneaten feed is toxic. Perform 30% water flushes whenever ammonia rises.",
-      "4. Water Temperature: Maintain water between 26°C and 30°C for maximum metabolic activity.",
-      "5. Turbidity & Clarity: Excessive algae blooms can cause night-time oxygen depletion.",
-      "Ekow Sam Farms offers water testing kits and high-density RAS designs tailored for urban and commercial aquaculture setups."
+      "Eggs are a staple in almost every Ghanaian household, but finding truly fresh ones can sometimes be a challenge when shopping at generic grocery stores.",
+      "Here are 5 signs to look for:",
+      "1. A cloudy white (albumen) indicates extreme freshness. As eggs age, the white becomes clearer.",
+      "2. The yolk should sit high and firm. If it flattens out immediately when cracked, the egg is older.",
+      "3. The shell should have a slightly chalky, rough texture rather than a smooth, shiny one.",
+      "4. The float test: Place the egg in a bowl of water. A fresh egg will lay flat on the bottom. An older egg will stand on end, and a bad egg will float.",
+      "5. A strong, vibrant golden-orange yolk color, like the ones from our farm, indicates a healthy, nutrient-rich diet.",
+      "Our crates are delivered within 24 hours of laying, ensuring you get the freshest eggs possible."
     ],
-    tags: ["Catfish Farming", "Aquaculture", "Water Parameters", "Fish Hatchery", "Ghana Agriculture"]
+    tags: ["Eggs", "Freshness", "Cooking Tips", "Quality Control"]
   },
   {
     id: "blog-3",
-    title: "How Circular Zero-Waste Farming Reduces Operational Costs by 35%",
-    category: "Sustainable Agriculture",
+    title: "Scaling Your Restaurant: Why Choosing the Right Poultry Supplier is Key",
+    category: "B2B & Business",
     author: "Ekow Sam",
     date: "June 10, 2026",
     readTime: "6 min read",
-    image: "https://images.unsplash.com/photo-1500937386664-56d1dfef3854?auto=format&fit=crop&q=80&w=800",
-    snippet: "Explore how Ekow Sam Farms integrates poultry waste, catfish effluent, and crop residue into an eco-friendly closed-loop agricultural ecosystem.",
+    image: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&q=80&w=800",
+    snippet: "Consistency, hygiene, and timely delivery. Find out why top restaurants partner with Ekow Sam Farms for their poultry needs.",
     content: [
-      "In modern commercial farming, waste is simply an unutilized resource.",
-      "At Ekow Sam Farms, our circular farming model connects all our operational divisions into a self-sustaining web:",
-      "- Poultry Manure -> Composted into high-NPK organic fertilizer for our maize, tomato, and cassava fields.",
-      "- Catfish Wastewater -> Rich in nitrates, pumped directly to irrigate greenhouse vegetable beds.",
-      "- Cassava & Plantain Leaves -> High-protein feed for our breeding snails and ruminants.",
-      "- Maize Harvest -> Milled into energy-dense feed for our poultry layers and broilers.",
-      "By closing the loop, we slash synthetic fertilizer and external feed expenditures by over 35%, ensuring affordable prices for our consumers and protecting the environment."
+      "For any restaurant or catering business, the quality of your ingredients is the foundation of your reputation. When it comes to poultry, consistency is key.",
+      "Partnering with a reliable farm like Ekow Sam Farms ensures that you receive the exact size and quality of dressed birds you need, exactly when you need them. No more running out of stock during peak hours or dealing with substandard meat from unverified sources.",
+      "Our wholesale B2B supply guarantees vacuum-sealed, cold-chain delivered poultry that maintains its freshness from our processing unit to your kitchen.",
+      "We handle the biosecurity and hygiene, so you can focus on what you do best: creating incredible meals for your customers."
     ],
-    tags: ["Circular Economy", "Zero Waste", "Organic Farming", "Eco Friendly", "Ekow Sam Farms"]
+    tags: ["B2B", "Restaurant Supply", "Wholesale", "Agribusiness"]
   }
 ];
 
@@ -510,70 +271,49 @@ export const GALLERY_ITEMS: GalleryItem[] = [
     title: "Modern Biosecure Poultry Layers Unit",
     category: "livestock",
     imageUrl: "https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&q=80&w=800",
-    description: "Our automated battery layer facility producing thousands of crate eggs daily under clean hygienic standards."
+    description: "Our layer facility producing thousands of crate eggs daily under clean hygienic standards."
   },
   {
     id: "gal-2",
-    title: "Catfish Fingerlings Hatchery & Nursery Ponds",
-    category: "aquaculture",
-    imageUrl: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&q=80&w=800",
-    description: "Hormone stripping and fingerling nursing bays equipped with oxygenated water circulation."
+    title: "Hygienic Poultry Processing",
+    category: "processing",
+    imageUrl: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80&w=800",
+    description: "Cold-chain processing to ensure the highest safety and freshness for our dressed broilers."
   },
   {
     id: "gal-3",
-    title: "Greenhouse Snail Breeding Trench Pens",
-    category: "livestock",
-    imageUrl: "https://images.unsplash.com/photo-1534447677768-be436bb09401?auto=format&fit=crop&q=80&w=800",
-    description: "Eco-friendly humid trench pens filled with organic soil and banana shade trees for Giant African Snails."
-  },
-  {
-    id: "gal-4",
-    title: "Drip-Irrigated Greenhouse Tomato Harvest",
-    category: "crops",
-    imageUrl: "https://images.unsplash.com/photo-1592924357228-91a4daadcfea?auto=format&fit=crop&q=80&w=800",
-    description: "Climate-controlled greenhouse growing plump, pesticide-free Eva F1 tomatoes."
-  },
-  {
-    id: "gal-5",
-    title: "Stainless Steel Smokeless Fish Kiln Processing",
+    title: "Kosua ne Meko Preparation",
     category: "processing",
-    imageUrl: "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&q=80&w=800",
-    description: "FDA-compliant oven-smoking unit transforming fresh catfish into aromatic, long shelf-life vacuum packs."
-  },
-  {
-    id: "gal-6",
-    title: "Practical Farmers Workshop Session",
-    category: "training",
-    imageUrl: "https://images.unsplash.com/photo-1524178232363-1fb2b075b655?auto=format&fit=crop&q=80&w=800",
-    description: "Trainees receiving hands-on instructions during our weekend Snail & Aquaculture masterclass."
+    imageUrl: "https://images.unsplash.com/photo-1628268909376-e8c459632eb3?auto=format&fit=crop&q=80&w=800",
+    description: "Our signature Kosua ne Meko, ready to eat and packed with flavor."
   }
 ];
 
 export const TESTIMONIALS: Testimonial[] = [
   {
     id: "test-1",
-    name: "Chief Chef Kweku Anansi",
-    role: "Executive Head Chef",
-    company: "Royal Palm Beach Hotel, Cape Coast",
-    comment: "Ekow Sam Farms has been our sole supplier of fresh eggs, dressed broilers, and smoked catfish for 3 years. The freshness, consistency, and prompt delivery to our hotel kitchen are unmatched in Ghana.",
+    name: "Mrs. Akosua Mensah",
+    role: "Local Resident & Mother of Three",
+    company: "Home Delivery Customer",
+    comment: "I started buying from Ekow Sams because I wanted hormone-free meat for my children. The difference in taste is incredible! Their eggs have that rich, golden yolk you just don't find in the supermarkets anymore. It’s peace of mind for my family.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&q=80&w=200"
+    image: "https://images.unsplash.com/photo-1531123897727-8f129e1bf98c?auto=format&fit=crop&q=80&w=200"
   },
   {
     id: "test-2",
-    name: "Mrs. Evelyn Boateng",
-    role: "Agribusiness Graduate",
-    company: "GreenHaven Snail Enterprise, Kumasi",
-    comment: "Attending the 2-Day Snail Farming Masterclass at Ekow Sam Farms was the best investment I made. Their practical step-by-step guidance and healthy breeder stock helped me set up my 1,000-snail farm seamlessly!",
+    name: "Dr. Evelyn Tetteh",
+    role: "Medical Practitioner",
+    company: "Accra",
+    comment: "I rarely have time for the market, so the Ekow Sams home delivery service is a lifesaver. The poultry arrives vacuum-sealed and cold, exactly when they say it will. It’s professional, hygienic, and incredibly convenient for my busy schedule.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=200"
+    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=200"
   },
   {
     id: "test-3",
-    name: "Mr. Michael Mensah",
-    role: "Procurement Manager",
-    company: "Afritrade Supermarket Network, Accra",
-    comment: "Their vacuum-packed smoked catfish and high quality cassava flour are top sellers on our shelves. FDA compliant, neat barcode packaging, and always in demand by our domestic and international shoppers.",
+    name: "Mr. Samuel Dogbe",
+    role: "Manager",
+    company: "GreenLeaf Grocery Mart",
+    comment: "We’ve worked with several farms over the years, but Ekow Sams is in a league of its own. Their biosecurity standards and professional invoicing make them a dream to work with. Our customers specifically ask for their crates of eggs by name.",
     rating: 5,
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200"
   }
@@ -582,22 +322,22 @@ export const TESTIMONIALS: Testimonial[] = [
 export const FAQS = [
   {
     question: "Where is Ekow Sam Farms located and can I visit?",
-    answer: "Our main commercial farm estate is located at Gomoa Potsin Junction along the Accra - Cape Coast Highway in the Central Region of Ghana (approx. 45 minutes from Accra). We welcome visitors! You can book a farm tour through our Gallery & Tours page or call +233 24 123 4567."
+    answer: "Our main commercial farm estate is located at Millenium City, Kasoa. We also have an office on DL hospital street, Accra. We welcome visitors for scheduled farm tours or training sessions!"
   },
   {
-    question: "Do you deliver farm produce and processed foods across Ghana?",
-    answer: "Yes! We operate dedicated temperature-controlled delivery vans serving Greater Accra Region, Central Region, Western Region (Takoradi), and Ashanti Region (Kumasi). Bulk orders can also be dispatched nationwide."
+    question: "Do you deliver farm produce across Ghana?",
+    answer: "Yes! We operate dedicated temperature-controlled delivery vans serving Greater Accra Region and its environs for our Doorstep Home Delivery service. Wholesale supplies can be arranged for broader regions."
+  },
+  {
+    question: "Are your poultry products organic and hormone-free?",
+    answer: "Absolutely. We pride ourselves on our Organic Feed Policy. Our birds receive no growth hormones or harmful additives, ensuring safe, healthy, and great-tasting poultry for your family."
+  },
+  {
+    question: "What makes your Kosua ne Meko special?",
+    answer: "We use our own farm-fresh eggs with rich golden yolks and a proprietary spicy pepper recipe. Check out kosuanemeko.com for more about this specific brand!"
   },
   {
     question: "How do I register for your Farmers Training Workshops?",
-    answer: "You can view upcoming workshop schedules on our Training & Consultancy page, choose your preferred session (Snail Farming, Catfish Breeding, Poultry, or Agribusiness), and complete the online registration form. Payment can be made via Mobile Money (MTN MoMo, Vodafone Cash) or Bank Transfer."
-  },
-  {
-    question: "Are your food products certified by FDA Ghana?",
-    answer: "Absolutely. All our agro-processed products, including oven-smoked catfish, dried snails, packaged poultry, and high-quality cassava flour, are processed in our hygienic facility under Ghana Food and Drugs Authority (FDA) standards."
-  },
-  {
-    question: "Do you offer turnkey farm setup services for diaspora investors?",
-    answer: "Yes. For Ghanaians living abroad and commercial investors looking to build profitable farms without stress, we provide complete turnkey services: land evaluation, pond/pen/cage construction, seed stocking, staff training, and ongoing farm management supervision."
+    answer: "You can view upcoming workshop schedules on our Training & Consultancy page and register directly for topics like Poultry Management and Turnkey Farm Setup."
   }
 ];

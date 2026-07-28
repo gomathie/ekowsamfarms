@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PageId } from '../types';
 import { DIVISIONS } from '../data/farmData';
-import { Egg, Fish, Bug, Sprout, Factory, GraduationCap, CheckCircle, ChevronRight, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Egg, Factory, GraduationCap, CheckCircle, ChevronRight, ArrowRight, ShoppingBag } from 'lucide-react';
 
 interface DivisionsPageProps {
   setCurrentPage: (page: PageId) => void;
@@ -15,12 +15,10 @@ export const DivisionsPage: React.FC<DivisionsPageProps> = ({ setCurrentPage }) 
   const getIcon = (iconName: string) => {
     switch (iconName) {
       case 'Egg': return <Egg className="w-5 h-5" />;
-      case 'Fish': return <Fish className="w-5 h-5" />;
-      case 'Bug': return <Bug className="w-5 h-5" />;
-      case 'Sprout': return <Sprout className="w-5 h-5" />;
+      case 'ShoppingBag': return <ShoppingBag className="w-5 h-5" />;
       case 'Factory': return <Factory className="w-5 h-5" />;
       case 'GraduationCap': return <GraduationCap className="w-5 h-5" />;
-      default: return <Sprout className="w-5 h-5" />;
+      default: return <Egg className="w-5 h-5" />;
     }
   };
 
@@ -30,13 +28,13 @@ export const DivisionsPage: React.FC<DivisionsPageProps> = ({ setCurrentPage }) 
       <section className="bg-emerald-950 text-white py-14 px-4">
         <div className="max-w-7xl mx-auto text-center space-y-3">
           <span className="text-xs font-bold text-amber-300 uppercase tracking-widest bg-emerald-900 px-3 py-1 rounded-full border border-emerald-800">
-            INTEGRATED AGRICULTURAL DIVISIONS
+            OUR SERVICES
           </span>
           <h1 className="text-3xl sm:text-5xl font-black font-serif">
             What We Do at Ekow Sam Farms
           </h1>
           <p className="text-emerald-200 text-xs sm:text-sm max-w-2xl mx-auto">
-            Explore our six specialized agricultural operational units delivering sustainable produce, high-density aquaculture, organic heliculture, and agribusiness training across Ghana.
+            Explore our specialized services delivering sustainable premium poultry produce and agribusiness training across Ghana.
           </p>
         </div>
       </section>
@@ -58,7 +56,7 @@ export const DivisionsPage: React.FC<DivisionsPageProps> = ({ setCurrentPage }) 
                 }`}
               >
                 {getIcon(div.iconName)}
-                <span>{div.title.split(' ')[0]} {div.title.split(' ')[1] || ''}</span>
+                <span>{div.title}</span>
               </button>
             );
           })}
@@ -87,7 +85,7 @@ export const DivisionsPage: React.FC<DivisionsPageProps> = ({ setCurrentPage }) 
             <div className="space-y-4">
               <div className="inline-flex items-center gap-2 bg-emerald-50 text-emerald-900 border border-emerald-200 px-3 py-1 rounded-full text-xs font-bold">
                 {getIcon(activeDiv.iconName)}
-                <span>Specialized Operations Division</span>
+                <span>Farm Service</span>
               </div>
 
               <h2 className="text-2xl font-bold text-slate-900 font-serif">
@@ -127,7 +125,7 @@ export const DivisionsPage: React.FC<DivisionsPageProps> = ({ setCurrentPage }) 
                 onClick={() => setCurrentPage('store')}
                 className="bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-5 py-2.5 rounded-xl text-xs transition-colors shadow-xs flex items-center gap-1.5"
               >
-                <span>Order Products From This Division</span>
+                <span>Order Products From This Service</span>
                 <ArrowRight className="w-4 h-4" />
               </button>
               <button
