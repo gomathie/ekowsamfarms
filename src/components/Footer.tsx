@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { PageId } from '../types';
 import { FARM_INFO } from '../data/farmData';
 import { 
-  Leaf, Phone, Mail, MapPin, Clock, Facebook, Instagram, Twitter, Youtube, 
-  Send, ShieldCheck, Award, Heart, ArrowUpRight
+  Phone, Mail, MapPin, Facebook, Linkedin, 
+  ThumbsUp, ArrowRight
 } from 'lucide-react';
 
 interface FooterProps {
@@ -11,7 +11,7 @@ interface FooterProps {
   openAIAssistant: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ setCurrentPage, openAIAssistant }) => {
+export const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
   const [email, setEmail] = useState('');
   const [subscribed, setSubscribed] = useState(false);
 
@@ -30,163 +30,125 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage, openAIAssistant 
   };
 
   return (
-    <footer className="bg-slate-950 text-slate-300 font-sans border-t-4 border-brand-600">
-      {/* Top Value Banner */}
-      <div className="bg-brand-900/90 text-brand-100 py-6 px-4 border-b border-brand-800">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6 text-center md:text-left">
-          <div className="flex items-center gap-4 justify-center md:justify-start">
-            <div className="w-12 h-12 rounded-xl bg-brand-800/80 flex items-center justify-center text-accent-300 shrink-0">
-              <Award className="w-6 h-6" />
-            </div>
-            <div>
-              <h4 className="font-bold text-white text-base">FDA Ghana Standardized</h4>
-              <p className="text-xs text-brand-200">Hygienic processing, vacuum packaging & quality control</p>
-            </div>
+    <footer className="font-sans text-brand-100">
+      {/* Ready to taste the difference CTA Banner (Golden Yellow #F5D100) */}
+      <div className="bg-accent-500 text-brand-950 py-10 px-4 sm:px-8">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-black font-serif tracking-tight">
+              Ready to taste the difference?
+            </h2>
+            <p className="text-brand-900 font-medium text-sm mt-1">
+              Place Your Order Today! Fresh farm yellow-yolked eggs & dressed poultry delivered to you.
+            </p>
           </div>
-
-          <div className="flex items-center gap-4 justify-center md:justify-start">
-            <div className="w-12 h-12 rounded-xl bg-brand-800/80 flex items-center justify-center text-accent-300 shrink-0">
-              <ShieldCheck className="w-6 h-6" />
-            </div>
-            <div>
-              <h4 className="font-bold text-white text-base">100% Sustainable & Organic</h4>
-              <p className="text-xs text-brand-200">Zero-chemical pesticides & circular waste recycling</p>
-            </div>
-          </div>
-
-          <div className="flex items-center gap-4 justify-center md:justify-start">
-            <div className="w-12 h-12 rounded-xl bg-brand-800/80 flex items-center justify-center text-accent-300 shrink-0">
-              <Phone className="w-6 h-6" />
-            </div>
-            <div>
-              <h4 className="font-bold text-white text-base">Direct Farm Orders & Support</h4>
-              <p className="text-xs text-brand-200">Fast delivery to Accra, Cape Coast, Kumasi & Tema</p>
-            </div>
-          </div>
+          <button
+            onClick={() => navigateTo('store')}
+            className="bg-brand-900 hover:bg-brand-950 text-white font-black px-6 py-3 rounded-full text-sm transition-transform hover:scale-105 shadow-lg flex items-center gap-2 shrink-0"
+          >
+            <ThumbsUp className="w-4 h-4 text-accent-500 fill-current" />
+            <span>Order Now</span>
+          </button>
         </div>
       </div>
 
-      {/* Main Footer Links & Info */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
-        {/* Col 1: About Brand */}
-        <div className="lg:col-span-2 space-y-4">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-brand-600 flex items-center justify-center text-white font-bold">
-              <Leaf className="w-6 h-6 text-brand-200" />
-            </div>
-            <div>
-              <span className="text-xl font-black text-white font-serif">EKOW SAM</span>
-              <span className="text-xl font-bold text-brand-400"> FARMS</span>
-            </div>
-          </div>
-          <p className="text-slate-400 text-sm leading-relaxed pr-4">
-            Ghana's premier commercial agribusiness providing premium poultry products and organic eggs to the community.
-          </p>
-
-          <div className="pt-2">
-            <p className="text-xs font-bold uppercase tracking-wider text-brand-400 mb-2">Connect With Us</p>
+      {/* Main Footer Section (Dark Brown #3B2314) */}
+      <div className="bg-brand-950 text-brand-100 pt-16 pb-12 px-4 sm:px-6 lg:px-8 border-t border-brand-900">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+          {/* Col 1: Logo & Tagline */}
+          <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <a href={FARM_INFO.socials.facebook} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-slate-900 hover:bg-brand-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
+              <img
+                src="/images/logo.webp"
+                alt="Ekow Sam Farms Logo"
+                className="w-14 h-14 object-contain bg-white/10 p-1 rounded-full border border-accent-500/30"
+              />
+              <div>
+                <span className="text-xl font-black text-white font-serif block leading-tight">EKOW SAM</span>
+                <span className="text-sm font-bold text-accent-500 tracking-wider">FARMS</span>
+              </div>
+            </div>
+            <p className="text-brand-200 text-xs leading-relaxed">
+              High quality farm fresh yellow yoked eggs & premium poultry products for households and businesses in Ghana.
+            </p>
+
+            <div className="pt-2 flex items-center gap-3">
+              <a href={FARM_INFO.socials.facebook} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-brand-900 hover:bg-accent-500 hover:text-brand-950 text-brand-200 flex items-center justify-center transition-colors">
                 <Facebook className="w-4 h-4" />
               </a>
-              <a href={FARM_INFO.socials.instagram} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-slate-900 hover:bg-brand-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
-                <Instagram className="w-4 h-4" />
+              <a href={FARM_INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-brand-900 hover:bg-accent-500 hover:text-brand-950 text-brand-200 flex items-center justify-center transition-colors">
+                <Linkedin className="w-4 h-4" />
               </a>
-              <a href={FARM_INFO.socials.twitter} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-slate-900 hover:bg-brand-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
-                <Twitter className="w-4 h-4" />
-              </a>
-              <a href={FARM_INFO.socials.youtube} target="_blank" rel="noopener noreferrer" className="w-9 h-9 rounded-lg bg-slate-900 hover:bg-brand-600 text-slate-300 hover:text-white flex items-center justify-center transition-colors">
-                <Youtube className="w-4 h-4" />
+              <a href={`https://wa.me/${FARM_INFO.socials.whatsapp}`} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-brand-900 hover:bg-accent-500 hover:text-brand-950 text-brand-200 flex items-center justify-center transition-colors font-bold text-xs">
+                WA
               </a>
             </div>
           </div>
-        </div>
 
-        {/* Col 2: Quick Links */}
-        <div className="space-y-3">
-          <h4 className="text-white font-bold text-base border-b border-slate-800 pb-2">Quick Navigation</h4>
-          <ul className="space-y-2 text-sm">
-            <li><button onClick={() => navigateTo('home')} className="hover:text-brand-400 transition-colors">Home Page</button></li>
-            <li><button onClick={() => navigateTo('about')} className="hover:text-brand-400 transition-colors">About Us & History</button></li>
-            <li><button onClick={() => navigateTo('divisions')} className="hover:text-brand-400 transition-colors">Farm Divisions</button></li>
-            <li><button onClick={() => navigateTo('store')} className="hover:text-brand-400 transition-colors">Farm Produce Store</button></li>
-            <li><button onClick={() => navigateTo('training')} className="hover:text-brand-400 transition-colors">Farmers Masterclasses</button></li>
-            <li><button onClick={() => navigateTo('gallery')} className="hover:text-brand-400 transition-colors">Farm Gallery & Tours</button></li>
-            <li><button onClick={() => navigateTo('blog')} className="hover:text-brand-400 transition-colors">Farming Insights</button></li>
-            <li><button onClick={() => navigateTo('contact')} className="hover:text-brand-400 transition-colors">Contact Us</button></li>
-          </ul>
-        </div>
+          {/* Col 2: Our Services */}
+          <div className="space-y-3">
+            <h4 className="text-white font-bold text-base border-b border-brand-800 pb-2">Our Services</h4>
+            <ul className="space-y-2 text-xs text-brand-200">
+              <li className="flex items-center gap-2 hover:text-accent-500 cursor-pointer" onClick={() => navigateTo('divisions')}>
+                <ArrowRight className="w-3 h-3 text-accent-500" />
+                <span>Agricultural Consulting & Input</span>
+              </li>
+              <li className="flex items-center gap-2 hover:text-accent-500 cursor-pointer" onClick={() => navigateTo('divisions')}>
+                <ArrowRight className="w-3 h-3 text-accent-500" />
+                <span>Custom Processing</span>
+              </li>
+              <li className="flex items-center gap-2 hover:text-accent-500 cursor-pointer" onClick={() => navigateTo('divisions')}>
+                <ArrowRight className="w-3 h-3 text-accent-500" />
+                <span>Doorstep Home Delivery</span>
+              </li>
+              <li className="flex items-center gap-2 hover:text-accent-500 cursor-pointer" onClick={() => navigateTo('divisions')}>
+                <ArrowRight className="w-3 h-3 text-accent-500" />
+                <span>Wholesale & B2B Supply</span>
+              </li>
+            </ul>
+          </div>
 
-        {/* Col 3: Farm Divisions */}
-        <div className="space-y-3">
-          <h4 className="text-white font-bold text-base border-b border-slate-800 pb-2">Our Services</h4>
-          <ul className="space-y-2 text-sm text-slate-400">
-            <li>Wholesale & B2B Supply</li>
-            <li>Doorstep Home Delivery</li>
-            <li>Live Stock Sales</li>
-            <li>Agricultural Consulting</li>
-          </ul>
-        </div>
+          {/* Col 3: Navigation */}
+          <div className="space-y-3">
+            <h4 className="text-white font-bold text-base border-b border-brand-800 pb-2">Navigation</h4>
+            <ul className="space-y-2 text-xs text-brand-200">
+              <li><button onClick={() => navigateTo('home')} className="hover:text-accent-500 transition-colors">Home</button></li>
+              <li><button onClick={() => navigateTo('divisions')} className="hover:text-accent-500 transition-colors">Services</button></li>
+              <li><button onClick={() => navigateTo('about')} className="hover:text-accent-500 transition-colors">About Us</button></li>
+              <li><button onClick={() => navigateTo('store')} className="hover:text-accent-500 transition-colors">Farm Store</button></li>
+              <li><button onClick={() => navigateTo('contact')} className="hover:text-accent-500 transition-colors">Contact</button></li>
+            </ul>
+          </div>
 
-        {/* Col 4: Newsletter & Contact Info */}
-        <div className="space-y-4">
-          <h4 className="text-white font-bold text-base border-b border-slate-800 pb-2">Get Farm Updates</h4>
-          <p className="text-xs text-slate-400">
-            Subscribe for seasonal harvest alerts, training discounts, and agricultural tips.
-          </p>
-
-          <form onSubmit={handleSubscribe} className="space-y-2">
-            <div className="relative">
-              <input
-                type="email"
-                placeholder="Enter email address..."
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="w-full bg-slate-900 text-white placeholder-slate-500 text-sm px-3.5 py-2.5 rounded-lg border border-slate-800 focus:outline-none focus:border-brand-500"
-              />
-              <button
-                type="submit"
-                className="absolute right-1 top-1 bottom-1 bg-brand-600 hover:bg-brand-500 text-white px-3 rounded-md transition-colors text-xs font-bold"
-              >
-                Join
-              </button>
-            </div>
-            {subscribed && (
-              <p className="text-xs text-brand-400 font-medium">Thank you for subscribing to Ekow Sam Farms newsletter!</p>
-            )}
-          </form>
-
-          <div className="pt-2 text-xs text-slate-400 space-y-1.5">
-            <div className="flex items-start gap-2">
-              <MapPin className="w-4 h-4 text-brand-400 shrink-0 mt-0.5" />
-              <span>{FARM_INFO.location}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4 text-brand-400 shrink-0" />
-              <span>{FARM_INFO.phones[0]}</span>
-            </div>
-            <div className="flex items-center gap-2">
-              <Mail className="w-4 h-4 text-brand-400 shrink-0" />
-              <span>{FARM_INFO.emails[0]}</span>
+          {/* Col 4: Contact Us */}
+          <div className="space-y-3">
+            <h4 className="text-white font-bold text-base border-b border-brand-800 pb-2">Contact Us</h4>
+            <div className="text-xs text-brand-200 space-y-2">
+              <div className="flex items-start gap-2">
+                <MapPin className="w-4 h-4 text-accent-500 shrink-0 mt-0.5" />
+                <span>{FARM_INFO.address}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Phone className="w-4 h-4 text-accent-500 shrink-0" />
+                <span>{FARM_INFO.phones[1]}</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Mail className="w-4 h-4 text-accent-500 shrink-0" />
+                <span>{FARM_INFO.emails[1]}</span>
+              </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Bottom Legal & Payment Badges */}
-      <div className="bg-slate-900 border-t border-slate-800 py-6 px-4">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} Ekow Sam Farms Ghana. All Rights Reserved. Empowering Sustainable Agriculture.</p>
-          
-          <div className="flex items-center gap-4">
-            <span className="text-slate-400 font-semibold">Accepted Payments:</span>
-            <div className="flex items-center gap-2">
-              <span className="px-2 py-0.5 rounded bg-yellow-500/20 text-yellow-300 font-bold text-[10px] border border-yellow-500/30">MTN MoMo</span>
-              <span className="px-2 py-0.5 rounded bg-red-500/20 text-red-300 font-bold text-[10px] border border-red-500/30">Telecel Cash</span>
-              <span className="px-2 py-0.5 rounded bg-brand-500/20 text-brand-300 font-bold text-[10px] border border-brand-500/30">Visa / Mastercard</span>
-              <span className="px-2 py-0.5 rounded bg-brand-500/20 text-brand-300 font-bold text-[10px] border border-brand-500/30">Cash on Delivery</span>
-            </div>
+      {/* Bottom Copyright Strip */}
+      <div className="bg-brand-950 border-t border-brand-900 py-4 px-4 text-center text-xs text-brand-400">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-2">
+          <p>© Copyright 2026, Ekowsam Farms. All Rights Reserved.</p>
+          <div className="flex items-center gap-4 text-brand-400">
+            <button onClick={() => navigateTo('about')} className="hover:text-accent-500 transition-colors">Privacy Policy</button>
+            <span>•</span>
+            <button onClick={() => navigateTo('contact')} className="hover:text-accent-500 transition-colors">Contact Us</button>
           </div>
         </div>
       </div>

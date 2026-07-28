@@ -1,11 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { PageId, Product } from '../types';
 import { FARM_INFO, DIVISIONS, PRODUCTS, TESTIMONIALS, BLOG_POSTS } from '../data/farmData';
 import { 
-  Leaf, ShoppingBag, Calendar, Award, ShieldCheck, ArrowRight, Star, 
-  Play, Users, CheckCircle, ChevronRight, Sparkles, MapPin, Phone,
-  Egg, Fish, Bug, Sprout, Factory, GraduationCap, Flame, Eye, Calculator,
-  Heart, Sun
+  ShoppingBag, Calendar, Award, ArrowRight, Star, 
+  CheckCircle, ChevronRight, MapPin, Phone,
+  Egg, Factory, Eye, Calculator,
+  Sun, Leaf, Heart, ThumbsUp
 } from 'lucide-react';
 
 interface HomePageProps {
@@ -28,341 +28,223 @@ export const HomePage: React.FC<HomePageProps> = ({
       case 'Egg': return <Egg className="w-6 h-6" />;
       case 'ShoppingBag': return <ShoppingBag className="w-6 h-6" />;
       case 'Factory': return <Factory className="w-6 h-6" />;
-      case 'GraduationCap': return <GraduationCap className="w-6 h-6" />;
-      default: return <Leaf className="w-6 h-6" />;
+      default: return <Egg className="w-6 h-6" />;
     }
   };
 
-  const featuredProducts = PRODUCTS.filter(p => p.featured).slice(0, 4);
-
   return (
-    <div className="space-y-16 pb-16 font-sans">
-      {/* HERO SECTION */}
-      <section className="relative bg-brand-950 text-white min-h-[560px] flex items-center overflow-hidden">
-        {/* Background Overlay */}
+    <div className="font-sans space-y-0 pb-16">
+      {/* HERO SECTION (Dark Brown #3B2314 background) */}
+      <section className="relative bg-brand-800 text-white min-h-[520px] flex items-center justify-center overflow-hidden py-20 px-4">
+        {/* Background Image & Dark Overlay */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80&w=1920"
-            alt="Ekow Sam Farms Ghana"
-            className="w-full h-full object-cover opacity-25 scale-105"
-            referrerPolicy="no-referrer"
+            src="/images/hero-chicken.webp"
+            alt="Ekow Sam Farms Poultry"
+            className="w-full h-full object-cover opacity-20"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-brand-950 via-brand-950/90 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-b from-brand-950/90 via-brand-800/80 to-brand-950/90" />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-          <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 bg-brand-800/80 text-accent-300 border border-brand-700/80 px-3.5 py-1.5 rounded-full text-xs font-bold tracking-wide backdrop-blur-xs">
-              <Sparkles className="w-4 h-4 text-accent-300" />
-              <span>FRESHNESS YOU CAN TRUST</span>
-            </div>
-
-            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white leading-tight font-serif">
-              From Our Farm, <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-green-300 to-accent-300">
-                To Your Table.
-              </span>
-            </h1>
-
-            <p className="text-slate-300 text-base sm:text-lg leading-relaxed max-w-2xl font-light">
-              Providing premium poultry products and organic eggs to the community for over 4 years.
-            </p>
-
-            <div className="flex flex-wrap items-center gap-3 pt-2">
-              <button
-                onClick={() => setCurrentPage('store')}
-                className="bg-brand-500 hover:bg-brand-400 text-slate-950 font-black px-6 py-3.5 rounded-xl text-base shadow-lg transition-all flex items-center gap-2.5 active:scale-95"
-              >
-                <ShoppingBag className="w-5 h-5 text-slate-950" />
-                <span>Shop Fresh Produce</span>
-              </button>
-
-              {openPoultryCalculator && (
-                <button
-                  onClick={openPoultryCalculator}
-                  className="bg-accent-400 hover:bg-accent-300 text-slate-950 font-black px-5 py-3.5 rounded-xl text-base transition-all flex items-center gap-2 shadow-md active:scale-95"
-                >
-                  <Calculator className="w-5 h-5 text-slate-950" />
-                  <span>Poultry Calculator</span>
-                </button>
-              )}
-
-              <button
-                onClick={() => setCurrentPage('training')}
-                className="bg-brand-900/80 hover:bg-brand-800 text-white font-bold px-5 py-3.5 rounded-xl text-base border border-brand-700 transition-all flex items-center gap-2"
-              >
-                <Calendar className="w-5 h-5 text-accent-300" />
-                <span>Book Workshops</span>
-              </button>
-            </div>
-
-            {/* Live Badges */}
-            <div className="pt-6 border-t border-brand-800/80 grid grid-cols-2 sm:grid-cols-4 gap-4 text-xs">
-              <div className="flex items-center gap-2 text-brand-200">
-                <CheckCircle className="w-4 h-4 text-brand-400 shrink-0" />
-                <span>Zero Added Hormones</span>
-              </div>
-              <div className="flex items-center gap-2 text-brand-200">
-                <CheckCircle className="w-4 h-4 text-brand-400 shrink-0" />
-                <span>FDA Certified Foods</span>
-              </div>
-              <div className="flex items-center gap-2 text-brand-200">
-                <CheckCircle className="w-4 h-4 text-brand-400 shrink-0" />
-                <span>2,500+ Trainees</span>
-              </div>
-              <div className="flex items-center gap-2 text-brand-200">
-                <CheckCircle className="w-4 h-4 text-brand-400 shrink-0" />
-                <span>100% Organic Quality</span>
-              </div>
-            </div>
+        <div className="relative z-10 max-w-4xl mx-auto text-center space-y-6">
+          <div className="inline-flex items-center gap-2 bg-brand-900/90 text-accent-500 border border-accent-500/30 px-4 py-1.5 rounded-full text-xs font-black tracking-widest uppercase">
+            <span>Freshness You Can Trust, From Our Farm to Your Table.</span>
           </div>
 
-          {/* Hero Side Feature Card */}
-          <div className="lg:col-span-5 bg-brand-900/60 backdrop-blur-md border border-brand-700/60 rounded-2xl p-6 text-white space-y-5 shadow-2xl">
-            <div className="flex items-center justify-between border-b border-brand-800 pb-3">
-              <h3 className="font-extrabold text-base text-accent-300 flex items-center gap-2">
-                <Flame className="w-5 h-5 text-accent-400" />
-                <span>Featured Farm Offerings</span>
-              </h3>
-              <span className="text-[11px] bg-brand-950 text-brand-300 px-2.5 py-0.5 rounded-full border border-brand-800 font-bold">
-                Daily Harvest
-              </span>
-            </div>
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-white leading-tight font-serif tracking-tight">
+            Freshness You Can Trust, <br />
+            <span className="text-accent-500">From Our Farm to Your Table.</span>
+          </h1>
 
-            <div className="space-y-3">
-              <div 
-                onClick={() => setCurrentPage('store')}
-                className="p-3 bg-brand-950/80 hover:bg-brand-800/80 rounded-xl border border-brand-800 transition-colors cursor-pointer flex items-center gap-3"
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1516467508483-a7212febe31a?auto=format&fit=crop&q=80&w=200"
-                  alt="Fresh Eggs"
-                  className="w-14 h-14 rounded-lg object-cover"
-                  referrerPolicy="no-referrer"
-                />
-                <div>
-                  <h4 className="font-bold text-sm text-white">Commercial Table Eggs</h4>
-                  <p className="text-xs text-brand-300">GH¢ 65.00 / Crate of 30</p>
-                  <p className="text-[10px] text-slate-400">Collected fresh daily from biosecure layers</p>
-                </div>
-              </div>
+          <p className="text-brand-100 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto font-light">
+            Providing premium poultry products and organic eggs to the community for over 4 years.
+          </p>
 
-              <div 
-                onClick={() => setCurrentPage('store')}
-                className="p-3 bg-brand-950/80 hover:bg-brand-800/80 rounded-xl border border-brand-800 transition-colors cursor-pointer flex items-center gap-3"
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80&w=200"
-                  alt="Dressed Chicken"
-                  className="w-14 h-14 rounded-lg object-cover"
-                  referrerPolicy="no-referrer"
-                />
-                <div>
-                  <h4 className="font-bold text-sm text-white">Live Dressed Broiler</h4>
-                  <p className="text-xs text-brand-300">GH¢ 120.00 / Per Bird</p>
-                  <p className="text-[10px] text-slate-400">Hormone-free and vacuum packed</p>
-                </div>
-              </div>
-
-              <div 
-                onClick={() => setCurrentPage('store')}
-                className="p-3 bg-brand-950/80 hover:bg-brand-800/80 rounded-xl border border-brand-800 transition-colors cursor-pointer flex items-center gap-3"
-              >
-                <img 
-                  src="https://images.unsplash.com/photo-1628268909376-e8c459632eb3?auto=format&fit=crop&q=80&w=200"
-                  alt="Kosua ne Meko"
-                  className="w-14 h-14 rounded-lg object-cover"
-                  referrerPolicy="no-referrer"
-                />
-                <div>
-                  <h4 className="font-bold text-sm text-white">Kosua ne Meko</h4>
-                  <p className="text-xs text-brand-300">GH¢ 25.00 / Pack</p>
-                  <p className="text-[10px] text-slate-400">Farm fresh eggs with special pepper</p>
-                </div>
-              </div>
-            </div>
-
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <button
               onClick={() => setCurrentPage('store')}
-              className="w-full bg-brand-600 hover:bg-brand-500 text-white text-xs font-bold py-2.5 rounded-lg transition-colors flex items-center justify-center gap-1.5"
+              className="bg-accent-500 hover:bg-accent-400 text-brand-950 font-black px-8 py-3.5 rounded-full text-base shadow-xl transition-transform hover:scale-105 flex items-center gap-2"
             >
-              <span>Explore All Produce in Farm Store</span>
-              <ArrowRight className="w-4 h-4" />
+              <ShoppingBag className="w-5 h-5 text-brand-950" />
+              <span>Our Products</span>
+            </button>
+
+            <button
+              onClick={() => setCurrentPage('divisions')}
+              className="border-2 border-white hover:bg-white hover:text-brand-950 text-white font-black px-8 py-3.5 rounded-full text-base transition-colors"
+            >
+              Our Services
             </button>
           </div>
         </div>
       </section>
 
-      {/* QUICK STATS BAND */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-white rounded-2xl shadow-xl border border-brand-100 p-8 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div className="space-y-1">
-            <span className="text-3xl sm:text-4xl font-black text-brand-800 font-serif">15,000+</span>
-            <p className="text-xs font-bold text-slate-600 uppercase tracking-wider">Birds Raised Annually</p>
-          </div>
-          <div className="space-y-1">
-            <span className="text-3xl sm:text-4xl font-black text-brand-800 font-serif">100%</span>
-            <p className="text-xs font-bold text-slate-600 uppercase tracking-wider">Organic Feed Policy</p>
-          </div>
-          <div className="space-y-1">
-            <span className="text-3xl sm:text-4xl font-black text-brand-800 font-serif">100+</span>
-            <p className="text-xs font-bold text-slate-600 uppercase tracking-wider">Restaurants Supplied</p>
-          </div>
-          <div className="space-y-1">
-            <span className="text-3xl sm:text-4xl font-black text-brand-800 font-serif">0</span>
-            <p className="text-xs font-bold text-slate-600 uppercase tracking-wider">Added Hormones</p>
-          </div>
-        </div>
-      </section>
-
-      {/* ABOUT BRIEF SECTION */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-          <div className="lg:col-span-6 relative">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-              <img
-                src="https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?auto=format&fit=crop&q=80&w=800"
-                alt="Ekow Sam Farms Agriculture"
-                className="w-full h-[420px] object-cover"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6 text-white">
-                <span className="bg-accent-500 text-slate-950 font-black text-[10px] uppercase px-2.5 py-1 rounded">
-                  FOUNDER'S VISION
-                </span>
-                <p className="text-sm font-semibold mt-2 text-slate-100">
-                  "At Ekow Farms, we believe in raising healthy, happy birds that contribute to a sustainable future."
-                </p>
-                <p className="text-xs text-accent-300 font-bold mt-1">— Ekow Sam, CEO & Founder</p>
-              </div>
-            </div>
-
-            {/* Badge overlay */}
-            <div className="absolute -bottom-6 -right-6 hidden sm:flex bg-brand-800 text-white p-5 rounded-2xl shadow-xl border-2 border-brand-600 max-w-xs items-center gap-3">
-              <Award className="w-8 h-8 text-accent-300 shrink-0" />
-              <div>
-                <h5 className="font-bold text-sm">FDA Certified Facility</h5>
-                <p className="text-[11px] text-brand-200">Adhering to strict Food & Hygiene Standards in Ghana</p>
-              </div>
-            </div>
-          </div>
-
-          <div className="lg:col-span-6 space-y-6">
-            <div className="space-y-2">
-              <span className="text-xs font-bold text-brand-700 uppercase tracking-widest bg-brand-100 px-3 py-1 rounded-full border border-brand-200">
-                Welcome to Ekow Sam Farms
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-black text-slate-900 font-serif leading-tight">
-                Freshness You Can Trust, From Our Farm to Your Table.
-              </h2>
-            </div>
-
-            <p className="text-slate-600 text-sm leading-relaxed">
-              At Ekow Farms, we believe in raising healthy, happy birds that contribute to a sustainable future. Our commitment to eco-friendly practices ensures that every chicken and egg we produce is not only delicious but also responsibly sourced.
-            </p>
-
-            <div className="space-y-3 pt-2">
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-brand-100 text-brand-800 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
-                  ✓
-                </div>
-                <div>
-                  <h4 className="font-bold text-sm text-slate-900">Farm Freshness</h4>
-                  <p className="text-xs text-slate-500">Processed and delivered within 24 hours.</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-brand-100 text-brand-800 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
-                  ✓
-                </div>
-                <div>
-                  <h4 className="font-bold text-sm text-slate-900">Organic Feed</h4>
-                  <p className="text-xs text-slate-500">No growth hormones or harmful additives.</p>
-                </div>
-              </div>
-
-              <div className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-brand-100 text-brand-800 flex items-center justify-center shrink-0 mt-0.5 font-bold text-xs">
-                  ✓
-                </div>
-                <div>
-                  <h4 className="font-bold text-sm text-slate-900">Community Focused</h4>
-                  <p className="text-xs text-slate-500">Supporting local agriculture and sustainable practices.</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="pt-2 flex items-center gap-4">
-              <button
-                onClick={() => setCurrentPage('about')}
-                className="bg-brand-700 hover:bg-brand-800 text-white font-bold px-6 py-3 rounded-xl text-sm transition-colors shadow-sm flex items-center gap-2"
-              >
-                <span>Read Full Company Story</span>
-                <ArrowRight className="w-4 h-4" />
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CORE FARM DIVISIONS GRID */}
-      <section className="bg-slate-50 py-16 border-y border-slate-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-bold text-brand-700 uppercase tracking-widest bg-brand-100 px-3 py-1 rounded-full border border-brand-200">
-              OUR SERVICES
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black text-slate-900 font-serif">
-              What We Offer
+      {/* OUR SERVICES SECTION (Light Gray Background) */}
+      <section className="bg-slate-100 py-16 px-4 sm:px-6 lg:px-8 border-b border-slate-200">
+        <div className="max-w-7xl mx-auto space-y-12">
+          <div className="text-center space-y-3">
+            <h2 className="text-3xl sm:text-4xl font-black text-brand-950 font-serif">
+              Our Services
             </h2>
-            <p className="text-slate-600 text-sm">
-              Discover the specialized services powering Ekow Sam Farms' agricultural production and value addition in Ghana.
+            <div className="w-16 h-1 bg-accent-500 mx-auto rounded-full" />
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-2xl shadow-sm text-center space-y-4 border border-slate-200/60 hover:shadow-md transition-shadow">
+              <h3 className="text-xl font-bold text-brand-950 font-serif">Wholesale Supply</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Consistent, high-volume poultry supply for hotels, restaurants, and catering services.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-sm text-center space-y-4 border border-slate-200/60 hover:shadow-md transition-shadow">
+              <h3 className="text-xl font-bold text-brand-950 font-serif">Home Delivery</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Farm-fresh crates of eggs and dressed birds delivered straight to your doorstep.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-sm text-center space-y-4 border border-slate-200/60 hover:shadow-md transition-shadow">
+              <h3 className="text-xl font-bold text-brand-950 font-serif">Live Stock Sales</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Healthy, well-vaccinated birds for those looking to start their own poultry journey or for festive seasons.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* WHY CHOOSE US SECTION (Golden Yellow #F5D100 Background) */}
+      <section className="bg-accent-500 text-brand-950 py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto space-y-12">
+          <div className="text-center space-y-3">
+            <h2 className="text-3xl sm:text-4xl font-black font-serif">
+              Why Choose Us
+            </h2>
+            <p className="text-brand-900 font-semibold text-sm">
+              Why Ekow Sams and not the grocery store?
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {DIVISIONS.map((div) => (
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-white p-8 rounded-2xl shadow-md text-center space-y-4">
+              <div className="w-14 h-14 rounded-full bg-accent-100 text-brand-800 mx-auto flex items-center justify-center font-bold">
+                <Sun className="w-8 h-8 text-accent-500 fill-accent-500" />
+              </div>
+              <h3 className="text-xl font-bold text-brand-950 font-serif">Farm Freshness</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Processed and delivered within 24 hours.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-md text-center space-y-4">
+              <div className="w-14 h-14 rounded-full bg-accent-100 text-brand-800 mx-auto flex items-center justify-center font-bold">
+                <Leaf className="w-8 h-8 text-accent-500" />
+              </div>
+              <h3 className="text-xl font-bold text-brand-950 font-serif">Organic Feed</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                No growth hormones or harmful additives.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-2xl shadow-md text-center space-y-4">
+              <div className="w-14 h-14 rounded-full bg-accent-100 text-brand-800 mx-auto flex items-center justify-center font-bold">
+                <Heart className="w-8 h-8 text-accent-500 fill-accent-500" />
+              </div>
+              <h3 className="text-xl font-bold text-brand-950 font-serif">Community Focused</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">
+                Supporting local agriculture and sustainable practices.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* STATS BAND (Dark Brown #3B2314) */}
+      <section className="bg-brand-950 text-white py-12 px-4 border-y border-brand-900">
+        <div className="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div className="space-y-2">
+            <span className="text-4xl sm:text-5xl font-black text-accent-500 font-serif">4,768+</span>
+            <p className="text-xs sm:text-sm font-medium text-brand-200">Birds Raised Annually</p>
+          </div>
+          <div className="space-y-2">
+            <span className="text-4xl sm:text-5xl font-black text-accent-500 font-serif">79%</span>
+            <p className="text-xs sm:text-sm font-medium text-brand-200">Organic Feed Policy</p>
+          </div>
+          <div className="space-y-2">
+            <span className="text-4xl sm:text-5xl font-black text-accent-500 font-serif">157+</span>
+            <p className="text-xs sm:text-sm font-medium text-brand-200">People & Restaurants Supplied</p>
+          </div>
+          <div className="space-y-2">
+            <span className="text-4xl sm:text-5xl font-black text-accent-500 font-serif">0</span>
+            <p className="text-xs sm:text-sm font-medium text-brand-200">Added Hormones or Chemicals</p>
+          </div>
+        </div>
+      </section>
+
+      {/* ABOUT US BRIEF SECTION */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center space-y-6">
+        <h2 className="text-3xl font-black text-brand-950 font-serif">About Us</h2>
+        <div className="w-16 h-1 bg-brand-800 mx-auto rounded-full" />
+        <p className="text-slate-700 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
+          At Ekow Farms, we believe in raising healthy, happy birds that contribute to a sustainable future. Our commitment to eco-friendly practices ensures that every chicken and egg we produce is not only delicious but also responsibly sourced.
+        </p>
+        <button
+          onClick={() => setCurrentPage('about')}
+          className="inline-flex items-center gap-2 text-brand-800 font-bold hover:text-brand-600 transition-colors text-sm"
+        >
+          <span>Learn More About Our Farm</span>
+          <ArrowRight className="w-4 h-4" />
+        </button>
+      </section>
+
+      {/* KEY PRODUCTS WE HAVE SECTION */}
+      <section className="bg-slate-50 py-16 px-4 sm:px-6 lg:px-8 border-y border-slate-200">
+        <div className="max-w-7xl mx-auto space-y-12">
+          <div className="text-center space-y-3">
+            <h2 className="text-3xl sm:text-4xl font-black text-brand-950 font-serif">
+              Key Products We Have
+            </h2>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {PRODUCTS.map((product) => (
               <div
-                key={div.id}
-                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-slate-200/80 group flex flex-col justify-between"
+                key={product.id}
+                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-slate-200 flex flex-col justify-between"
               >
                 <div>
-                  <div className="relative h-48 overflow-hidden bg-slate-100">
+                  <div className="h-64 overflow-hidden bg-slate-100 relative">
                     <img
-                      src={div.image}
-                      alt={div.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      referrerPolicy="no-referrer"
+                      src={product.image}
+                      alt={product.name}
+                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-                    <div className="absolute top-4 left-4 w-10 h-10 rounded-xl bg-brand-600 text-white flex items-center justify-center shadow-md">
-                      {getDivisionIcon(div.iconName)}
-                    </div>
-                    <span className="absolute bottom-3 right-3 bg-brand-950/90 text-brand-300 text-[10px] font-extrabold px-2.5 py-1 rounded-md border border-brand-700">
-                      {div.capacity}
+                    <span className="absolute top-3 left-3 bg-brand-800 text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">
+                      {product.category}
                     </span>
                   </div>
 
                   <div className="p-6 space-y-3">
-                    <h3 className="text-lg font-extrabold text-slate-900 group-hover:text-brand-700 transition-colors font-serif">
-                      {div.title}
+                    <h3 className="text-xl font-bold text-brand-950 font-serif text-center">
+                      {product.name}
                     </h3>
-                    <p className="text-xs text-brand-800 font-semibold">{div.subtitle}</p>
-                    <p className="text-xs text-slate-600 leading-relaxed line-clamp-3">
-                      {div.summary}
+                    <p className="text-slate-600 text-xs text-center leading-relaxed">
+                      {product.description}
                     </p>
                   </div>
                 </div>
 
-                <div className="p-6 pt-0">
+                <div className="p-6 pt-0 space-y-3 text-center">
+                  <div className="text-2xl font-black text-brand-800">
+                    GH¢ {product.priceGHS.toFixed(2)}
+                  </div>
                   <button
-                    onClick={() => setCurrentPage('divisions')}
-                    className="w-full bg-slate-100 hover:bg-brand-600 text-slate-800 hover:text-white font-bold py-2.5 rounded-xl transition-all text-xs flex items-center justify-center gap-1.5"
+                    onClick={() => onAddToCart(product, 1)}
+                    className="w-full bg-brand-800 hover:bg-brand-900 text-white font-bold py-3 rounded-xl text-xs transition-colors shadow-sm flex items-center justify-center gap-2"
                   >
-                    <span>View Service Details</span>
-                    <ChevronRight className="w-4 h-4" />
+                    <ShoppingBag className="w-4 h-4" />
+                    <span>Order Now</span>
                   </button>
                 </div>
               </div>
@@ -371,213 +253,61 @@ export const HomePage: React.FC<HomePageProps> = ({
         </div>
       </section>
 
-      {/* FEATURED FARM STORE PRODUCTS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-end gap-4 border-b border-slate-200 pb-4">
-          <div>
-            <span className="text-xs font-bold text-brand-700 uppercase tracking-widest bg-brand-100 px-3 py-1 rounded-full border border-brand-200">
-              DIRECT FROM FARM
-            </span>
-            <h2 className="text-3xl font-black text-slate-900 font-serif mt-2">
-              Featured Fresh Farm Produce
-            </h2>
-            <p className="text-slate-600 text-xs mt-1">
-              Hygienically packaged produce dispatches delivered directly to your doorstep or supermarket.
-            </p>
-          </div>
-
-          <button
-            onClick={() => setCurrentPage('store')}
-            className="bg-brand-700 hover:bg-brand-800 text-white font-bold px-5 py-2.5 rounded-xl text-xs transition-colors flex items-center gap-1.5 shadow-xs shrink-0"
-          >
-            <span>Browse Full Farm Store ({PRODUCTS.length} Items)</span>
-            <ArrowRight className="w-4 h-4" />
-          </button>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {featuredProducts.map((product) => (
-            <div
-              key={product.id}
-              className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all flex flex-col justify-between group"
-            >
-              <div>
-                <div className="relative h-48 overflow-hidden bg-slate-100">
-                  <img
-                    src={product.image}
-                    alt={product.name}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                    referrerPolicy="no-referrer"
-                  />
-                  <span className="absolute top-3 left-3 bg-brand-800 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">
-                    {product.category}
-                  </span>
-                  <button
-                    onClick={() => onQuickView(product)}
-                    className="absolute bottom-3 right-3 bg-white/90 hover:bg-white text-slate-800 p-2 rounded-xl shadow-md transition-colors text-xs font-bold flex items-center gap-1"
-                  >
-                    <Eye className="w-3.5 h-3.5 text-brand-700" />
-                    <span>Quick View</span>
-                  </button>
-                </div>
-
-                <div className="p-4 space-y-2">
-                  <div className="flex items-center gap-1 text-accent-400 text-xs">
-                    <Star className="w-3.5 h-3.5 fill-accent-400" />
-                    <span className="font-bold text-slate-800">{product.rating}</span>
-                    <span className="text-slate-400 text-[10px]">({product.reviewsCount})</span>
-                  </div>
-
-                  <h3 className="font-bold text-slate-900 text-sm line-clamp-2 leading-snug">
-                    {product.name}
-                  </h3>
-
-                  <p className="text-[11px] text-slate-500 line-clamp-2">
-                    {product.description}
-                  </p>
-                </div>
-              </div>
-
-              <div className="p-4 pt-0 space-y-3">
-                <div className="flex items-baseline justify-between border-t border-slate-100 pt-3">
-                  <div>
-                    <span className="text-lg font-black text-brand-800">
-                      GH¢ {product.priceGHS.toFixed(2)}
-                    </span>
-                    <span className="text-[10px] text-slate-400 block">{product.unit}</span>
-                  </div>
-                </div>
-
-                <button
-                  onClick={() => onAddToCart(product, 1)}
-                  className="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-2.5 rounded-xl text-xs transition-colors shadow-xs flex items-center justify-center gap-1.5 active:scale-95"
-                >
-                  <ShoppingBag className="w-4 h-4" />
-                  <span>Add to Basket</span>
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* WHY CHOOSE US */}
-      <section className="bg-brand-900 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-bold text-accent-300 uppercase tracking-widest bg-brand-800 px-3 py-1 rounded-full border border-brand-700">
-              WHY CHOOSE US
-            </span>
-            <h2 className="text-3xl sm:text-4xl font-black font-serif text-white">
-              Why Ekow Sams and not the grocery store?
-            </h2>
-            <p className="text-brand-200 text-xs sm:text-sm">
-              We stand by our commitment to delivering the freshest and healthiest poultry products.
-            </p>
-          </div>
-
+      {/* TESTIMONIALS SECTION (Dark Brown #3B2314 Background) */}
+      <section className="bg-brand-950 text-white py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto space-y-12">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-brand-950/80 p-6 rounded-2xl border border-brand-800 space-y-3">
-              <div className="w-12 h-12 rounded-xl bg-brand-800 flex items-center justify-center text-accent-300 font-bold text-lg">
-                <Sun className="w-6 h-6" />
-              </div>
-              <h3 className="font-bold text-lg text-white font-serif">Farm Freshness</h3>
-              <p className="text-xs text-slate-300 leading-relaxed">
-                Processed and delivered within 24 hours to ensure you get the absolute best quality directly from our farm.
-              </p>
-            </div>
+            {TESTIMONIALS.map((test) => (
+              <div key={test.id} className="bg-white text-slate-900 p-8 rounded-2xl space-y-6 flex flex-col justify-between shadow-lg">
+                <p className="text-sm text-slate-700 leading-relaxed italic">
+                  "{test.comment}"
+                </p>
 
-            <div className="bg-brand-950/80 p-6 rounded-2xl border border-brand-800 space-y-3">
-              <div className="w-12 h-12 rounded-xl bg-brand-800 flex items-center justify-center text-accent-300 font-bold text-lg">
-                <Leaf className="w-6 h-6" />
+                <div className="border-t border-slate-100 pt-4 text-center">
+                  <h4 className="font-bold text-base text-brand-950 font-serif">{test.name}</h4>
+                  <p className="text-xs text-brand-700 font-medium">{test.role}</p>
+                </div>
               </div>
-              <h3 className="font-bold text-lg text-white font-serif">Organic Feed</h3>
-              <p className="text-xs text-slate-300 leading-relaxed">
-                We use 100% organic feed. There are absolutely no growth hormones or harmful additives in our birds.
-              </p>
-            </div>
-
-            <div className="bg-brand-950/80 p-6 rounded-2xl border border-brand-800 space-y-3">
-              <div className="w-12 h-12 rounded-xl bg-brand-800 flex items-center justify-center text-accent-300 font-bold text-lg">
-                <Heart className="w-6 h-6" />
-              </div>
-              <h3 className="font-bold text-lg text-white font-serif">Community Focused</h3>
-              <p className="text-xs text-slate-300 leading-relaxed">
-                Supporting local agriculture, sustainable practices, and empowering farmers through our agribusiness masterclasses.
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* TESTIMONIALS */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-        <div className="text-center max-w-2xl mx-auto space-y-2">
-          <span className="text-xs font-bold text-brand-700 uppercase tracking-widest bg-brand-100 px-3 py-1 rounded-full border border-brand-200">
-            TESTIMONIALS & REVIEWS
-          </span>
-          <h2 className="text-3xl font-black text-slate-900 font-serif">
-            Trusted by Hotels, Supermarkets & Families
+      {/* LATEST NEWS & INSIGHTS */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto space-y-12">
+        <div className="text-center space-y-3">
+          <h2 className="text-3xl sm:text-4xl font-black text-brand-950 font-serif">
+            Latest News & Insights
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {TESTIMONIALS.map((test) => (
-            <div key={test.id} className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4 flex flex-col justify-between">
-              <div className="space-y-3">
-                <div className="flex text-accent-400 gap-1">
-                  {[...Array(test.rating)].map((_, i) => (
-                    <Star key={i} className="w-4 h-4 fill-accent-400" />
-                  ))}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {BLOG_POSTS.map((post) => (
+            <div
+              key={post.id}
+              onClick={() => setCurrentPage('blog')}
+              className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all cursor-pointer flex flex-col justify-between"
+            >
+              <div>
+                <div className="h-48 overflow-hidden bg-slate-100">
+                  <img
+                    src={post.image}
+                    alt={post.title}
+                    className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                  />
                 </div>
-                <p className="text-xs text-slate-700 italic leading-relaxed">
-                  "{test.comment}"
-                </p>
-              </div>
 
-              <div className="flex items-center gap-3 pt-3 border-t border-slate-100">
-                <img
-                  src={test.image}
-                  alt={test.name}
-                  className="w-10 h-10 rounded-full object-cover border border-slate-200"
-                  referrerPolicy="no-referrer"
-                />
-                <div>
-                  <h4 className="font-bold text-xs text-slate-900">{test.name}</h4>
-                  <p className="text-[10px] text-brand-800 font-medium">{test.role} • {test.company}</p>
+                <div className="p-6 space-y-3">
+                  <h3 className="font-bold text-slate-900 text-lg font-serif leading-snug hover:text-brand-700 transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-xs text-slate-600 line-clamp-3">
+                    {post.snippet}
+                  </p>
                 </div>
               </div>
             </div>
           ))}
-        </div>
-      </section>
-
-      {/* CALL TO ACTION BANNER */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-gradient-to-r from-brand-800 to-green-900 rounded-3xl p-8 sm:p-12 text-white shadow-xl flex flex-col lg:flex-row items-center justify-between gap-8 border border-brand-700">
-          <div className="space-y-3 text-center lg:text-left">
-            <h2 className="text-2xl sm:text-3xl font-black font-serif">
-              Ready to Order Fresh Produce or Book a Farm Training?
-            </h2>
-            <p className="text-brand-100 text-xs sm:text-sm max-w-xl">
-              Connect directly with Ekow Sam Farms for wholesale produce supply, masterclass registrations, or turnkey farm installation in Ghana.
-            </p>
-          </div>
-
-          <div className="flex flex-wrap gap-3 justify-center">
-            <button
-              onClick={() => setCurrentPage('store')}
-              className="bg-accent-400 hover:bg-accent-300 text-slate-950 font-black px-6 py-3.5 rounded-xl text-sm transition-all shadow-md active:scale-95"
-            >
-              Shop Farm Store
-            </button>
-            <button
-              onClick={() => setCurrentPage('contact')}
-              className="bg-brand-950 hover:bg-brand-900 text-white font-bold px-6 py-3.5 rounded-xl text-sm border border-brand-700 transition-colors"
-            >
-              Contact Farm Office
-            </button>
-          </div>
         </div>
       </section>
     </div>
