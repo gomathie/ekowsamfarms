@@ -11,7 +11,7 @@ export type PageId =
 export interface Product {
   id: string;
   name: string;
-  category: 'poultry' | 'aquaculture' | 'snails' | 'crops' | 'processed' | 'inputs';
+  category: 'poultry' | 'aquaculture' | 'snails' | 'crops' | 'processed' | 'inputs' | 'ready-to-eat';
   priceGHS: number;
   priceUSD: number;
   unit: string;

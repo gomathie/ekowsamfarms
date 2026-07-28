@@ -1,20 +1,57 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Ekow Sam Farms
 
-# Run and deploy your AI Studio app
+Welcome to the frontend application for **Ekow Sam Farms**, Ghana's premier commercial agribusiness providing premium poultry products and organic eggs to the community.
 
-This contains everything you need to run your app locally.
+## Features
 
-View your app in AI Studio: https://ai.studio/apps/a2e8fcc9-0ddb-4e75-bb7b-b91bb1a2825e
+- **Responsive Design**: Modern and clean user interface tailored for seamless navigation on all devices.
+- **Dynamic Routing**: Built with custom state-based routing in React, handling views such as Home, About, Farm Store, Services, and Contact.
+- **Farm Store**: Browse and order fresh produce including Commercial Table Eggs, Dressed Broilers, and Kosua ne Meko.
+- **Services & Training**: Information on wholesale supply, doorstep delivery, livestock sales, and agribusiness workshops.
+
+## Technologies Used
+
+- **React 19**
+- **Vite**
+- **TypeScript**
+- **Tailwind CSS 4**
+- **Lucide React** for icons
 
 ## Run Locally
 
 **Prerequisites:**  Node.js
 
+1. Clone the repository and install dependencies:
+   ```bash
+   npm install
+   ```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+2. Run the development server:
+   ```bash
+   npm run dev
+   ```
+
+3. Open [http://localhost:5173](http://localhost:5173) in your browser to view the application.
+
+## Build for Production
+
+To create a production-ready build, run:
+```bash
+npm run build
+```
+
+This will output the optimized static files into the `dist/` directory.
+
+## Project Structure
+
+- `src/components/`: Reusable UI components (Header, Footer, Modals, etc.)
+- `src/pages/`: Main application pages (Home, About, Store, Divisions, etc.)
+- `src/data/`: Centralized data store (`farmData.ts`) containing products, services, testimonials, and blog posts.
+- `src/types.ts`: TypeScript interfaces defining the data models.
+
+## Contact
+
+For farm orders, training registration, or general inquiries, please contact:
+- **Email**: [samderreck@gmail.com](mailto:samderreck@gmail.com) / [hello@ekowsamfarms.com](mailto:hello@ekowsamfarms.com)
+- **Phone**: 055 519 8194
+- **Location**: Millenium City, Kasoa / DL hospital street, Accra, Ghana
