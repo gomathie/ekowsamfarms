@@ -4,7 +4,7 @@ import { EVENTS, FARM_INFO } from '../data/farmData';
 import { PageHeader } from '../components/PageHeader';
 import {
   CalendarDays, MapPin, Clock, Users, Ticket, ArrowRight, X, Check,
-  CalendarPlus, Sparkles, CheckCircle
+  CalendarPlus, Sparkles, CheckCircle, ExternalLink
 } from 'lucide-react';
 
 interface EventsPageProps {
@@ -181,17 +181,30 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
               </div>
 
               <div className="flex flex-col sm:flex-row gap-3 pt-1">
-                <button
-                  onClick={() => openEvent(nextEvent)}
-                  className="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl text-xs transition-colors shadow-xs flex items-center justify-center gap-2"
-                >
-                  <Ticket className="w-4 h-4" />
-                  <span>
-                    {nextEvent.priceGHS === 0
-                      ? 'Reserve Free Spot'
-                      : `Reserve Spot · GH¢ ${nextEvent.priceGHS}`}
-                  </span>
-                </button>
+                {nextEvent.externalUrl ? (
+                  <a
+                    href={nextEvent.externalUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl text-xs transition-colors shadow-xs flex items-center justify-center gap-2"
+                  >
+                    <Ticket className="w-4 h-4" />
+                    <span>RSVP on the Official Site</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                  </a>
+                ) : (
+                  <button
+                    onClick={() => openEvent(nextEvent)}
+                    className="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl text-xs transition-colors shadow-xs flex items-center justify-center gap-2"
+                  >
+                    <Ticket className="w-4 h-4" />
+                    <span>
+                      {nextEvent.priceGHS === 0
+                        ? 'Reserve Free Spot'
+                        : `Reserve Spot · GH¢ ${nextEvent.priceGHS}`}
+                    </span>
+                  </button>
+                )}
                 <a
                   href={googleCalendarUrl(nextEvent)}
                   target="_blank"
@@ -373,7 +386,7 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
                           : 'bg-slate-100 hover:bg-brand-600 text-slate-800 hover:text-white'
                       }`}
                     >
-                      <span>{past ? 'View Recap' : 'View Details & RSVP'}</span>
+                      <span>{past ? 'View Recap' : evt.externalUrl ? 'View Details' : 'View Details & RSVP'}</span>
                       <ArrowRight className="w-4 h-4" />
                     </button>
                   </div>
@@ -521,7 +534,32 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
                     </ul>
                   </div>
 
-                  {isUpcoming(selectedEvent) ? (
+                  {isUpcoming(selectedEvent) && selectedEvent.externalUrl ? (
+                    <div className="pt-3 border-t border-slate-100 space-y-3">
+                      <p className="text-xs text-slate-600 leading-relaxed">
+                        This event has its own site with the full line-up and ticket RSVP.
+                      </p>
+                      <a
+                        href={selectedEvent.externalUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl text-xs transition-colors flex items-center justify-center gap-2"
+                      >
+                        <Ticket className="w-4 h-4" />
+                        <span>RSVP at {selectedEvent.externalUrl.replace(/^https?:\/\//, '')}</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                      <a
+                        href={googleCalendarUrl(selectedEvent)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3 rounded-xl text-xs transition-colors flex items-center justify-center gap-2"
+                      >
+                        <CalendarPlus className="w-4 h-4" />
+                        <span>Add to Calendar</span>
+                      </a>
+                    </div>
+                  ) : isUpcoming(selectedEvent) ? (
                     <form onSubmit={handleRsvpSubmit} className="space-y-3 text-xs pt-2 border-t border-slate-100">
                       <h4 className="font-bold text-xs uppercase text-slate-800 tracking-wider pt-2">
                         {selectedEvent.spotsRemaining > 0 ? 'Reserve Your Spot' : 'Join the Waitlist'}

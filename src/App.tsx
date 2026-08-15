@@ -6,6 +6,7 @@ import { CartDrawer } from './components/CartDrawer';
 import { CheckoutModal } from './components/CheckoutModal';
 import { QuickViewModal } from './components/QuickViewModal';
 import { PoultryCalculatorModal } from './components/PoultryCalculatorModal';
+import { EventAnnouncementModal } from './components/EventAnnouncementModal';
 
 import { HomePage } from './pages/HomePage';
 import { AboutPage } from './pages/AboutPage';
@@ -153,6 +154,9 @@ export default function App() {
         onClose={() => setPoultryCalculatorOpen(false)}
         setCurrentPage={setCurrentPage}
       />
+
+      {/* Upcoming-event announcement (shows once per visitor) */}
+      <EventAnnouncementModal setCurrentPage={setCurrentPage} />
     </div>
   );
 }

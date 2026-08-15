@@ -80,6 +80,8 @@ export interface FarmEvent {
   capacity: number;
   spotsRemaining: number;
   featured?: boolean;
+  /** Official event site. When set, RSVP links out instead of using the on-site form. */
+  externalUrl?: string;
   highlights: string[];
 }
 
