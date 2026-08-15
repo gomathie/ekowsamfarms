@@ -3,7 +3,7 @@ import { PageId, Product } from '../types';
 import { FARM_INFO, DIVISIONS, PRODUCTS, TESTIMONIALS, BLOG_POSTS, EVENTS, PRODUCT_CATEGORY_LABELS } from '../data/farmData';
 import {
   ShoppingBag, ArrowRight, ChevronRight, ChevronLeft, MapPin,
-  Egg, Factory, GraduationCap,
+  Egg, Factory, GraduationCap, Eye, Calculator,
   Sun, Leaf, Heart
 } from 'lucide-react';
 
@@ -52,6 +52,12 @@ export const HomePage: React.FC<HomePageProps> = ({
   openPoultryCalculator
 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  // Homepage shows the flagship three; the store carries the full range.
+  const featuredProducts = useMemo(
+    () => PRODUCTS.filter((p) => p.featured).slice(0, 3),
+    []
+  );
 
   // The three soonest events that haven't happened yet.
   const nextEvents = useMemo(() => {
@@ -408,41 +414,55 @@ export const HomePage: React.FC<HomePageProps> = ({
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="text-center space-y-3">
             <h2 className="text-3xl sm:text-4xl font-black text-brand-950 font-serif">
-              Key Products We Have
+              What We Sell
             </h2>
+            <p className="text-slate-600 text-sm max-w-xl mx-auto">
+              Our most-ordered products. Browse the full store for wholesale tiers and live birds.
+            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {PRODUCTS.map((product) => (
+            {featuredProducts.map((product) => (
               <div
                 key={product.id}
-                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-slate-200 flex flex-col justify-between"
+                className="bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all border border-slate-200 flex flex-col justify-between group"
               >
                 <div>
-                  <div className="h-64 overflow-hidden bg-slate-100 relative">
+                  <div className="h-60 overflow-hidden bg-slate-100 relative">
                     <img
                       src={product.image}
                       alt={product.name}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                     />
                     <span className="absolute top-3 left-3 bg-brand-800 text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">
                       {PRODUCT_CATEGORY_LABELS[product.category]}
                     </span>
+                    <button
+                      onClick={() => onQuickView(product)}
+                      className="absolute bottom-3 right-3 bg-white/95 hover:bg-white text-slate-800 px-2.5 py-2 rounded-xl shadow-md transition-colors text-xs font-bold flex items-center gap-1.5"
+                    >
+                      <Eye className="w-3.5 h-3.5 text-brand-700" />
+                      <span>Details</span>
+                    </button>
                   </div>
 
-                  <div className="p-6 space-y-3">
+                  <div className="p-6 space-y-2.5">
                     <h3 className="text-xl font-bold text-brand-950 font-serif text-center">
                       {product.name}
                     </h3>
-                    <p className="text-slate-600 text-xs text-center leading-relaxed">
+                    <p className="text-slate-600 text-xs text-center leading-relaxed line-clamp-3">
                       {product.description}
                     </p>
                   </div>
                 </div>
 
                 <div className="p-6 pt-0 space-y-3 text-center">
-                  <div className="text-2xl font-black text-brand-800">
-                    GH¢ {product.priceGHS.toFixed(2)}
+                  <div>
+                    <span className="text-2xl font-black text-brand-800">
+                      GH¢ {product.priceGHS.toFixed(2)}
+                    </span>
+                    <span className="text-[10px] text-slate-400 block mt-0.5">{product.unit}</span>
                   </div>
                   <button
                     onClick={() => onAddToCart(product, 1)}
@@ -454,6 +474,25 @@ export const HomePage: React.FC<HomePageProps> = ({
                 </div>
               </div>
             ))}
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
+            <button
+              onClick={() => setCurrentPage('store')}
+              className="inline-flex items-center justify-center gap-2 bg-brand-700 hover:bg-brand-800 text-white font-bold px-6 py-3 rounded-full text-sm transition-colors"
+            >
+              <span>Browse the Full Store</span>
+              <ArrowRight className="w-4 h-4" />
+            </button>
+            {openPoultryCalculator && (
+              <button
+                onClick={openPoultryCalculator}
+                className="inline-flex items-center justify-center gap-2 bg-white hover:bg-slate-100 text-slate-800 font-bold px-6 py-3 rounded-full text-sm transition-colors border border-slate-200"
+              >
+                <Calculator className="w-4 h-4 text-brand-700" />
+                <span>Estimate a Poultry Batch</span>
+              </button>
+            )}
           </div>
         </div>
       </section>
