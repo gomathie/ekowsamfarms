@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { PageId, Product } from '../types';
 import { FARM_INFO, DIVISIONS, PRODUCTS, TESTIMONIALS, BLOG_POSTS, EVENTS, PRODUCT_CATEGORY_LABELS } from '../data/farmData';
 import { 
@@ -53,6 +53,16 @@ export const HomePage: React.FC<HomePageProps> = ({
   openPoultryCalculator
 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
+
+  // The three soonest events that haven't happened yet.
+  const nextEvents = useMemo(() => {
+    const now = new Date();
+    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+    return EVENTS
+      .filter((e) => new Date(`${e.endDate ?? e.startDate}T00:00:00`) >= today)
+      .sort((a, b) => a.startDate.localeCompare(b.startDate))
+      .slice(0, 3);
+  }, []);
 
   useEffect(() => {
     const timer = setInterval(() => {

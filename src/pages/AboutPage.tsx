@@ -117,33 +117,37 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setCurrentPage }) => {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
-            <div className="bg-white rounded-2xl p-5 border border-slate-200 text-center space-y-3 shadow-xs">
-              <img
-                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=300"
-                alt="Ekow Sam"
-                className="w-24 h-24 rounded-full object-cover mx-auto border-2 border-brand-600"
-                referrerPolicy="no-referrer"
-              />
-              <div>
-                <h4 className="font-bold text-slate-900 text-sm">Ekow Sam</h4>
-                <p className="text-xs text-brand-700 font-semibold">Chief Executive Officer & Founder</p>
-                <p className="text-[11px] text-slate-500 mt-2">Over 4 years of providing premium poultry products to the community.</p>
+            {[
+              {
+                initials: 'ES',
+                name: 'Ekow Sam',
+                role: 'Chief Executive Officer & Founder',
+                bio: 'Over 4 years building Ekow Sam Farms into a trusted supplier of hormone-free poultry and farm-fresh eggs.'
+              },
+              {
+                initials: 'AO',
+                name: 'Dr. Abena Osei',
+                role: 'Chief Veterinary Officer',
+                bio: 'Specializing in biosecure poultry health, vaccination programmes, and organic feed management.'
+              }
+            ].map((member) => (
+              <div
+                key={member.name}
+                className="bg-white rounded-2xl p-6 border border-slate-200 text-center space-y-3 shadow-xs"
+              >
+                <div
+                  className="w-24 h-24 rounded-full mx-auto flex items-center justify-center bg-brand-800 text-white font-black text-2xl font-serif tracking-wide"
+                  aria-hidden="true"
+                >
+                  {member.initials}
+                </div>
+                <div>
+                  <h4 className="font-bold text-slate-900 text-sm">{member.name}</h4>
+                  <p className="text-xs text-brand-700 font-semibold">{member.role}</p>
+                  <p className="text-[11px] text-slate-500 mt-2 leading-relaxed">{member.bio}</p>
+                </div>
               </div>
-            </div>
-
-            <div className="bg-white rounded-2xl p-5 border border-slate-200 text-center space-y-3 shadow-xs">
-              <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&q=80&w=300"
-                alt="Dr. Abena Osei"
-                className="w-24 h-24 rounded-full object-cover mx-auto border-2 border-brand-600"
-                referrerPolicy="no-referrer"
-              />
-              <div>
-                <h4 className="font-bold text-slate-900 text-sm">Dr. Abena Osei</h4>
-                <p className="text-xs text-brand-700 font-semibold">Chief Veterinary Officer</p>
-                <p className="text-[11px] text-slate-500 mt-2">Specializing in biosecure poultry health & organic feed management.</p>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
