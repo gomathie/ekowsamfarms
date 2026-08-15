@@ -12,38 +12,37 @@ interface HomePageProps {
   setCurrentPage: (page: PageId) => void;
   onAddToCart: (product: Product, quantity: number) => void;
   onQuickView: (product: Product) => void;
-  openAIAssistant: () => void;
   openPoultryCalculator?: () => void;
 }
 
 const heroSlides = [
   {
-    image: '/images/hero-bg.webp',
+    image: '/images/farm-layer-house.webp',
     tagline: 'Freshness You Can Trust, From Our Farm to Your Table.',
     title: 'Freshness You Can Trust,',
     titleAccent: 'From Our Farm to Your Table.',
-    description: 'Providing premium poultry products and organic eggs to the community for over 4 years.'
+    description: 'Premium hormone-free poultry and rich golden-yolked eggs, raised and packed at our farm in Kasoa.'
   },
   {
-    image: '/images/scraped_4.webp',
+    image: '/images/farm-egg-collection.webp',
     tagline: '100% Farm-Fresh Yellow Yolked Eggs',
     title: 'Rich Golden Yolks,',
-    titleAccent: 'Nutrient-Dense Egg Crates.',
-    description: 'Collected daily from free-flowing, nutrient-fed layers. Delivered fresh within 24 hours.'
+    titleAccent: 'Collected Fresh Every Morning.',
+    description: 'Hand-collected off the belts daily and crated within hours, so what reaches you is genuinely fresh.'
   },
   {
-    image: '/images/scraped_7.webp',
-    tagline: 'Hygienically Slaughtered & Dressed Chicken',
+    image: '/images/farm-broiler-house.webp',
+    tagline: 'Hormone-Free Broilers, Raised Right',
     title: 'Hormone-Free Broilers,',
     titleAccent: 'Vacuum-Packed Freshness.',
     description: 'Raised on 79% organic feed with zero artificial growth hormones or additives.'
   },
   {
-    image: '/images/gallery-farm.webp',
-    tagline: 'Biosecure Commercial Poultry Infrastructure',
-    title: 'Modern Poultry Farming,',
-    titleAccent: 'Empowering Ghana\'s Agribusiness.',
-    description: 'State-of-the-art biosecure layer pens and eco-friendly agricultural operations in Kasoa.'
+    image: '/images/farm-egg-grading.webp',
+    tagline: 'Graded By Hand, Delivered On Schedule',
+    title: 'Wholesale Supply,',
+    titleAccent: 'Restaurants Can Rely On.',
+    description: 'Every egg checked and graded before crating, with fixed weekly delivery across Greater Accra.'
   }
 ];
 
@@ -51,7 +50,6 @@ export const HomePage: React.FC<HomePageProps> = ({
   setCurrentPage,
   onAddToCart,
   onQuickView,
-  openAIAssistant,
   openPoultryCalculator
 }) => {
   const [currentSlide, setCurrentSlide] = useState(0);
