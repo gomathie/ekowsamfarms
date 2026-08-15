@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PageId, Workshop } from '../types';
 import { WORKSHOPS } from '../data/farmData';
+import { PageHeader } from '../components/PageHeader';
 import { 
   GraduationCap, Calendar, MapPin, Users, CheckCircle, Clock, 
   Award, ShieldCheck, ArrowRight, X, Smartphone, Check
@@ -28,20 +29,12 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ setCurrentPage }) =>
 
   return (
     <div className="space-y-12 pb-16 font-sans">
-      {/* Page Header */}
-      <section className="bg-brand-950 text-white py-14 px-4">
-        <div className="max-w-7xl mx-auto text-center space-y-3">
-          <span className="text-xs font-bold text-accent-300 uppercase tracking-widest bg-brand-900 px-3 py-1 rounded-full border border-brand-800">
-            PRACTICAL AGRIBUSINESS EDUCATION
-          </span>
-          <h1 className="text-3xl sm:text-5xl font-black font-serif">
-            Farmers Training & Masterclasses
-          </h1>
-          <p className="text-brand-200 text-xs sm:text-sm max-w-2xl mx-auto">
-Hands-on poultry training at a working farm — broiler management, commercial layer and egg production, and turnkey farm setup, taught by our own team and veterinary partners.
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        eyebrow="Practical Poultry Education"
+        title="Training & Masterclasses"
+        description="Hands-on poultry training at a working farm — broiler management, commercial layer and egg production, and turnkey farm setup, taught by our own team and veterinary partners."
+        image="/images/farm-broiler-chicks.webp"
+      />
 
       {/* Main Workshops Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">

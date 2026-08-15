@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PageId, BlogPost } from '../types';
 import { BLOG_POSTS } from '../data/farmData';
+import { PageHeader } from '../components/PageHeader';
 import { BookOpen, Calendar, User, Clock, ArrowRight, X, Tag } from 'lucide-react';
 
 interface BlogPageProps {
@@ -12,20 +13,12 @@ export const BlogPage: React.FC<BlogPageProps> = ({ setCurrentPage }) => {
 
   return (
     <div className="space-y-12 pb-16 font-sans">
-      {/* Page Header */}
-      <section className="bg-brand-950 text-white py-14 px-4">
-        <div className="max-w-7xl mx-auto text-center space-y-3">
-          <span className="text-xs font-bold text-accent-300 uppercase tracking-widest bg-brand-900 px-3 py-1 rounded-full border border-brand-800">
-            KNOWLEDGE BASE & GUIDES
-          </span>
-          <h1 className="text-3xl sm:text-5xl font-black font-serif">
-            Ekow Sam Farming Insights
-          </h1>
-          <p className="text-brand-200 text-xs sm:text-sm max-w-2xl mx-auto">
-Practical guides on poultry health, egg freshness, layer and broiler management, and running a profitable poultry business in Ghana.
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        eyebrow="Guides & Knowledge Base"
+        title="Farming Insights"
+        description="Practical guides on poultry health, egg freshness, layer and broiler management, and running a profitable poultry business in Ghana."
+        image="/images/farm-hen-closeup.webp"
+      />
 
       {/* Articles Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">

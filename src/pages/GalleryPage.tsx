@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PageId, GalleryItem } from '../types';
 import { GALLERY_ITEMS, GALLERY_CATEGORY_LABELS } from '../data/farmData';
+import { PageHeader } from '../components/PageHeader';
 import { 
   Camera, Filter, X, Calendar, MapPin, Users, Check, Clock, Eye 
 } from 'lucide-react';
@@ -42,30 +43,20 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
 
   return (
     <div className="space-y-12 pb-16 font-sans">
-      {/* Page Header */}
-      <section className="bg-brand-950 text-white py-14 px-4">
-        <div className="max-w-7xl mx-auto text-center space-y-3">
-          <span className="text-xs font-bold text-accent-300 uppercase tracking-widest bg-brand-900 px-3 py-1 rounded-full border border-brand-800">
-            VISUAL FARM TOUR
-          </span>
-          <h1 className="text-3xl sm:text-5xl font-black font-serif">
-            Ekow Sam Farm Gallery & Tours
-          </h1>
-          <p className="text-brand-200 text-xs sm:text-sm max-w-2xl mx-auto">
-Real photos from inside our layer house, broiler pens, and packing floor in Kasoa — the birds, the eggs, and the people behind every crate we deliver.
-          </p>
-
-          <div className="pt-2">
-            <button
-              onClick={() => { setTourModalOpen(true); setTourSuccess(false); }}
-              className="bg-accent-400 hover:bg-accent-300 text-slate-950 font-black px-6 py-3 rounded-xl text-xs transition-colors shadow-md flex items-center gap-2 mx-auto"
-            >
-              <Calendar className="w-4 h-4 text-slate-950" />
-              <span>Book a Physical Farm Tour Visit</span>
-            </button>
-          </div>
-        </div>
-      </section>
+      <PageHeader
+        eyebrow="Visual Farm Tour"
+        title="Inside Ekow Sam Farms"
+        description="Real photos from inside our layer house, broiler pens, and packing floor in Kasoa — the birds, the eggs, and the people behind every crate we deliver."
+        image="/images/farm-layers-cages.webp"
+      >
+        <button
+          onClick={() => { setTourModalOpen(true); setTourSuccess(false); }}
+          className="bg-accent-500 hover:bg-accent-400 text-white font-black px-6 py-3 rounded-full text-xs transition-colors shadow-md flex items-center gap-2 mx-auto"
+        >
+          <Calendar className="w-4 h-4" />
+          <span>Book a Farm Tour Visit</span>
+        </button>
+      </PageHeader>
 
       {/* Gallery Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
