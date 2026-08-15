@@ -1,11 +1,10 @@
 import React, { useState, useEffect, useMemo } from 'react';
 import { PageId, Product } from '../types';
 import { FARM_INFO, DIVISIONS, PRODUCTS, TESTIMONIALS, BLOG_POSTS, EVENTS, PRODUCT_CATEGORY_LABELS } from '../data/farmData';
-import { 
-  ShoppingBag, Calendar, Award, ArrowRight, Star, 
-  CheckCircle, ChevronRight, ChevronLeft, MapPin, Phone,
-  Egg, Factory, Eye, Calculator,
-  Sun, Leaf, Heart, ThumbsUp
+import {
+  ShoppingBag, ArrowRight, ChevronRight, ChevronLeft, MapPin,
+  Egg, Factory, GraduationCap,
+  Sun, Leaf, Heart
 } from 'lucide-react';
 
 interface HomePageProps {
@@ -81,10 +80,10 @@ export const HomePage: React.FC<HomePageProps> = ({
 
   const getDivisionIcon = (iconName: string) => {
     switch (iconName) {
-      case 'Egg': return <Egg className="w-6 h-6" />;
-      case 'ShoppingBag': return <ShoppingBag className="w-6 h-6" />;
-      case 'Factory': return <Factory className="w-6 h-6" />;
-      default: return <Egg className="w-6 h-6" />;
+      case 'ShoppingBag': return <ShoppingBag className="w-5 h-5" />;
+      case 'Factory': return <Factory className="w-5 h-5" />;
+      case 'GraduationCap': return <GraduationCap className="w-5 h-5" />;
+      default: return <Egg className="w-5 h-5" />;
     }
   };
 
