@@ -1,7 +1,10 @@
 @import "tailwindcss";
 
 @theme {
-  /* Primary: Pure & Rich Red */
+  /* ---------------------------------------------------------------
+     Brand: deep red. Carries headers, dark bands, and secondary CTAs.
+     White text passes AA from brand-600 (4.83) downward.
+     --------------------------------------------------------------- */
   --color-brand-950: #450a0a;
   --color-brand-900: #7f1d1d;
   --color-brand-800: #991b1b;
@@ -12,17 +15,71 @@
   --color-brand-300: #fca5a5;
   --color-brand-200: #fecaca;
   --color-brand-100: #fee2e2;
-  --color-brand-50: #fef2f2;
+  --color-brand-50:  #fef2f2;
 
-  /* Accent: Fresh Vibrant Green */
-  --color-accent-500: #16a34a;
-  --color-accent-400: #22c55e;
-  --color-accent-300: #4ade80;
-  --color-accent-200: #86efac;
+  /* ---------------------------------------------------------------
+     Accent: fresh green, the primary action colour.
+     The old scale topped out at #16a34a, which only reaches 3.30:1
+     against white — below AA. The ramp now extends to 700/800/900 so
+     solid buttons use accent-700 (5.02:1) and text on white uses
+     accent-700 or darker. 300/400 stay for text on dark red.
+     --------------------------------------------------------------- */
+  --color-accent-950: #052e16;
+  --color-accent-900: #14532d;
+  --color-accent-800: #166534;
+  --color-accent-700: #15803d;
+  --color-accent-600: #16a34a;
+  --color-accent-500: #22c55e;
+  --color-accent-400: #4ade80;
+  --color-accent-300: #86efac;
+  --color-accent-200: #bbf7d0;
   --color-accent-100: #dcfce7;
-  --color-accent-50: #f0fdf4;
+  --color-accent-50:  #f0fdf4;
 
   /* Font families */
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-serif: 'Playfair Display', ui-serif, Georgia, serif;
+}
+
+@layer base {
+  /* Smooth in-page jumps without overriding the scroll-to-top calls. */
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /* A single visible focus treatment for every interactive element —
+     several components previously used focus:outline-none with no
+     replacement, leaving keyboard users with no indicator at all. */
+  :where(a, button, input, select, textarea, [tabindex]):focus-visible {
+    outline: 2px solid var(--color-accent-700);
+    outline-offset: 2px;
+    border-radius: 0.375rem;
+  }
+
+  /* Headings are set in Playfair; keep them optically tight. */
+  :where(h1, h2, h3) {
+    text-wrap: balance;
+  }
+
+  :where(p) {
+    text-wrap: pretty;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
