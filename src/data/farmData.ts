@@ -77,7 +77,7 @@ export const PRODUCTS: Product[] = [
     priceGHS: 120,
     priceUSD: 8.90,
     unit: "Per Whole Bird",
-    image: "/images/farm-broiler-flock.webp",
+    image: "/images/dressed-chicken.webp",
     inStock: true,
     featured: true,
     rating: 4.9,
@@ -97,16 +97,17 @@ export const PRODUCTS: Product[] = [
     priceGHS: 25,
     priceUSD: 1.85,
     unit: "Pack",
-    image: "/images/eggs-carton.webp",
+    image: "/images/kosua-ne-meko.webp",
     inStock: true,
     featured: true,
     rating: 4.9,
     reviewsCount: 156,
-    description: "Our signature Kosua ne Meko! Boiled farm-fresh yellow-yolked eggs paired with our special spicy, aromatic pepper sauce. Check out our brand at kosuanemeko.com.",
+    description: "Our signature Kosua ne Meko — farm-fresh boiled eggs split and filled with our fresh meko pepper relish of tomato, onion, and hot pepper. Ghana's favourite street snack, made with our own yellow-yolked eggs.",
     specifications: {
-      "Ingredients": "Farm fresh eggs, local spices, fresh pepper, onions",
+      "Ingredients": "Farm-fresh boiled eggs, fresh pepper, tomato, red onion, local spices",
       "Spiciness": "Medium to Hot",
-      "Brand": "Kosuanemeko (kosuanemeko.com)"
+      "Serving": "Ready to eat — no preparation needed",
+      "Brand": "Kosua ne Meko (kosuanemeko.com)"
     }
   },
   {
@@ -253,6 +254,29 @@ export const WORKSHOPS: Workshop[] = [
 ];
 
 export const EVENTS: FarmEvent[] = [
+  {
+    id: "evt-kosua-hangout",
+    title: "Kosua ne Meko Hangout 2.0",
+    category: "Farmers Market",
+    startDate: "2026-09-05",
+    time: "12:00 PM - 10:00 PM",
+    venue: "Cencor Avenue, North Dzorwulu",
+    city: "Accra",
+    image: "/images/kosua-ne-meko.webp",
+    summary: "Accra's premier street food and cultural festival, hosted by our own Kosua ne Meko brand. Farm-fresh eggs, artisanal meko pepper salsa, live Afrobeats, a board game tournament, and African short films under the stars.",
+    priceGHS: 0,
+    capacity: 800,
+    spotsRemaining: 415,
+    featured: true,
+    externalUrl: "https://kosuanemeko.com",
+    highlights: [
+      "Kosua ne Meko served fresh, with our signature meko pepper salsa",
+      "The Pepper Meter — find out how much heat you can really take",
+      "Live Afrobeats performances through the evening",
+      "Board game tournament with prizes",
+      "African short film cinema outdoors after dark"
+    ]
+  },
   {
     id: "evt-1",
     title: "Ekow Sam Open Farm Day 2026",
