@@ -54,8 +54,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setCurrentPage }) => {
           <div className="lg:col-span-6">
             <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white bg-slate-100">
               <img
-                src="/images/about-farm.webp"
-                alt="Ekow Sam Farm Estate"
+                src="/images/farm-layer-house.webp"
+                alt="Tiered layer cages running the length of the Ekow Sam Farms layer house in Kasoa"
                 className="w-full h-[450px] object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
@@ -63,8 +63,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ setCurrentPage }) => {
                 <span className="bg-brand-600 text-white font-bold text-xs px-2.5 py-1 rounded">
                   MILLENIUM CITY, KASOA
                 </span>
-                <h4 className="text-lg font-bold font-serif mt-2">Ekow Sam Farm Infrastructure</h4>
-                <p className="text-xs text-slate-300">Biosecure Layers • FDA Processing • Organic Feed Mill</p>
+                <h4 className="text-lg font-bold font-serif mt-2">Inside Our Layer House</h4>
+                <p className="text-xs text-slate-300">Biosecure Layers • Daily Egg Collection • 79% Organic Feed</p>
               </div>
             </div>
           </div>
