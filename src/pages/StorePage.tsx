@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Product } from '../types';
-import { PRODUCTS } from '../data/farmData';
+import { PRODUCTS, PRODUCT_CATEGORY_LABELS } from '../data/farmData';
 import { 
   ShoppingBag, Search, Filter, Eye, Star, Check, Tag, ShieldCheck, 
   Truck, Award, ArrowRight
@@ -22,13 +22,11 @@ export const StorePage: React.FC<StorePageProps> = ({
   const [sortBy, setSortBy] = useState<'featured' | 'price-low' | 'price-high' | 'rating'>('featured');
 
   const categories = [
-    { id: 'all', label: 'All Farm Produce' },
-    { id: 'poultry', label: 'Poultry & Eggs' },
-    { id: 'snails', label: 'Giant African Snails' },
-    { id: 'aquaculture', label: 'Fish & Fingerlings' },
-    { id: 'crops', label: 'Fresh Crops & Greenhouse' },
-    { id: 'processed', label: 'Oven Smoked & Processed' },
-    { id: 'inputs', label: 'Organic Fertilizers & Kits' },
+    { id: 'all', label: 'All Products' },
+    { id: 'eggs', label: 'Fresh Eggs' },
+    { id: 'poultry', label: 'Dressed Chicken' },
+    { id: 'live-birds', label: 'Live Birds & Pullets' },
+    { id: 'ready-to-eat', label: 'Ready to Eat' },
   ];
 
   const filteredProducts = PRODUCTS.filter((product) => {
@@ -49,13 +47,13 @@ export const StorePage: React.FC<StorePageProps> = ({
       <section className="bg-brand-950 text-white py-14 px-4">
         <div className="max-w-7xl mx-auto text-center space-y-3">
           <span className="text-xs font-bold text-accent-300 uppercase tracking-widest bg-brand-900 px-3 py-1 rounded-full border border-brand-800">
-            FARM STORE & E-COMMERCE
+            FARM STORE
           </span>
           <h1 className="text-3xl sm:text-5xl font-black font-serif">
-            Ekow Sam Farm Store
+            Order Direct From the Farm
           </h1>
           <p className="text-brand-200 text-xs sm:text-sm max-w-2xl mx-auto">
-            Order fresh commercial eggs, dressed broilers, Giant African Snails, smoked catfish, cassava flour, and organic fertilizers directly from our farm in Ghana.
+            Crates of farm-fresh yellow-yolked eggs, hormone-free dressed chicken, live birds, and point-of-lay pullets — delivered across Greater Accra or collected at the farm gate.
           </p>
         </div>
       </section>
@@ -70,7 +68,7 @@ export const StorePage: React.FC<StorePageProps> = ({
               <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
               <input
                 type="text"
-                placeholder="Search eggs, snails, catfish, cassava..."
+                placeholder="Search eggs, chicken, pullets..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 className="w-full text-xs pl-10 pr-4 py-2.5 rounded-xl border border-slate-200 focus:outline-none focus:border-brand-600 bg-slate-50"
@@ -140,7 +138,7 @@ export const StorePage: React.FC<StorePageProps> = ({
                       referrerPolicy="no-referrer"
                     />
                     <span className="absolute top-3 left-3 bg-brand-900 text-brand-100 text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">
-                      {product.category}
+                      {PRODUCT_CATEGORY_LABELS[product.category]}
                     </span>
                     {product.featured && (
                       <span className="absolute top-3 right-3 bg-accent-400 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded shadow-xs">

@@ -64,7 +64,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 </div>
                 <h4 className="text-base font-bold text-slate-700 mb-1">Your Basket is Empty</h4>
                 <p className="text-xs text-slate-500 mb-6">
-                  Explore our farm store for fresh eggs, smoked catfish, Giant African Snails, dressed broilers, and organic produce.
+                  Explore our farm store for crates of fresh eggs, hormone-free dressed chicken, live broilers, and point-of-lay pullets.
                 </p>
                 <button
                   onClick={onClose}

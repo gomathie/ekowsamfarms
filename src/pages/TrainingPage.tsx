@@ -38,7 +38,7 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ setCurrentPage }) =>
             Farmers Training & Masterclasses
           </h1>
           <p className="text-brand-200 text-xs sm:text-sm max-w-2xl mx-auto">
-            Practical hands-on training bootcamps in Heliculture (Snail Farming), Catfish Hatchery, Poultry Broilers, and Agribusiness Turnkey Setup certified by MoFA trainers.
+Hands-on poultry training at a working farm — broiler management, commercial layer and egg production, and turnkey farm setup, taught by our own team and veterinary partners.
           </p>
         </div>
       </section>

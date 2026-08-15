@@ -1,4 +1,23 @@
-import { Product, Workshop, Division, BlogPost, GalleryItem, Testimonial, FarmEvent } from '../types';
+import {
+  Product, Workshop, Division, BlogPost, GalleryItem, Testimonial, FarmEvent,
+  ProductCategory, GalleryCategory
+} from '../types';
+
+/** Display names for product category slugs (used on badges and filter tabs). */
+export const PRODUCT_CATEGORY_LABELS: Record<ProductCategory, string> = {
+  'eggs': 'Fresh Eggs',
+  'poultry': 'Dressed Chicken',
+  'live-birds': 'Live Birds',
+  'ready-to-eat': 'Ready to Eat'
+};
+
+/** Display names for gallery category slugs. */
+export const GALLERY_CATEGORY_LABELS: Record<GalleryCategory, string> = {
+  'layers': 'Layers & Eggs House',
+  'broilers': 'Broiler House',
+  'eggs': 'Eggs & Packing',
+  'team': 'Our Team'
+};
 
 export const FARM_INFO = {
   name: "Ekow Sam Farms",
@@ -242,7 +261,7 @@ export const EVENTS: FarmEvent[] = [
     time: "9:00 AM - 3:00 PM",
     venue: "Ekow Sam Farms Estate, Millenium City",
     city: "Kasoa",
-    image: "/images/gallery-farm.webp",
+    image: "/images/farm-layer-house.webp",
     summary: "Walk through our biosecure layer pens, meet the farm team, and see exactly how your eggs and dressed chicken are produced. Family-friendly, free entry.",
     priceGHS: 0,
     capacity: 300,
@@ -263,7 +282,7 @@ export const EVENTS: FarmEvent[] = [
     time: "7:30 AM - 1:00 PM",
     venue: "Farm Shop Yard, DL Hospital Street",
     city: "Accra",
-    image: "/images/scraped_4.webp",
+    image: "/images/farm-crates-stacked.webp",
     summary: "Our monthly farm-gate market. Crates of yellow-yolked eggs, vacuum-sealed dressed chicken, and Kosua ne Meko packs sold direct at farm prices, no middlemen.",
     priceGHS: 0,
     capacity: 400,
@@ -283,7 +302,7 @@ export const EVENTS: FarmEvent[] = [
     time: "8:00 AM - 4:00 PM daily",
     venue: "Ekow Sam Estate & Accra Conference Center",
     city: "Kasoa / Accra",
-    image: "/images/about-farm.webp",
+    image: "/images/farm-owner-inspect.webp",
     summary: "A two-day executive tour for diaspora Ghanaians and investors evaluating commercial poultry. Includes site walkthrough, financial modelling session, and 1-on-1 time with the founder.",
     priceGHS: 450,
     capacity: 40,
@@ -305,7 +324,7 @@ export const EVENTS: FarmEvent[] = [
     time: "10:00 AM - 6:00 PM daily",
     venue: "Accra International Conference Centre",
     city: "Accra",
-    image: "/images/blog-supply.webp",
+    image: "/images/farm-egg-grading.webp",
     summary: "Find us at Stand B14. We will be showcasing our cold-chain processing standards, wholesale supply contracts, and the Kosua ne Meko retail line.",
     priceGHS: 0,
     capacity: 500,
@@ -324,7 +343,7 @@ export const EVENTS: FarmEvent[] = [
     time: "10:00 AM - 2:00 PM",
     venue: "Millenium City Community Centre",
     city: "Kasoa",
-    image: "/images/scraped_6.webp",
+    image: "/images/farm-egg-collection.webp",
     summary: "Our end-of-year outreach. We donate crates to local schools and clinics, and run a free nutrition talk on protein for growing children.",
     priceGHS: 0,
     capacity: 250,
@@ -343,7 +362,7 @@ export const EVENTS: FarmEvent[] = [
     time: "8:00 AM - 11:00 AM",
     venue: "Ekow Sam Farms Tasting Room",
     city: "Accra",
-    image: "/images/blog-chicken.webp",
+    image: "/images/farm-team-sorting.webp",
     summary: "A closed-door breakfast with hotel and restaurant buyers covering our 2026 supply schedule, cold-chain guarantees, and volume pricing tiers.",
     priceGHS: 0,
     capacity: 60,
@@ -362,7 +381,7 @@ export const EVENTS: FarmEvent[] = [
     time: "9:00 AM - 3:00 PM",
     venue: "Ekow Sam Farms Estate, Millenium City",
     city: "Kasoa",
-    image: "/images/hero-chicken.webp",
+    image: "/images/farm-hens-feeding.webp",
     summary: "Our first open day of the year drew over 200 visitors from Kasoa and Greater Accra for tours, tastings, and farm-gate shopping.",
     priceGHS: 0,
     capacity: 250,
@@ -450,7 +469,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: "Ekow Sam",
     date: "July 12, 2026",
     readTime: "4 min read",
-    image: "/images/blog-chicken.webp",
+    image: "/images/farm-broilers-feeding.webp",
     snippet: "Discover why choosing hormone-free, organic poultry is crucial for your family's health and how Ekow Sam Farms guarantees freshness.",
     content: [
       "In today's fast-paced world, the food we put on our tables matters more than ever. Commercial poultry often relies on growth hormones to accelerate production, but at what cost to our health?",
@@ -467,7 +486,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: "Dr. Abena Osei",
     date: "June 28, 2026",
     readTime: "5 min read",
-    image: "/images/blog-eggs.webp",
+    image: "/images/egg-yolk-macro.webp",
     snippet: "Not all eggs are created equal. Learn the five tell-tale signs of a fresh egg and a simple water test you can do at home.",
     content: [
       "Eggs are a staple in almost every Ghanaian household, but finding truly fresh ones can sometimes be a challenge when shopping at generic grocery stores.",
@@ -488,7 +507,7 @@ export const BLOG_POSTS: BlogPost[] = [
     author: "Ekow Sam",
     date: "June 10, 2026",
     readTime: "6 min read",
-    image: "/images/blog-supply.webp",
+    image: "/images/farm-team-sorting.webp",
     snippet: "Consistency, hygiene, and timely delivery. Find out why top restaurants partner with Ekow Sam Farms for their poultry needs.",
     content: [
       "For any restaurant or catering business, the quality of your ingredients is the foundation of your reputation. When it comes to poultry, consistency is key.",
@@ -503,31 +522,101 @@ export const BLOG_POSTS: BlogPost[] = [
 export const GALLERY_ITEMS: GalleryItem[] = [
   {
     id: "gal-1",
-    title: "Modern Biosecure Layer Pens",
-    category: "poultry",
-    imageUrl: "/images/scraped_4.webp",
-    description: "Our layer facility producing thousands of crate eggs daily under clean hygienic standards."
+    title: "Inside the Layer House",
+    category: "layers",
+    imageUrl: "/images/farm-layer-house.webp",
+    description: "Tiered cage rows running the full length of our layer house, with eggs rolling onto the collection belts through the morning."
   },
   {
     id: "gal-2",
-    title: "Hygienic Poultry Processing",
-    category: "processing",
-    imageUrl: "/images/scraped_7.webp",
-    description: "Cold-chain processing to ensure the highest safety and freshness for our dressed broilers."
+    title: "Morning Egg Collection",
+    category: "eggs",
+    imageUrl: "/images/farm-egg-collection.webp",
+    description: "Eggs are hand-collected off the belts every morning so they reach crates within hours of being laid."
   },
   {
     id: "gal-3",
-    title: "Kosua ne Meko Preparation",
-    category: "processing",
-    imageUrl: "/images/scraped_6.webp",
-    description: "Our signature Kosua ne Meko, ready to eat and packed with flavor."
+    title: "Grading & Crating",
+    category: "eggs",
+    imageUrl: "/images/farm-egg-grading.webp",
+    description: "Every egg is checked and graded by hand before it goes into a crate for delivery."
   },
   {
     id: "gal-4",
-    title: "Ekow Sam Farm Estate Infrastructure",
-    category: "poultry",
-    imageUrl: "/images/gallery-farm.webp",
-    description: "Spacious, well-ventilated poultry housing in Millenium City, Kasoa."
+    title: "Our Brown Layers",
+    category: "layers",
+    imageUrl: "/images/farm-hens-portrait.webp",
+    description: "Healthy commercial brown layers — the birds behind our rich golden-yolked eggs."
+  },
+  {
+    id: "gal-5",
+    title: "Feeding Time on the Line",
+    category: "layers",
+    imageUrl: "/images/farm-hens-feeding.webp",
+    description: "Layers feeding along the trough. Consistent feed timing is what keeps production and shell quality steady."
+  },
+  {
+    id: "gal-6",
+    title: "Eggs on the Belt",
+    category: "eggs",
+    imageUrl: "/images/farm-egg-belt.webp",
+    description: "Fresh eggs rolling clear of the cages onto the collection belt."
+  },
+  {
+    id: "gal-7",
+    title: "Broiler House",
+    category: "broilers",
+    imageUrl: "/images/farm-broiler-house.webp",
+    description: "Our broiler house, raising birds on a 79% organic feed policy with no growth hormones."
+  },
+  {
+    id: "gal-8",
+    title: "Brooding Stage",
+    category: "broilers",
+    imageUrl: "/images/farm-broiler-chicks.webp",
+    description: "Young broilers gathered around the feeders during the critical early brooding weeks."
+  },
+  {
+    id: "gal-9",
+    title: "Growing Flock",
+    category: "broilers",
+    imageUrl: "/images/farm-broiler-flock.webp",
+    description: "A broiler batch partway through its 35-day cycle, with space, clean litter, and constant water access."
+  },
+  {
+    id: "gal-10",
+    title: "Quality Check",
+    category: "team",
+    imageUrl: "/images/farm-owner-inspect.webp",
+    description: "Daily walk-through of the layer house — checking birds, feed, and egg quality first-hand."
+  },
+  {
+    id: "gal-11",
+    title: "The Sorting Floor",
+    category: "team",
+    imageUrl: "/images/farm-team-sorting.webp",
+    description: "Our team sorting the day's collection into crates ahead of the delivery run."
+  },
+  {
+    id: "gal-12",
+    title: "Ready for Delivery",
+    category: "eggs",
+    imageUrl: "/images/farm-crates-stacked.webp",
+    description: "Crates stacked and loaded, heading out to homes, shops, and restaurants across Greater Accra."
+  },
+  {
+    id: "gal-13",
+    title: "Point-of-Lay Pullets",
+    category: "layers",
+    imageUrl: "/images/farm-pullets.webp",
+    description: "Vaccinated pullets approaching point of lay, available for farmers building their own flocks."
+  },
+  {
+    id: "gal-14",
+    title: "Cage Rows at First Light",
+    category: "layers",
+    imageUrl: "/images/farm-layers-cages.webp",
+    description: "Birds settled in tiered cages with individual drinkers and a clear run to the feed trough."
   }
 ];
 
@@ -539,7 +628,7 @@ export const TESTIMONIALS: Testimonial[] = [
     company: "Home Delivery Customer",
     comment: "I started buying from Ekow Sams because I wanted hormone-free meat for my children. The difference in taste is incredible! Their eggs have that rich, golden yolk you just don't find in the supermarkets anymore. It’s peace of mind for my family.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1531123897727-8f129e1bf98c?auto=format&fit=crop&q=80&w=200"
+    image: ""
   },
   {
     id: "test-2",
@@ -548,7 +637,7 @@ export const TESTIMONIALS: Testimonial[] = [
     company: "Accra",
     comment: "I rarely have time for the market, so the Ekow Sams home delivery service is a lifesaver. The poultry arrives vacuum-sealed and cold, exactly when they say it will. It’s professional, hygienic, and incredibly convenient for my busy schedule.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&q=80&w=200"
+    image: ""
   },
   {
     id: "test-3",
@@ -557,7 +646,7 @@ export const TESTIMONIALS: Testimonial[] = [
     company: "GreenLeaf Grocery Mart",
     comment: "We’ve worked with several farms over the years, but Ekow Sams is in a league of its own. Their biosecurity standards and professional invoicing make them a dream to work with. Our customers specifically ask for their crates of eggs by name.",
     rating: 5,
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&q=80&w=200"
+    image: ""
   }
 ];
 
@@ -580,6 +669,14 @@ export const FAQS = [
   },
   {
     question: "How do I register for your Farmers Training Workshops?",
-    answer: "You can view upcoming workshop schedules on our Training page and register directly for topics like Poultry Management and Turnkey Farm Setup."
+    answer: "You can view upcoming workshop schedules on our Training page and register directly for topics like Broiler Management, Commercial Layer & Egg Production, and Turnkey Farm Setup."
+  },
+  {
+    question: "Can I visit during an open day or farm event?",
+    answer: "Yes. Our Events page lists every upcoming open farm day, farm-gate market, and investor tour with dates and RSVP details. Entry to open days and markets is free. We also arrange private tours for schools, churches, and cooperatives outside the public calendar."
+  },
+  {
+    question: "Do you sell live birds and point-of-lay pullets?",
+    answer: "We do. We supply fully vaccinated point-of-lay pullets for farmers building a layer flock, and live broilers for festive seasons and ceremonies. Minimum order is 10 birds for pullets, with tiered pricing from 50 birds upward."
   }
 ];

@@ -22,7 +22,7 @@ export const BlogPage: React.FC<BlogPageProps> = ({ setCurrentPage }) => {
             Ekow Sam Farming Insights
           </h1>
           <p className="text-brand-200 text-xs sm:text-sm max-w-2xl mx-auto">
-            Practical agricultural guides, heliculture profitability breakdowns, catfish water quality tips, and zero-waste farming innovations in West Africa.
+Practical guides on poultry health, egg freshness, layer and broiler management, and running a profitable poultry business in Ghana.
           </p>
         </div>
       </section>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PageId, GalleryItem } from '../types';
-import { GALLERY_ITEMS } from '../data/farmData';
+import { GALLERY_ITEMS, GALLERY_CATEGORY_LABELS } from '../data/farmData';
 import { 
   Camera, Filter, X, Calendar, MapPin, Users, Check, Clock, Eye 
 } from 'lucide-react';
@@ -25,9 +25,10 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
 
   const categories = [
     { id: 'all', label: 'All Photos' },
-    { id: 'poultry', label: 'Poultry Farm' },
-    { id: 'processing', label: 'Processing Factory' },
-    { id: 'training', label: 'Farmers Workshops' },
+    { id: 'layers', label: 'Layer House' },
+    { id: 'eggs', label: 'Eggs & Packing' },
+    { id: 'broilers', label: 'Broiler House' },
+    { id: 'team', label: 'Our Team' },
   ];
 
   const filteredItems = GALLERY_ITEMS.filter(item => 
@@ -51,7 +52,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
             Ekow Sam Farm Gallery & Tours
           </h1>
           <p className="text-brand-200 text-xs sm:text-sm max-w-2xl mx-auto">
-            Take a visual tour through our 500-acre commercial farming facilities, biosecure poultry units, and FDA-standard processing operations in Ghana.
+Real photos from inside our layer house, broiler pens, and packing floor in Kasoa — the birds, the eggs, and the people behind every crate we deliver.
           </p>
 
           <div className="pt-2">
@@ -103,7 +104,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
                 <span className="bg-brand-600 text-white text-[10px] font-extrabold px-2 py-0.5 rounded w-fit uppercase tracking-wider mb-2">
-                  {item.category}
+                  {GALLERY_CATEGORY_LABELS[item.category]}
                 </span>
                 <h3 className="font-bold text-base font-serif">{item.title}</h3>
                 <p className="text-xs text-slate-200 line-clamp-2 mt-1">{item.description}</p>
@@ -130,7 +131,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
               referrerPolicy="no-referrer"
             />
             <div className="p-6 bg-slate-900 text-white space-y-1">
-              <span className="text-accent-400 font-bold text-xs uppercase">{lightboxImage.category}</span>
+              <span className="text-accent-400 font-bold text-xs uppercase">{GALLERY_CATEGORY_LABELS[lightboxImage.category]}</span>
               <h3 className="text-xl font-bold font-serif">{lightboxImage.title}</h3>
               <p className="text-xs text-slate-300">{lightboxImage.description}</p>
             </div>

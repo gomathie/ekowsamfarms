@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PageId, Product } from '../types';
-import { FARM_INFO, DIVISIONS, PRODUCTS, TESTIMONIALS, BLOG_POSTS } from '../data/farmData';
+import { FARM_INFO, DIVISIONS, PRODUCTS, TESTIMONIALS, BLOG_POSTS, EVENTS, PRODUCT_CATEGORY_LABELS } from '../data/farmData';
 import { 
   ShoppingBag, Calendar, Award, ArrowRight, Star, 
   CheckCircle, ChevronRight, ChevronLeft, MapPin, Phone,
@@ -309,7 +309,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                       className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
                     />
                     <span className="absolute top-3 left-3 bg-brand-800 text-white text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">
-                      {product.category}
+                      {PRODUCT_CATEGORY_LABELS[product.category]}
                     </span>
                   </div>
 
