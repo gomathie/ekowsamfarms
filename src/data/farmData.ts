@@ -11,7 +11,7 @@ export const FARM_INFO = {
   phones: ["055 519 8194", "+(233) 55 519 8194"],
   emails: ["samderreck@gmail.com", "hello@ekowsamfarms.com"],
   openingHours: "Mon - Sat: 7:30 AM - 5:30 PM | Sun: Closed",
-  farmSizeAcres: 500,
+  openingHoursShort: "Mon–Sat, 7:30am – 5:30pm",
   livestockCapacity: "4,768+ Birds",
   stats: {
     birdsRaised: "4,768+",
@@ -33,11 +33,11 @@ export const PRODUCTS: Product[] = [
   {
     id: "prod-1",
     name: "Farm-Fresh Eggs",
-    category: "poultry",
+    category: "eggs",
     priceGHS: 65,
     priceUSD: 4.80,
     unit: "Crate (30 large brown eggs)",
-    image: "/images/scraped_4.webp",
+    image: "/images/farm-crates-stacked.webp",
     inStock: true,
     featured: true,
     rating: 5.0,
@@ -58,7 +58,7 @@ export const PRODUCTS: Product[] = [
     priceGHS: 120,
     priceUSD: 8.90,
     unit: "Per Whole Bird",
-    image: "/images/scraped_7.webp",
+    image: "/images/farm-broiler-flock.webp",
     inStock: true,
     featured: true,
     rating: 4.9,
@@ -78,7 +78,7 @@ export const PRODUCTS: Product[] = [
     priceGHS: 25,
     priceUSD: 1.85,
     unit: "Pack",
-    image: "/images/scraped_6.webp",
+    image: "/images/eggs-carton.webp",
     inStock: true,
     featured: true,
     rating: 4.9,
@@ -89,6 +89,66 @@ export const PRODUCTS: Product[] = [
       "Spiciness": "Medium to Hot",
       "Brand": "Kosuanemeko (kosuanemeko.com)"
     }
+  },
+  {
+    id: "prod-4",
+    name: "Point-of-Lay Pullets",
+    category: "live-birds",
+    priceGHS: 95,
+    priceUSD: 7.00,
+    unit: "Per Bird (16–18 weeks)",
+    image: "/images/farm-pullets.webp",
+    inStock: true,
+    rating: 4.8,
+    reviewsCount: 74,
+    description: "Healthy, fully vaccinated point-of-lay pullets ready to start laying within weeks. Ideal for farmers starting or expanding a layer flock.",
+    specifications: {
+      "Age": "16 – 18 weeks (point of lay)",
+      "Vaccination": "Full schedule completed (Newcastle, Gumboro, Fowl Pox)",
+      "Breed": "Commercial brown layer hybrid",
+      "Minimum Order": "10 birds"
+    },
+    bulkDiscount: "Tiered pricing from 50 birds upward"
+  },
+  {
+    id: "prod-5",
+    name: "Live Broilers",
+    category: "live-birds",
+    priceGHS: 110,
+    priceUSD: 8.10,
+    unit: "Per Live Bird",
+    image: "/images/farm-broiler-house.webp",
+    inStock: true,
+    rating: 4.9,
+    reviewsCount: 118,
+    description: "Healthy live broilers raised on our 79% organic feed policy. Popular for festive seasons, ceremonies, and customers who prefer to dress birds themselves.",
+    specifications: {
+      "Average Live Weight": "2.8kg – 3.4kg",
+      "Feed Standard": "79% Organic / Hormone-Free",
+      "Availability": "Year-round, higher stock in festive season",
+      "Collection": "Farm pickup or scheduled delivery"
+    }
+  },
+  {
+    id: "prod-6",
+    name: "Wholesale Egg Supply",
+    category: "eggs",
+    priceGHS: 58,
+    priceUSD: 4.30,
+    unit: "Per Crate (B2B, 20+ crates)",
+    image: "/images/farm-egg-grading.webp",
+    inStock: true,
+    featured: true,
+    rating: 5.0,
+    reviewsCount: 96,
+    description: "Contract egg supply for hotels, restaurants, caterers, and retail shops. Graded, cold-chain handled, and delivered on a fixed weekly schedule.",
+    specifications: {
+      "Minimum Order": "20 crates per delivery",
+      "Grading": "Sorted and candled before dispatch",
+      "Delivery": "Scheduled weekly across Greater Accra",
+      "Invoicing": "Professional invoicing and account terms available"
+    },
+    bulkDiscount: "Volume tiers from 20, 50, and 100 crates"
   }
 ];
 
@@ -104,7 +164,7 @@ export const WORKSHOPS: Workshop[] = [
     feeUSD: 44,
     instructor: "Dr. Abena Osei (Veterinary Specialist)",
     seatsRemaining: 18,
-    image: "/images/hero-chicken.webp",
+    image: "/images/farm-broiler-house.webp",
     description: "Master brooding management, bio-security, vaccination schedules, litter care, feed conversion ratios (FCR), and automated processing for maximum poultry profitability.",
     modules: [
       "Brooding room climate setup and chick arrival procedures",
@@ -130,7 +190,7 @@ export const WORKSHOPS: Workshop[] = [
     feeUSD: 89,
     instructor: "Ekow Sam (CEO & Founder)",
     seatsRemaining: 10,
-    image: "/images/about-farm.webp",
+    image: "/images/farm-owner-inspect.webp",
     description: "Designed for investors, land owners, diaspora Ghanaians, and agricultural entrepreneurs seeking to build scalable commercial poultry farms with high ROI.",
     modules: [
       "Land acquisition & farm master planning in Ghana",
@@ -143,6 +203,32 @@ export const WORKSHOPS: Workshop[] = [
       "Private 1-on-1 Farm Feasibility Consultation with Ekow Sam",
       "Sample Agribusiness Business Plan Template",
       "VIP Farm Tour with Executive Transport from Accra"
+    ]
+  },
+  {
+    id: "ws-3",
+    title: "Commercial Layer & Egg Production Masterclass",
+    category: "Layer Management",
+    duration: "2 Days",
+    date: "October 24 - 25, 2026",
+    location: "Ekow Sam Farms Layer House, Kasoa",
+    feeGHS: 650,
+    feeUSD: 48,
+    instructor: "Ekow Sam (CEO & Founder)",
+    seatsRemaining: 22,
+    image: "/images/farm-layer-house.webp",
+    description: "Everything behind a profitable layer operation: cage systems, point-of-lay management, peak production, egg grading, and getting crates to market without losses.",
+    modules: [
+      "Cage system design, stocking density, and ventilation",
+      "Rearing pullets to point-of-lay and hitting peak production",
+      "Layer feed formulation and calcium management for shell quality",
+      "Egg collection routines, grading, candling, and crate handling",
+      "Costing a crate: feed conversion, breakage, and margin control"
+    ],
+    includes: [
+      "Layer Production Record Book & Costing Sheets",
+      "Hands-on egg grading and candling session",
+      "Certificate of Participation"
     ]
   }
 ];
@@ -295,7 +381,7 @@ export const DIVISIONS: Division[] = [
     title: "Wholesale Supply",
     subtitle: "High-Volume Poultry for Businesses",
     iconName: "Factory",
-    image: "/images/blog-supply.webp",
+    image: "/images/farm-egg-grading.webp",
     summary: "Consistent, high-volume poultry supply for hotels, restaurants, and catering services.",
     fullDetails: "We offer reliable, high-volume supply of premium dressed chicken and farm-fresh yellow-yolked eggs to B2B clients, ensuring your kitchen never runs out of quality ingredients.",
     highlights: [
@@ -311,7 +397,7 @@ export const DIVISIONS: Division[] = [
     title: "Home Delivery",
     subtitle: "Farm-to-Fork Convenience",
     iconName: "ShoppingBag",
-    image: "/images/scraped_4.webp",
+    image: "/images/farm-crates-stacked.webp",
     summary: "Farm-fresh crates of eggs and dressed birds delivered straight to your doorstep.",
     fullDetails: "Don't have time for the market? Our dedicated delivery team brings vacuum-sealed dressed chicken and fresh eggs directly to your home, ensuring convenience without compromising quality.",
     highlights: [
@@ -327,7 +413,7 @@ export const DIVISIONS: Division[] = [
     title: "Live Stock Sales",
     subtitle: "Healthy Birds for Your Needs",
     iconName: "Egg",
-    image: "/images/hero-chicken.webp",
+    image: "/images/farm-pullets.webp",
     summary: "Healthy, well-vaccinated birds for those looking to start their own poultry journey or for festive seasons.",
     fullDetails: "Whether you're celebrating a festival or looking to raise your own birds, we provide healthy, well-vaccinated live birds that guarantee quality and size.",
     highlights: [
@@ -343,7 +429,7 @@ export const DIVISIONS: Division[] = [
     title: "Agricultural Consulting & Input",
     subtitle: "Expert Guidance for Farm Setup",
     iconName: "GraduationCap",
-    image: "/images/about-farm.webp",
+    image: "/images/farm-owner-portrait.webp",
     summary: "Expert advice and practical training for aspiring farmers and agribusiness investors.",
     fullDetails: "Leverage our years of commercial farming experience. We provide consultancy on farm design, biosecurity, feed formulation, and business management.",
     highlights: [

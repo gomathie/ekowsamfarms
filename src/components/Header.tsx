@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { PageId } from '../types';
 import { FARM_INFO } from '../data/farmData';
-import { 
-  Phone, Mail, MapPin, ShoppingBag, Menu, X, 
-  Sparkles, Clock, Calendar, Calculator
+import {
+  Phone, Mail, MapPin, ShoppingBag, Menu, X, Clock, Calculator
 } from 'lucide-react';
 
 interface HeaderProps {
@@ -11,30 +10,35 @@ interface HeaderProps {
   setCurrentPage: (page: PageId) => void;
   cartCount: number;
   openCart: () => void;
-  openAIAssistant: () => void;
   openPoultryCalculator?: () => void;
 }
+
+const navItems: { id: PageId; label: string; badge?: string }[] = [
+  { id: 'home', label: 'Home' },
+  { id: 'about', label: 'About' },
+  { id: 'divisions', label: 'Services' },
+  { id: 'store', label: 'Farm Store', badge: 'Fresh' },
+  { id: 'training', label: 'Training' },
+  { id: 'events', label: 'Events' },
+  { id: 'gallery', label: 'Gallery' },
+  { id: 'blog', label: 'Insights' },
+  { id: 'contact', label: 'Contact' }
+];
 
 export const Header: React.FC<HeaderProps> = ({
   currentPage,
   setCurrentPage,
   cartCount,
   openCart,
-  openAIAssistant,
   openPoultryCalculator
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-  const navItems: { id: PageId; label: string; badge?: string }[] = [
-    { id: 'home', label: 'Home' },
-    { id: 'divisions', label: 'Services' },
-    { id: 'about', label: 'About Us' },
-    { id: 'contact', label: 'Contact' },
-    { id: 'store', label: 'Farm Store', badge: 'Fresh' },
-    { id: 'training', label: 'Training' },
-    { id: 'events', label: 'Events', badge: 'New' },
-    { id: 'gallery', label: 'Gallery' }
-  ];
+  // Lock body scroll while the mobile drawer is open.
+  useEffect(() => {
+    document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [mobileMenuOpen]);
 
   const handleNavClick = (id: PageId) => {
     setCurrentPage(id);
@@ -43,42 +47,43 @@ export const Header: React.FC<HeaderProps> = ({
   };
 
   return (
-    <header className="sticky top-0 z-40 bg-white shadow-md font-sans border-b border-brand-100">
-      {/* Top Banner Announcement (Dark Brown #3B2314) */}
-      <div className="bg-brand-800 text-white text-xs py-2 px-4 border-b border-brand-700">
+    <header className="sticky top-0 z-40 bg-white shadow-sm font-sans border-b border-slate-200">
+      {/* Utility Bar */}
+      <div className="bg-brand-950 text-white text-xs py-2 px-4">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
-          <div className="flex items-center gap-4 flex-wrap justify-center md:justify-start">
-            <a href={`mailto:${FARM_INFO.emails[0]}`} className="flex items-center gap-1.5 hover:text-accent-300 transition-colors">
-              <Mail className="w-3.5 h-3.5 text-accent-500" />
-              <span>{FARM_INFO.emails[0]}</span>
+          <div className="flex items-center gap-4 flex-wrap justify-center md:justify-start text-brand-100">
+            <a
+              href={`mailto:${FARM_INFO.emails[1]}`}
+              className="flex items-center gap-1.5 hover:text-accent-300 transition-colors"
+            >
+              <Mail className="w-3.5 h-3.5 text-accent-400" />
+              <span>{FARM_INFO.emails[1]}</span>
             </a>
-            <span className="hidden sm:inline text-brand-600">|</span>
-            <div className="hidden md:flex items-center gap-1.5 text-brand-100">
-              <MapPin className="w-3.5 h-3.5 text-accent-500" />
-              <span>DL hospital street, Accra, Ghana</span>
+            <span className="hidden sm:inline text-brand-800">|</span>
+            <div className="hidden md:flex items-center gap-1.5">
+              <MapPin className="w-3.5 h-3.5 text-accent-400" />
+              <span>{FARM_INFO.address}</span>
+            </div>
+            <span className="hidden lg:inline text-brand-800">|</span>
+            <div className="hidden lg:flex items-center gap-1.5">
+              <Clock className="w-3.5 h-3.5 text-accent-400" />
+              <span>{FARM_INFO.openingHoursShort}</span>
             </div>
           </div>
 
-          <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+          <div className="flex items-center gap-2 sm:gap-3">
             {openPoultryCalculator && (
               <button
                 onClick={openPoultryCalculator}
-                className="flex items-center gap-1 bg-accent-500 hover:bg-accent-400 text-brand-950 px-2.5 py-0.5 rounded-full text-xs font-bold transition-colors shadow-xs"
+                className="flex items-center gap-1.5 bg-brand-900 hover:bg-brand-800 text-white px-3 py-1 rounded-full text-xs font-semibold transition-colors border border-brand-800"
               >
-                <Calculator className="w-3 h-3 text-brand-950" />
+                <Calculator className="w-3 h-3 text-accent-400" />
                 <span>Poultry Estimator</span>
               </button>
             )}
-            <button
-              onClick={openAIAssistant}
-              className="flex items-center gap-1.5 bg-brand-700 hover:bg-brand-600 text-white px-2.5 py-0.5 rounded-full text-xs font-medium transition-colors shadow-xs"
-            >
-              <Sparkles className="w-3 h-3 text-accent-300" />
-              <span>Ask AI Advisor</span>
-            </button>
             <a
-              href={`tel:${FARM_INFO.phones[0]}`}
-              className="flex items-center gap-1.5 bg-accent-500 text-brand-950 hover:bg-accent-400 font-bold px-3 py-1 rounded-full text-xs transition-colors shadow-xs"
+              href={`tel:${FARM_INFO.phones[0].replace(/\s/g, '')}`}
+              className="flex items-center gap-1.5 bg-accent-500 text-white hover:bg-accent-400 font-bold px-3 py-1 rounded-full text-xs transition-colors"
             >
               <Phone className="w-3 h-3 fill-current" />
               <span>{FARM_INFO.phones[0]}</span>
@@ -87,48 +92,58 @@ export const Header: React.FC<HeaderProps> = ({
         </div>
       </div>
 
-      {/* Main Header Nav */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 flex items-center justify-between">
-        {/* Brand Logo */}
+      {/* Main Nav */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex items-center justify-between gap-4">
+        {/* Brand */}
         <button
           onClick={() => handleNavClick('home')}
-          className="flex items-center gap-2.5 group text-left"
+          className="flex items-center gap-2.5 group text-left shrink-0"
+          aria-label="Ekow Sam Farms — Home"
         >
           <img
-            src="/images/logo.webp"
-            alt="Ekow Sam Farms Logo"
-            className="w-12 h-12 object-contain group-hover:scale-105 transition-transform"
+            src="/images/logo-esf.webp"
+            alt=""
+            aria-hidden="true"
+            className="w-11 h-11 object-contain group-hover:scale-105 transition-transform"
           />
-          <div>
-            <div className="flex items-center gap-1">
-              <span className="text-xl font-black tracking-tight text-brand-950 font-serif">EKOW SAM</span>
-              <span className="text-xl font-bold tracking-tight text-brand-700">FARMS</span>
+          <div className="hidden sm:block">
+            <div className="flex items-baseline gap-1.5">
+              <span className="text-lg font-black tracking-tight text-brand-950 font-serif leading-none">
+                EKOW SAM
+              </span>
+              <span className="text-lg font-bold tracking-tight text-accent-500 leading-none">
+                FARMS
+              </span>
             </div>
-            <p className="text-[10px] uppercase font-bold tracking-widest text-brand-600 -mt-1">
-              FARM FRESH EGGS & POULTRY
+            <p className="text-[10px] uppercase font-bold tracking-[0.14em] text-slate-500 mt-1">
+              Farm Fresh Eggs &amp; Poultry
             </p>
           </div>
         </button>
 
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-1 xl:gap-2">
+        {/* Desktop Nav */}
+        <nav className="hidden lg:flex items-center gap-0.5" aria-label="Main navigation">
           {navItems.map((item) => {
             const isActive = currentPage === item.id;
             return (
               <button
                 key={item.id}
                 onClick={() => handleNavClick(item.id)}
-                className={`relative px-3.5 py-2 text-sm font-semibold rounded-lg transition-all flex items-center gap-1 ${
+                aria-current={isActive ? 'page' : undefined}
+                className={`relative px-3 py-2 text-sm font-semibold rounded-lg transition-colors flex items-center gap-1.5 ${
                   isActive
-                    ? 'text-brand-900 bg-accent-50 font-bold border-b-2 border-accent-500'
-                    : 'text-slate-800 hover:text-brand-800 hover:bg-slate-50'
+                    ? 'text-brand-800'
+                    : 'text-slate-700 hover:text-brand-700 hover:bg-slate-50'
                 }`}
               >
                 <span>{item.label}</span>
                 {item.badge && (
-                  <span className="bg-accent-500 text-brand-950 text-[10px] font-extrabold px-1.5 py-0.2 rounded-full shadow-xs">
+                  <span className="bg-accent-500 text-white text-[9px] font-extrabold px-1.5 py-0.5 rounded-full leading-none">
                     {item.badge}
                   </span>
+                )}
+                {isActive && (
+                  <span className="absolute -bottom-px left-3 right-3 h-0.5 bg-accent-500 rounded-full" />
                 )}
               </button>
             );
@@ -136,58 +151,57 @@ export const Header: React.FC<HeaderProps> = ({
         </nav>
 
         {/* Actions */}
-        <div className="flex items-center gap-3">
-          {/* Order Phone Pill / Call Button */}
-          <a
-            href={`tel:${FARM_INFO.phones[0]}`}
-            className="hidden sm:flex items-center gap-2 bg-accent-500 hover:bg-accent-400 text-brand-950 font-black px-4 py-2 rounded-full text-xs shadow-sm transition-all hover:scale-105"
+        <div className="flex items-center gap-2 shrink-0">
+          <button
+            onClick={() => handleNavClick('store')}
+            className="hidden xl:flex items-center gap-2 bg-brand-700 hover:bg-brand-800 text-white font-bold px-4 py-2.5 rounded-full text-xs transition-colors"
           >
-            <Phone className="w-4 h-4 fill-current" />
-            <span>055 519 8194</span>
-          </a>
+            <ShoppingBag className="w-4 h-4" />
+            <span>Order Now</span>
+          </button>
 
-          {/* Cart Icon Button */}
           <button
             onClick={openCart}
-            aria-label="Open Shopping Cart"
-            className="relative p-2.5 rounded-xl bg-slate-100 hover:bg-brand-50 text-slate-700 hover:text-brand-800 transition-colors border border-slate-200"
+            aria-label={`Open basket, ${cartCount} item${cartCount === 1 ? '' : 's'}`}
+            className="relative p-2.5 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700 transition-colors"
           >
             <ShoppingBag className="w-5 h-5" />
             {cartCount > 0 && (
-              <span className="absolute -top-1.5 -right-1.5 bg-brand-800 text-white text-xs font-black w-5 h-5 rounded-full flex items-center justify-center shadow-sm animate-pulse">
+              <span className="absolute -top-1 -right-1 bg-accent-500 text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center">
                 {cartCount}
               </span>
             )}
           </button>
 
-          {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             className="lg:hidden p-2.5 rounded-xl bg-slate-100 text-slate-700 hover:bg-slate-200 transition-colors"
-            aria-label="Toggle Navigation Menu"
+            aria-label="Toggle navigation menu"
+            aria-expanded={mobileMenuOpen}
           >
             {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white border-b border-brand-100 px-4 pt-2 pb-6 space-y-1 animate-in slide-in-from-top-2">
+        <div className="lg:hidden bg-white border-t border-slate-200 px-4 pt-3 pb-6 space-y-1 max-h-[calc(100vh-8rem)] overflow-y-auto">
           {navItems.map((item) => (
             <button
               key={item.id}
               onClick={() => handleNavClick(item.id)}
+              aria-current={currentPage === item.id ? 'page' : undefined}
               className={`w-full text-left px-4 py-3 rounded-xl font-semibold text-base transition-colors flex items-center justify-between ${
                 currentPage === item.id
-                  ? 'bg-brand-800 text-white shadow-xs font-bold'
+                  ? 'bg-brand-800 text-white'
                   : 'text-slate-800 hover:bg-slate-100'
               }`}
             >
               <span>{item.label}</span>
               {item.badge && (
-                <span className={`text-xs px-2 py-0.5 rounded-full font-bold ${
-                  currentPage === item.id ? 'bg-accent-500 text-brand-950' : 'bg-accent-100 text-brand-900'
+                <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${
+                  currentPage === item.id ? 'bg-accent-500 text-white' : 'bg-accent-100 text-accent-500'
                 }`}>
                   {item.badge}
                 </span>
@@ -195,14 +209,21 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
           ))}
 
-          <div className="pt-3 flex flex-col gap-2">
+          <div className="pt-3 space-y-2">
             <button
               onClick={() => handleNavClick('store')}
-              className="w-full bg-accent-500 text-brand-950 font-black py-3 rounded-xl flex items-center justify-center gap-2 shadow-sm"
+              className="w-full bg-accent-500 hover:bg-accent-400 text-white font-black py-3 rounded-xl flex items-center justify-center gap-2 transition-colors"
             >
               <ShoppingBag className="w-5 h-5" />
-              <span>Shop Fresh Farm Produce</span>
+              <span>Shop Fresh Eggs &amp; Poultry</span>
             </button>
+            <a
+              href={`tel:${FARM_INFO.phones[0].replace(/\s/g, '')}`}
+              className="w-full bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3 rounded-xl flex items-center justify-center gap-2 transition-colors"
+            >
+              <Phone className="w-4 h-4" />
+              <span>Call {FARM_INFO.phones[0]}</span>
+            </a>
           </div>
         </div>
       )}

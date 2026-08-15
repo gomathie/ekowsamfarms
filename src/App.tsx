@@ -5,7 +5,6 @@ import { Footer } from './components/Footer';
 import { CartDrawer } from './components/CartDrawer';
 import { CheckoutModal } from './components/CheckoutModal';
 import { QuickViewModal } from './components/QuickViewModal';
-import { AIAssistantModal } from './components/AIAssistantModal';
 import { PoultryCalculatorModal } from './components/PoultryCalculatorModal';
 
 import { HomePage } from './pages/HomePage';
@@ -24,7 +23,6 @@ export default function App() {
   const [cartDrawerOpen, setCartDrawerOpen] = useState(false);
   const [checkoutModalOpen, setCheckoutModalOpen] = useState(false);
   const [quickViewProduct, setQuickViewProduct] = useState<Product | null>(null);
-  const [aiAssistantOpen, setAiAssistantOpen] = useState(false);
   const [poultryCalculatorOpen, setPoultryCalculatorOpen] = useState(false);
 
   // Cart Operations
@@ -78,7 +76,6 @@ export default function App() {
         setCurrentPage={setCurrentPage}
         cartCount={cartCount}
         openCart={() => setCartDrawerOpen(true)}
-        openAIAssistant={() => setAiAssistantOpen(true)}
         openPoultryCalculator={() => setPoultryCalculatorOpen(true)}
       />
 
@@ -89,7 +86,6 @@ export default function App() {
             setCurrentPage={setCurrentPage}
             onAddToCart={handleAddToCart}
             onQuickView={(p) => setQuickViewProduct(p)}
-            openAIAssistant={() => setAiAssistantOpen(true)}
             openPoultryCalculator={() => setPoultryCalculatorOpen(true)}
           />
         )}
@@ -124,10 +120,7 @@ export default function App() {
       </main>
 
       {/* Footer */}
-      <Footer
-        setCurrentPage={setCurrentPage}
-        openAIAssistant={() => setAiAssistantOpen(true)}
-      />
+      <Footer setCurrentPage={setCurrentPage} />
 
       {/* Shopping Cart Drawer */}
       <CartDrawer
@@ -152,12 +145,6 @@ export default function App() {
         product={quickViewProduct}
         onClose={() => setQuickViewProduct(null)}
         onAddToCart={handleAddToCart}
-      />
-
-      {/* AI Farm Advisor Modal */}
-      <AIAssistantModal
-        isOpen={aiAssistantOpen}
-        onClose={() => setAiAssistantOpen(false)}
       />
 
       {/* Poultry Batch & Yield Calculator Modal */}

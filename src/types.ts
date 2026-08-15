@@ -9,10 +9,16 @@ export type PageId =
   | 'blog'
   | 'contact';
 
+export type ProductCategory =
+  | 'eggs'
+  | 'poultry'
+  | 'live-birds'
+  | 'ready-to-eat';
+
 export interface Product {
   id: string;
   name: string;
-  category: 'poultry' | 'aquaculture' | 'snails' | 'crops' | 'processed' | 'inputs' | 'ready-to-eat';
+  category: ProductCategory;
   priceGHS: number;
   priceUSD: number;
   unit: string;
@@ -103,10 +109,12 @@ export interface BlogPost {
   tags: string[];
 }
 
+export type GalleryCategory = 'layers' | 'broilers' | 'eggs' | 'team';
+
 export interface GalleryItem {
   id: string;
   title: string;
-  category: 'all' | 'poultry' | 'processing' | 'training';
+  category: GalleryCategory;
   imageUrl: string;
   description: string;
 }
