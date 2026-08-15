@@ -59,7 +59,7 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ setCurrentPage }) =>
                     src={ws.image}
                     alt={ws.title}
                     className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
                   <span className="absolute top-4 left-4 bg-accent-500 text-slate-950 text-[11px] font-black px-2.5 py-1 rounded shadow-xs uppercase tracking-wider">

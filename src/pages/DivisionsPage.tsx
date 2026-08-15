@@ -62,7 +62,7 @@ export const DivisionsPage: React.FC<DivisionsPageProps> = ({ setCurrentPage }) 
               src={activeDiv.image}
               alt={activeDiv.title}
               className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
+              loading="lazy"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent" />
             <div className="absolute bottom-6 left-6 right-6 text-white space-y-1">

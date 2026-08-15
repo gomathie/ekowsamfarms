@@ -45,7 +45,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
               src={product.image}
               alt={product.name}
               className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
+              loading="lazy"
             />
             {product.featured && (
               <span className="absolute top-4 left-4 bg-accent-500 text-slate-950 text-xs font-black px-2.5 py-1 rounded-md uppercase tracking-wider shadow-sm">

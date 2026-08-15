@@ -80,7 +80,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                     src={item.product.image} 
                     alt={item.product.name}
                     className="w-20 h-20 rounded-xl object-cover border border-slate-100 shrink-0 bg-slate-50"
-                    referrerPolicy="no-referrer"
+                    loading="lazy"
                   />
                   <div className="flex-1 flex flex-col justify-between">
                     <div>

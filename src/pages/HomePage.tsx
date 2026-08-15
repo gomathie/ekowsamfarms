@@ -102,7 +102,11 @@ export const HomePage: React.FC<HomePageProps> = ({
           >
             <img
               src={slide.image}
-              alt={slide.title}
+              alt=""
+              aria-hidden="true"
+              /* The first slide is the LCP image, so it must not be deferred. */
+              loading={idx === 0 ? 'eager' : 'lazy'}
+              fetchPriority={idx === 0 ? 'high' : 'low'}
               className="w-full h-full object-cover opacity-90 transition-transform duration-7000 ease-linear scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/75" />
@@ -185,27 +189,38 @@ export const HomePage: React.FC<HomePageProps> = ({
             <div className="w-16 h-1 bg-accent-500 mx-auto rounded-full" />
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-2xl shadow-sm text-center space-y-4 border border-slate-200/60 hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-bold text-brand-950 font-serif">Wholesale Supply</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Consistent, high-volume poultry supply for hotels, restaurants, and catering services.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-sm text-center space-y-4 border border-slate-200/60 hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-bold text-brand-950 font-serif">Home Delivery</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Farm-fresh crates of eggs and dressed birds delivered straight to your doorstep.
-              </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-2xl shadow-sm text-center space-y-4 border border-slate-200/60 hover:shadow-md transition-shadow">
-              <h3 className="text-xl font-bold text-brand-950 font-serif">Live Stock Sales</h3>
-              <p className="text-slate-600 text-sm leading-relaxed">
-                Healthy, well-vaccinated birds for those looking to start their own poultry journey or for festive seasons.
-              </p>
-            </div>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {DIVISIONS.map((division) => (
+              <button
+                key={division.id}
+                onClick={() => setCurrentPage('divisions')}
+                className="bg-white rounded-2xl shadow-sm text-left border border-slate-200/60 hover:shadow-lg transition-all overflow-hidden group flex flex-col"
+              >
+                <div className="h-36 overflow-hidden bg-slate-100">
+                  <img
+                    src={division.image}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                </div>
+                <div className="p-6 space-y-2.5 flex-1 flex flex-col">
+                  <div className="w-10 h-10 rounded-xl bg-accent-100 text-accent-500 flex items-center justify-center">
+                    {getDivisionIcon(division.iconName)}
+                  </div>
+                  <h3 className="text-lg font-bold text-brand-950 font-serif leading-snug">
+                    {division.title}
+                  </h3>
+                  <p className="text-slate-600 text-xs leading-relaxed flex-1">
+                    {division.summary}
+                  </p>
+                  <span className="text-xs font-bold text-brand-700 group-hover:text-brand-600 inline-flex items-center gap-1 pt-1">
+                    Learn more <ArrowRight className="w-3.5 h-3.5" />
+                  </span>
+                </div>
+              </button>
+            ))}
           </div>
         </div>
       </section>

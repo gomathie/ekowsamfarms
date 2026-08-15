@@ -90,7 +90,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
                   src={item.imageUrl}
                   alt={item.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  referrerPolicy="no-referrer"
+                  loading="lazy"
                 />
               </div>
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-slate-950/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity p-6 flex flex-col justify-end text-white">
@@ -119,7 +119,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
               src={lightboxImage.imageUrl}
               alt={lightboxImage.title}
               className="w-full max-h-[500px] object-cover"
-              referrerPolicy="no-referrer"
+              loading="lazy"
             />
             <div className="p-6 bg-slate-900 text-white space-y-1">
               <span className="text-accent-400 font-bold text-xs uppercase">{GALLERY_CATEGORY_LABELS[lightboxImage.category]}</span>

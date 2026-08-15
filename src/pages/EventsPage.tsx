@@ -136,7 +136,7 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
                 src={nextEvent.image}
                 alt={nextEvent.title}
                 className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
               <span className="absolute top-4 left-4 bg-accent-500 text-white text-[11px] font-black px-2.5 py-1 rounded shadow-xs uppercase tracking-wider flex items-center gap-1">
@@ -296,7 +296,7 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
                         className={`w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 ${
                           past ? 'grayscale' : ''
                         }`}
-                        referrerPolicy="no-referrer"
+                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent" />
 
@@ -470,7 +470,7 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
                     src={selectedEvent.image}
                     alt={selectedEvent.title}
                     className="w-full h-full object-cover"
-                    referrerPolicy="no-referrer"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
                   <div className="absolute bottom-4 left-6 right-6 text-white space-y-1">

@@ -128,7 +128,7 @@ export const StorePage: React.FC<StorePageProps> = ({
                       src={product.image}
                       alt={product.name}
                       className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                      referrerPolicy="no-referrer"
+                      loading="lazy"
                     />
                     <span className="absolute top-3 left-3 bg-brand-900 text-brand-100 text-[10px] font-bold px-2.5 py-1 rounded uppercase tracking-wider">
                       {PRODUCT_CATEGORY_LABELS[product.category]}
