@@ -178,7 +178,7 @@ export const PoultryCalculatorModal: React.FC<PoultryCalculatorModalProps> = ({
 
                 <div className="p-3 bg-accent-50 rounded-xl border border-accent-200">
                   <span className="text-xs text-brand-800 font-medium block">Gross Revenue</span>
-                  <span className="text-lg font-black text-amber-950">GH¢ {monthlyRevenueGHS.toLocaleString()}</span>
+                  <span className="text-lg font-black text-accent-800">GH¢ {monthlyRevenueGHS.toLocaleString()}</span>
                   <span className="text-[10px] text-brand-800 block">~${monthlyRevenueUSD} USD</span>
                 </div>
               </div>
@@ -225,7 +225,7 @@ export const PoultryCalculatorModal: React.FC<PoultryCalculatorModalProps> = ({
 
                 <div className="p-3 bg-accent-50 rounded-xl border border-accent-200">
                   <span className="text-xs text-brand-800 font-medium block">Gross Revenue</span>
-                  <span className="text-lg font-black text-amber-950">GH¢ {totalBroilerRevenueGHS.toLocaleString()}</span>
+                  <span className="text-lg font-black text-accent-800">GH¢ {totalBroilerRevenueGHS.toLocaleString()}</span>
                   <span className="text-[10px] text-brand-800 block">~${totalBroilerRevenueUSD} USD</span>
                 </div>
               </div>

@@ -535,7 +535,7 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
                           placeholder="e.g. Abena Serwaa"
                           value={rsvpForm.name}
                           onChange={(e) => setRsvpForm({ ...rsvpForm, name: e.target.value })}
-                          className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 text-xs"
+                          className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20 text-xs"
                         />
                       </div>
 
@@ -547,7 +547,7 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
                           placeholder="024 XXX XXXX"
                           value={rsvpForm.phone}
                           onChange={(e) => setRsvpForm({ ...rsvpForm, phone: e.target.value })}
-                          className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 text-xs"
+                          className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20 text-xs"
                         />
                       </div>
 
@@ -559,7 +559,7 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
                           placeholder="abena@gmail.com"
                           value={rsvpForm.email}
                           onChange={(e) => setRsvpForm({ ...rsvpForm, email: e.target.value })}
-                          className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 text-xs"
+                          className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20 text-xs"
                         />
                       </div>
 
@@ -568,7 +568,7 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
                         <select
                           value={rsvpForm.guests}
                           onChange={(e) => setRsvpForm({ ...rsvpForm, guests: e.target.value })}
-                          className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 text-xs"
+                          className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20 text-xs"
                         >
                           {['1', '2', '3', '4', '5+'].map((n) => (
                             <option key={n} value={n}>

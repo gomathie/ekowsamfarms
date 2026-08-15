@@ -164,7 +164,7 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ setCurrentPage }) =>
                       placeholder="e.g. Abena Serwaa"
                       value={registrationForm.name}
                       onChange={(e) => setRegistrationForm({ ...registrationForm, name: e.target.value })}
-                      className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 text-xs"
+                      className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20 text-xs"
                     />
                   </div>
 
@@ -176,7 +176,7 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ setCurrentPage }) =>
                       placeholder="024 XXX XXXX"
                       value={registrationForm.phone}
                       onChange={(e) => setRegistrationForm({ ...registrationForm, phone: e.target.value })}
-                      className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 text-xs"
+                      className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20 text-xs"
                     />
                   </div>
 
@@ -188,7 +188,7 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ setCurrentPage }) =>
                       placeholder="abena@gmail.com"
                       value={registrationForm.email}
                       onChange={(e) => setRegistrationForm({ ...registrationForm, email: e.target.value })}
-                      className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 text-xs"
+                      className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20 text-xs"
                     />
                   </div>
 
@@ -197,7 +197,7 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ setCurrentPage }) =>
                     <select
                       value={registrationForm.attendeeType}
                       onChange={(e) => setRegistrationForm({ ...registrationForm, attendeeType: e.target.value })}
-                      className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 text-xs"
+                      className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20 text-xs"
                     >
                       <option value="Individual Farmer">Individual Farmer / Entrepreneur</option>
                       <option value="Diaspora Investor">Diaspora Investor</option>
@@ -231,7 +231,7 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ setCurrentPage }) =>
                   Thank you <strong>{registrationForm.name}</strong>! Your seat for <strong>{selectedWorkshop.title}</strong> on <strong>{selectedWorkshop.date}</strong> has been provisionally registered.
                 </p>
                 <div className="p-3 bg-accent-50 border border-accent-200 rounded-xl text-left text-xs space-y-1">
-                  <p className="font-bold text-amber-900">Payment Instructions:</p>
+                  <p className="font-bold text-accent-800">Payment Instructions:</p>
                   <p className="text-brand-800">Please send GH¢ {selectedWorkshop.feeGHS} via MTN Mobile Money to <strong>024 123 4567 (Ekow Sam Farms)</strong> with Reference: <strong>WORKSHOP-{registrationForm.name.split(' ')[0]}</strong>.</p>
                 </div>
                 <button

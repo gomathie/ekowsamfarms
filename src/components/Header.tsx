@@ -83,7 +83,7 @@ export const Header: React.FC<HeaderProps> = ({
             )}
             <a
               href={`tel:${FARM_INFO.phones[0].replace(/\s/g, '')}`}
-              className="flex items-center gap-1.5 bg-accent-700 text-white hover:bg-accent-600 font-bold px-3 py-1 rounded-full text-xs transition-colors"
+              className="flex items-center gap-1.5 bg-accent-700 text-white hover:bg-accent-800 font-bold px-3 py-1 rounded-full text-xs transition-colors"
             >
               <Phone className="w-3 h-3 fill-current" />
               <span>{FARM_INFO.phones[0]}</span>
@@ -201,7 +201,7 @@ export const Header: React.FC<HeaderProps> = ({
               <span>{item.label}</span>
               {item.badge && (
                 <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${
-                  currentPage === item.id ? 'bg-accent-600 text-white' : 'bg-accent-100 text-accent-800'
+                  currentPage === item.id ? 'bg-accent-700 text-white' : 'bg-accent-100 text-accent-800'
                 }`}>
                   {item.badge}
                 </span>

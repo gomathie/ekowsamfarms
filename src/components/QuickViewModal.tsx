@@ -48,7 +48,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
               loading="lazy"
             />
             {product.featured && (
-              <span className="absolute top-4 left-4 bg-accent-500 text-slate-950 text-xs font-black px-2.5 py-1 rounded-md uppercase tracking-wider shadow-sm">
+              <span className="absolute top-4 left-4 bg-accent-700 text-white text-xs font-black px-2.5 py-1 rounded-md uppercase tracking-wider shadow-sm">
                 Featured
               </span>
             )}
@@ -66,8 +66,8 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
               </h3>
 
               <div className="flex items-center gap-2 mt-2">
-                <div className="flex items-center text-accent-400">
-                  <Star className="w-4 h-4 fill-accent-400" />
+                <div className="flex items-center">
+                  <Star className="w-4 h-4 fill-accent-700 text-accent-700" />
                   <span className="text-xs font-bold text-slate-800 ml-1">{product.rating}</span>
                 </div>
                 <span className="text-slate-300">•</span>
@@ -99,8 +99,8 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
               </div>
 
               {product.bulkDiscount && (
-                <div className="mt-3 p-2 bg-accent-50 border border-accent-200 rounded-lg text-xs text-amber-900 font-medium flex items-center gap-1.5">
-                  <Tag className="w-3.5 h-3.5 text-amber-700 shrink-0" />
+                <div className="mt-3 p-2 bg-accent-50 border border-accent-200 rounded-lg text-xs text-accent-800 font-medium flex items-center gap-1.5">
+                  <Tag className="w-3.5 h-3.5 text-accent-700 shrink-0" />
                   <span>{product.bulkDiscount}</span>
                 </div>
               )}

@@ -157,7 +157,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
                       placeholder="e.g. Michael Mensah"
                       value={tourForm.name}
                       onChange={(e) => setTourForm({ ...tourForm, name: e.target.value })}
-                      className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 text-xs"
+                      className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20 text-xs"
                     />
                   </div>
 
@@ -170,7 +170,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
                         placeholder="024 XXX XXXX"
                         value={tourForm.phone}
                         onChange={(e) => setTourForm({ ...tourForm, phone: e.target.value })}
-                        className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 text-xs"
+                        className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20 text-xs"
                       />
                     </div>
                     <div>
@@ -180,7 +180,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
                         required
                         value={tourForm.date}
                         onChange={(e) => setTourForm({ ...tourForm, date: e.target.value })}
-                        className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 text-xs"
+                        className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20 text-xs"
                       />
                     </div>
                   </div>
@@ -193,7 +193,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
                       placeholder="michael@gmail.com"
                       value={tourForm.email}
                       onChange={(e) => setTourForm({ ...tourForm, email: e.target.value })}
-                      className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 text-xs"
+                      className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20 text-xs"
                     />
                   </div>
 
@@ -203,7 +203,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
                       <select
                         value={tourForm.groupSize}
                         onChange={(e) => setTourForm({ ...tourForm, groupSize: e.target.value })}
-                        className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 text-xs"
+                        className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20 text-xs"
                       >
                         <option value="1 - 5 People">1 - 5 People</option>
                         <option value="6 - 15 People">6 - 15 People</option>
@@ -216,7 +216,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
                       <select
                         value={tourForm.groupType}
                         onChange={(e) => setTourForm({ ...tourForm, groupType: e.target.value })}
-                        className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 text-xs"
+                        className="w-full p-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20 text-xs"
                       >
                         <option value="Family / Private Visit">Family / Private Visit</option>
                         <option value="School / Student Excursion">School / Student Excursion</option>

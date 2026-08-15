@@ -133,7 +133,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
                       placeholder="e.g. Kwame Ofori"
                       value={contactForm.name}
                       onChange={(e) => setContactForm({ ...contactForm, name: e.target.value })}
-                      className="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-600 text-xs"
+                      className="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20 text-xs"
                     />
                   </div>
 
@@ -145,7 +145,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
                       placeholder="024 XXX XXXX"
                       value={contactForm.phone}
                       onChange={(e) => setContactForm({ ...contactForm, phone: e.target.value })}
-                      className="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-600 text-xs"
+                      className="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20 text-xs"
                     />
                   </div>
                 </div>
@@ -159,7 +159,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
                       placeholder="kwame@gmail.com"
                       value={contactForm.email}
                       onChange={(e) => setContactForm({ ...contactForm, email: e.target.value })}
-                      className="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-600 text-xs"
+                      className="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20 text-xs"
                     />
                   </div>
 
@@ -168,7 +168,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
                     <select
                       value={contactForm.topic}
                       onChange={(e) => setContactForm({ ...contactForm, topic: e.target.value })}
-                      className="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-600 text-xs"
+                      className="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20 text-xs"
                     >
                       <option value="Wholesale Produce Order">Wholesale Produce Order (Eggs, Chicken)</option>
                       <option value="Farmers Training Workshop">Farmers Training Workshop Inquiry</option>
@@ -186,7 +186,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
                     placeholder="Describe your inquiry, order quantities, preferred delivery location or farm visit date..."
                     value={contactForm.message}
                     onChange={(e) => setContactForm({ ...contactForm, message: e.target.value })}
-                    className="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-600 text-xs"
+                    className="w-full p-3 rounded-xl border border-slate-300 focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20 text-xs"
                   />
                 </div>
 
