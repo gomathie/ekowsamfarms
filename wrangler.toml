@@ -1,0 +1,5 @@
+name = "ekow-sam-farms"
+compatibility_date = "2026-08-15"
+
+# Static site: `npm run build` emits here, and Pages serves it directly.
+pages_build_output_dir = "dist"

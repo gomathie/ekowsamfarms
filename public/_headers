@@ -1,0 +1,20 @@
+# Cloudflare Pages header rules.
+
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: geolocation=(), microphone=(), camera=(), interest-cohort=()
+  Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+# Vite fingerprints these filenames, so they can be cached indefinitely.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Image filenames are stable, so revalidate daily rather than never.
+/images/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# Never cache the app shell — it points at the fingerprinted bundles.
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
