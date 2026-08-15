@@ -627,8 +627,7 @@ export const TESTIMONIALS: Testimonial[] = [
     role: "Local Resident & Mother of Three",
     company: "Home Delivery Customer",
     comment: "I started buying from Ekow Sams because I wanted hormone-free meat for my children. The difference in taste is incredible! Their eggs have that rich, golden yolk you just don't find in the supermarkets anymore. It’s peace of mind for my family.",
-    rating: 5,
-    image: ""
+    rating: 5
   },
   {
     id: "test-2",
@@ -636,8 +635,7 @@ export const TESTIMONIALS: Testimonial[] = [
     role: "Medical Practitioner",
     company: "Accra",
     comment: "I rarely have time for the market, so the Ekow Sams home delivery service is a lifesaver. The poultry arrives vacuum-sealed and cold, exactly when they say it will. It’s professional, hygienic, and incredibly convenient for my busy schedule.",
-    rating: 5,
-    image: ""
+    rating: 5
   },
   {
     id: "test-3",
@@ -645,8 +643,7 @@ export const TESTIMONIALS: Testimonial[] = [
     role: "Manager",
     company: "GreenLeaf Grocery Mart",
     comment: "We’ve worked with several farms over the years, but Ekow Sams is in a league of its own. Their biosecurity standards and professional invoicing make them a dream to work with. Our customers specifically ask for their crates of eggs by name.",
-    rating: 5,
-    image: ""
+    rating: 5
   }
 ];
 

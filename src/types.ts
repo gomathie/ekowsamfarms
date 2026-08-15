@@ -126,7 +126,8 @@ export interface Testimonial {
   company: string;
   comment: string;
   rating: number;
-  image: string;
+  /** Optional headshot; cards fall back to initials when absent. */
+  image?: string;
 }
 
 export interface OrderDetails {
