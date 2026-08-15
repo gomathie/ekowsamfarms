@@ -1,6 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { PageId, FarmEvent, EventCategory } from '../types';
 import { EVENTS, FARM_INFO } from '../data/farmData';
+import { PageHeader } from '../components/PageHeader';
 import {
   CalendarDays, MapPin, Clock, Users, Ticket, ArrowRight, X, Check,
   CalendarPlus, Sparkles, CheckCircle
@@ -119,20 +120,12 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
 
   return (
     <div className="space-y-12 pb-16 font-sans">
-      {/* Page Header */}
-      <section className="bg-brand-950 text-white py-14 px-4">
-        <div className="max-w-7xl mx-auto text-center space-y-3">
-          <span className="text-xs font-bold text-accent-300 uppercase tracking-widest bg-brand-900 px-3 py-1 rounded-full border border-brand-800">
-            WHAT'S HAPPENING ON THE FARM
-          </span>
-          <h1 className="text-3xl sm:text-5xl font-black font-serif">
-            Farm Events & Open Days
-          </h1>
-          <p className="text-brand-200 text-xs sm:text-sm max-w-2xl mx-auto">
-            Open farm days, farm-gate markets, investor tours, and community outreach across Kasoa and Greater Accra. Come see where your eggs and poultry actually come from.
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        eyebrow="What's Happening On The Farm"
+        title="Farm Events & Open Days"
+        description="Open farm days, farm-gate markets, investor tours, and community outreach across Kasoa and Greater Accra. Come see where your eggs and poultry actually come from."
+        image="/images/farm-hens-feeding.webp"
+      />
 
       {/* Next Event Spotlight */}
       {nextEvent && (

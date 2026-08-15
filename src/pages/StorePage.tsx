@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Product } from '../types';
 import { PRODUCTS, PRODUCT_CATEGORY_LABELS } from '../data/farmData';
+import { PageHeader } from '../components/PageHeader';
 import { 
   ShoppingBag, Search, Filter, Eye, Star, Check, Tag, ShieldCheck, 
   Truck, Award, ArrowRight
@@ -43,20 +44,12 @@ export const StorePage: React.FC<StorePageProps> = ({
 
   return (
     <div className="space-y-12 pb-16 font-sans">
-      {/* Page Header */}
-      <section className="bg-brand-950 text-white py-14 px-4">
-        <div className="max-w-7xl mx-auto text-center space-y-3">
-          <span className="text-xs font-bold text-accent-300 uppercase tracking-widest bg-brand-900 px-3 py-1 rounded-full border border-brand-800">
-            FARM STORE
-          </span>
-          <h1 className="text-3xl sm:text-5xl font-black font-serif">
-            Order Direct From the Farm
-          </h1>
-          <p className="text-brand-200 text-xs sm:text-sm max-w-2xl mx-auto">
-            Crates of farm-fresh yellow-yolked eggs, hormone-free dressed chicken, live birds, and point-of-lay pullets — delivered across Greater Accra or collected at the farm gate.
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        eyebrow="Farm Store"
+        title="Order Direct From the Farm"
+        description="Crates of farm-fresh yellow-yolked eggs, hormone-free dressed chicken, live birds, and point-of-lay pullets — delivered across Greater Accra or collected at the farm gate."
+        image="/images/farm-crates-stacked.webp"
+      />
 
       {/* Main Catalog Container */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
