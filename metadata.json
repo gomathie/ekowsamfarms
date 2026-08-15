@@ -1,6 +1,0 @@
-{
-  "name": "Ekow Sam Farms",
-  "description": "Premier sustainable commercial farm, agribusiness, livestock, aquaculture, crop production, and agro-training enterprise in Ghana.",
-  "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
-}
