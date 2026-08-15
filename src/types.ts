@@ -1,11 +1,12 @@
-export type PageId = 
-  | 'home' 
-  | 'about' 
-  | 'divisions' 
-  | 'store' 
-  | 'training' 
-  | 'gallery' 
-  | 'blog' 
+export type PageId =
+  | 'home'
+  | 'about'
+  | 'divisions'
+  | 'store'
+  | 'training'
+  | 'events'
+  | 'gallery'
+  | 'blog'
   | 'contact';
 
 export interface Product {
@@ -46,6 +47,34 @@ export interface Workshop {
   description: string;
   modules: string[];
   includes: string[];
+}
+
+export type EventCategory =
+  | 'Open Farm Day'
+  | 'Farmers Market'
+  | 'Farm Tour'
+  | 'Community Outreach'
+  | 'Expo & Exhibition';
+
+export interface FarmEvent {
+  id: string;
+  title: string;
+  category: EventCategory;
+  /** ISO date (YYYY-MM-DD) used for sorting and upcoming/past filtering */
+  startDate: string;
+  /** ISO date (YYYY-MM-DD); omit for single-day events */
+  endDate?: string;
+  time: string;
+  venue: string;
+  city: string;
+  image: string;
+  summary: string;
+  /** 0 means the event is free to attend */
+  priceGHS: number;
+  capacity: number;
+  spotsRemaining: number;
+  featured?: boolean;
+  highlights: string[];
 }
 
 export interface Division {

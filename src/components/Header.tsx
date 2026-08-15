@@ -32,6 +32,7 @@ export const Header: React.FC<HeaderProps> = ({
     { id: 'contact', label: 'Contact' },
     { id: 'store', label: 'Farm Store', badge: 'Fresh' },
     { id: 'training', label: 'Training' },
+    { id: 'events', label: 'Events', badge: 'New' },
     { id: 'gallery', label: 'Gallery' }
   ];
 

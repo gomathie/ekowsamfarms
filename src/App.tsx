@@ -13,6 +13,7 @@ import { AboutPage } from './pages/AboutPage';
 import { DivisionsPage } from './pages/DivisionsPage';
 import { StorePage } from './pages/StorePage';
 import { TrainingPage } from './pages/TrainingPage';
+import { EventsPage } from './pages/EventsPage';
 import { GalleryPage } from './pages/GalleryPage';
 import { BlogPage } from './pages/BlogPage';
 import { ContactPage } from './pages/ContactPage';
@@ -107,6 +108,9 @@ export default function App() {
         )}
         {currentPage === 'training' && (
           <TrainingPage setCurrentPage={setCurrentPage} />
+        )}
+        {currentPage === 'events' && (
+          <EventsPage setCurrentPage={setCurrentPage} />
         )}
         {currentPage === 'gallery' && (
           <GalleryPage setCurrentPage={setCurrentPage} />

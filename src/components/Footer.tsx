@@ -116,6 +116,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
               <li><button onClick={() => navigateTo('divisions')} className="hover:text-accent-500 transition-colors">Services</button></li>
               <li><button onClick={() => navigateTo('about')} className="hover:text-accent-500 transition-colors">About Us</button></li>
               <li><button onClick={() => navigateTo('store')} className="hover:text-accent-500 transition-colors">Farm Store</button></li>
+              <li><button onClick={() => navigateTo('events')} className="hover:text-accent-500 transition-colors">Events & Open Days</button></li>
               <li><button onClick={() => navigateTo('contact')} className="hover:text-accent-500 transition-colors">Contact</button></li>
             </ul>
           </div>

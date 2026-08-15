@@ -1,4 +1,4 @@
-import { Product, Workshop, Division, BlogPost, GalleryItem, Testimonial } from '../types';
+import { Product, Workshop, Division, BlogPost, GalleryItem, Testimonial, FarmEvent } from '../types';
 
 export const FARM_INFO = {
   name: "Ekow Sam Farms",
@@ -143,6 +143,148 @@ export const WORKSHOPS: Workshop[] = [
       "Private 1-on-1 Farm Feasibility Consultation with Ekow Sam",
       "Sample Agribusiness Business Plan Template",
       "VIP Farm Tour with Executive Transport from Accra"
+    ]
+  }
+];
+
+export const EVENTS: FarmEvent[] = [
+  {
+    id: "evt-1",
+    title: "Ekow Sam Open Farm Day 2026",
+    category: "Open Farm Day",
+    startDate: "2026-09-05",
+    time: "9:00 AM - 3:00 PM",
+    venue: "Ekow Sam Farms Estate, Millenium City",
+    city: "Kasoa",
+    image: "/images/gallery-farm.webp",
+    summary: "Walk through our biosecure layer pens, meet the farm team, and see exactly how your eggs and dressed chicken are produced. Family-friendly, free entry.",
+    priceGHS: 0,
+    capacity: 300,
+    spotsRemaining: 112,
+    featured: true,
+    highlights: [
+      "Guided tour of the layer pens and brooding house",
+      "Live Kosua ne Meko tasting stand",
+      "Kids' corner: meet the chicks",
+      "Farm-gate prices on crates and dressed birds"
+    ]
+  },
+  {
+    id: "evt-2",
+    title: "Saturday Farm-Gate Market",
+    category: "Farmers Market",
+    startDate: "2026-08-29",
+    time: "7:30 AM - 1:00 PM",
+    venue: "Farm Shop Yard, DL Hospital Street",
+    city: "Accra",
+    image: "/images/scraped_4.webp",
+    summary: "Our monthly farm-gate market. Crates of yellow-yolked eggs, vacuum-sealed dressed chicken, and Kosua ne Meko packs sold direct at farm prices, no middlemen.",
+    priceGHS: 0,
+    capacity: 400,
+    spotsRemaining: 260,
+    highlights: [
+      "Farm-gate pricing on all crates",
+      "Bulk discounts for restaurants and caterers",
+      "Free delivery within Accra on orders above GH¢ 500"
+    ]
+  },
+  {
+    id: "evt-3",
+    title: "Diaspora Investor Farm Tour",
+    category: "Farm Tour",
+    startDate: "2026-10-17",
+    endDate: "2026-10-18",
+    time: "8:00 AM - 4:00 PM daily",
+    venue: "Ekow Sam Estate & Accra Conference Center",
+    city: "Kasoa / Accra",
+    image: "/images/about-farm.webp",
+    summary: "A two-day executive tour for diaspora Ghanaians and investors evaluating commercial poultry. Includes site walkthrough, financial modelling session, and 1-on-1 time with the founder.",
+    priceGHS: 450,
+    capacity: 40,
+    spotsRemaining: 9,
+    featured: true,
+    highlights: [
+      "Executive transport from Accra included",
+      "CapEx / OpEx breakdown for a 5,000-bird setup",
+      "Private session with Ekow Sam",
+      "Land and permitting walkthrough (MoFA, EPA, FDA)"
+    ]
+  },
+  {
+    id: "evt-4",
+    title: "Ghana Agribusiness Expo — Ekow Sam Pavilion",
+    category: "Expo & Exhibition",
+    startDate: "2026-11-12",
+    endDate: "2026-11-14",
+    time: "10:00 AM - 6:00 PM daily",
+    venue: "Accra International Conference Centre",
+    city: "Accra",
+    image: "/images/blog-supply.webp",
+    summary: "Find us at Stand B14. We will be showcasing our cold-chain processing standards, wholesale supply contracts, and the Kosua ne Meko retail line.",
+    priceGHS: 0,
+    capacity: 500,
+    spotsRemaining: 341,
+    highlights: [
+      "Sign wholesale supply contracts on the spot",
+      "Product sampling all three days",
+      "Meet the processing and logistics team"
+    ]
+  },
+  {
+    id: "evt-5",
+    title: "Harvest Season Community Egg Drive",
+    category: "Community Outreach",
+    startDate: "2026-12-06",
+    time: "10:00 AM - 2:00 PM",
+    venue: "Millenium City Community Centre",
+    city: "Kasoa",
+    image: "/images/scraped_6.webp",
+    summary: "Our end-of-year outreach. We donate crates to local schools and clinics, and run a free nutrition talk on protein for growing children.",
+    priceGHS: 0,
+    capacity: 250,
+    spotsRemaining: 250,
+    highlights: [
+      "Free crates for partner schools and clinics",
+      "Nutrition talk by Dr. Abena Osei",
+      "Volunteer sign-up desk"
+    ]
+  },
+  {
+    id: "evt-6",
+    title: "Mid-Year Restaurant Buyers' Breakfast",
+    category: "Community Outreach",
+    startDate: "2026-07-18",
+    time: "8:00 AM - 11:00 AM",
+    venue: "Ekow Sam Farms Tasting Room",
+    city: "Accra",
+    image: "/images/blog-chicken.webp",
+    summary: "A closed-door breakfast with hotel and restaurant buyers covering our 2026 supply schedule, cold-chain guarantees, and volume pricing tiers.",
+    priceGHS: 0,
+    capacity: 60,
+    spotsRemaining: 0,
+    highlights: [
+      "2026 wholesale price tiers announced",
+      "Cold-chain and hygiene audit walkthrough",
+      "Signed 14 new B2B supply partners"
+    ]
+  },
+  {
+    id: "evt-7",
+    title: "Open Farm Day — June Edition",
+    category: "Open Farm Day",
+    startDate: "2026-06-13",
+    time: "9:00 AM - 3:00 PM",
+    venue: "Ekow Sam Farms Estate, Millenium City",
+    city: "Kasoa",
+    image: "/images/hero-chicken.webp",
+    summary: "Our first open day of the year drew over 200 visitors from Kasoa and Greater Accra for tours, tastings, and farm-gate shopping.",
+    priceGHS: 0,
+    capacity: 250,
+    spotsRemaining: 0,
+    highlights: [
+      "Over 200 visitors hosted",
+      "Full layer pen and processing unit tour",
+      "Kosua ne Meko tasting stand"
     ]
   }
 ];
