@@ -269,20 +269,115 @@ export const HomePage: React.FC<HomePageProps> = ({
       </section>
 
       {/* ABOUT US BRIEF SECTION */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto text-center space-y-6">
-        <h2 className="text-3xl font-black text-brand-950 font-serif">About Us</h2>
-        <div className="w-16 h-1 bg-brand-800 mx-auto rounded-full" />
-        <p className="text-slate-700 text-base sm:text-lg leading-relaxed max-w-3xl mx-auto">
-          At Ekow Farms, we believe in raising healthy, happy birds that contribute to a sustainable future. Our commitment to eco-friendly practices ensures that every chicken and egg we produce is not only delicious but also responsibly sourced.
-        </p>
-        <button
-          onClick={() => setCurrentPage('about')}
-          className="inline-flex items-center gap-2 text-brand-800 font-bold hover:text-brand-600 transition-colors text-sm"
-        >
-          <span>Learn More About Our Farm</span>
-          <ArrowRight className="w-4 h-4" />
-        </button>
+      <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+          <div className="relative rounded-2xl overflow-hidden shadow-xl bg-slate-100">
+            <img
+              src="/images/farm-owner-inspect.webp"
+              alt="Walking the layer house at Ekow Sam Farms, checking birds and egg quality"
+              className="w-full h-[380px] object-cover"
+              loading="lazy"
+            />
+          </div>
+
+          <div className="space-y-5">
+            <h2 className="text-3xl sm:text-4xl font-black text-brand-950 font-serif">About Us</h2>
+            <div className="w-16 h-1 bg-accent-500 rounded-full" />
+            <p className="text-slate-700 text-base leading-relaxed">
+              At Ekow Sam Farms we raise healthy birds and treat freshness as something you should be able to verify, not just take our word for. Every crate is collected, graded, and packed by our own team here in Kasoa.
+            </p>
+            <p className="text-slate-600 text-sm leading-relaxed">
+              Our 79% organic feed policy means no growth hormones and no harmful additives — just clean, protein-rich eggs and poultry for families, shops, and restaurants across Greater Accra.
+            </p>
+            <div className="flex flex-wrap gap-3 pt-2">
+              <button
+                onClick={() => setCurrentPage('about')}
+                className="inline-flex items-center gap-2 bg-brand-700 hover:bg-brand-800 text-white font-bold px-5 py-2.5 rounded-full transition-colors text-sm"
+              >
+                <span>Learn More About Our Farm</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+              <button
+                onClick={() => setCurrentPage('gallery')}
+                className="inline-flex items-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-5 py-2.5 rounded-full transition-colors text-sm"
+              >
+                <span>See the Farm</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </section>
+
+      {/* UPCOMING EVENTS TEASER */}
+      {nextEvents.length > 0 && (
+        <section className="bg-slate-100 py-16 px-4 sm:px-6 lg:px-8 border-y border-slate-200">
+          <div className="max-w-7xl mx-auto space-y-10">
+            <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
+              <div className="space-y-2">
+                <span className="text-xs font-bold text-accent-500 uppercase tracking-widest">
+                  Come See Us
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-black text-brand-950 font-serif">
+                  Upcoming Farm Events
+                </h2>
+                <p className="text-slate-600 text-sm max-w-xl">
+                  Open farm days, farm-gate markets, and tours. Free entry to most events — come and see where your eggs come from.
+                </p>
+              </div>
+              <button
+                onClick={() => setCurrentPage('events')}
+                className="inline-flex items-center gap-2 text-brand-800 font-bold hover:text-brand-600 transition-colors text-sm shrink-0"
+              >
+                <span>View Full Calendar</span>
+                <ArrowRight className="w-4 h-4" />
+              </button>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {nextEvents.map((evt) => {
+                const start = new Date(`${evt.startDate}T00:00:00`);
+                return (
+                  <button
+                    key={evt.id}
+                    onClick={() => setCurrentPage('events')}
+                    className="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm hover:shadow-lg transition-all text-left group flex flex-col"
+                  >
+                    <div className="relative h-40 overflow-hidden bg-slate-100">
+                      <img
+                        src={evt.image}
+                        alt=""
+                        aria-hidden="true"
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-3 left-3 bg-white rounded-xl shadow-md overflow-hidden text-center w-14">
+                        <div className="bg-brand-800 text-white text-[9px] font-black uppercase tracking-wider py-0.5">
+                          {start.toLocaleDateString('en-GB', { month: 'short' })}
+                        </div>
+                        <div className="text-lg font-black text-slate-900 leading-tight py-0.5">
+                          {start.getDate()}
+                        </div>
+                      </div>
+                    </div>
+                    <div className="p-5 space-y-2 flex-1 flex flex-col">
+                      <span className="text-[10px] font-bold text-accent-500 uppercase tracking-wider">
+                        {evt.category}
+                      </span>
+                      <h3 className="font-bold text-slate-900 text-base font-serif leading-snug group-hover:text-brand-700 transition-colors">
+                        {evt.title}
+                      </h3>
+                      <p className="text-xs text-slate-500 flex items-center gap-1.5 mt-auto pt-2">
+                        <MapPin className="w-3.5 h-3.5 text-brand-600 shrink-0" />
+                        <span className="truncate">{evt.venue}, {evt.city}</span>
+                      </p>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* KEY PRODUCTS WE HAVE SECTION */}
       <section className="bg-slate-50 py-16 px-4 sm:px-6 lg:px-8 border-y border-slate-200">
