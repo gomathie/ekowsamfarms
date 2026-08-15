@@ -83,7 +83,7 @@ export const Header: React.FC<HeaderProps> = ({
             )}
             <a
               href={`tel:${FARM_INFO.phones[0].replace(/\s/g, '')}`}
-              className="flex items-center gap-1.5 bg-accent-500 text-white hover:bg-accent-400 font-bold px-3 py-1 rounded-full text-xs transition-colors"
+              className="flex items-center gap-1.5 bg-accent-700 text-white hover:bg-accent-600 font-bold px-3 py-1 rounded-full text-xs transition-colors"
             >
               <Phone className="w-3 h-3 fill-current" />
               <span>{FARM_INFO.phones[0]}</span>
@@ -111,7 +111,7 @@ export const Header: React.FC<HeaderProps> = ({
               <span className="text-lg font-black tracking-tight text-brand-950 font-serif leading-none">
                 EKOW SAM
               </span>
-              <span className="text-lg font-bold tracking-tight text-accent-500 leading-none">
+              <span className="text-lg font-bold tracking-tight text-accent-700 leading-none">
                 FARMS
               </span>
             </div>
@@ -138,12 +138,12 @@ export const Header: React.FC<HeaderProps> = ({
               >
                 <span>{item.label}</span>
                 {item.badge && (
-                  <span className="bg-accent-500 text-white text-[9px] font-extrabold px-1.5 py-0.5 rounded-full leading-none">
+                  <span className="bg-accent-700 text-white text-[9px] font-extrabold px-1.5 py-0.5 rounded-full leading-none">
                     {item.badge}
                   </span>
                 )}
                 {isActive && (
-                  <span className="absolute -bottom-px left-3 right-3 h-0.5 bg-accent-500 rounded-full" />
+                  <span className="absolute -bottom-px left-3 right-3 h-0.5 bg-accent-700 rounded-full" />
                 )}
               </button>
             );
@@ -167,7 +167,7 @@ export const Header: React.FC<HeaderProps> = ({
           >
             <ShoppingBag className="w-5 h-5" />
             {cartCount > 0 && (
-              <span className="absolute -top-1 -right-1 bg-accent-500 text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center">
+              <span className="absolute -top-1 -right-1 bg-accent-700 text-white text-[10px] font-black w-5 h-5 rounded-full flex items-center justify-center">
                 {cartCount}
               </span>
             )}
@@ -212,7 +212,7 @@ export const Header: React.FC<HeaderProps> = ({
           <div className="pt-3 space-y-2">
             <button
               onClick={() => handleNavClick('store')}
-              className="w-full bg-accent-500 hover:bg-accent-400 text-white font-black py-3 rounded-xl flex items-center justify-center gap-2 transition-colors"
+              className="w-full bg-accent-700 hover:bg-accent-800 text-white font-black py-3 rounded-xl flex items-center justify-center gap-2 transition-colors"
             >
               <ShoppingBag className="w-5 h-5" />
               <span>Shop Fresh Eggs &amp; Poultry</span>
