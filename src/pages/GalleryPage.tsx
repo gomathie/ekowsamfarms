@@ -51,7 +51,7 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
       >
         <button
           onClick={() => { setTourModalOpen(true); setTourSuccess(false); }}
-          className="bg-accent-500 hover:bg-accent-400 text-white font-black px-6 py-3 rounded-full text-xs transition-colors shadow-md flex items-center gap-2 mx-auto"
+          className="bg-accent-700 hover:bg-accent-800 text-white font-black px-6 py-3 rounded-full text-xs transition-colors shadow-md flex items-center gap-2 mx-auto"
         >
           <Calendar className="w-4 h-4" />
           <span>Book a Farm Tour Visit</span>

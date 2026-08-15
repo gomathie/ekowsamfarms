@@ -58,7 +58,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
           {/* Cart Items List */}
           <div className="flex-1 overflow-y-auto p-5 space-y-4 divide-y divide-slate-100">
             {cartItems.length === 0 ? (
-              <div className="h-full flex flex-col items-center justify-center text-center p-6 text-slate-400">
+              <div className="h-full flex flex-col items-center justify-center text-center p-6 text-slate-500">
                 <div className="w-16 h-16 rounded-full bg-brand-50 flex items-center justify-center text-brand-600 mb-4">
                   <ShoppingBag className="w-8 h-8" />
                 </div>
@@ -90,7 +90,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                         </h4>
                         <button
                           onClick={() => onRemoveItem(item.product.id)}
-                          className="text-slate-400 hover:text-rose-600 transition-colors p-1"
+                          className="text-slate-500 hover:text-rose-600 transition-colors p-1"
                         >
                           <Trash2 className="w-4 h-4" />
                         </button>
@@ -121,7 +121,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                         <p className="font-extrabold text-sm text-brand-800">
                           GH¢ {(item.product.priceGHS * item.quantity).toFixed(2)}
                         </p>
-                        <p className="text-[10px] text-slate-400">
+                        <p className="text-[10px] text-slate-500">
                           (GH¢ {item.product.priceGHS} each)
                         </p>
                       </div>

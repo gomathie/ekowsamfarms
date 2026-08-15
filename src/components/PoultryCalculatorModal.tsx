@@ -115,7 +115,7 @@ export const PoultryCalculatorModal: React.FC<PoultryCalculatorModalProps> = ({
                 onChange={(e) => setFlockSize(Number(e.target.value))}
                 className="w-full accent-brand-600 cursor-pointer"
               />
-              <div className="flex justify-between text-[10px] text-slate-400 mt-1">
+              <div className="flex justify-between text-[10px] text-slate-500 mt-1">
                 <span>100 Birds (Small Unit)</span>
                 <span>5,000 Birds</span>
                 <span>20,000 Birds (Commercial)</span>
@@ -262,7 +262,7 @@ export const PoultryCalculatorModal: React.FC<PoultryCalculatorModalProps> = ({
                 onClose();
                 if (setCurrentPage) setCurrentPage('training');
               }}
-              className="flex-1 bg-accent-500 hover:bg-accent-400 text-slate-950 font-bold py-3 rounded-xl text-xs transition-colors flex items-center justify-center gap-2"
+              className="flex-1 bg-accent-700 hover:bg-accent-800 text-white font-bold py-3 rounded-xl text-xs transition-colors flex items-center justify-center gap-2"
             >
               <Sparkles className="w-4 h-4" />
               <span>Book Poultry Masterclass</span>

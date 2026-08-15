@@ -58,7 +58,7 @@ export const StorePage: React.FC<StorePageProps> = ({
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             {/* Search Input */}
             <div className="relative w-full md:w-80">
-              <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-3" />
+              <Search className="w-4 h-4 text-slate-500 absolute left-3.5 top-3" />
               <input
                 type="text"
                 placeholder="Search eggs, chicken, pullets..."
@@ -134,7 +134,7 @@ export const StorePage: React.FC<StorePageProps> = ({
                       {PRODUCT_CATEGORY_LABELS[product.category]}
                     </span>
                     {product.featured && (
-                      <span className="absolute top-3 right-3 bg-accent-400 text-slate-950 text-[10px] font-black px-2 py-0.5 rounded shadow-xs">
+                      <span className="absolute top-3 right-3 bg-accent-700 text-white text-[10px] font-black px-2 py-0.5 rounded shadow-xs">
                         FEATURED
                       </span>
                     )}
@@ -148,10 +148,9 @@ export const StorePage: React.FC<StorePageProps> = ({
                   </div>
 
                   <div className="p-5 space-y-2.5">
-                    <div className="flex items-center gap-1 text-accent-400 text-xs">
-                      <Star className="w-3.5 h-3.5 fill-accent-400" />
+                    <div className="flex items-center gap-1 text-accent-600 text-xs">                      <Star className="w-3.5 h-3.5 fill-accent-600" />
                       <span className="font-bold text-slate-800">{product.rating}</span>
-                      <span className="text-slate-400 text-[10px]">({product.reviewsCount} reviews)</span>
+                      <span className="text-slate-500 text-[10px]">({product.reviewsCount} reviews)</span>
                     </div>
 
                     <h3 className="font-bold text-slate-900 text-base line-clamp-2 leading-tight">
@@ -177,9 +176,9 @@ export const StorePage: React.FC<StorePageProps> = ({
                       <span className="text-xl font-black text-brand-800">
                         GH¢ {product.priceGHS.toFixed(2)}
                       </span>
-                      <span className="text-[10px] text-slate-400 block">{product.unit}</span>
+                      <span className="text-[10px] text-slate-500 block">{product.unit}</span>
                     </div>
-                    <span className="text-xs text-slate-400 font-mono">
+                    <span className="text-xs text-slate-500 font-mono">
                       ~${product.priceUSD.toFixed(2)}
                     </span>
                   </div>

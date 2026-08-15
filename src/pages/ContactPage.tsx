@@ -65,7 +65,7 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
                   <div>
                     <h4 className="font-bold text-slate-900 text-sm">Phone Hotlines</h4>
                     <p className="text-slate-600 mt-0.5">{FARM_INFO.phones.join(' / ')}</p>
-                    <p className="text-[10px] text-slate-400 mt-0.5">Calls & WhatsApp Available</p>
+                    <p className="text-[10px] text-slate-500 mt-0.5">Calls & WhatsApp Available</p>
                   </div>
                 </div>
 

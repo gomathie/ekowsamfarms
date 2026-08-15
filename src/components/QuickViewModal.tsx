@@ -79,7 +79,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
                   GH¢ {product.priceGHS.toFixed(2)}
                 </span>
                 <span className="text-xs text-slate-500">/ {product.unit}</span>
-                <span className="text-xs text-slate-400 ml-auto">
+                <span className="text-xs text-slate-500 ml-auto">
                   (~${product.priceUSD.toFixed(2)} USD)
                 </span>
               </div>

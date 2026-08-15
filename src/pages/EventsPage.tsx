@@ -139,7 +139,7 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
                 loading="lazy"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-slate-950/70 via-transparent to-transparent" />
-              <span className="absolute top-4 left-4 bg-accent-500 text-white text-[11px] font-black px-2.5 py-1 rounded shadow-xs uppercase tracking-wider flex items-center gap-1">
+              <span className="absolute top-4 left-4 bg-accent-700 text-white text-[11px] font-black px-2.5 py-1 rounded shadow-xs uppercase tracking-wider flex items-center gap-1">
                 <Sparkles className="w-3 h-3" />
                 Next Up
               </span>
@@ -249,8 +249,8 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
               onClick={() => setCategoryFilter(cat)}
               className={`px-3.5 py-1.5 rounded-full text-xs font-semibold border transition-colors ${
                 categoryFilter === cat
-                  ? 'bg-accent-500 text-white border-accent-500'
-                  : 'bg-white text-slate-600 border-slate-200 hover:border-accent-300 hover:text-accent-500'
+                  ? 'bg-accent-700 text-white border-accent-700'
+                  : 'bg-white text-slate-600 border-slate-200 hover:border-accent-600 hover:text-accent-700'
               }`}
             >
               {cat}
@@ -396,7 +396,7 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
           <div className="flex flex-col sm:flex-row gap-3 justify-center pt-2">
             <button
               onClick={() => setCurrentPage('contact')}
-              className="bg-accent-500 hover:bg-accent-400 text-white font-black px-6 py-3 rounded-full text-xs transition-transform hover:scale-105 shadow-lg"
+              className="bg-accent-700 hover:bg-accent-800 text-white font-black px-6 py-3 rounded-full text-xs transition-transform hover:scale-105 shadow-lg"
             >
               Request a Private Tour
             </button>
@@ -423,7 +423,7 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
 
             {rsvpSuccess ? (
               <div className="p-8 text-center space-y-4">
-                <div className="w-16 h-16 rounded-full bg-accent-100 text-accent-500 mx-auto flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-accent-100 text-accent-700 mx-auto flex items-center justify-center">
                   <Check className="w-10 h-10" />
                 </div>
                 <h3 className="text-2xl font-black text-slate-900 font-serif">You're on the list!</h3>
@@ -474,7 +474,7 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/30 to-transparent" />
                   <div className="absolute bottom-4 left-6 right-6 text-white space-y-1">
-                    <span className="bg-accent-500 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">
+                    <span className="bg-accent-700 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wider">
                       {selectedEvent.category}
                     </span>
                     <h3 className="text-xl font-bold font-serif leading-tight">{selectedEvent.title}</h3>
@@ -514,7 +514,7 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
                     <ul className="text-xs text-slate-600 space-y-1">
                       {selectedEvent.highlights.map((item, i) => (
                         <li key={i} className="flex items-start gap-1.5">
-                          <CheckCircle className="w-3.5 h-3.5 text-accent-500 shrink-0 mt-0.5" />
+                          <CheckCircle className="w-3.5 h-3.5 text-accent-700 shrink-0 mt-0.5" />
                           <span>{item}</span>
                         </li>
                       ))}

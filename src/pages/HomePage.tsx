@@ -136,7 +136,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <button
               onClick={() => setCurrentPage('store')}
-              className="bg-accent-500 hover:bg-accent-400 text-white font-black px-8 py-3.5 rounded-full text-base shadow-xl transition-transform hover:scale-105 flex items-center gap-2"
+              className="bg-accent-700 hover:bg-accent-800 text-white font-black px-8 py-3.5 rounded-full text-base shadow-xl transition-transform hover:scale-105 flex items-center gap-2"
             >
               <ShoppingBag className="w-5 h-5 text-white" />
               <span>Our Products</span>
@@ -191,7 +191,7 @@ export const HomePage: React.FC<HomePageProps> = ({
             <h2 className="text-3xl sm:text-4xl font-black text-brand-950 font-serif">
               Our Services
             </h2>
-            <div className="w-16 h-1 bg-accent-500 mx-auto rounded-full" />
+            <div className="w-16 h-1 bg-accent-600 mx-auto rounded-full" />
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -211,7 +211,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                   />
                 </div>
                 <div className="p-6 space-y-2.5 flex-1 flex flex-col">
-                  <div className="w-10 h-10 rounded-xl bg-accent-100 text-accent-500 flex items-center justify-center">
+                  <div className="w-10 h-10 rounded-xl bg-accent-100 text-accent-700 flex items-center justify-center">
                     {getDivisionIcon(division.iconName)}
                   </div>
                   <h3 className="text-lg font-bold text-brand-950 font-serif leading-snug">
@@ -231,7 +231,7 @@ export const HomePage: React.FC<HomePageProps> = ({
       </section>
 
       {/* WHY CHOOSE US SECTION (Vibrant Green Background) */}
-      <section className="bg-accent-500 text-white py-16 px-4 sm:px-6 lg:px-8">
+      <section className="bg-accent-700 text-white py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto space-y-12">
           <div className="text-center space-y-3">
             <h2 className="text-3xl sm:text-4xl font-black font-serif text-white">
@@ -245,7 +245,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="bg-white p-8 rounded-2xl shadow-md text-center space-y-4">
               <div className="w-14 h-14 rounded-full bg-accent-100 text-brand-800 mx-auto flex items-center justify-center font-bold">
-                <Sun className="w-8 h-8 text-accent-500 fill-accent-500" />
+                <Sun className="w-8 h-8 text-accent-700 fill-accent-700" />
               </div>
               <h3 className="text-xl font-bold text-brand-950 font-serif">Farm Freshness</h3>
               <p className="text-slate-600 text-sm leading-relaxed">
@@ -255,7 +255,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
             <div className="bg-white p-8 rounded-2xl shadow-md text-center space-y-4">
               <div className="w-14 h-14 rounded-full bg-accent-100 text-brand-800 mx-auto flex items-center justify-center font-bold">
-                <Leaf className="w-8 h-8 text-accent-500" />
+                <Leaf className="w-8 h-8 text-accent-700" />
               </div>
               <h3 className="text-xl font-bold text-brand-950 font-serif">Organic Feed</h3>
               <p className="text-slate-600 text-sm leading-relaxed">
@@ -265,7 +265,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
             <div className="bg-white p-8 rounded-2xl shadow-md text-center space-y-4">
               <div className="w-14 h-14 rounded-full bg-accent-100 text-brand-800 mx-auto flex items-center justify-center font-bold">
-                <Heart className="w-8 h-8 text-accent-500 fill-accent-500" />
+                <Heart className="w-8 h-8 text-accent-700 fill-accent-700" />
               </div>
               <h3 className="text-xl font-bold text-brand-950 font-serif">Community Focused</h3>
               <p className="text-slate-600 text-sm leading-relaxed">
@@ -312,7 +312,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
           <div className="space-y-5">
             <h2 className="text-3xl sm:text-4xl font-black text-brand-950 font-serif">About Us</h2>
-            <div className="w-16 h-1 bg-accent-500 rounded-full" />
+            <div className="w-16 h-1 bg-accent-600 rounded-full" />
             <p className="text-slate-700 text-base leading-relaxed">
               At Ekow Sam Farms we raise healthy birds and treat freshness as something you should be able to verify, not just take our word for. Every crate is collected, graded, and packed by our own team here in Kasoa.
             </p>
@@ -344,7 +344,7 @@ export const HomePage: React.FC<HomePageProps> = ({
           <div className="max-w-7xl mx-auto space-y-10">
             <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4">
               <div className="space-y-2">
-                <span className="text-xs font-bold text-accent-500 uppercase tracking-widest">
+                <span className="text-xs font-bold text-accent-700 uppercase tracking-widest">
                   Come See Us
                 </span>
                 <h2 className="text-3xl sm:text-4xl font-black text-brand-950 font-serif">
@@ -390,7 +390,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                       </div>
                     </div>
                     <div className="p-5 space-y-2 flex-1 flex flex-col">
-                      <span className="text-[10px] font-bold text-accent-500 uppercase tracking-wider">
+                      <span className="text-[10px] font-bold text-accent-700 uppercase tracking-wider">
                         {evt.category}
                       </span>
                       <h3 className="font-bold text-slate-900 text-base font-serif leading-snug group-hover:text-brand-700 transition-colors">
@@ -462,7 +462,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     <span className="text-2xl font-black text-brand-800">
                       GH¢ {product.priceGHS.toFixed(2)}
                     </span>
-                    <span className="text-[10px] text-slate-400 block mt-0.5">{product.unit}</span>
+                    <span className="text-[10px] text-slate-500 block mt-0.5">{product.unit}</span>
                   </div>
                   <button
                     onClick={() => onAddToCart(product, 1)}

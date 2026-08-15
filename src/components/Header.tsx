@@ -201,7 +201,7 @@ export const Header: React.FC<HeaderProps> = ({
               <span>{item.label}</span>
               {item.badge && (
                 <span className={`text-[10px] px-2 py-0.5 rounded-full font-bold ${
-                  currentPage === item.id ? 'bg-accent-500 text-white' : 'bg-accent-100 text-accent-500'
+                  currentPage === item.id ? 'bg-accent-600 text-white' : 'bg-accent-100 text-accent-800'
                 }`}>
                   {item.badge}
                 </span>
