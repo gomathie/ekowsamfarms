@@ -1,6 +1,7 @@
 import React from 'react';
 import { PageId } from '../types';
 import { FARM_INFO } from '../data/farmData';
+import { PageHeader } from '../components/PageHeader';
 import { Award, ShieldCheck, Target, Heart, Users, MapPin, CheckCircle, Leaf, Sparkles } from 'lucide-react';
 
 interface AboutPageProps {
@@ -10,20 +11,12 @@ interface AboutPageProps {
 export const AboutPage: React.FC<AboutPageProps> = ({ setCurrentPage }) => {
   return (
     <div className="space-y-16 pb-16 font-sans">
-      {/* Banner Header */}
-      <section className="bg-brand-950 text-white py-16 px-4">
-        <div className="max-w-7xl mx-auto text-center space-y-4">
-          <span className="text-xs font-bold text-accent-300 uppercase tracking-widest bg-brand-900 px-3 py-1 rounded-full border border-brand-800">
-            OUR HERITAGE & MISSION
-          </span>
-          <h1 className="text-3xl sm:text-5xl font-black font-serif">
-            About Ekow Sam Farms
-          </h1>
-          <p className="text-brand-200 text-sm sm:text-base max-w-2xl mx-auto font-light">
-            Providing premium poultry products and organic eggs to the community for over 4 years.
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        eyebrow="Our Story & Mission"
+        title="About Ekow Sam Farms"
+        description="Providing premium hormone-free poultry and rich golden-yolked eggs to families and businesses across Ghana for over four years."
+        image="/images/farm-owner-inspect.webp"
+      />
 
       {/* Main Story & Founder */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">

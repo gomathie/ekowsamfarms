@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PageId } from '../types';
 import { FARM_INFO, FAQS } from '../data/farmData';
+import { PageHeader } from '../components/PageHeader';
 import { 
   Phone, Mail, MapPin, Clock, Send, CheckCircle, ChevronDown, 
   HelpCircle, Sparkles, Navigation, Globe
@@ -28,20 +29,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
 
   return (
     <div className="space-y-12 pb-16 font-sans">
-      {/* Page Header */}
-      <section className="bg-brand-950 text-white py-14 px-4">
-        <div className="max-w-7xl mx-auto text-center space-y-3">
-          <span className="text-xs font-bold text-accent-300 uppercase tracking-widest bg-brand-900 px-3 py-1 rounded-full border border-brand-800">
-            GET IN TOUCH
-          </span>
-          <h1 className="text-3xl sm:text-5xl font-black font-serif">
-            Contact Ekow Sam Farms
-          </h1>
-          <p className="text-brand-200 text-xs sm:text-sm max-w-2xl mx-auto">
-            Reach out to our farm office for bulk poultry orders, training registration, farm tours, or agribusiness consultations.
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        eyebrow="Get In Touch"
+        title="Contact Us"
+        description="Reach our farm office for bulk egg and poultry orders, training registration, farm tours, or setting up your own poultry operation."
+        image="/images/farm-team-sorting.webp"
+      />
 
       {/* Main Contact Grid */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">

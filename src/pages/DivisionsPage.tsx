@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { PageId } from '../types';
 import { DIVISIONS } from '../data/farmData';
+import { PageHeader } from '../components/PageHeader';
 import { Egg, Factory, GraduationCap, CheckCircle, ChevronRight, ArrowRight, ShoppingBag } from 'lucide-react';
 
 interface DivisionsPageProps {
@@ -24,20 +25,12 @@ export const DivisionsPage: React.FC<DivisionsPageProps> = ({ setCurrentPage }) 
 
   return (
     <div className="space-y-12 pb-16 font-sans">
-      {/* Header Banner */}
-      <section className="bg-brand-950 text-white py-14 px-4">
-        <div className="max-w-7xl mx-auto text-center space-y-3">
-          <span className="text-xs font-bold text-accent-300 uppercase tracking-widest bg-brand-900 px-3 py-1 rounded-full border border-brand-800">
-            OUR SERVICES
-          </span>
-          <h1 className="text-3xl sm:text-5xl font-black font-serif">
-            What We Do at Ekow Sam Farms
-          </h1>
-          <p className="text-brand-200 text-xs sm:text-sm max-w-2xl mx-auto">
-            Explore our specialized services delivering sustainable premium poultry produce and agribusiness training across Ghana.
-          </p>
-        </div>
-      </section>
+      <PageHeader
+        eyebrow="Our Services"
+        title="What We Do"
+        description="Wholesale supply, doorstep delivery, live bird sales, and poultry consulting — four ways we get farm-fresh eggs and poultry to households and businesses across Ghana."
+        image="/images/farm-egg-rows.webp"
+      />
 
       {/* Tabs & Deep Dive */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
@@ -132,7 +125,7 @@ export const DivisionsPage: React.FC<DivisionsPageProps> = ({ setCurrentPage }) 
                 onClick={() => setCurrentPage('training')}
                 className="bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-5 py-2.5 rounded-xl text-xs transition-colors"
               >
-                Learn via Farmers Masterclass
+                See Related Training
               </button>
             </div>
           </div>
