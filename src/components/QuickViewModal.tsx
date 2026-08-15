@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Product } from '../types';
+import { PRODUCT_CATEGORY_LABELS } from '../data/farmData';
 import { X, ShoppingBag, Check, Star, ShieldCheck, Plus, Minus, Tag } from 'lucide-react';
 
 interface QuickViewModalProps {
@@ -48,7 +49,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
             />
             {product.featured && (
               <span className="absolute top-4 left-4 bg-accent-500 text-slate-950 text-xs font-black px-2.5 py-1 rounded-md uppercase tracking-wider shadow-sm">
-                Featured Produce
+                Featured
               </span>
             )}
           </div>
@@ -57,7 +58,7 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
           <div className="p-6 flex flex-col justify-between space-y-4">
             <div>
               <span className="text-xs font-bold uppercase tracking-wider text-brand-700 bg-brand-50 px-2.5 py-1 rounded-md border border-brand-100">
-                {product.category}
+                {PRODUCT_CATEGORY_LABELS[product.category]}
               </span>
 
               <h3 className="text-xl font-bold text-slate-900 mt-2 leading-snug">

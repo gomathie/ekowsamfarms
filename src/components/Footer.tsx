@@ -8,7 +8,6 @@ import {
 
 interface FooterProps {
   setCurrentPage: (page: PageId) => void;
-  openAIAssistant: () => void;
 }
 
 export const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
@@ -59,9 +58,10 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <img
-                src="/images/logo.webp"
-                alt="Ekow Sam Farms Logo"
-                className="w-14 h-14 object-contain bg-white/10 p-1 rounded-full border border-accent-500/30"
+                src="/images/logo-esf.webp"
+                alt=""
+                aria-hidden="true"
+                className="w-14 h-14 object-contain bg-white p-1.5 rounded-full"
               />
               <div>
                 <span className="text-xl font-black text-white font-serif block leading-tight">EKOW SAM</span>
@@ -91,11 +91,11 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
             <ul className="space-y-2 text-xs text-brand-200">
               <li className="flex items-center gap-2 hover:text-accent-500 cursor-pointer" onClick={() => navigateTo('divisions')}>
                 <ArrowRight className="w-3 h-3 text-accent-500" />
-                <span>Agricultural Consulting & Input</span>
+                <span>Poultry Consulting &amp; Farm Setup</span>
               </li>
               <li className="flex items-center gap-2 hover:text-accent-500 cursor-pointer" onClick={() => navigateTo('divisions')}>
                 <ArrowRight className="w-3 h-3 text-accent-500" />
-                <span>Custom Processing</span>
+                <span>Live Birds &amp; Point-of-Lay Pullets</span>
               </li>
               <li className="flex items-center gap-2 hover:text-accent-500 cursor-pointer" onClick={() => navigateTo('divisions')}>
                 <ArrowRight className="w-3 h-3 text-accent-500" />
@@ -113,10 +113,13 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
             <h4 className="text-white font-bold text-base border-b border-brand-800 pb-2">Navigation</h4>
             <ul className="space-y-2 text-xs text-brand-200">
               <li><button onClick={() => navigateTo('home')} className="hover:text-accent-500 transition-colors">Home</button></li>
-              <li><button onClick={() => navigateTo('divisions')} className="hover:text-accent-500 transition-colors">Services</button></li>
               <li><button onClick={() => navigateTo('about')} className="hover:text-accent-500 transition-colors">About Us</button></li>
+              <li><button onClick={() => navigateTo('divisions')} className="hover:text-accent-500 transition-colors">Services</button></li>
               <li><button onClick={() => navigateTo('store')} className="hover:text-accent-500 transition-colors">Farm Store</button></li>
-              <li><button onClick={() => navigateTo('events')} className="hover:text-accent-500 transition-colors">Events & Open Days</button></li>
+              <li><button onClick={() => navigateTo('training')} className="hover:text-accent-500 transition-colors">Training</button></li>
+              <li><button onClick={() => navigateTo('events')} className="hover:text-accent-500 transition-colors">Events &amp; Open Days</button></li>
+              <li><button onClick={() => navigateTo('gallery')} className="hover:text-accent-500 transition-colors">Gallery</button></li>
+              <li><button onClick={() => navigateTo('blog')} className="hover:text-accent-500 transition-colors">Insights</button></li>
               <li><button onClick={() => navigateTo('contact')} className="hover:text-accent-500 transition-colors">Contact</button></li>
             </ul>
           </div>
