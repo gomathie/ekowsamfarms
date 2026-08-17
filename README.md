@@ -52,19 +52,19 @@ npm run lint       # typecheck (tsc --noEmit)
 Connect the repo in the Cloudflare dashboard (**Workers & Pages → Create → Pages → Connect to Git**),
 then set **Settings → Build & deployments → Build configuration**:
 
-| Setting | Value |
-| --- | --- |
-| Framework preset | Vite |
-| Build command | `npm run build` |
-| Build output directory | `dist` |
-| Root directory | `/` (blank) |
+| Setting                | Value           |
+| ---------------------- | --------------- |
+| Framework preset       | Vite            |
+| Build command          | `npm run build` |
+| Build output directory | `dist`          |
+| Root directory         | `/` (blank)     |
 
 Node version comes from `.nvmrc` (pinned to 22). Tailwind 4 and Vite 6 need Node 20+;
 Pages defaults to an older Node, so this file is required, not optional.
 
 Every push to `main` deploys to production; other branches get preview URLs.
 
-> **Do not add a `wrangler.toml` to this project.** Pages has no field for a build
+> **Do not add a `wrangler.toml` to this - project.** Pages has no field for a build
 > command in Wrangler config, and when the file is present it reads build configuration
 > from there and ignores the dashboard. The result is that no build ever runs and the
 > deploy fails with `Cannot find cwd: /opt/buildhome/repo/dist`, because `dist/` is
