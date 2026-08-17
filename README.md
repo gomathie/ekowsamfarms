@@ -49,24 +49,35 @@ npm run lint       # typecheck (tsc --noEmit)
 
 ### Option A: Git integration (recommended)
 
-Connect the repo in the Cloudflare dashboard (**Workers & Pages → Create → Pages → Connect to Git**) with:
+Connect the repo in the Cloudflare dashboard (**Workers & Pages → Create → Pages → Connect to Git**),
+then set **Settings → Build & deployments → Build configuration**:
 
 | Setting | Value |
 | --- | --- |
 | Framework preset | Vite |
 | Build command | `npm run build` |
 | Build output directory | `dist` |
-| Node version | `20` or later (set `NODE_VERSION` env var if needed) |
+| Root directory | `/` (blank) |
+
+Node version comes from `.nvmrc` (pinned to 22). Tailwind 4 and Vite 6 need Node 20+;
+Pages defaults to an older Node, so this file is required, not optional.
 
 Every push to `main` deploys to production; other branches get preview URLs.
 
-### Option B: Direct upload via Wrangler
+> **Do not add a `wrangler.toml` to this project.** Pages has no field for a build
+> command in Wrangler config, and when the file is present it reads build configuration
+> from there and ignores the dashboard. The result is that no build ever runs and the
+> deploy fails with `Cannot find cwd: /opt/buildhome/repo/dist`, because `dist/` is
+> gitignored and only exists after a build. This bit us once already.
+
+### Option B: Direct upload
 
 ```bash
-npm run deploy     # builds, then runs `wrangler pages deploy dist`
+npm run build
+npx wrangler pages deploy dist
 ```
 
-Requires `npx wrangler login` once. Project settings live in `wrangler.toml`.
+Requires `npx wrangler login` once. Useful for a one-off deploy without Git integration.
 
 ### Pages configuration in this repo
 
@@ -74,7 +85,10 @@ Requires `npx wrangler login` once. Project settings live in `wrangler.toml`.
   assets first, so this only catches app routes.
 - **`public/_headers`** — security headers plus cache policy: immutable for fingerprinted
   `/assets/*`, daily revalidation for `/images/*`, no-cache for `index.html`.
-- **`wrangler.toml`** — sets `pages_build_output_dir = "dist"`.
+- **`.nvmrc`** — pins the build to Node 22.
+
+Both `_redirects` and `_headers` live in `public/`, so Vite copies them into `dist/` verbatim
+on every build.
 
 > **Note on routing:** navigation is state-based, so the whole site is served from `/`.
 > Deep links like `/events` fall back to `index.html` and land on the home page.
