@@ -15,12 +15,15 @@ export type ProductCategory =
   | 'live-birds'
   | 'ready-to-eat';
 
+/**
+ * Products carry no price. Rates vary with flock cycle, bird size, and order
+ * volume, so the farm quotes each request directly after the customer submits it.
+ */
 export interface Product {
   id: string;
   name: string;
   category: ProductCategory;
-  priceGHS: number;
-  priceUSD: number;
+  /** The unit a quote is given against, e.g. "Crate (30 large brown eggs)". */
   unit: string;
   image: string;
   inStock: boolean;
@@ -29,7 +32,8 @@ export interface Product {
   reviewsCount: number;
   description: string;
   specifications: Record<string, string>;
-  bulkDiscount?: string;
+  /** Bulk terms, worded without figures — e.g. "Volume discounts on 20+ crates". */
+  bulkNote?: string;
 }
 
 export interface CartItem {
@@ -45,8 +49,6 @@ export interface Workshop {
   duration: string;
   date: string;
   location: string;
-  feeGHS: number;
-  feeUSD: number;
   instructor: string;
   seatsRemaining: number;
   image: string;
@@ -75,8 +77,6 @@ export interface FarmEvent {
   city: string;
   image: string;
   summary: string;
-  /** 0 means the event is free to attend */
-  priceGHS: number;
   capacity: number;
   spotsRemaining: number;
   featured?: boolean;
@@ -132,8 +132,12 @@ export interface Testimonial {
   image?: string;
 }
 
-export interface OrderDetails {
-  orderId: string;
+/**
+ * A customer's request for produce. No totals are carried: the farm reviews the
+ * request and comes back with a quote, so pricing happens off-site.
+ */
+export interface QuoteRequest {
+  requestId: string;
   customerName: string;
   email: string;
   phone: string;
@@ -141,11 +145,9 @@ export interface OrderDetails {
   city: string;
   address: string;
   deliveryMethod: 'delivery' | 'pickup';
-  paymentMethod: 'momo' | 'card' | 'cod';
+  /** Free-text notes: bird size, delivery window, recurring supply, etc. */
+  notes?: string;
   items: CartItem[];
-  subtotalGHS: number;
-  deliveryFeeGHS: number;
-  totalGHS: number;
   createdAt: string;
-  status: 'pending' | 'confirmed';
+  status: 'awaiting-quote';
 }

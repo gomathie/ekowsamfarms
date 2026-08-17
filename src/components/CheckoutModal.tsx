@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { CartItem, OrderDetails } from '../types';
-import { 
-  X, CheckCircle2, ShieldCheck, MapPin, CreditCard, Smartphone, 
-  Truck, ArrowLeft, Printer, Download, Sparkles, AlertCircle
+import { CartItem, QuoteRequest } from '../types';
+import { FARM_INFO } from '../data/farmData';
+import {
+  X, CheckCircle2, MapPin, Truck, Printer, Phone, Mail, Clock
 } from 'lucide-react';
 
 interface CheckoutModalProps {
@@ -12,6 +12,11 @@ interface CheckoutModalProps {
   onOrderComplete: () => void;
 }
 
+/**
+ * Collects a produce request and hands it to the farm. Deliberately carries no
+ * prices or payment step: rates depend on the flock cycle and order volume, so
+ * the farm quotes each request by phone or email after it arrives.
+ */
 export const CheckoutModal: React.FC<CheckoutModalProps> = ({
   isOpen,
   onClose,
@@ -27,31 +32,20 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
     city: 'Accra',
     address: '',
     deliveryMethod: 'delivery' as 'delivery' | 'pickup',
-    paymentMethod: 'momo' as 'momo' | 'card' | 'cod',
-    momoNumber: '',
-    momoNetwork: 'MTN Mobile Money'
+    notes: ''
   });
 
-  const [placedOrder, setPlacedOrder] = useState<OrderDetails | null>(null);
+  const [submitted, setSubmitted] = useState<QuoteRequest | null>(null);
 
   if (!isOpen) return null;
 
-  const subtotalGHS = cartItems.reduce(
-    (sum, item) => sum + item.product.priceGHS * item.quantity,
-    0
-  );
-
-  const deliveryFee = formData.deliveryMethod === 'pickup' 
-    ? 0 
-    : formData.region === 'Central Region' ? 25 : 40;
-
-  const totalGHS = subtotalGHS + deliveryFee;
+  const totalUnits = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    const newOrder: OrderDetails = {
-      orderId: `ESF-${Math.floor(100000 + Math.random() * 900000)}`,
+    const request: QuoteRequest = {
+      requestId: `ESF-${Math.floor(100000 + Math.random() * 900000)}`,
       customerName: formData.name,
       email: formData.email,
       phone: formData.phone,
@@ -59,22 +53,15 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
       city: formData.city,
       address: formData.address,
       deliveryMethod: formData.deliveryMethod,
-      paymentMethod: formData.paymentMethod,
+      notes: formData.notes,
       items: [...cartItems],
-      subtotalGHS,
-      deliveryFeeGHS: deliveryFee,
-      totalGHS,
       createdAt: new Date().toLocaleString(),
-      status: 'confirmed'
+      status: 'awaiting-quote'
     };
 
-    setPlacedOrder(newOrder);
+    setSubmitted(request);
     setStep('confirmation');
     onOrderComplete();
-  };
-
-  const handlePrint = () => {
-    window.print();
   };
 
   return (
@@ -85,11 +72,14 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
             {/* Header */}
             <div className="p-5 bg-brand-900 text-white flex items-center justify-between">
               <div>
-                <h3 className="font-bold text-xl">Complete Your Farm Order</h3>
-                <p className="text-xs text-brand-200">Fresh produce dispatched directly from Ekow Sam Farms</p>
+                <h3 className="font-bold text-xl">Request a Quote</h3>
+                <p className="text-xs text-brand-200">
+                  Tell us what you need and we'll reply with current prices
+                </p>
               </div>
-              <button 
+              <button
                 onClick={onClose}
+                aria-label="Close"
                 className="p-1.5 rounded-lg hover:bg-brand-800 text-brand-200 hover:text-white transition-colors"
               >
                 <X className="w-5 h-5" />
@@ -97,11 +87,28 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
             </div>
 
             <form onSubmit={handleSubmit} className="p-6 space-y-6">
-              {/* Customer Contact */}
+              {/* What they're asking about */}
+              <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-2">
+                <h4 className="font-bold text-xs uppercase tracking-wider text-slate-800">
+                  Your request — {cartItems.length} {cartItems.length === 1 ? 'product' : 'products'}, {totalUnits} {totalUnits === 1 ? 'unit' : 'units'}
+                </h4>
+                <div className="space-y-1 text-xs text-slate-700">
+                  {cartItems.map((item) => (
+                    <div key={item.product.id} className="flex justify-between gap-3">
+                      <span className="truncate">{item.product.name}</span>
+                      <span className="font-bold shrink-0">
+                        {item.quantity} × {item.product.unit}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Contact */}
               <div className="space-y-4">
                 <h4 className="font-bold text-sm text-brand-950 uppercase tracking-wider flex items-center gap-2 border-b pb-2 border-slate-100">
                   <span className="w-6 h-6 rounded-full bg-brand-100 text-brand-800 text-xs flex items-center justify-center font-bold">1</span>
-                  Customer Information
+                  How We Reach You
                 </h4>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                   <div>
@@ -117,7 +124,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   </div>
 
                   <div>
-                    <label className="block text-xs font-bold text-slate-700 mb-1">Phone Number (MoMo Enabled) *</label>
+                    <label className="block text-xs font-bold text-slate-700 mb-1">Phone Number *</label>
                     <input
                       type="tel"
                       required
@@ -142,11 +149,11 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 </div>
               </div>
 
-              {/* Delivery Address & Method */}
+              {/* Delivery */}
               <div className="space-y-4">
                 <h4 className="font-bold text-sm text-brand-950 uppercase tracking-wider flex items-center gap-2 border-b pb-2 border-slate-100">
                   <span className="w-6 h-6 rounded-full bg-brand-100 text-brand-800 text-xs flex items-center justify-center font-bold">2</span>
-                  Delivery & Location in Ghana
+                  Delivery or Pickup
                 </h4>
 
                 <div className="grid grid-cols-2 gap-3 mb-3">
@@ -161,8 +168,8 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   >
                     <Truck className="w-5 h-5 text-brand-600 shrink-0" />
                     <div>
-                      <p className="text-xs font-bold">Home/Office Delivery</p>
-                      <p className="text-[10px] text-slate-500">Accra, Cape Coast, Kumasi, Tema</p>
+                      <p className="text-xs font-bold">Deliver to me</p>
+                      <p className="text-[10px] text-slate-500">Greater Accra &amp; beyond</p>
                     </div>
                   </button>
 
@@ -177,8 +184,8 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                   >
                     <MapPin className="w-5 h-5 text-brand-600 shrink-0" />
                     <div>
-                      <p className="text-xs font-bold">Direct Farm Pickup</p>
-                      <p className="text-[10px] text-slate-500">Free @ Gomoa Potsin Farm</p>
+                      <p className="text-xs font-bold">Farm pickup</p>
+                      <p className="text-[10px] text-slate-500">{FARM_INFO.address}</p>
                     </div>
                   </button>
                 </div>
@@ -205,7 +212,7 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                       <input
                         type="text"
                         required
-                        placeholder="e.g. East Legon, Tema, Cape Coast"
+                        placeholder="e.g. East Legon, Tema, Kasoa"
                         value={formData.city}
                         onChange={(e) => setFormData({ ...formData, city: e.target.value })}
                         className="w-full text-sm px-3.5 py-2 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20"
@@ -213,11 +220,11 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                     </div>
 
                     <div className="md:col-span-2">
-                      <label className="block text-xs font-bold text-slate-700 mb-1">Street Address & Landmark *</label>
+                      <label className="block text-xs font-bold text-slate-700 mb-1">Street Address &amp; Landmark *</label>
                       <input
                         type="text"
                         required
-                        placeholder="e.g. House No. 24, Near Shell Filling Station"
+                        placeholder="e.g. House No. 24, near Shell filling station"
                         value={formData.address}
                         onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                         className="w-full text-sm px-3.5 py-2 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20"
@@ -227,95 +234,28 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 )}
               </div>
 
-              {/* Payment Method */}
+              {/* Notes */}
               <div className="space-y-4">
                 <h4 className="font-bold text-sm text-brand-950 uppercase tracking-wider flex items-center gap-2 border-b pb-2 border-slate-100">
                   <span className="w-6 h-6 rounded-full bg-brand-100 text-brand-800 text-xs flex items-center justify-center font-bold">3</span>
-                  Payment Options
+                  Anything Else? <span className="font-normal normal-case text-slate-500 text-xs">(optional)</span>
                 </h4>
-
-                <div className="grid grid-cols-3 gap-3">
-                  <button
-                    type="button"
-                    onClick={() => setFormData({ ...formData, paymentMethod: 'momo' })}
-                    className={`p-3 rounded-xl border text-center transition-colors ${
-                      formData.paymentMethod === 'momo'
-                        ? 'border-brand-600 bg-brand-50 text-brand-900 font-bold'
-                        : 'border-slate-200 text-slate-600 hover:bg-slate-50'
-                    }`}
-                  >
-                    <Smartphone className="w-5 h-5 mx-auto mb-1 text-yellow-600" />
-                    <p className="text-xs font-bold">Mobile Money</p>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => setFormData({ ...formData, paymentMethod: 'card' })}
-                    className={`p-3 rounded-xl border text-center transition-colors ${
-                      formData.paymentMethod === 'card'
-                        ? 'border-brand-600 bg-brand-50 text-brand-900 font-bold'
-                        : 'border-slate-200 text-slate-600 hover:bg-slate-50'
-                    }`}
-                  >
-                    <CreditCard className="w-5 h-5 mx-auto mb-1 text-brand-600" />
-                    <p className="text-xs font-bold">Credit/Debit Card</p>
-                  </button>
-
-                  <button
-                    type="button"
-                    onClick={() => setFormData({ ...formData, paymentMethod: 'cod' })}
-                    className={`p-3 rounded-xl border text-center transition-colors ${
-                      formData.paymentMethod === 'cod'
-                        ? 'border-brand-600 bg-brand-50 text-brand-900 font-bold'
-                        : 'border-slate-200 text-slate-600 hover:bg-slate-50'
-                    }`}
-                  >
-                    <CheckCircle2 className="w-5 h-5 mx-auto mb-1 text-brand-600" />
-                    <p className="text-xs font-bold">Pay on Delivery</p>
-                  </button>
-                </div>
-
-                {formData.paymentMethod === 'momo' && (
-                  <div className="p-3 bg-accent-50 border border-accent-200 rounded-xl space-y-2">
-                    <p className="text-xs font-bold text-accent-800">Mobile Money Prompt Simulation</p>
-                    <div className="grid grid-cols-2 gap-2 text-xs">
-                      <select 
-                        value={formData.momoNetwork}
-                        onChange={(e) => setFormData({ ...formData, momoNetwork: e.target.value })}
-                        className="p-2 border border-accent-300 rounded-lg bg-white"
-                      >
-                        <option value="MTN Mobile Money">MTN Mobile Money</option>
-                        <option value="Telecel Cash">Telecel Cash</option>
-                        <option value="AT Money">AT Money</option>
-                      </select>
-                      <input 
-                        type="text" 
-                        placeholder="024 XXX XXXX"
-                        value={formData.momoNumber || formData.phone}
-                        onChange={(e) => setFormData({ ...formData, momoNumber: e.target.value })}
-                        className="p-2 border border-accent-300 rounded-lg bg-white"
-                      />
-                    </div>
-                  </div>
-                )}
+                <textarea
+                  rows={3}
+                  placeholder="e.g. bird size preference, delivery day, or whether you need regular weekly supply"
+                  value={formData.notes}
+                  onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
+                  className="w-full text-sm px-3.5 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20 resize-y"
+                />
               </div>
 
-              {/* Order Summary Breakdown */}
-              <div className="bg-slate-50 p-4 rounded-xl border border-slate-200 space-y-2 text-sm">
-                <div className="flex justify-between text-slate-600">
-                  <span>Produce Subtotal ({cartItems.length} items)</span>
-                  <span className="font-bold text-slate-900">GH¢ {subtotalGHS.toFixed(2)}</span>
-                </div>
-                <div className="flex justify-between text-slate-600">
-                  <span>Delivery / Logistics Fee</span>
-                  <span className="font-bold text-slate-900">
-                    {deliveryFee === 0 ? 'FREE (Farm Pickup)' : `GH¢ ${deliveryFee.toFixed(2)}`}
-                  </span>
-                </div>
-                <div className="pt-2 border-t border-slate-200 flex justify-between items-baseline font-black text-lg text-brand-900">
-                  <span>Total Amount Payable</span>
-                  <span>GH¢ {totalGHS.toFixed(2)}</span>
-                </div>
+              <div className="p-3 bg-accent-50 border border-accent-200 rounded-xl flex items-start gap-2.5">
+                <Clock className="w-4 h-4 text-accent-700 shrink-0 mt-0.5" />
+                <p className="text-xs text-slate-700 leading-relaxed">
+                  <strong className="text-accent-800">No payment is taken here.</strong> We'll review your
+                  request and get back to you with current prices and any delivery charge — usually the same day
+                  during opening hours ({FARM_INFO.openingHoursShort}).
+                </p>
               </div>
 
               <div className="flex items-center justify-between gap-4 pt-2">
@@ -328,73 +268,103 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl shadow-md transition-all text-base text-center"
+                  className="flex-1 bg-accent-700 hover:bg-accent-800 text-white font-bold py-3.5 rounded-xl shadow-md transition-all text-base text-center"
                 >
-                  Confirm & Place Farm Order
+                  Send Request
                 </button>
               </div>
             </form>
           </div>
         ) : (
-          /* Confirmation Receipt Invoice */
+          /* Confirmation */
           <div className="p-8 space-y-6">
             <div className="text-center space-y-2">
-              <div className="w-16 h-16 rounded-full bg-brand-100 text-brand-700 mx-auto flex items-center justify-center">
+              <div className="w-16 h-16 rounded-full bg-accent-100 text-accent-700 mx-auto flex items-center justify-center">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
-              <h3 className="text-2xl font-black text-brand-950 font-serif">Order Confirmed!</h3>
+              <h3 className="text-2xl font-black text-brand-950 font-serif">Request Sent!</h3>
               <p className="text-sm text-slate-600">
-                Thank you <strong className="text-slate-900">{placedOrder?.customerName}</strong>! Your order reference is{' '}
+                Thank you <strong className="text-slate-900">{submitted?.customerName}</strong> — your reference is{' '}
                 <span className="font-mono bg-brand-100 text-brand-800 px-2 py-0.5 rounded font-bold">
-                  {placedOrder?.orderId}
+                  {submitted?.requestId}
                 </span>
               </p>
             </div>
 
-            {/* Print/Invoice Box */}
+            <div className="p-4 bg-accent-50 border border-accent-200 rounded-xl space-y-1.5">
+              <p className="font-bold text-accent-800 text-sm">What happens next</p>
+              <p className="text-xs text-slate-700 leading-relaxed">
+                We'll price your request against today's rates and call you on{' '}
+                <strong>{submitted?.phone}</strong> to confirm. Nothing is charged until you agree the quote.
+              </p>
+            </div>
+
+            {/* Printable summary */}
             <div className="bg-slate-50 border border-slate-200 rounded-xl p-5 space-y-4 text-xs font-sans">
-              <div className="flex justify-between border-b pb-3 border-slate-200">
+              <div className="flex justify-between gap-4 border-b pb-3 border-slate-200">
                 <div>
-                  <h4 className="font-black text-sm text-brand-950">EKOW SAM FARMS GHANA</h4>
-                  <p className="text-slate-500">Gomoa Potsin, Central Region</p>
-                  <p className="text-slate-500">Tel: +233 24 123 4567</p>
+                  <h4 className="font-black text-sm text-brand-950">EKOW SAM FARMS</h4>
+                  <p className="text-slate-500">{FARM_INFO.address}</p>
+                  <p className="text-slate-500">Tel: {FARM_INFO.phones[1]}</p>
                 </div>
-                <div className="text-right">
-                  <p className="font-bold text-slate-800">Date: {placedOrder?.createdAt}</p>
-                  <p className="text-brand-700 font-bold uppercase">Status: Confirmed / Dispatched</p>
+                <div className="text-right shrink-0">
+                  <p className="font-bold text-slate-800">{submitted?.createdAt}</p>
+                  <p className="text-accent-800 font-bold uppercase">Awaiting Quote</p>
                 </div>
               </div>
 
               <div>
-                <h5 className="font-bold text-slate-800 mb-2">Order Items Breakdown:</h5>
+                <h5 className="font-bold text-slate-800 mb-2">Requested items:</h5>
                 <div className="space-y-1.5 divide-y divide-slate-200">
-                  {placedOrder?.items.map((item) => (
-                    <div key={item.product.id} className="pt-1 flex justify-between">
-                      <span>{item.quantity}x {item.product.name} ({item.product.unit})</span>
-                      <span className="font-bold">GH¢ {(item.product.priceGHS * item.quantity).toFixed(2)}</span>
+                  {submitted?.items.map((item) => (
+                    <div key={item.product.id} className="pt-1 flex justify-between gap-3">
+                      <span className="truncate">{item.product.name}</span>
+                      <span className="font-bold shrink-0">
+                        {item.quantity} × {item.product.unit}
+                      </span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              <div className="pt-3 border-t border-slate-200 flex justify-between font-black text-sm text-brand-950">
-                <span>Total Paid:</span>
-                <span>GH¢ {placedOrder?.totalGHS.toFixed(2)}</span>
-              </div>
-
               <div className="text-[11px] text-slate-500 pt-2 border-t border-slate-200 space-y-1">
-                <p><strong>Delivery Address:</strong> {placedOrder?.address}, {placedOrder?.city}, {placedOrder?.region}</p>
-                <p><strong>Contact Phone:</strong> {placedOrder?.phone}</p>
+                {submitted?.deliveryMethod === 'delivery' ? (
+                  <p><strong>Deliver to:</strong> {submitted?.address}, {submitted?.city}, {submitted?.region}</p>
+                ) : (
+                  <p><strong>Collection:</strong> Farm pickup at {FARM_INFO.address}</p>
+                )}
+                <p><strong>Contact:</strong> {submitted?.phone} · {submitted?.email}</p>
+                {submitted?.notes && <p><strong>Notes:</strong> {submitted.notes}</p>}
               </div>
+            </div>
+
+            {/* Nudge them to reach out directly if they're in a hurry */}
+            <div className="flex flex-col sm:flex-row gap-2">
+              <a
+                href={`tel:${FARM_INFO.phones[0].replace(/\s/g, '')}`}
+                className="flex-1 bg-accent-700 hover:bg-accent-800 text-white font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-2 text-sm"
+              >
+                <Phone className="w-4 h-4" />
+                <span>Call Now</span>
+              </a>
+              <a
+                href={`https://wa.me/233${FARM_INFO.socials.whatsapp.replace(/^0/, '')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-2 text-sm"
+              >
+                <Mail className="w-4 h-4" />
+                <span>WhatsApp Us</span>
+              </a>
             </div>
 
             <div className="flex items-center gap-3">
               <button
-                onClick={handlePrint}
+                onClick={() => window.print()}
                 className="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-2 text-sm"
               >
                 <Printer className="w-4 h-4" />
-                <span>Print Invoice</span>
+                <span>Print Summary</span>
               </button>
               <button
                 onClick={onClose}

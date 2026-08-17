@@ -109,14 +109,12 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ setCurrentPage }) =>
               </div>
 
               <div className="p-6 pt-0 border-t border-slate-100 mt-4 space-y-3">
-                <div className="flex items-baseline justify-between pt-3">
+                <div className="flex items-baseline justify-between pt-3 gap-3">
                   <div>
-                    <span className="text-2xl font-black text-brand-800">
-                      GH¢ {ws.feeGHS.toFixed(2)}
-                    </span>
-                    <span className="text-[10px] text-slate-500 block">(~${ws.feeUSD} USD per trainee)</span>
+                    <span className="text-sm font-black text-accent-800">Fee on request</span>
+                    <span className="text-[10px] text-slate-500 block">Confirmed when you register</span>
                   </div>
-                  <span className="text-xs text-slate-500 font-medium">
+                  <span className="text-xs text-slate-500 font-medium text-right">
                     Instructor: {ws.instructor.split(' ')[0]} {ws.instructor.split(' ')[1]}
                   </span>
                 </div>
@@ -152,7 +150,7 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ setCurrentPage }) =>
                     {selectedWorkshop.category}
                   </span>
                   <h3 className="font-bold text-lg leading-snug">{selectedWorkshop.title}</h3>
-                  <p className="text-xs text-brand-200 mt-1">Fee: GH¢ {selectedWorkshop.feeGHS} | Date: {selectedWorkshop.date}</p>
+                  <p className="text-xs text-brand-200 mt-1">{selectedWorkshop.date} · {selectedWorkshop.duration}</p>
                 </div>
 
                 <form onSubmit={handleRegisterSubmit} className="p-6 space-y-4 text-xs">
@@ -217,7 +215,7 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ setCurrentPage }) =>
                     type="submit"
                     className="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl text-xs transition-colors shadow-sm"
                   >
-                    Confirm Registration (GH¢ {selectedWorkshop.feeGHS})
+                    Reserve My Seat
                   </button>
                 </form>
               </div>
@@ -231,8 +229,14 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ setCurrentPage }) =>
                   Thank you <strong>{registrationForm.name}</strong>! Your seat for <strong>{selectedWorkshop.title}</strong> on <strong>{selectedWorkshop.date}</strong> has been provisionally registered.
                 </p>
                 <div className="p-3 bg-accent-50 border border-accent-200 rounded-xl text-left text-xs space-y-1">
-                  <p className="font-bold text-accent-800">Payment Instructions:</p>
-                  <p className="text-brand-800">Please send GH¢ {selectedWorkshop.feeGHS} via MTN Mobile Money to <strong>024 123 4567 (Ekow Sam Farms)</strong> with Reference: <strong>WORKSHOP-{registrationForm.name.split(' ')[0]}</strong>.</p>
+                  <p className="font-bold text-accent-800">What happens next:</p>
+                  <p className="text-slate-700">
+                    We'll call you on <strong>{registrationForm.phone}</strong> to confirm the course fee
+                    and payment details, and to answer any questions before the session.
+                  </p>
+                  <p className="text-slate-700">
+                    Your reference: <strong>WORKSHOP-{registrationForm.name.split(' ')[0].toUpperCase()}</strong>
+                  </p>
                 </div>
                 <button
                   onClick={() => setSelectedWorkshop(null)}

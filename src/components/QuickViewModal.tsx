@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Product } from '../types';
 import { PRODUCT_CATEGORY_LABELS } from '../data/farmData';
-import { X, ShoppingBag, Check, Star, ShieldCheck, Plus, Minus, Tag } from 'lucide-react';
+import { X, ShoppingBag, Check, Star, Plus, Minus, Tag } from 'lucide-react';
 
 interface QuickViewModalProps {
   product: Product | null;
@@ -74,13 +74,10 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
                 <span className="text-xs text-slate-500">{product.reviewsCount} verified farm reviews</span>
               </div>
 
-              <div className="mt-4 flex items-baseline gap-2">
-                <span className="text-2xl font-black text-brand-800">
-                  GH¢ {product.priceGHS.toFixed(2)}
-                </span>
-                <span className="text-xs text-slate-500">/ {product.unit}</span>
-                <span className="text-xs text-slate-500 ml-auto">
-                  (~${product.priceUSD.toFixed(2)} USD)
+              <div className="mt-4 p-3 bg-accent-50 border border-accent-200 rounded-xl">
+                <span className="text-sm font-black text-accent-800 block">Priced on request</span>
+                <span className="text-[11px] text-slate-600">
+                  Quoted per {product.unit.toLowerCase()} — we'll confirm current rates when you send your request.
                 </span>
               </div>
 
@@ -98,10 +95,10 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
                 ))}
               </div>
 
-              {product.bulkDiscount && (
-                <div className="mt-3 p-2 bg-accent-50 border border-accent-200 rounded-lg text-xs text-accent-800 font-medium flex items-center gap-1.5">
-                  <Tag className="w-3.5 h-3.5 text-accent-700 shrink-0" />
-                  <span>{product.bulkDiscount}</span>
+              {product.bulkNote && (
+                <div className="mt-3 p-2 bg-slate-50 border border-slate-200 rounded-lg text-xs text-slate-700 font-medium flex items-center gap-1.5">
+                  <Tag className="w-3.5 h-3.5 text-brand-700 shrink-0" />
+                  <span>{product.bulkNote}</span>
                 </div>
               )}
             </div>
@@ -141,12 +138,12 @@ export const QuickViewModal: React.FC<QuickViewModalProps> = ({
                 {added ? (
                   <>
                     <Check className="w-5 h-5 text-brand-300" />
-                    <span>Added to Basket!</span>
+                    <span>Added to Request!</span>
                   </>
                 ) : (
                   <>
                     <ShoppingBag className="w-5 h-5" />
-                    <span>Add to Basket • GH¢ {(product.priceGHS * quantity).toFixed(2)}</span>
+                    <span>Add {quantity} to Request</span>
                   </>
                 )}
               </button>

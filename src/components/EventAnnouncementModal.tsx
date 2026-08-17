@@ -150,7 +150,9 @@ export const EventAnnouncementModal: React.FC<EventAnnouncementModalProps> = ({ 
             <div className="flex items-center gap-2 text-slate-700">
               <Ticket className="w-4 h-4 text-brand-600 shrink-0" />
               <span className="font-bold text-accent-800">
-                {nextEvent.priceGHS === 0 ? 'Free entry' : `GH¢ ${nextEvent.priceGHS} per person`}
+                {nextEvent.spotsRemaining > 0
+                  ? `${nextEvent.spotsRemaining} spots remaining`
+                  : 'Waitlist open'}
               </span>
             </div>
           </div>

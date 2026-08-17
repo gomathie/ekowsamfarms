@@ -53,8 +53,6 @@ export const PRODUCTS: Product[] = [
     id: "prod-1",
     name: "Farm-Fresh Eggs",
     category: "eggs",
-    priceGHS: 65,
-    priceUSD: 4.80,
     unit: "Crate (30 large brown eggs)",
     image: "/images/farm-crates-stacked.webp",
     inStock: true,
@@ -68,14 +66,12 @@ export const PRODUCTS: Product[] = [
       "Packaging": "Eco-friendly molded pulp crate (30 eggs)",
       "Shelf Life": "30 days stored in cool dry place"
     },
-    bulkDiscount: "10% off on orders above 20 crates"
+    bulkNote: "Volume discounts available on bulk crate orders"
   },
   {
     id: "prod-2",
     name: "Dressed Chicken",
     category: "poultry",
-    priceGHS: 120,
-    priceUSD: 8.90,
     unit: "Per Whole Bird",
     image: "/images/dressed-chicken.webp",
     inStock: true,
@@ -94,8 +90,6 @@ export const PRODUCTS: Product[] = [
     id: "prod-3",
     name: "Kosua ne Meko",
     category: "ready-to-eat",
-    priceGHS: 25,
-    priceUSD: 1.85,
     unit: "Pack",
     image: "/images/kosua-ne-meko.webp",
     inStock: true,
@@ -114,8 +108,6 @@ export const PRODUCTS: Product[] = [
     id: "prod-4",
     name: "Point-of-Lay Pullets",
     category: "live-birds",
-    priceGHS: 95,
-    priceUSD: 7.00,
     unit: "Per Bird (16–18 weeks)",
     image: "/images/farm-pullets.webp",
     inStock: true,
@@ -128,14 +120,12 @@ export const PRODUCTS: Product[] = [
       "Breed": "Commercial brown layer hybrid",
       "Minimum Order": "10 birds"
     },
-    bulkDiscount: "Tiered pricing from 50 birds upward"
+    bulkNote: "Better rates on larger flock orders — ask for a quote"
   },
   {
     id: "prod-5",
     name: "Live Broilers",
     category: "live-birds",
-    priceGHS: 110,
-    priceUSD: 8.10,
     unit: "Per Live Bird",
     image: "/images/farm-broiler-house.webp",
     inStock: true,
@@ -153,8 +143,6 @@ export const PRODUCTS: Product[] = [
     id: "prod-6",
     name: "Wholesale Egg Supply",
     category: "eggs",
-    priceGHS: 58,
-    priceUSD: 4.30,
     unit: "Per Crate (B2B, 20+ crates)",
     image: "/images/farm-egg-grading.webp",
     inStock: true,
@@ -168,7 +156,7 @@ export const PRODUCTS: Product[] = [
       "Delivery": "Scheduled weekly across Greater Accra",
       "Invoicing": "Professional invoicing and account terms available"
     },
-    bulkDiscount: "Volume tiers from 20, 50, and 100 crates"
+    bulkNote: "Contract rates for regular weekly supply"
   }
 ];
 
@@ -180,8 +168,6 @@ export const WORKSHOPS: Workshop[] = [
     duration: "2 Days",
     date: "September 12 - 13, 2026",
     location: "Ekow Sam Farms Poultry Complex & Online",
-    feeGHS: 600,
-    feeUSD: 44,
     instructor: "Dr. Abena Osei (Veterinary Specialist)",
     seatsRemaining: 18,
     image: "/images/farm-broiler-house.webp",
@@ -206,8 +192,6 @@ export const WORKSHOPS: Workshop[] = [
     duration: "1 Day Executive Session",
     date: "September 26, 2026",
     location: "Accra Conference Center & Ekow Sam Estate",
-    feeGHS: 1200,
-    feeUSD: 89,
     instructor: "Ekow Sam (CEO & Founder)",
     seatsRemaining: 10,
     image: "/images/farm-owner-inspect.webp",
@@ -232,8 +216,6 @@ export const WORKSHOPS: Workshop[] = [
     duration: "2 Days",
     date: "October 24 - 25, 2026",
     location: "Ekow Sam Farms Layer House, Kasoa",
-    feeGHS: 650,
-    feeUSD: 48,
     instructor: "Ekow Sam (CEO & Founder)",
     seatsRemaining: 22,
     image: "/images/farm-layer-house.webp",
@@ -264,7 +246,6 @@ export const EVENTS: FarmEvent[] = [
     city: "Accra",
     image: "/images/kosua-ne-meko.webp",
     summary: "Accra's premier street food and cultural festival, hosted by our own Kosua ne Meko brand. Farm-fresh eggs, artisanal meko pepper salsa, live Afrobeats, a board game tournament, and African short films under the stars.",
-    priceGHS: 0,
     capacity: 800,
     spotsRemaining: 415,
     featured: true,
@@ -287,7 +268,6 @@ export const EVENTS: FarmEvent[] = [
     city: "Kasoa",
     image: "/images/farm-layer-house.webp",
     summary: "Walk through our biosecure layer pens, meet the farm team, and see exactly how your eggs and dressed chicken are produced. Family-friendly, free entry.",
-    priceGHS: 0,
     capacity: 300,
     spotsRemaining: 112,
     featured: true,
@@ -308,13 +288,12 @@ export const EVENTS: FarmEvent[] = [
     city: "Accra",
     image: "/images/farm-crates-stacked.webp",
     summary: "Our monthly farm-gate market. Crates of yellow-yolked eggs, vacuum-sealed dressed chicken, and Kosua ne Meko packs sold direct at farm prices, no middlemen.",
-    priceGHS: 0,
     capacity: 400,
     spotsRemaining: 260,
     highlights: [
       "Farm-gate pricing on all crates",
       "Bulk discounts for restaurants and caterers",
-      "Free delivery within Accra on orders above GH¢ 500"
+      "Free delivery within Accra on qualifying bulk orders"
     ]
   },
   {
@@ -328,7 +307,6 @@ export const EVENTS: FarmEvent[] = [
     city: "Kasoa / Accra",
     image: "/images/farm-owner-inspect.webp",
     summary: "A two-day executive tour for diaspora Ghanaians and investors evaluating commercial poultry. Includes site walkthrough, financial modelling session, and 1-on-1 time with the founder.",
-    priceGHS: 450,
     capacity: 40,
     spotsRemaining: 9,
     featured: true,
@@ -350,7 +328,6 @@ export const EVENTS: FarmEvent[] = [
     city: "Accra",
     image: "/images/farm-egg-grading.webp",
     summary: "Find us at Stand B14. We will be showcasing our cold-chain processing standards, wholesale supply contracts, and the Kosua ne Meko retail line.",
-    priceGHS: 0,
     capacity: 500,
     spotsRemaining: 341,
     highlights: [
@@ -369,7 +346,6 @@ export const EVENTS: FarmEvent[] = [
     city: "Kasoa",
     image: "/images/farm-egg-collection.webp",
     summary: "Our end-of-year outreach. We donate crates to local schools and clinics, and run a free nutrition talk on protein for growing children.",
-    priceGHS: 0,
     capacity: 250,
     spotsRemaining: 250,
     highlights: [
@@ -388,7 +364,6 @@ export const EVENTS: FarmEvent[] = [
     city: "Accra",
     image: "/images/farm-team-sorting.webp",
     summary: "A closed-door breakfast with hotel and restaurant buyers covering our 2026 supply schedule, cold-chain guarantees, and volume pricing tiers.",
-    priceGHS: 0,
     capacity: 60,
     spotsRemaining: 0,
     highlights: [
@@ -407,7 +382,6 @@ export const EVENTS: FarmEvent[] = [
     city: "Kasoa",
     image: "/images/farm-hens-feeding.webp",
     summary: "Our first open day of the year drew over 200 visitors from Kasoa and Greater Accra for tours, tastings, and farm-gate shopping.",
-    priceGHS: 0,
     capacity: 250,
     spotsRemaining: 0,
     highlights: [

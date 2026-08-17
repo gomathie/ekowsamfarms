@@ -459,9 +459,7 @@ export const HomePage: React.FC<HomePageProps> = ({
 
                 <div className="p-6 pt-0 space-y-3 text-center">
                   <div>
-                    <span className="text-2xl font-black text-brand-800">
-                      GH¢ {product.priceGHS.toFixed(2)}
-                    </span>
+                    <span className="text-sm font-black text-accent-800">Priced on request</span>
                     <span className="text-[10px] text-slate-500 block mt-0.5">{product.unit}</span>
                   </div>
                   <button
@@ -469,7 +467,7 @@ export const HomePage: React.FC<HomePageProps> = ({
                     className="w-full bg-brand-800 hover:bg-brand-900 text-white font-bold py-3 rounded-xl text-xs transition-colors shadow-sm flex items-center justify-center gap-2"
                   >
                     <ShoppingBag className="w-4 h-4" />
-                    <span>Order Now</span>
+                    <span>Add to Request</span>
                   </button>
                 </div>
               </div>

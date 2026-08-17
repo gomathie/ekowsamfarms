@@ -1,6 +1,6 @@
 import React from 'react';
 import { CartItem } from '../types';
-import { X, Trash2, Plus, Minus, ShoppingBag, ArrowRight, ShieldCheck, Truck } from 'lucide-react';
+import { X, Trash2, Plus, Minus, ShoppingBag, ArrowRight, ShieldCheck } from 'lucide-react';
 
 interface CartDrawerProps {
   isOpen: boolean;
@@ -21,10 +21,7 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
 }) => {
   if (!isOpen) return null;
 
-  const subtotalGHS = cartItems.reduce(
-    (sum, item) => sum + item.product.priceGHS * item.quantity,
-    0
-  );
+  const totalUnits = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
   return (
     <div className="fixed inset-0 z-50 overflow-hidden font-sans">
@@ -43,8 +40,10 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 <ShoppingBag className="w-5 h-5" />
               </div>
               <div>
-                <h3 className="font-bold text-lg leading-tight">Your Farm Basket</h3>
-                <p className="text-xs text-brand-200">{cartItems.length} items selected</p>
+                <h3 className="font-bold text-lg leading-tight">Your Request List</h3>
+                <p className="text-xs text-brand-200">
+                  {cartItems.length} {cartItems.length === 1 ? 'product' : 'products'} · {totalUnits} {totalUnits === 1 ? 'unit' : 'units'}
+                </p>
               </div>
             </div>
             <button 
@@ -62,15 +61,15 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                 <div className="w-16 h-16 rounded-full bg-brand-50 flex items-center justify-center text-brand-600 mb-4">
                   <ShoppingBag className="w-8 h-8" />
                 </div>
-                <h4 className="text-base font-bold text-slate-700 mb-1">Your Basket is Empty</h4>
+                <h4 className="text-base font-bold text-slate-700 mb-1">Your Request List is Empty</h4>
                 <p className="text-xs text-slate-500 mb-6">
-                  Explore our farm store for crates of fresh eggs, hormone-free dressed chicken, live broilers, and point-of-lay pullets.
+                  Add crates of fresh eggs, hormone-free dressed chicken, live broilers, or point-of-lay pullets, then send the list for a quote.
                 </p>
                 <button
                   onClick={onClose}
                   className="bg-brand-600 hover:bg-brand-700 text-white font-semibold text-sm px-5 py-2.5 rounded-lg shadow-sm"
                 >
-                  Start Shopping
+                  Browse Products
                 </button>
               </div>
             ) : (
@@ -117,14 +116,9 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
                         </button>
                       </div>
 
-                      <div className="text-right">
-                        <p className="font-extrabold text-sm text-brand-800">
-                          GH¢ {(item.product.priceGHS * item.quantity).toFixed(2)}
-                        </p>
-                        <p className="text-[10px] text-slate-500">
-                          (GH¢ {item.product.priceGHS} each)
-                        </p>
-                      </div>
+                      <span className="text-[10px] text-slate-500 font-medium">
+                        Price on quote
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -132,36 +126,27 @@ export const CartDrawer: React.FC<CartDrawerProps> = ({
             )}
           </div>
 
-          {/* Footer Subtotal & Checkout */}
+          {/* Footer: submit for quote */}
           {cartItems.length > 0 && (
             <div className="p-5 bg-slate-50 border-t border-slate-200 space-y-4">
-              <div className="space-y-1.5 text-sm">
-                <div className="flex justify-between text-slate-600">
-                  <span>Subtotal</span>
-                  <span className="font-bold text-slate-900">GH¢ {subtotalGHS.toFixed(2)}</span>
-                </div>
-                <div className="flex justify-between text-xs text-brand-700">
-                  <span className="flex items-center gap-1">
-                    <Truck className="w-3.5 h-3.5" /> Direct Delivery
-                  </span>
-                  <span>Calculated at checkout</span>
-                </div>
-                <div className="pt-2 border-t border-slate-200 flex justify-between items-baseline">
-                  <span className="font-bold text-slate-900 text-base">Estimated Total</span>
-                  <span className="font-black text-xl text-brand-800">GH¢ {subtotalGHS.toFixed(2)}</span>
-                </div>
+              <div className="p-3 bg-accent-50 border border-accent-200 rounded-xl space-y-1">
+                <p className="font-bold text-accent-800 text-sm">No payment now</p>
+                <p className="text-xs text-slate-700 leading-relaxed">
+                  Send this list and we'll reply with current prices for the quantities you need,
+                  plus any delivery charge. Nothing is charged until you confirm.
+                </p>
               </div>
 
               <div className="p-2.5 bg-brand-100/70 border border-brand-200 rounded-lg flex items-center gap-2 text-xs text-brand-900">
                 <ShieldCheck className="w-4 h-4 text-brand-700 shrink-0" />
-                <span>Harvested fresh & processed under FDA standards.</span>
+                <span>Harvested fresh &amp; processed under FDA standards.</span>
               </div>
 
               <button
                 onClick={onCheckout}
-                className="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 text-base active:scale-98"
+                className="w-full bg-accent-700 hover:bg-accent-800 text-white font-bold py-3.5 rounded-xl shadow-md transition-all flex items-center justify-center gap-2 text-base active:scale-98"
               >
-                <span>Proceed to Order Checkout</span>
+                <span>Request a Quote</span>
                 <ArrowRight className="w-5 h-5" />
               </button>
             </div>

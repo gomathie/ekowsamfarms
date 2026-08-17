@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Product } from '../types';
-import { PRODUCTS, PRODUCT_CATEGORY_LABELS } from '../data/farmData';
+import { PRODUCTS, PRODUCT_CATEGORY_LABELS, FARM_INFO } from '../data/farmData';
 import { PageHeader } from '../components/PageHeader';
 import { 
   ShoppingBag, Search, Filter, Eye, Star, Check, Tag, ShieldCheck, 
@@ -20,7 +20,7 @@ export const StorePage: React.FC<StorePageProps> = ({
 }) => {
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
-  const [sortBy, setSortBy] = useState<'featured' | 'price-low' | 'price-high' | 'rating'>('featured');
+  const [sortBy, setSortBy] = useState<'featured' | 'rating' | 'name'>('featured');
 
   const categories = [
     { id: 'all', label: 'All Products' },
@@ -36,9 +36,8 @@ export const StorePage: React.FC<StorePageProps> = ({
                           product.description.toLowerCase().includes(searchQuery.toLowerCase());
     return matchesCategory && matchesSearch;
   }).sort((a, b) => {
-    if (sortBy === 'price-low') return a.priceGHS - b.priceGHS;
-    if (sortBy === 'price-high') return b.priceGHS - a.priceGHS;
     if (sortBy === 'rating') return b.rating - a.rating;
+    if (sortBy === 'name') return a.name.localeCompare(b.name);
     return (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
   });
 
@@ -50,6 +49,29 @@ export const StorePage: React.FC<StorePageProps> = ({
         description="Crates of farm-fresh yellow-yolked eggs, hormone-free dressed chicken, live birds, and point-of-lay pullets — delivered across Greater Accra or collected at the farm gate."
         image="/images/farm-crates-stacked.webp"
       />
+
+      {/* Pricing model, stated up front so "no price" never reads as an oversight. */}
+      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="bg-accent-50 border border-accent-200 rounded-2xl p-5 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+          <div className="w-10 h-10 rounded-xl bg-accent-700 text-white flex items-center justify-center shrink-0">
+            <Tag className="w-5 h-5" />
+          </div>
+          <div className="flex-1 space-y-1">
+            <h2 className="font-bold text-slate-900 text-sm">Prices are quoted per order</h2>
+            <p className="text-xs text-slate-700 leading-relaxed">
+              Rates move with the flock cycle, bird size, and how much you need, so we quote every
+              order directly. Build your request below and we'll come back with current pricing —
+              usually the same day.
+            </p>
+          </div>
+          <a
+            href={`tel:${FARM_INFO.phones[0].replace(/\s/g, '')}`}
+            className="bg-accent-700 hover:bg-accent-800 text-white font-bold px-5 py-2.5 rounded-full text-xs transition-colors shrink-0 whitespace-nowrap"
+          >
+            Call for a price
+          </a>
+        </div>
+      </section>
 
       {/* Main Catalog Container */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
@@ -77,9 +99,8 @@ export const StorePage: React.FC<StorePageProps> = ({
                 className="text-xs px-3 py-2 rounded-xl border border-slate-200 bg-slate-50 font-semibold focus:outline-none focus:border-brand-600 focus:ring-2 focus:ring-brand-600/20"
               >
                 <option value="featured">Featured First</option>
-                <option value="price-low">Price: Low to High</option>
-                <option value="price-high">Price: High to Low</option>
                 <option value="rating">Highest Rated</option>
+                <option value="name">Name (A–Z)</option>
               </select>
             </div>
           </div>
@@ -162,26 +183,19 @@ export const StorePage: React.FC<StorePageProps> = ({
                       {product.description}
                     </p>
 
-                    {product.bulkDiscount && (
+                    {product.bulkNote && (
                       <div className="p-1.5 bg-accent-50 border border-accent-200 rounded text-[10px] text-accent-800 font-medium flex items-center gap-1">
                         <Tag className="w-3 h-3 text-accent-700 shrink-0" />
-                        <span className="truncate">{product.bulkDiscount}</span>
+                        <span className="truncate">{product.bulkNote}</span>
                       </div>
                     )}
                   </div>
                 </div>
 
                 <div className="p-5 pt-0 space-y-3">
-                  <div className="flex items-baseline justify-between border-t border-slate-100 pt-3">
-                    <div>
-                      <span className="text-xl font-black text-brand-800">
-                        GH¢ {product.priceGHS.toFixed(2)}
-                      </span>
-                      <span className="text-[10px] text-slate-500 block">{product.unit}</span>
-                    </div>
-                    <span className="text-xs text-slate-500 font-mono">
-                      ~${product.priceUSD.toFixed(2)}
-                    </span>
+                  <div className="border-t border-slate-100 pt-3">
+                    <span className="text-xs font-bold text-brand-800">Priced on request</span>
+                    <span className="text-[10px] text-slate-500 block">{product.unit}</span>
                   </div>
 
                   <button
@@ -189,7 +203,7 @@ export const StorePage: React.FC<StorePageProps> = ({
                     className="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl text-xs transition-colors shadow-xs flex items-center justify-center gap-1.5 active:scale-95"
                   >
                     <ShoppingBag className="w-4 h-4" />
-                    <span>Add to Basket</span>
+                    <span>Add to Request</span>
                   </button>
                 </div>
               </div>

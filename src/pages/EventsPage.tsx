@@ -198,11 +198,7 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
                     className="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl text-xs transition-colors shadow-xs flex items-center justify-center gap-2"
                   >
                     <Ticket className="w-4 h-4" />
-                    <span>
-                      {nextEvent.priceGHS === 0
-                        ? 'Reserve Free Spot'
-                        : `Reserve Spot · GH¢ ${nextEvent.priceGHS}`}
-                    </span>
+                    <span>Reserve Your Spot</span>
                   </button>
                 )}
                 <a
@@ -368,7 +364,7 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
                   <div className="p-5 pt-0 space-y-3">
                     <div className="flex items-center justify-between pt-3 border-t border-slate-100">
                       <span className="text-sm font-black text-brand-800">
-                        {evt.priceGHS === 0 ? 'Free Entry' : `GH¢ ${evt.priceGHS.toFixed(2)}`}
+                        {evt.externalUrl ? 'Official site' : 'RSVP to attend'}
                       </span>
                       {!past && (
                         <span className="text-[11px] text-slate-500 font-medium flex items-center gap-1">
@@ -450,12 +446,9 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
                   <p className="text-brand-800">
                     • We'll send a confirmation SMS to <strong>{rsvpForm.phone}</strong> with directions.
                   </p>
-                  {selectedEvent.priceGHS > 0 && (
-                    <p className="text-brand-800">
-                      • Pay GH¢ {selectedEvent.priceGHS} via MTN MoMo to <strong>{FARM_INFO.phones[0]} (Ekow Sam Farms)</strong>, reference{' '}
-                      <strong>EVENT-{rsvpForm.name.split(' ')[0].toUpperCase()}</strong>.
-                    </p>
-                  )}
+                  <p className="text-brand-800">
+                    • If there's anything to settle before the day, we'll cover it on that call.
+                  </p>
                   <p className="text-brand-800">• Arrive 15 minutes early — the gate opens at {selectedEvent.time.split(' - ')[0]}.</p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-2 justify-center">
@@ -508,14 +501,16 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
                       <MapPin className="w-4 h-4 text-brand-600 shrink-0" />
                       <span>{selectedEvent.venue}, {selectedEvent.city}</span>
                     </div>
-                    <div className="sm:col-span-2 flex items-center gap-1.5 text-slate-700">
-                      <Ticket className="w-4 h-4 text-brand-600 shrink-0" />
-                      <span className="font-bold text-brand-800">
-                        {selectedEvent.priceGHS === 0
-                          ? 'Free Entry'
-                          : `GH¢ ${selectedEvent.priceGHS.toFixed(2)} per person`}
-                      </span>
-                    </div>
+                    {isUpcoming(selectedEvent) && (
+                      <div className="sm:col-span-2 flex items-center gap-1.5 text-slate-700">
+                        <Users className="w-4 h-4 text-brand-600 shrink-0" />
+                        <span className="font-bold text-brand-800">
+                          {selectedEvent.spotsRemaining > 0
+                            ? `${selectedEvent.spotsRemaining} spots remaining`
+                            : 'Fully booked — waitlist open'}
+                        </span>
+                      </div>
+                    )}
                   </div>
 
                   <p className="text-xs text-slate-600 leading-relaxed">{selectedEvent.summary}</p>
