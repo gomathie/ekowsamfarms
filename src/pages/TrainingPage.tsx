@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { PageId, Workshop } from '../types';
 import { WORKSHOPS } from '../data/farmData';
 import { PageHeader } from '../components/PageHeader';
-import { 
-  GraduationCap, Calendar, MapPin, Users, CheckCircle, Clock, 
-  Award, ShieldCheck, ArrowRight, X, Smartphone, Check
+import { openWhatsApp, buildWhatsAppUrl, trainingMessage } from '../lib/whatsapp';
+import {
+  GraduationCap, Calendar, MapPin, CheckCircle, Clock,
+  X, Check, MessageCircle
 } from 'lucide-react';
 
 interface TrainingPageProps {
@@ -22,8 +23,21 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ setCurrentPage }) =>
     paymentMethod: 'momo'
   });
 
+  const registrationMessage = () =>
+    selectedWorkshop
+      ? trainingMessage({
+          workshopTitle: selectedWorkshop.title,
+          date: selectedWorkshop.date,
+          name: registrationForm.name,
+          phone: registrationForm.phone,
+          email: registrationForm.email,
+          attendeeType: registrationForm.attendeeType
+        })
+      : '';
+
   const handleRegisterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    openWhatsApp(registrationMessage());
     setRegisterSuccess(true);
   };
 
@@ -215,7 +229,7 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ setCurrentPage }) =>
                     type="submit"
                     className="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl text-xs transition-colors shadow-sm"
                   >
-                    Reserve My Seat
+                    Reserve My Seat on WhatsApp
                   </button>
                 </form>
               </div>
@@ -224,19 +238,24 @@ export const TrainingPage: React.FC<TrainingPageProps> = ({ setCurrentPage }) =>
                 <div className="w-16 h-16 rounded-full bg-brand-100 text-brand-700 mx-auto flex items-center justify-center">
                   <Check className="w-10 h-10" />
                 </div>
-                <h3 className="text-2xl font-black text-slate-900 font-serif">Seat Reserved!</h3>
+                <h3 className="text-2xl font-black text-slate-900 font-serif">One last step</h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  Thank you <strong>{registrationForm.name}</strong>! Your seat for <strong>{selectedWorkshop.title}</strong> on <strong>{selectedWorkshop.date}</strong> has been provisionally registered.
+                  WhatsApp should have opened with your registration for <strong>{selectedWorkshop.title}</strong> on <strong>{selectedWorkshop.date}</strong>. Press send there to hold your seat.
                 </p>
-                <div className="p-3 bg-accent-50 border border-accent-200 rounded-xl text-left text-xs space-y-1">
-                  <p className="font-bold text-accent-800">What happens next:</p>
+                <div className="p-3 bg-accent-50 border border-accent-200 rounded-xl text-left text-xs space-y-2">
                   <p className="text-slate-700">
-                    We'll call you on <strong>{registrationForm.phone}</strong> to confirm the course fee
-                    and payment details, and to answer any questions before the session.
+                    We'll confirm the course fee and answer any questions on{' '}
+                    <strong>{registrationForm.phone}</strong> before the session.
                   </p>
-                  <p className="text-slate-700">
-                    Your reference: <strong>WORKSHOP-{registrationForm.name.split(' ')[0].toUpperCase()}</strong>
-                  </p>
+                  <a
+                    href={buildWhatsAppUrl(registrationMessage())}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-full bg-accent-700 hover:bg-accent-800 text-white font-bold py-2.5 rounded-xl text-xs transition-colors flex items-center justify-center gap-2"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    <span>Didn't open? Tap here</span>
+                  </a>
                 </div>
                 <button
                   onClick={() => setSelectedWorkshop(null)}

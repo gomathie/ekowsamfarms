@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { PageId } from '../types';
 import { FARM_INFO } from '../data/farmData';
+import { WHATSAPP_LINK } from '../lib/whatsapp';
 import { 
   Phone, Mail, MapPin, Facebook, Linkedin, 
   ThumbsUp, ArrowRight
@@ -11,18 +12,6 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
-  const [email, setEmail] = useState('');
-  const [subscribed, setSubscribed] = useState(false);
-
-  const handleSubscribe = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email.trim()) {
-      setSubscribed(true);
-      setEmail('');
-      setTimeout(() => setSubscribed(false), 5000);
-    }
-  };
-
   const navigateTo = (page: PageId) => {
     setCurrentPage(page);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -79,7 +68,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
               <a href={FARM_INFO.socials.linkedin} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-brand-900 hover:bg-accent-400 hover:text-brand-950 text-brand-200 flex items-center justify-center transition-colors">
                 <Linkedin className="w-4 h-4" />
               </a>
-              <a href={`https://wa.me/${FARM_INFO.socials.whatsapp}`} target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-full bg-brand-900 hover:bg-accent-400 hover:text-brand-950 text-brand-200 flex items-center justify-center transition-colors font-bold text-xs">
+              <a href={WHATSAPP_LINK} target="_blank" rel="noopener noreferrer" aria-label="Chat with us on WhatsApp" className="w-8 h-8 rounded-full bg-brand-900 hover:bg-accent-400 hover:text-brand-950 text-brand-200 flex items-center justify-center transition-colors font-bold text-xs">
                 WA
               </a>
             </div>

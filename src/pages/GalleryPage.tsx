@@ -2,9 +2,8 @@ import React, { useState } from 'react';
 import { PageId, GalleryItem } from '../types';
 import { GALLERY_ITEMS, GALLERY_CATEGORY_LABELS } from '../data/farmData';
 import { PageHeader } from '../components/PageHeader';
-import { 
-  Camera, Filter, X, Calendar, MapPin, Users, Check, Clock, Eye 
-} from 'lucide-react';
+import { openWhatsApp, buildWhatsAppUrl, farmTourMessage } from '../lib/whatsapp';
+import { X, Calendar, Check, MessageCircle } from 'lucide-react';
 
 interface GalleryPageProps {
   setCurrentPage: (page: PageId) => void;
@@ -36,8 +35,11 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
     activeCategory === 'all' || item.category === activeCategory
   );
 
+  const tourMessage = () => farmTourMessage(tourForm);
+
   const handleTourSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    openWhatsApp(tourMessage());
     setTourSuccess(true);
   };
 
@@ -228,26 +230,41 @@ export const GalleryPage: React.FC<GalleryPageProps> = ({ setCurrentPage }) => {
 
                   <button
                     type="submit"
-                    className="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl text-xs transition-colors shadow-sm"
+                    className="w-full bg-accent-700 hover:bg-accent-800 text-white font-bold py-3 rounded-xl text-xs transition-colors shadow-sm flex items-center justify-center gap-2"
                   >
-                    Confirm Farm Tour Request
+                    <MessageCircle className="w-4 h-4" />
+                    <span>Request Visit on WhatsApp</span>
                   </button>
+                  <p className="text-[11px] text-slate-500 text-center leading-relaxed">
+                    Opens WhatsApp with your details ready — just press send there.
+                  </p>
                 </form>
               </div>
             ) : (
               <div className="p-8 text-center space-y-4">
-                <div className="w-16 h-16 rounded-full bg-brand-100 text-brand-700 mx-auto flex items-center justify-center">
+                <div className="w-16 h-16 rounded-full bg-accent-100 text-accent-700 mx-auto flex items-center justify-center">
                   <Check className="w-10 h-10" />
                 </div>
-                <h3 className="text-2xl font-black text-slate-900 font-serif">Farm Visit Requested!</h3>
+                <h3 className="text-2xl font-black text-slate-900 font-serif">One last step</h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  Thank you <strong>{tourForm.name}</strong>! Our farm coordinator will contact you at <strong>{tourForm.phone}</strong> to confirm your guided tour booking on <strong>{tourForm.date || 'your requested date'}</strong>.
+                  WhatsApp should have opened with your visit request for{' '}
+                  <strong>{tourForm.date || 'your chosen date'}</strong>. Press send there and our farm
+                  coordinator will confirm on <strong>{tourForm.phone}</strong>.
                 </p>
+                <a
+                  href={buildWhatsAppUrl(tourMessage())}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-accent-700 hover:bg-accent-800 text-white font-bold px-6 py-3 rounded-xl text-xs transition-colors"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Didn't open? Tap here</span>
+                </a>
                 <button
                   onClick={() => setTourModalOpen(false)}
-                  className="bg-brand-600 text-white font-bold px-6 py-2.5 rounded-xl text-xs"
+                  className="block mx-auto text-slate-600 hover:text-slate-900 font-semibold text-xs pt-1"
                 >
-                  Close & Done
+                  Close
                 </button>
               </div>
             )}

@@ -2,9 +2,10 @@ import React, { useMemo, useState } from 'react';
 import { PageId, FarmEvent, EventCategory } from '../types';
 import { EVENTS, FARM_INFO } from '../data/farmData';
 import { PageHeader } from '../components/PageHeader';
+import { openWhatsApp, buildWhatsAppUrl, eventRsvpMessage } from '../lib/whatsapp';
 import {
   CalendarDays, MapPin, Clock, Users, Ticket, ArrowRight, X, Check,
-  CalendarPlus, Sparkles, CheckCircle, ExternalLink
+  CalendarPlus, Sparkles, CheckCircle, ExternalLink, MessageCircle
 } from 'lucide-react';
 
 interface EventsPageProps {
@@ -113,8 +114,22 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
     setRsvpSuccess(false);
   };
 
+  const rsvpMessage = () =>
+    selectedEvent
+      ? eventRsvpMessage({
+          eventTitle: selectedEvent.title,
+          when: `${formatRange(selectedEvent)}, ${selectedEvent.time}`,
+          venue: `${selectedEvent.venue}, ${selectedEvent.city}`,
+          name: rsvpForm.name,
+          phone: rsvpForm.phone,
+          email: rsvpForm.email,
+          guests: rsvpForm.guests
+        })
+      : '';
+
   const handleRsvpSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    openWhatsApp(rsvpMessage());
     setRsvpSuccess(true);
   };
 
@@ -435,19 +450,25 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
                 <div className="w-16 h-16 rounded-full bg-accent-100 text-accent-700 mx-auto flex items-center justify-center">
                   <Check className="w-10 h-10" />
                 </div>
-                <h3 className="text-2xl font-black text-slate-900 font-serif">You're on the list!</h3>
+                <h3 className="text-2xl font-black text-slate-900 font-serif">One last step</h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  Thank you <strong>{rsvpForm.name}</strong>. We've reserved{' '}
-                  <strong>{rsvpForm.guests}</strong> spot{rsvpForm.guests === '1' ? '' : 's'} for{' '}
-                  <strong>{selectedEvent.title}</strong> on <strong>{formatRange(selectedEvent)}</strong>.
+                  WhatsApp should have opened with your RSVP for{' '}
+                  <strong>{rsvpForm.guests}</strong> spot{rsvpForm.guests === '1' ? '' : 's'} at{' '}
+                  <strong>{selectedEvent.title}</strong>. Press send there to confirm.
                 </p>
+                <a
+                  href={buildWhatsAppUrl(rsvpMessage())}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-accent-700 hover:bg-accent-800 text-white font-bold py-3 rounded-xl text-xs transition-colors flex items-center justify-center gap-2"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Didn't open? Tap here</span>
+                </a>
                 <div className="p-3 bg-brand-50 border border-brand-200 rounded-xl text-left text-xs space-y-1">
-                  <p className="font-bold text-brand-900">What happens next:</p>
+                  <p className="font-bold text-brand-900">On the day:</p>
                   <p className="text-brand-800">
-                    • We'll send a confirmation SMS to <strong>{rsvpForm.phone}</strong> with directions.
-                  </p>
-                  <p className="text-brand-800">
-                    • If there's anything to settle before the day, we'll cover it on that call.
+                    • We'll confirm on <strong>{rsvpForm.phone}</strong> and send directions.
                   </p>
                   <p className="text-brand-800">• Arrive 15 minutes early — the gate opens at {selectedEvent.time.split(' - ')[0]}.</p>
                 </div>
@@ -465,7 +486,7 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
                     onClick={() => setSelectedEvent(null)}
                     className="bg-brand-600 hover:bg-brand-700 text-white font-bold px-6 py-2.5 rounded-xl text-xs transition-colors"
                   >
-                    Close & Done
+                    Close &amp; Done
                   </button>
                 </div>
               </div>
@@ -613,13 +634,16 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
 
                       <button
                         type="submit"
-                        className="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl text-xs transition-colors shadow-sm flex items-center justify-center gap-2"
+                        className="w-full bg-accent-700 hover:bg-accent-800 text-white font-bold py-3 rounded-xl text-xs transition-colors shadow-sm flex items-center justify-center gap-2"
                       >
-                        <Ticket className="w-4 h-4" />
+                        <MessageCircle className="w-4 h-4" />
                         <span>
-                          {selectedEvent.spotsRemaining > 0 ? 'Confirm RSVP' : 'Add Me to the Waitlist'}
+                          {selectedEvent.spotsRemaining > 0 ? 'RSVP on WhatsApp' : 'Join Waitlist on WhatsApp'}
                         </span>
                       </button>
+                      <p className="text-[11px] text-slate-500 text-center leading-relaxed">
+                        Opens WhatsApp with your details ready — just press send.
+                      </p>
                     </form>
                   ) : (
                     <div className="pt-3 border-t border-slate-100 space-y-3">

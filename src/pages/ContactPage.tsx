@@ -2,9 +2,10 @@ import React, { useState } from 'react';
 import { PageId } from '../types';
 import { FARM_INFO, FAQS } from '../data/farmData';
 import { PageHeader } from '../components/PageHeader';
-import { 
-  Phone, Mail, MapPin, Clock, Send, CheckCircle, ChevronDown, 
-  HelpCircle, Sparkles, Navigation, Globe
+import { openWhatsApp, buildWhatsAppUrl, contactMessage } from '../lib/whatsapp';
+import {
+  Phone, Mail, MapPin, Clock, CheckCircle, ChevronDown,
+  HelpCircle, Navigation, Globe, MessageCircle
 } from 'lucide-react';
 
 interface ContactPageProps {
@@ -22,8 +23,12 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
     message: ''
   });
 
+  const enquiryMessage = () => contactMessage(contactForm);
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    // Opened from the submit handler so it counts as a user gesture.
+    openWhatsApp(enquiryMessage());
     setFormSent(true);
   };
 
@@ -192,26 +197,40 @@ export const ContactPage: React.FC<ContactPageProps> = ({ setCurrentPage }) => {
 
                 <button
                   type="submit"
-                  className="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3.5 rounded-xl text-sm transition-colors shadow-sm flex items-center justify-center gap-2"
+                  className="w-full bg-accent-700 hover:bg-accent-800 text-white font-bold py-3.5 rounded-xl text-sm transition-colors shadow-sm flex items-center justify-center gap-2"
                 >
-                  <Send className="w-4 h-4" />
-                  <span>Send Message to Farm Office</span>
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Send on WhatsApp</span>
                 </button>
+                <p className="text-[11px] text-slate-500 text-center leading-relaxed">
+                  Opens WhatsApp with your message ready — just press send there.
+                </p>
               </form>
             ) : (
-              <div className="p-8 text-center space-y-4 bg-brand-50 rounded-2xl border border-brand-200">
-                <div className="w-16 h-16 rounded-full bg-brand-100 text-brand-700 mx-auto flex items-center justify-center">
+              <div className="p-8 text-center space-y-4 bg-accent-50 rounded-2xl border border-accent-200">
+                <div className="w-16 h-16 rounded-full bg-accent-100 text-accent-700 mx-auto flex items-center justify-center">
                   <CheckCircle className="w-10 h-10" />
                 </div>
-                <h3 className="text-2xl font-black text-slate-900 font-serif">Message Sent Successfully!</h3>
+                <h3 className="text-2xl font-black text-slate-900 font-serif">One last step</h3>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  Thank you <strong>{contactForm.name}</strong>! We have received your inquiry regarding <strong>{contactForm.topic}</strong>. Our farm representative will call you back at <strong>{contactForm.phone}</strong> shortly.
+                  Thanks <strong>{contactForm.name}</strong> — WhatsApp should have opened with your
+                  message about <strong>{contactForm.topic}</strong> ready to go. Press send there and
+                  we'll reply, or call you back on <strong>{contactForm.phone}</strong>.
                 </p>
+                <a
+                  href={buildWhatsAppUrl(enquiryMessage())}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center justify-center gap-2 bg-accent-700 hover:bg-accent-800 text-white font-bold px-6 py-3 rounded-xl text-xs transition-colors"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Didn't open? Tap here</span>
+                </a>
                 <button
                   onClick={() => setFormSent(false)}
-                  className="bg-brand-600 text-white font-bold px-6 py-2.5 rounded-xl text-xs"
+                  className="block mx-auto text-slate-600 hover:text-slate-900 font-semibold text-xs pt-1"
                 >
-                  Send Another Message
+                  Write another message
                 </button>
               </div>
             )}

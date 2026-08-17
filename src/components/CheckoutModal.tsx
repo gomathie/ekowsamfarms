@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { CartItem, QuoteRequest } from '../types';
 import { FARM_INFO } from '../data/farmData';
+import { openWhatsApp, buildWhatsAppUrl, quoteRequestMessage } from '../lib/whatsapp';
 import {
-  X, CheckCircle2, MapPin, Truck, Printer, Phone, Mail, Clock
+  X, CheckCircle2, MapPin, Truck, Printer, Phone, Clock, MessageCircle
 } from 'lucide-react';
 
 interface CheckoutModalProps {
@@ -41,6 +42,20 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
 
   const totalUnits = cartItems.reduce((sum, item) => sum + item.quantity, 0);
 
+  const buildMessage = (request: QuoteRequest) =>
+    quoteRequestMessage({
+      reference: request.requestId,
+      name: request.customerName,
+      phone: request.phone,
+      email: request.email,
+      deliveryMethod: request.deliveryMethod,
+      address: request.address,
+      city: request.city,
+      region: request.region,
+      notes: request.notes,
+      items: request.items
+    });
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -58,6 +73,10 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
       createdAt: new Date().toLocaleString(),
       status: 'awaiting-quote'
     };
+
+    // Fire from inside the submit handler so the browser treats it as a user
+    // gesture; the confirmation screen repeats the link if it gets blocked.
+    openWhatsApp(buildMessage(request));
 
     setSubmitted(request);
     setStep('confirmation');
@@ -252,9 +271,9 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               <div className="p-3 bg-accent-50 border border-accent-200 rounded-xl flex items-start gap-2.5">
                 <Clock className="w-4 h-4 text-accent-700 shrink-0 mt-0.5" />
                 <p className="text-xs text-slate-700 leading-relaxed">
-                  <strong className="text-accent-800">No payment is taken here.</strong> We'll review your
-                  request and get back to you with current prices and any delivery charge — usually the same day
-                  during opening hours ({FARM_INFO.openingHoursShort}).
+                  <strong className="text-accent-800">No payment is taken here.</strong> Tapping send opens
+                  WhatsApp with your request already written out — just press send there. We reply with current
+                  prices and any delivery charge, usually the same day during opening hours ({FARM_INFO.openingHoursShort}).
                 </p>
               </div>
 
@@ -268,9 +287,10 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 bg-accent-700 hover:bg-accent-800 text-white font-bold py-3.5 rounded-xl shadow-md transition-all text-base text-center"
+                  className="flex-1 bg-accent-700 hover:bg-accent-800 text-white font-bold py-3.5 rounded-xl shadow-md transition-all text-base flex items-center justify-center gap-2"
                 >
-                  Send Request
+                  <MessageCircle className="w-5 h-5" />
+                  <span>Send on WhatsApp</span>
                 </button>
               </div>
             </form>
@@ -282,21 +302,35 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               <div className="w-16 h-16 rounded-full bg-accent-100 text-accent-700 mx-auto flex items-center justify-center">
                 <CheckCircle2 className="w-10 h-10" />
               </div>
-              <h3 className="text-2xl font-black text-brand-950 font-serif">Request Sent!</h3>
+              <h3 className="text-2xl font-black text-brand-950 font-serif">Almost there!</h3>
               <p className="text-sm text-slate-600">
-                Thank you <strong className="text-slate-900">{submitted?.customerName}</strong> — your reference is{' '}
+                Reference{' '}
                 <span className="font-mono bg-brand-100 text-brand-800 px-2 py-0.5 rounded font-bold">
                   {submitted?.requestId}
                 </span>
               </p>
             </div>
 
-            <div className="p-4 bg-accent-50 border border-accent-200 rounded-xl space-y-1.5">
-              <p className="font-bold text-accent-800 text-sm">What happens next</p>
-              <p className="text-xs text-slate-700 leading-relaxed">
-                We'll price your request against today's rates and call you on{' '}
-                <strong>{submitted?.phone}</strong> to confirm. Nothing is charged until you agree the quote.
+            <div className="p-4 bg-accent-50 border border-accent-200 rounded-xl space-y-2.5">
+              <p className="font-bold text-accent-800 text-sm">
+                Finish by pressing send in WhatsApp
               </p>
+              <p className="text-xs text-slate-700 leading-relaxed">
+                WhatsApp should have opened with your request already written out. If it didn't open —
+                or you closed it — use the button below. We'll reply with current prices and call you
+                on <strong>{submitted?.phone}</strong> to confirm.
+              </p>
+              {submitted && (
+                <a
+                  href={buildWhatsAppUrl(buildMessage(submitted))}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full bg-accent-700 hover:bg-accent-800 text-white font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-2 text-sm"
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  <span>Open WhatsApp &amp; Send</span>
+                </a>
+              )}
             </div>
 
             {/* Printable summary */}
@@ -338,27 +372,14 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
               </div>
             </div>
 
-            {/* Nudge them to reach out directly if they're in a hurry */}
             <div className="flex flex-col sm:flex-row gap-2">
               <a
                 href={`tel:${FARM_INFO.phones[0].replace(/\s/g, '')}`}
-                className="flex-1 bg-accent-700 hover:bg-accent-800 text-white font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-2 text-sm"
-              >
-                <Phone className="w-4 h-4" />
-                <span>Call Now</span>
-              </a>
-              <a
-                href={`https://wa.me/233${FARM_INFO.socials.whatsapp.replace(/^0/, '')}`}
-                target="_blank"
-                rel="noopener noreferrer"
                 className="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-2 text-sm"
               >
-                <Mail className="w-4 h-4" />
-                <span>WhatsApp Us</span>
+                <Phone className="w-4 h-4" />
+                <span>Call Instead</span>
               </a>
-            </div>
-
-            <div className="flex items-center gap-3">
               <button
                 onClick={() => window.print()}
                 className="flex-1 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold py-3 rounded-xl transition-colors flex items-center justify-center gap-2 text-sm"
@@ -366,13 +387,14 @@ export const CheckoutModal: React.FC<CheckoutModalProps> = ({
                 <Printer className="w-4 h-4" />
                 <span>Print Summary</span>
               </button>
-              <button
-                onClick={onClose}
-                className="flex-1 bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl transition-colors text-sm"
-              >
-                Done
-              </button>
             </div>
+
+            <button
+              onClick={onClose}
+              className="w-full bg-brand-600 hover:bg-brand-700 text-white font-bold py-3 rounded-xl transition-colors text-sm"
+            >
+              Done
+            </button>
           </div>
         )}
       </div>
