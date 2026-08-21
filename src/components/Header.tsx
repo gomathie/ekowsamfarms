@@ -101,10 +101,12 @@ export const Header: React.FC<HeaderProps> = ({
           aria-label="Ekow Sam Farms — Home"
         >
           <img
-            src="/images/logo-esf.webp"
+            src="/images/logo-esf-mark.webp"
             alt=""
             aria-hidden="true"
-            className="w-11 h-11 object-contain group-hover:scale-105 transition-transform"
+            width={256}
+            height={256}
+            className="w-10 h-10 sm:w-11 sm:h-11 object-contain group-hover:scale-105 transition-transform"
           />
           <div className="hidden sm:block">
             <div className="flex items-baseline gap-1.5">

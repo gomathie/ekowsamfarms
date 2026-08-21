@@ -48,14 +48,11 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
             <div className="flex items-center gap-3">
               <img
                 src="/images/logo-esf.webp"
-                alt=""
-                aria-hidden="true"
-                className="w-14 h-14 object-contain bg-white p-1.5 rounded-full"
+                alt="Ekow Sam Farms"
+                width={620}
+                height={382}
+                className="h-20 w-auto object-contain bg-white px-3 py-2.5 rounded-xl"
               />
-              <div>
-                <span className="text-xl font-black text-white font-serif block leading-tight">EKOW SAM</span>
-                <span className="text-sm font-bold text-accent-400 tracking-wider">FARMS</span>
-              </div>
             </div>
             <p className="text-brand-200 text-xs leading-relaxed">
               High quality farm fresh yellow yoked eggs & premium poultry products for households and businesses in Ghana.
