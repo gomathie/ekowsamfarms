@@ -47,7 +47,7 @@ export const Footer: React.FC<FooterProps> = ({ setCurrentPage }) => {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <img
-                src="/images/logo-esf.webp"
+                src="/images/logo-esf-full.webp"
                 alt="Ekow Sam Farms"
                 width={620}
                 height={382}
