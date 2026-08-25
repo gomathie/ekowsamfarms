@@ -256,9 +256,6 @@ export const EVENTS: FarmEvent[] = [
       "Live Afrobeats performances through the evening",
       "Board game tournament with prizes",
       "African short film cinema outdoors after dark"
-    ],
-    vendors: [
-      "Nellma Foods (Kelewele Spice Mix)"
     ]
   },
   {

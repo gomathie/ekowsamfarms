@@ -5,7 +5,7 @@ import { PageHeader } from '../components/PageHeader';
 import { openWhatsApp, buildWhatsAppUrl, eventRsvpMessage } from '../lib/whatsapp';
 import {
   CalendarDays, MapPin, Clock, Users, Ticket, ArrowRight, X, Check,
-  CalendarPlus, Sparkles, CheckCircle, ExternalLink, MessageCircle, Store
+  CalendarPlus, Sparkles, CheckCircle, ExternalLink, MessageCircle
 } from 'lucide-react';
 
 interface EventsPageProps {
@@ -549,22 +549,6 @@ export const EventsPage: React.FC<EventsPageProps> = ({ setCurrentPage }) => {
                       ))}
                     </ul>
                   </div>
-
-                  {selectedEvent.vendors && selectedEvent.vendors.length > 0 && (
-                    <div className="space-y-1.5">
-                      <h4 className="font-bold text-xs uppercase text-slate-800 tracking-wider">
-                        Food Vendors:
-                      </h4>
-                      <ul className="text-xs text-slate-600 space-y-1">
-                        {selectedEvent.vendors.map((vendor, i) => (
-                          <li key={i} className="flex items-start gap-1.5">
-                            <Store className="w-3.5 h-3.5 text-brand-600 shrink-0 mt-0.5" />
-                            <span>{vendor}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  )}
 
                   {isUpcoming(selectedEvent) && selectedEvent.externalUrl ? (
                     <div className="pt-3 border-t border-slate-100 space-y-3">
