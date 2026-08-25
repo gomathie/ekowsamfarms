@@ -83,6 +83,7 @@ export interface FarmEvent {
   /** Official event site. When set, RSVP links out instead of using the on-site form. */
   externalUrl?: string;
   highlights: string[];
+  vendors?: string[];
 }
 
 export interface Division {
